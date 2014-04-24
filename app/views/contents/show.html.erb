@@ -1,0 +1,33 @@
+<%- model_class = Content -%>
+<div class="page-header">
+  <h1>Showing <%= "#{@content.title}" %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @content.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:permalink) %>:</strong></dt>
+  <dd><%= @content.permalink %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
+  <dd><%= @content.position %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:published) %>:</strong></dt>
+  <dd><%= @content.published %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:modified_by) %>:</strong></dt>
+  <dd><%= @content.modified_by %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
+  <dd><%= @content.created_by %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:body) %>:</strong></dt>
+  <dd><%= @content.body %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              contents_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_content_path(@content), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              content_path(@content),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

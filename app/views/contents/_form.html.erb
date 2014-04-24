@@ -1,0 +1,38 @@
+<%= form_for @content, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :permalink, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :permalink, :class => 'form-control', :placeholder => "default is the title" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :position, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select(:position, 1..4, {}, { :class => 'form-control' }) %>
+    </div>
+  </div>
+  <div class="control-group checkbox">
+    <label class="control-label">
+      <%= f.check_box :published %>
+      Published? 
+    </label>
+  </div>
+  <div class="control-group">
+    <%= tinymce %>
+    <div class="controls">
+      <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 120 %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                contents_path, :class => 'btn' %>
+  </div>
+<% end %>

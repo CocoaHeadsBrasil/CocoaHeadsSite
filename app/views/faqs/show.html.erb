@@ -1,0 +1,27 @@
+<%- model_class = Faq -%>
+<div class="page-header">
+  <h1>Showing <%= "#{@faq.question}" %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
+  <dd><%= @faq.position %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:published) %>:</strong></dt>
+  <dd><%= status_tag(@faq.published, {:true_text => "YES", :false_text => "NO"}) %>
+  <dt><strong><%= model_class.human_attribute_name(:question) %>:</strong></dt>
+  <dd><%= @faq.question %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:answer) %>:</strong></dt>
+  <dd><%= @faq.answer.html_safe %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              faqs_path(:faq_group_id => @group.id), :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_faq_path(@faq, :faq_group_id => @group.id), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              faq_path(@faq, :faq_group_id => @group.id),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

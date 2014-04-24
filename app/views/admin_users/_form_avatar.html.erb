@@ -1,0 +1,20 @@
+<%= error_messages_for(@admin_user) %>
+
+<%= direct_upload_form_for @uploader, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="avatar row">
+    <div class="col-xs-2 text-center">
+      <% avatar_url = @admin_user.avatar? ? @admin_user.avatar_url : "anonymous.png" %>
+      <%= image_tag(avatar_url, :size => '100x100', :class => 'img-circle') %>
+    </div>
+    <div class="col-xs-10">
+    <%= f.label :avatar, :class => 'control-label' %>
+      <%= f.file_field :avatar, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_users_path, :class => 'btn' %>
+  </div>
+<% end %>

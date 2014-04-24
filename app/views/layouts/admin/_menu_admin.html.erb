@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+
+      <%= link_to("BeaconToolbox", {:controller => 'access', :action => 'index'}, :class => 'navbar-brand') %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <%= item_nav_link "Dashboard", {:controller => 'access', :action => 'index'} %>
+        <%= item_nav_link "FAQ", {:controller => 'faq_groups', :action => 'index'}, 'faqs' %>
+        <%= dropdown_nav_link('contents', {:class => 'dropdown'}) %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Content <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <%= nav_link "Create new", {:controller => 'contents', :action => 'new'} %>
+            <%= nav_link "List all", {:controller => 'contents', :action => 'index'} %>
+          </ul>
+        </li>
+        <%= dropdown_nav_link('admin_users', {:class => 'dropdown'}) %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Users <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <%= nav_link "Create new", {:controller => 'admin_users', :action => 'new'} %>
+            <%= nav_link "List all", {:controller => 'admin_users', :action => 'index'} %>
+          </ul>
+        </li>
+        <%= dropdown_nav_link('subscriptions', {:class => 'dropdown'}) %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subscriptions <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <%= nav_link "Create new", {:controller => 'subscriptions', :action => 'new'} %>
+            <%= nav_link "List all", {:controller => 'subscriptions', :action => 'index'} %>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<li><p class="navbar-text">Signed in as <%= session[:username] %></p></li>
+        <% 
+          admin_user = AdminUser.find(session[:user_id])
+
+          if admin_user.avatar?
+            avatar_url = admin_user.image_processed? ? admin_user.avatar_url(:thumb).to_s : "loading_avatar.gif"
+          else
+            avatar_url = "anonymous.png"
+          end
+        %>
+        <li><%= link_to image_tag(avatar_url, :size => "40x40", :class => "img-circle"), {:controller => "admin_users", :action => 'edit', :id => session[:user_id]}, :class => 'user-thumb' %></li>
+        <li><%= link_to("Logout", {:controller => 'access', :action => 'logout'}) %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -1,0 +1,8 @@
+<%- model_class = Faq -%>
+<div class="page-header">
+  <h1>Edit <%= "#{@faq.question}" %></h1>
+</div>
+
+<%= form_for(@faq, url: faq_path(@faq, :faq_group_id => @group.id)) do |f| %>
+<%= render :partial => 'form', :locals => {:f => f, :group => @group} %>
+<% end %>

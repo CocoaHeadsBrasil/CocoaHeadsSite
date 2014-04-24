@@ -1,0 +1,83 @@
+/*
+ * This is a manifest file that'll be compiled into admin.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require ../bootstrap-generators
+ *= require_tree .
+ */
+
+$primary_color: #057CBA;
+
+.alert-error{
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	color: #a94442;
+}
+
+body.login{
+	background: $primary_color;
+
+	form{
+		margin: 30px 0;
+	}
+
+	.alert{
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 0;
+	}
+
+	p.quote{
+		font-size: 14px;
+		color:white;
+		padding:20px;
+		text-align: center;
+		margin:50px 0 30px 0;
+
+		span{
+			color: lighten($primary_color, 5%);
+			font-size: 30px;
+			font-family:Verdana, Geneva, sans-serif
+		}
+	}
+}
+
+body.admin{
+	padding-top: 15px;
+	
+	div.container{
+		margin-top:30px;
+	}
+	.alert{
+		border-radius: 0;
+		margin: 35px 0;
+	}
+
+	.form-actions{
+		margin: 30px 0;
+	}
+	.avatar{
+		margin-top:10px;
+	}
+	.user-thumb{
+		padding: 0;
+		img{
+			vertical-align: middle;
+			margin-top:5px;
+		}
+	}
+	table.table, table.table-striped{
+		td{
+			vertical-align:middle;
+		}
+	}
+}

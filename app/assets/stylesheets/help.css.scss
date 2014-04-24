@@ -1,0 +1,19 @@
+// Place all the styles related to the Help controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary_color: #057CBA;
+
+div.help{
+	margin-top:20px;
+
+	h2{
+        color: $primary_color;
+        font-family: Helvetica Bold,Arial,sans-serif;
+	}
+
+	a{
+		font-size: 22px;
+		font-weight: bold;
+	}
+}

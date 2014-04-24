@@ -1,0 +1,28 @@
+<% @page_title = "Download" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= image_tag "iphone40.png", :size => '44x90', :alt => 'iPhone', :class => 'pull-left', :hspace => 70, :vspace => 20 %><span class="highlight">BeaconToolbox for iOS: </span> Main app. It makes it easy to locate, track, calibrate, manage, debug, simulate and test iBeacons, in an efficient way and with an engaging UI. Currently iPhone only. Universal version just around the corner.
+<br /><small>Made for iOS 7.0+ and devices equipped with Bluetooth LE.</small>
+<a href="#" class="btn btn-primary btn-lg pull-right" role="button" style="color:white;">Go get it!</a>
+<%= link_to(image_tag("qrcodeIOS.png", :size => '45x45', :alt => "QR Code"), "", :data => { toggle: 'modal', target: "#qrcodeIOS"}, :class => 'pull-right hidden-xs', :style => "margin: 0 10px") %>
+
+	<div class="modal fade" id="qrcodeIOS" tabindex="-1" role="dialog" aria-labelledby="iOSQRCodeLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="iOSQRCodeLabel">QRCode for BeaconToolbox on the AppStore</h4>
+	      </div>
+	      <div class="modal-body">
+	        <%= image_tag "qrcodeIOS.png", :size => '500x500', :alt => "QR Code", :class => "center-block" %>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</p>
+
+<div class="clearfix">&nbsp;</div>

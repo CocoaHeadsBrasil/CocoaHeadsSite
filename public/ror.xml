@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for http://www.beacontoolbox.com/</title>
+  <link>http://www.beacontoolbox.com/</link>
+
+<item>
+     <link>http://www.beacontoolbox.com/</link>
+     <title>BeaconToolbox | iBeacon, iBeacons, Apple, Apple iBeacon, iBeacon Apple, ble mini, iBeacon app, simulate iBeacon, microlocation, iOS, iOS 7, Bluetooth, Bluetooth LE, Bluetooth Smart, Bluetooth 4.0, BTLE, CoreLocation, XCode, Development, Retail, Store, User experience, apps, smartphone, AppStore, MacAppStore, OSX, Mavericksâ, 10.9, Beacon</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/about</link>
+     <title>BeaconToolbox | About</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/download</link>
+     <title>BeaconToolbox | Download</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/author</link>
+     <title>BeaconToolbox | Author</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/help</link>
+     <title>BeaconToolbox | Help</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/sitemap</link>
+     <title>BeaconToolbox | Site Map</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/acknowledgments</link>
+     <title>BeaconToolbox | Acknowledgments</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/privacy</link>
+     <title>BeaconToolbox | Privacy Policy</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/questions</link>
+     <title>BeaconToolbox | FAQs</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>2</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>http://www.beacontoolbox.com/home</link>
+     <title>BeaconToolbox | iBeacon, iBeacons, Apple, Apple iBeacon, iBeacon Apple, ble mini, iBeacon app, simulate iBeacon, microlocation, iOS, iOS 7, Bluetooth, Bluetooth LE, Bluetooth Smart, Bluetooth 4.0, BTLE, CoreLocation, XCode, Development, Retail, Store, User experience, apps, smartphone, AppStore, MacAppStore, OSX, Mavericksâ, 10.9, Beacon</title>
+     <description>Website of the BeaconToolbox iOS App</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>3</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  

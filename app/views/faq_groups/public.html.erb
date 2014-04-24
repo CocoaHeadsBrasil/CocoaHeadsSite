@@ -1,0 +1,44 @@
+<% @page_title = "FAQs" %>
+
+<h1><%= @page_title %></h1>
+<div class="faq">
+
+<% @faq_groups.each do |g| %>
+  <% next if g.faqs.empty? %>
+
+  <h2><%= g.title %></h2>
+  <div class="panel-group" id="accordion-<%= g.id %>">
+    <% g.faqs.sorted.each do |q| %>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <span class="glyphicon glyphicon-chevron-down"></span>
+          <a data-toggle="collapse" data-parent="#accordion-<%= g.id %>" href="#collapse-<%= q.id %>">
+            <%= q.question%>
+          </a>
+        </h4>
+      </div>
+
+      <div id="collapse-<%= q.id %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          <%= q.answer.html_safe %>
+          <div class="clearfix">&nbsp;</div>
+          <div class="usefull pull-right">
+            <% if !@user_opinions.include?(q.id) %>
+              <h5>Was this useful?
+                <button data-question="<%= q.id %>" data-state="true" type="button" class="btn btn-default btn-xs btn-success useful useful-yes">Yes</button>
+                <button data-question="<%= q.id %>" data-state="false" type="button" class="btn btn-default btn-xs btn-danger useful useful-no">No</button>
+              </h5>
+            <% else %>
+              <h5>Your opinion about this question was sent. Thank you.</h5>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+<% end %>
+</div>

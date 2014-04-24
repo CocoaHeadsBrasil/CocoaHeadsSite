@@ -1,0 +1,36 @@
+<% @page_title = "Admin Menu" %>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Hello!</h1>
+        <p>This is the backend of the BeaconToolbox website. Here you can do manage the base resources without writing any line of code, including: Manage content, FAQs, Subscriptions, and more. Try some of the features!</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Subscriptions</h2>
+          <p>Currently we have <strong><%= Subscription.all.count %></strong> users subscriptions to our newsletter. <strong><%= Subscription.last_week.count %></strong> on the last week.</p>
+          <p><%= link_to "View details &raquo;".html_safe, {:controller => 'subscriptions', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Content</h2>
+          <p>Manage all the static content of the project using a WYSIWYG editor.</p>
+          <p><%= link_to "View details &raquo;".html_safe, {:controller => 'contents', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Questions</h2>
+          <p>Manage the FAQ section by greating new FAQ groups and new questions/answers.</p>
+          <p><%= link_to "View details &raquo;".html_safe, {:controller => 'faq_groups', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Logics 2014</p>
+      </footer>
+    </div> <!-- /container -->

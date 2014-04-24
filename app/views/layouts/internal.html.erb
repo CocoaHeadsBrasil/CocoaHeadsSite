@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%= render :partial => "/layouts/header", :locals => {:page_title => @page_title} %>
+	</head>
+    <body class="interna">
+        <div class="navbar navbar-default navbar-fixed-top visible-xs" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><%= image_tag('beacon_toolbox_logo_home.png', :size => "119x40", :alt => "BeaconToolbox") %></a>
+            </div>
+
+            <div class="navbar-collapse collapse" style="height: auto;">
+                <ul class="nav navbar-nav">
+                    <% options = {:show_home => true} %>
+                    <%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
+                </ul>
+            </div>
+          </div>
+        </div>
+
+	   <div id="menu" class="hidden-xs">
+        	<div id="logo_interna"><%= link_to(image_tag("beacon_toolbox_logo_internal.png", {:size => "197x66", :alt => "BeaconToolbox", :title => "BeaconToolbox"}), {:controller => "home"}) %></div>
+        	<div id="menu_social">
+                <div class="social">
+                    <ul>
+                        <%= render :partial => "layouts/social" %>
+                    </ul>
+                </div>
+                <div id="menu_text">
+                    <ul class="nav nav-pills">
+                        <% options = {:show_home => false} %>
+                        <%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
+                    </ul>
+                </div>
+        	</div>
+    	</div>
+        <div id="content" class="container">
+            <%= yield %>
+        </div>
+
+    	<footer>
+            <div class="hidden-xs" id="text_available"><a href="https://itunes.apple.com/us/app/beacontoolbox/id802723889?ls=1&mt=8" target="_blank">Available on the App Store</a></div>
+            <div class="visible-xs" id="text_available-mobile"><a href="https://itunes.apple.com/us/app/beacontoolbox/id802723889?ls=1&mt=8" target="_blank">Available on the App Store</a></div>
+            <div id="submenu_logics" class="hidden-xs">
+                <div id="logics" class="hidden-xs">&copy; <%= Time.new.year %> Logics Ltd.</div>
+                <div id="submenu" class="hidden-xs">
+                    <ul>
+                        <li><a href="http://www.apple.com/stevejobs/" target="_blank">Remember Steve</a></li>
+                        <li><a href="/sitemap">Site Map</a></li>
+                        <li><a href="/acknowledgments">Acknowledgments</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+		<%= javascript_include_tag "application" %>
+        <%= render :partial => "layouts/analytics" %>
+	</body>
+</html>

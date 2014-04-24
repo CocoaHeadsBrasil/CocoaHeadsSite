@@ -1,0 +1,26 @@
+<% @page_title = "Admin Menu" %>
+
+<div class="container">
+	<div class="text-center">
+		<%= image_tag "logo_large.png", :size => "400x400" %>
+	</div>
+
+	<%= form_tag({:action => 'attempt_login'}, :class => 'form-inline text-center', :role => 'form') do %>
+		<div class="form-group">
+			<%= label_tag :username, nil, class: 'sr-only' %>
+			<%= text_field_tag :username, nil, class: 'form-control', placeholder: 'Enter username' %>
+		</div>
+		<div class="form-group">
+			<%= label_tag :password, nil, class: 'sr-only' %>
+			<%= password_field_tag :password, nil, class: 'form-control', placeholder: 'Enter password' %>
+		</div>
+		<button type="submit" class="btn btn-default">Sign in</button>
+	<% end %>
+
+	<p id="quote" class="quote">
+		<%= image_tag "loading.gif", :size => "40x40" %>
+	</p>
+</div>
+
+
+

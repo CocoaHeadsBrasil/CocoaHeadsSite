@@ -1,0 +1,408 @@
+/* LAYOUT BASE
+-------------------------------------------------------------- */
+
+$primary_color: #057CBA;
+$text_color: #8e8e8e;
+$font_size_default: 26px;
+$font_size_md: $font_size_default * 0.9;
+$font_size_sd: $font_size_default * 0.8;
+$font_size_xs: $font_size_default * 0.7;
+
+
+body.interna {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    background: -webkit-canvas(squares); width:100%; height:100%;
+    color: $text_color;
+    font: $font_size_default Helvetica,Arial,sans-serif;
+}
+
+/* MENU
+-------------------------------------------------------------- */
+.interna{
+
+    .navbar-default{
+        font-size: 80%;
+        background-color: $primary_color;
+        border-color: darken($primary_color, 30%);
+
+        .navbar-toggle{
+            border-color: white;
+            color: white;
+
+            .icon-bar{
+                background-color: white;
+            }
+        }
+
+        .navbar-nav > li > a {
+            color: white;
+        }
+
+        .navbar-toggle:hover, 
+        .navbar-toggle:focus{
+            background-color: darken($primary_color, 5%);
+        }
+
+        .navbar-nav > .active > a:hover,
+        .navbar-nav > .active > a:focus{
+            background-color: darken($primary_color, 5%);
+            color: white;
+        }
+
+        .navbar-toggle:hover a,
+        .navbar-toggle:focus a{
+            background-color: darken($primary_color, 5%);
+        }
+
+        .active a{
+            background-color: darken($primary_color, 5%);
+        }
+
+        a{
+            color: white;
+        }
+    }
+
+    div#menu{
+        background-color: $primary_color;
+        float: left;
+        position: relative;
+        width: 100%;
+        font-family: 'Nunito',sans-serif;
+        color: white;
+        height: 85px;
+        top: 0;
+
+        .nav-pills > li.active > a,
+        .nav-pills > li.active > a:hover,
+        .nav-pills > li.active > a:focus{
+            background-color: lighten($primary_color, 5%) !important;
+        }
+
+        div#logo_interna {
+            float: left;
+            left: 40px;
+            position: relative;
+            top: 9px;
+        }
+
+        div#menu_text{
+            width: 500px;
+            margin:0 20px 0 0;
+            float:right;
+        }
+
+        div#menu_text ul li{
+            display: inline-block;
+
+            a{
+                color: white;
+                padding:0 10px;
+            }
+            a:hover{
+                color:black;
+                text-decoration: none;
+            }
+        }
+
+        #menu_social {
+            float: right;
+            margin: 20px 40px 0 0;
+            width: 70%;
+
+            div.social{
+                margin: 0px;
+            }
+        }
+
+    }
+}
+
+
+/* CONTENT
+--------------------------------------------------------- */
+.interna{
+
+    div#content {
+        padding-top: 118px;
+        padding-bottom: 118px;
+
+        a{
+            color:$primary_color;
+            text-decoration: none;
+        }
+        a:hover{
+            color: darken($primary_color, 20%);
+        }
+
+        p {
+            font-size: $font_size_default;
+            line-height: 144%;
+            margin: 25px 0 0;
+        }
+
+        h1 {
+            width: 100%;
+            color: $primary_color;
+            font-family: Helvetica Bold,Arial,sans-serif;
+            font-size: 200%;
+            line-height: 120%;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        h2{
+            font-weight: bold;
+            color: $primary_color;
+            font-size: 100%;
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .highlight{
+            font-weight: bold;
+            color: $primary_color;
+        }
+
+        small, .small{
+            font-size: 50%;
+        }
+
+        blockquote{
+            background-color: rgba(241,241,241,0.5);
+            border-color: $primary_color;
+        }
+
+        ul{
+            margin-top: 20px;
+        }
+        li{
+            margin: 10px 0;
+        }
+    }
+}
+
+/* FOOTER
+--------------------------------------------------------- */
+.interna{
+    footer{
+        background-color: $primary_color;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        font-family: 'Nunito',sans-serif;
+        font-size:24px;
+        height: 49px;
+
+        a{
+            color:white;
+            text-decoration: none;
+        }
+        a:hover{
+            color: black;
+        }
+
+        ul {
+            margin-top: 16px;
+            padding: 0;
+        }
+
+        div#text_available {
+            background-image: image-url("iphone_available.png");
+            background-position: left 7px;
+            background-repeat: no-repeat;
+            background-size: 17px 35px;
+            color: white;
+            float: left;
+            font-family: 'Nunito',sans-serif;
+            font-size: 19px !important;
+            height: 44px;
+            left: 62px;
+            padding: 12px 0 12px 36px;
+            position: relative;
+            width: 290px;
+        }
+
+        div#text_available-mobile {
+            background-image: image-url("iphone_available.png");
+            background-position: left 7px;
+            background-repeat: no-repeat;
+            background-size: 17px 35px;
+            color: white;
+            float: left;
+            font-family: 'Nunito',sans-serif;
+            font-size: 19px !important;
+            height: 44px;
+            left: 25px;
+            padding: 12px 0 12px 36px;
+            position: relative;
+            width: 290px;
+        }
+
+        div#submenu {
+            float: right;
+            margin: 0;
+            width: 500px;
+            margin: 0 18px 0 0;
+
+            ul li {
+                cursor: pointer;
+                display: block;
+                float: left;
+                margin: 0;
+                padding: 0 28px 0 0;
+            }
+        }
+
+        div#submenu_logics{
+            float: right;
+            margin-right: 55px;
+            width: 70%;
+            font-size:14px;
+        }
+
+        div#logics {
+            float: right;
+            margin-top: 16px;
+            text-align: right;
+            width: 138px;
+            color: white;
+        }
+    }
+}
+
+/* xs */
+@media(max-width:767px){ 
+    .interna{
+        div#content{
+            font-size: $font_size_xs;
+            padding-top: 60px;
+            padding-bottom: 60px;
+
+            p{
+                font-size: $font_size_xs;
+            }
+        }
+    }
+}
+
+/* sm */
+@media(min-width:768px) and (max-width: 991px){
+    .interna{
+
+        div#content{
+            font-size: $font_size_sd;
+            padding-top: 80px;
+            padding-bottom: 80px;
+
+            p{
+                font-size: $font_size_sd;
+            }
+        }
+
+        div#menu{
+            font-size: 18px;
+            #menu_social{
+                margin: 20px 6px 0 0;
+                width: 71%;
+
+                div#menu_text{
+                    width: 430px;
+                }
+
+                div.social{
+                    width: 95px;
+                }
+            }
+        }
+
+
+        footer{
+            div#text_available{
+                left: 28px;
+            }
+
+            div#submenu_logics{
+                margin-right: 2%;
+                width: 55%;
+                font-size: 14px;
+            }
+
+            div#logics{
+                display: none;
+            }
+
+            div#submenu{
+                margin: 0;
+                width: 100%;
+                margin: 15px 0 0 0;
+                font-size: 13px;
+
+                ul{
+                    margin-top: 0;
+                    li{
+                        padding: 0 4% 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+/* md */
+@media(min-width:992px) and (max-width: 1199px){
+    .interna{
+
+        div#content{
+            font-size: $font_size_md;
+            padding-top: 100px;
+            padding-bottom: 100px;
+
+            p{
+                font-size: $font_size_md;
+            }
+        }
+
+        div#menu{
+            font-size: 20px;
+            #menu_social{
+                margin: 20px 6px 0 0;
+                width: 71%;
+
+                div#menu_text{
+                    width: 430px;
+                }
+
+                div.social{
+                    width: 110px;
+                }
+            }
+        }
+
+        footer{
+
+            div#submenu_logics{
+                width: 55%;
+            }
+
+            div#submenu{
+                margin: 0;
+                width: 74%;
+                margin: 15px 0 0 0;
+                font-size: 13px;
+
+                ul{
+                    margin-top: 0;
+                    li{
+                        padding: 0 3% 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+/* lg */
+@media(min-width:1200px){
+    
+}
