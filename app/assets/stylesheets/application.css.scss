@@ -15,79 +15,29 @@
 /* FONTS
 -------------------------------------------------------------- */
 @font-face {
-    font-family: Helvetica Light;
-    src: font-url("helveticaultralight.eot");
+    font-family: Myriad Bold;
+    src: font-url("MyriadPro-Bold.eot") /* EOT file for IE */
 }
 @font-face {
-    font-family: Helvetica Light;
-    src: font-url("helveticaultralight.ttf");
+    font-family: Myriad Bold;
+    src: font-url("MyriadPro-Bold.ttf") /* TTF file for CSS3 browsers */
 }
 @font-face {
-    font-family: Helvetica;
-    src: font-url("helveticaneueltstdlt.eot");
+    font-family: Myriad;
+    src: font-url("MyriadPro-Regular.eot") /* EOT file for IE */
 }
 @font-face {
-    font-family: Helvetica;
-    src: font-url("helveticaneueltstdlt.ttf");
-}
-@font-face {
-    font-family: Helvetica Bold;
-    src: font-url("helveticaneue-bold.eot");
-}
-@font-face {
-    font-family: Helvetica Bold;
-    src: font-url("helveticaneue-bold.ttf");
+    font-family: Myriad;
+    src: font-url("MyriadPro-Regular.ttf") /* TTF file for CSS3 browsers */
 }
 
 @font-face {
-	font-family: 'icomoon';
-	src:font-url('icomoon.eot');
-	src:font-url('icomoon.eot?#iefix') format('embedded-opentype'),
-		font-url('icomoon.woff') format('woff'),
-		font-url('icomoon.ttf') format('truetype'),
-		font-url('icomoon.svg#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* SOCIAL
--------------------------------------------------------------- */
-div.social {
-    width:125px;
-    float:right;
-    margin-right: 20px;
-    margin-top: -48px;
-
-    ul{
-        margin: 0;
-        padding: 0;
-    }
-    ul li {
-        width: 33%;
-        margin: 0;
-        float: left;
-        display: block;
-        cursor: pointer;
-    }
-    ul li a {
-        color: white;
-        font-family: 'icomoon';
-        text-decoration: none;
-        font-size: 29px;
-        padding:2px;
-    }
-    ul li a.github:hover {
-        color:black !important;
-    }
-    ul li a.twitter:hover {
-        color:#5dd7fc !important;
-    }
-    ul li a.googleplus:hover {
-        color:#ba290c !important;
-    }
-}
-.social.visible-xs{
-    width: auto;
-    float:none;
-    margin:30px 0 0 0;
+    font-family: 'icomoon';
+    src:font-url('icomoon.eot');
+    src:font-url('icomoon.eot?#iefix') format('embedded-opentype'),
+        font-url('icomoon.woff') format('woff'),
+        font-url('icomoon.ttf') format('truetype'),
+        font-url('icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }

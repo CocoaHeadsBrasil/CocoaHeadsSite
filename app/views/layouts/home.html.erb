@@ -4,233 +4,32 @@
 		<%= render :partial => "layouts/header", :locals => {:page_title => @page_title} %>
 	</head>
 	<body>
-	    <div class="navbar navbar-inverse navbar-fixed-top visible-xs" role="navigation">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="#"><%= image_tag('beacon_toolbox_logo_home.png', :size => "120x40", :alt => "BeaconToolbox") %></a>
-	        </div>
-
-			<div class="navbar-collapse collapse" style="height: auto;">
-	          <ul class="nav navbar-nav">
-                <% options = {:show_home => true} %>
-                <%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
-	          </ul>
-	        </div>
-	      </div>
-	    </div>
-	    <div id="header" class="container">
-			<div class="appstore hidden-xs"><%= link_to image_tag('appstore.png', :size => "154x53", :alt => "App Store"), "https://itunes.apple.com/us/app/beacontoolbox/id802723889?ls=1&mt=8", :target => "_blank" %></div>
-			<div id="logo_beacon" class="hidden-xs text-center"><%= image_tag('beacon_toolbox_logo_home.png', :size => "263x88", :alt => "BeaconToolbox") %></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-offset-1 col-lg-10">
-						<h1 class="motd text-center">Discover, manage, track, debug, simulate and everything iBeacon related in an easy and fun way.</h1>
-					</div>
-					<div class="col-lg-offset-1"></div>
-				</div>
-				<div class="container-fluid visible-xs text-center"><%= link_to image_tag('appstore.png', :size => "154x53", :alt => "App Store"), "https://itunes.apple.com/us/app/beacontoolbox/id802723889?ls=1&mt=8" %></div>
-                <div class="social container-fluid visible-xs text-center">
-                	<ul>
-                    	<%= render :partial => "layouts/social" %>
-                    </ul>
-                </div>
-			</div>
-	        <div id="iphone" class="hidden-xs">
-
-	        	<% box1 = {:top => 46, :left => 123, :width => 246, :height => 250} %>
-	        	<% text_rect1 = {:top => 78, :left => 242} %>
-	        	<% text1 = "Just like a radar. Seek and find<br />iBeacons around you.".html_safe %>
-	        	<% arrow1_image = image_tag('arrow_long_up_right.png', :size => "246x250") %>
-	        	<% arrow1 = {:id => "arrow-1", :box_rect => box1, :image => arrow1_image, :text_rect => text_rect1, :text => text1 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow1}) %>
-
-	        	<% box2 = {:top => 170, :left => -91, :width => 246, :height => 250} %>
-	        	<% text_rect2 = {:top => 18, :left => -271} %>
-	        	<% text2 = "When located, they will show up in<br />the radar. Simple as that".html_safe %>
-	        	<% arrow2_image = image_tag('arrow_long_up_left.png', :size => "246x250") %>
-	        	<% arrow2 = {:id => "arrow-2", :box_rect => box2, :image => arrow2_image, :text_rect => text_rect2, :text => text2 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow2}) %>
-
-	        	<% box3 = {:top => 180, :left => 112, :width => 246, :height => 250} %>
-	        	<% text_rect3 = {:top => 128, :left => 240} %>
-	        	<% text3 = "Tap on one iBeacon for a full set of information about it" %>
-	        	<% arrow3_image = image_tag('arrow_short_down_right.png', :size => "266x157") %>
-	        	<% arrow3 = {:id => "arrow-3", :box_rect => box3, :image => arrow3_image, :text_rect => text_rect3, :text => text3 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow3}) %>
-
-	        	<% box4 = {:top => 243, :left => 72, :width => 246, :height => 250} %>
-	        	<% text_rect4 = {:top => 128, :left => 241} %>
-	        	<% text4 = "Give it a friendly name to better identify this iBeacon further on" %>
-	        	<% arrow4_image = image_tag('arrow_short_down_right.png', :size => "266x157") %>
-	        	<% arrow4 = {:id => "arrow-4", :box_rect => box4, :image => arrow4_image, :text_rect => text_rect4, :text => text4 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow4}) %>
-
-	        	<% box5 = {:top => 252, :left => -134, :width => 246, :height => 250} %>
-	        	<% text_rect5 = {:top => 0, :left => -255} %>
-	        	<% text5 = "Calibrate the iBeacon for more accurate measures, but in the right way" %>
-	        	<% arrow5_image = image_tag('arrow_short_up_left.png', :size => "266x157") %>
-	        	<% arrow5 = {:id => "arrow-5", :box_rect => box5, :image => arrow5_image, :text_rect => text_rect5, :text => text5 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow5}) %>
-
-	        	<% box6 = {:top => 197, :left => 142, :width => 246, :height => 250} %>
-	        	<% text_rect6 = {:top => 0, :left => 241} %>
-	        	<% text6 = "Better sampling with more appropriate statistic analysis" %>
-	        	<% arrow6_image = image_tag('arrow_short_up_right.png', :size => "266x157") %>
-	        	<% arrow6 = {:id => "arrow-6", :box_rect => box6, :image => arrow6_image, :text_rect => text_rect6, :text => text6 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow6}) %>
-
-	        	<% box7 = {:top => 135, :left => -91, :width => 246, :height => 250} %>
-	        	<% text_rect7 = {:top => 18, :left => -271} %>
-	        	<% text7 = "Keep the track of an iBeacon and be notified when it gets ranged even with the app in background" %>
-	        	<% arrow7_image = image_tag('arrow_long_up_left.png', :size => "246x250") %>
-	        	<% arrow7 = {:id => "arrow-7", :box_rect => box7, :image => arrow7_image, :text_rect => text_rect7, :text => text7 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow7}) %>
-
-	        	<% box8 = {:top => 186, :left => 101, :width => 246, :height => 250} %>
-	        	<% text_rect8 = {:top => 128, :left => 241} %>
-	        	<% text8 = "Now this iBeacon is tracked and you will know when you're near it" %>
-	        	<% arrow8_image = image_tag('arrow_short_down_right.png', :size => "266x157") %>
-	        	<% arrow8 = {:id => "arrow-8", :box_rect => box8, :image => arrow8_image, :text_rect => text_rect8, :text => text8 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow8}) %>
-
-	        	<% box9 = {:top => 23, :left => 298, :width => 246, :height => 250} %>
-	        	<% text_rect9 = {:top => 162, :left => 10} %>
-	        	<% text9 = "Ok, but can I turn my device into a real iBeacon?" %>
-	        	<% arrow9_image = image_tag('arrow_question.png', :size => "266x157") %>
-	        	<% arrow9 = {:id => "arrow-9", :box_rect => box9, :image => arrow9_image, :text_rect => text_rect9, :text => text9 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow9}) %>
-
-	        	<% box9a = {:top => 23, :left => 298, :width => 246, :height => 250} %>
-	        	<% text_rect9a = {:top => 162, :left => 80} %>
-	        	<% text9a = "Oh YES! You can. ;-)" %>
-	        	<% arrow9a_image = image_tag('arrow_question.png', :size => "266x157") %>
-	        	<% arrow9a = {:id => "arrow-9a", :box_rect => box9a, :image => arrow9a_image, :text_rect => text_rect9a, :text => text9a } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow9a}) %>
-
-	        	<% box10 = {:top => 239, :left => 109, :width => 246, :height => 250} %>
-	        	<% text_rect10 = {:top => 0, :left => 241} %>
-	        	<% text10 = "Every rounded square is an iBeacon profile. You will find some samples of profiles. Tap on it for more details." %>
-	        	<% arrow10_image = image_tag('arrow_short_up_right.png', :size => "266x157") %>
-	        	<% arrow10 = {:id => "arrow-10", :box_rect => box10, :image => arrow10_image, :text_rect => text_rect10, :text => text10 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow10}) %>
-
-	        	<% box11 = {:top => 123, :left => 200, :width => 246, :height => 250} %>
-	        	<% text_rect11 = {:top => 128, :left => 241} %>
-	        	<% text11 = "Add your profiles at will.<br /> Just tap the &quot;+&quot; button.".html_safe %>
-	        	<% arrow11_image = image_tag('arrow_short_down_right.png', :size => "266x157") %>
-	        	<% arrow11 = {:id => "arrow-11", :box_rect => box11, :image => arrow11_image, :text_rect => text_rect11, :text => text11 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow11}) %>
-
-	        	<% box12 = {:top => 0, :left => 97, :width => 246, :height => 250} %>
-	        	<% text_rect12 = {:top => 0, :left => 241} %>
-	        	<% text12 = "Now watch this!<br /> To activate a profile just drag and drop it inside the activation area.".html_safe %>
-	        	<% arrow12_image = image_tag('arrow_short_up_right.png', :size => "266x157") %>
-	        	<% arrow12 = {:id => "arrow-12", :box_rect => box12, :image => arrow12_image, :text_rect => text_rect12, :text => text12 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow12}) %>
-
-	        	<% box13 = {:top => 145, :left => -150, :width => 246, :height => 250} %>
-	        	<% text_rect13 = {:top => 18, :left => -224} %>
-	        	<% text13 = "And boom! Your device is now<br />a live iBeacon!".html_safe %>
-	        	<% arrow13_image = image_tag('arrow_long_up_left.png', :size => "246x250") %>
-	        	<% arrow13 = {:id => "arrow-13", :box_rect => box13, :image => arrow13_image, :text_rect => text_rect13, :text => text13 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow13}) %>
-
-	        	<% box14 = {:top => 30, :left => -295, :width => 246, :height => 250} %>
-	        	<% text_rect14 = {:top => 164, :left => -29} %>
-	        	<% text14 = "We keep a library of iBeacon vendors that support auto discovery in some way" %>
-	        	<% arrow14_image = image_tag('arrow_ok.png', :size => "266x157") %>
-	        	<% arrow14 = {:id => "arrow-14", :box_rect => box14, :image => arrow14_image, :text_rect => text_rect14, :text => text14 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow14}) %>
-
-	        	<% box15 = {:top => 23, :left => 298, :width => 246, :height => 250} %>
-	        	<% text_rect15 = {:top => 162, :left => 10} %>
-	        	<% text15 = "But, if the iBeacon you're using doesn't support this feature, you can always add a region so we can look for it." %>
-	        	<% arrow15_image = image_tag('arrow_not_found.png', :size => "266x157") %>
-	        	<% arrow15 = {:id => "arrow-15", :box_rect => box15, :image => arrow15_image, :text_rect => text_rect15, :text => text15 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow15}) %>
-
-	        	<% box16 = {:top => 145, :left => -66, :width => 246, :height => 250} %>
-	        	<% text_rect16 = {:top => 18, :left => -287} %>
-	        	<% text16 = "With a built-in, exclusive and s-e-x-y UUID keyboard, so things can go easier for you." %>
-	        	<% arrow16_image = image_tag('arrow_long_up_left.png', :size => "246x250") %>
-	        	<% arrow16 = {:id => "arrow-16", :box_rect => box16, :image => arrow16_image, :text_rect => text_rect16, :text => text16 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow16}) %>
-
-	        	<% box17 = {:top => 163, :left => 103, :width => 246, :height => 250} %>
-	        	<% text_rect17 = {:top => 128, :left => 241} %>
-	        	<% text17 = "And this region will &quot;automagically&quot; sync across your devices via iCloud.".html_safe %>
-	        	<% arrow17_image = image_tag('arrow_short_down_right.png', :size => "266x157") %>
-	        	<% arrow17 = {:id => "arrow-17", :box_rect => box17, :image => arrow17_image, :text_rect => text_rect17, :text => text17 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow17}) %>
-
-	        	<% box18 = {:top => 23, :left => 317, :width => 246, :height => 250} %>
-	        	<% text_rect18 = {:top => 162, :left => -16} %>
-	        	<% text18 = "<span style=\"display:block;text-align:center\">Now see it for yourself.<br />Available now on the AppStore!</span>".html_safe %>
-	        	<% arrow18_image = image_tag('arrow_appstore.png', :size => "266x157") %>
-	        	<% arrow18 = {:id => "arrow-18", :box_rect => box18, :image => arrow18_image, :text_rect => text_rect18, :text => text18 } %>
-	        	<%= render(:partial => "home/arrow", :locals => {:arrow => arrow18}) %>
-
-	        	<%= image_tag('iphone.png', :size => "274x517", :alt => "iPhone") %>
-
-	            <div id="video">
-	                <div id="videoPlaceHolder"></div>
+		<div id="holder">
+	    	<div id="content_home_left">&nbsp;</div>
+	        <div id="content_home_right">
+	            <div id="icons">
+	                <%= link_to "&#xe796;".html_safe, "http://www.apple.com/stevejobs/", {:target => :blank} %>
+	                <%= link_to "&#xe76c;".html_safe, "http://instagram.com/cocoaheadsbr/", {:target => :blank} %>
+	                <%= link_to "&#xe76a;".html_safe, "https://www.facebook.com/CocoaheadsBrasil/", {:target => :blank} %>
+	                <%= link_to "&#xe76e;".html_safe, "https://twitter.com/cocoaheadsbr/", {:target => :blank} %>
+	                <%= link_to "&#xe78a;".html_safe, "https://github.com/cocoaheadsbr/", {:target => :blank} %>
 	            </div>
+	            <div id="content_home_right_agenda">&nbsp;</div>
+	            <div id="appstore"><%= image_tag "appstore.png", {:size => '94x28', :title => "App Store", :alt => 'App Store'} %></div>
+	            <div id="footer_content_home_right"><p style="font-weight:bold">CocoaHeads Brasil &copy;<%= Time.new.year %></p>
+	            <p>Exceto quando indicado, o conteúdo deste website &eacute; licenciado sob a CC 3.0<br />
+				   CocoaHeads Brasil &eacute; integrante do grupo internacional CocoaHeads.org.</p>
+				</div>
 	        </div>
 	    </div>
-    	<div id="menu" class="hidden-xs">
-    		<div class="container">
-	    		<div class="row">
-	    			<div class="col-md-4 col-sd-2">
-			            <ul class="menu-nav nav nav-justified hidden-sm">
-							<% options = {:show_home => false} %>
-                    		<%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
-						</ul>
-
-						<div class="menu-dropdown btn-group dropup visible-sm">
-							<button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu">
-								<% options = {:show_home => true} %>
-	                    		<%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
-							</ul>
-						</div>
-
-	    			</div>
-	    			<div class="col-md-3 col-sm-1 col-md-offset-4 col-sm-offset-7">
-	    				<div id="subscription">
-	    					<%= form_for(:subscription, html: { :id => "subscription_form" }, :remote => true, :url => subscriptions_path) do |f| %>
-								<div class="form-group">
-									<%= f.text_field(:first_name, :placeholder => 'Your first name', :id => 'first_name', :class => 'form-control has-feedback') %>
-									<span class="glyphicon glyphicon-remove form-control-feedback hide"></span>
-								</div>
-								<div class="form-group">
-									<%= f.text_field(:last_name, :placeholder => 'Your last name', :id => 'last_name', :class => 'form-control has-feedback') %>
-									<span class="glyphicon glyphicon-remove form-control-feedback hide"></span>
-								</div>
-								<div class="form-group">
-									<%= f.text_field(:email, :placeholder => 'Your email address', :id => 'email', :class => 'form-control has-feedback') %>
-									<span class="glyphicon glyphicon-remove form-control-feedback hide"></span>
-								</div>
-								<%= button_tag "Subscribe me!", :name => 'commit', data: { :disable_with => "Hold on..."}, :id => 'subscription_send', :class => 'btn btn-primary btn-block' %>
-	    					<% end %>
-	    				</div>
-	    				<div id="newsletter" class="newsletter text-left hidden-sm"><%= link_to('Subscribe to our newsletter', '#') %></div>
-	    				<div class="newsletter text-center visible-sm"><%= link_to('<span class="glyphicon glyphicon-envelope"></span>'.html_safe, '#') %></div>
-	    			</div>
-	    		</div>
-			</div>
-			<div class="social">
-				<ul>
-					<%= render :partial => "layouts/social" %>
-				</ul>
-			</div>
-        </div>
+		<div id="footer_geral">
+	        <div id="line_footer">&nbsp;</div>
+	        <div id="footer">&nbsp;</div>
+	      <div id="footer_conteudo">
+	        	<div id="footer_menu">&nbsp;</div>
+	            <div id="creativecommons"><%= image_tag "creativecommons.png", {:size => "92x32", :alt => 'Creative Commons', :title => 'Creative Commons'} %></div>
+	        </div>
+	    </div>
 		<%= javascript_include_tag "application" %>
 		<%= render :partial => "layouts/analytics" %>
 	</body>
