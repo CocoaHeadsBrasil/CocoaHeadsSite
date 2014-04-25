@@ -36,8 +36,6 @@ GEM
     arel (4.0.2)
     atomic (1.1.15)
     bcrypt (3.1.7)
-    bcrypt-ruby (3.1.5)
-      bcrypt (>= 3.1.3)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
     bootstrap-sass-extras (0.0.5)
@@ -185,7 +183,7 @@ DEPENDENCIES
   actionview-encoded_mail_to
   acts-as-taggable-on
   acts_as_list
-  bcrypt-ruby (~> 3.1.2)
+  bcrypt
   bootstrap-sass
   bootstrap-sass-extras
   carrierwave
