@@ -4,62 +4,49 @@
 		<%= render :partial => "/layouts/header", :locals => {:page_title => @page_title} %>
 	</head>
     <body class="interna">
-        <div class="navbar navbar-default navbar-fixed-top visible-xs" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#"><%= image_tag('beacon_toolbox_logo_home.png', :size => "119x40", :alt => "BeaconToolbox") %></a>
-            </div>
+        <div id="holder">
+            <div id="content_interna_geral">
+                <div id="titulo_interna_left">&nbsp;</div>
+                <div id="content_interna_left">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget semper dolor, non molestie arcu. Duis eu vehicula quam, eu varius lectus. Aenean tincidunt pulvinar orci, vitae condimentum lectus venenatis sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent tempor magna libero. Vestibulum condimentum, lacus quis dictum pulvinar, libero nulla aliquam felis, vel aliquet orci diam id mauris. Fusce bibendum non justo porttitor eleifend. Nulla facilisi.</p>
 
-            <div class="navbar-collapse collapse" style="height: auto;">
-                <ul class="nav navbar-nav">
-                    <% options = {:show_home => true} %>
-                    <%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
-                </ul>
+                <p>Suspendisse mauris quam, viverra dignissim porta quis, sollicitudin nec eros. Maecenas varius eleifend leo, eget molestie nulla eleifend vel. Nullam tempor ante eu sapien egestas, ut congue urna suscipit. Aenean auctor lorem auctor mauris dictum, eu bibendum eros pulvinar. Donec felis sapien, tempor nec nunc quis, ultricies suscipit nunc. Maecenas eleifend feugiat nisl, et pharetra elit iaculis in. Nunc luctus tortor vitae risus molestie semper. Donec fermentum mattis convallis. Nulla facilisi. Etiam nulla risus, aliquet a neque id, euismod venenatis neque. Fusce aliquam libero vitae ligula tempus dignissim. Ut in ipsum convallis, hendrerit tellus sit amet, pulvinar mauris. Aenean vitae dolor at diam fermentum commodo eu sed elit.</p>
+
+                <p>Mauris ullamcorper aliquam tempus. Sed accumsan libero pharetra, ultrices elit a, porttitor tellus. Etiam sed sapien sed enim interdum adipiscing id ut urna. Donec fermentum ornare tortor mattis dictum. Ut dignissim quam justo, quis fringilla nunc iaculis non. Sed nec ipsum vehicula, consectetur sapien non, euismod quam. Mauris et dolor nec tellus lacinia porta. Vivamus sed blandit nulla. Vivamus eget mollis tortor, id semper nisi.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget semper dolor, non molestie arcu. Duis eu vehicula quam, eu varius lectus. Aenean tincidunt pulvinar orci, vitae condimentum lectus venenatis sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent tempor magna libero. Vestibulum condimentum, lacus quis dictum pulvinar, libero nulla aliquam felis, vel aliquet orci diam id mauris. Fusce bibendum non justo porttitor eleifend. Nulla facilisi.</p>
+
+                <p>Suspendisse mauris quam, viverra dignissim porta quis, sollicitudin nec eros. Maecenas varius eleifend leo, eget molestie nulla eleifend vel. Nullam tempor ante eu sapien egestas, ut congue urna suscipit. Aenean auctor lorem auctor mauris dictum, eu bibendum eros pulvinar. Donec felis sapien, tempor nec nunc quis, ultricies suscipit nunc. Maecenas eleifend feugiat nisl, et pharetra elit iaculis in. Nunc luctus tortor vitae risus molestie semper. Donec fermentum mattis convallis. Nulla facilisi. Etiam nulla risus, aliquet a neque id, euismod venenatis neque. Fusce aliquam libero vitae ligula tempus dignissim. Ut in ipsum convallis, hendrerit tellus sit amet, pulvinar mauris. Aenean vitae dolor at diam fermentum commodo eu sed elit.</p>
+
+                <p>Mauris ullamcorper aliquam tempus. Sed accumsan libero pharetra, ultrices elit a, porttitor tellus. Etiam sed sapien sed enim interdum adipiscing id ut urna. Donec fermentum ornare tortor mattis dictum. Ut dignissim quam justo, quis fringilla nunc iaculis non. Sed nec ipsum vehicula, consectetur sapien non, euismod quam. Mauris et dolor nec tellus lacinia porta. Vivamus sed blandit nulla. Vivamus eget mollis tortor, id semper nisi.</p>
             </div>
-          </div>
+            </div>
+            <div id="content_interna_right">
+                <div id="icons">
+                    <%= link_to "&#xe796;".html_safe, "http://www.apple.com/stevejobs/", {:target => :blank} %>
+                    <%= link_to "&#xe76c;".html_safe, "http://instagram.com/cocoaheadsbr/", {:target => :blank} %>
+                    <%= link_to "&#xe76a;".html_safe, "https://www.facebook.com/CocoaheadsBrasil/", {:target => :blank} %>
+                    <%= link_to "&#xe76e;".html_safe, "https://twitter.com/cocoaheadsbr/", {:target => :blank} %>
+                    <%= link_to "&#xe78a;".html_safe, "https://github.com/cocoaheadsbr/", {:target => :blank} %>
+                </div>
+                <div id="content_home_right_agenda">&nbsp;</div>
+                <div id="img_appstore"><%= image_tag "appstore.png", {:size => '94x28', :title => "App Store", :alt => 'App Store'} %></div>
+                <div id="footer_content_interna_right">
+                    <p style="font-weight:bold">CocoaHeads Brasil &copy;<%= Time.new.year %></p>
+                    <p>Exceto quando indicado, o conteúdo deste website &eacute; licenciado sob a CC 3.0<br />
+                   CocoaHeads Brasil &eacute; integrante do grupo internacional CocoaHeads.org.</p>
+                </div>
+            </div>
         </div>
-
-	   <div id="menu" class="hidden-xs">
-        	<div id="logo_interna"><%= link_to(image_tag("beacon_toolbox_logo_internal.png", {:size => "197x66", :alt => "BeaconToolbox", :title => "BeaconToolbox"}), {:controller => "home"}) %></div>
-        	<div id="menu_social">
-                <div class="social">
-                    <ul>
-                        <%= render :partial => "layouts/social" %>
-                    </ul>
-                </div>
-                <div id="menu_text">
-                    <ul class="nav nav-pills">
-                        <% options = {:show_home => false} %>
-                        <%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
-                    </ul>
-                </div>
-        	</div>
-    	</div>
-        <div id="content" class="container">
-            <%= yield %>
-        </div>
-
-    	<footer>
-            <div class="hidden-xs" id="text_available"><a href="https://itunes.apple.com/us/app/beacontoolbox/id802723889?ls=1&mt=8" target="_blank">Available on the App Store</a></div>
-            <div class="visible-xs" id="text_available-mobile"><a href="https://itunes.apple.com/us/app/beacontoolbox/id802723889?ls=1&mt=8" target="_blank">Available on the App Store</a></div>
-            <div id="submenu_logics" class="hidden-xs">
-                <div id="logics" class="hidden-xs">&copy; <%= Time.new.year %> Logics Ltd.</div>
-                <div id="submenu" class="hidden-xs">
-                    <ul>
-                        <li><a href="http://www.apple.com/stevejobs/" target="_blank">Remember Steve</a></li>
-                        <li><a href="/sitemap">Site Map</a></li>
-                        <li><a href="/acknowledgments">Acknowledgments</a></li>
-                        <li><a href="/privacy">Privacy Policy</a></li>
-                    </ul>
-                </div>
+        <div class="brclear">&nbsp;</div>
+        <div id="footer_geral">
+            <div id="line_footer">&nbsp;</div>
+            <div id="footer">&nbsp;</div>
+            <div id="footer_conteudo">
+                <div id="footer_menu">&nbsp;</div>
+                <div id="creativecommons"><%= image_tag "creativecommons.png", {:size => "92x32", :alt => 'Creative Commons', :title => 'Creative Commons'} %></div>
             </div>
-        </footer>
+
+        </div>
 		<%= javascript_include_tag "application" %>
         <%= render :partial => "layouts/analytics" %>
 	</body>
