@@ -1,74 +1,3 @@
-/* =COMMON STYLE
--------------------------------------------------------------- */
-html, body, form, fieldset {
-    margin: 0;
-    padding: 0;
-}
-body {
-    font: 100% Myriad, Arial, Helvetica, sans-serif;
-    color: #fff;
-    background: black;
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-    background: image-url('imgBody.jpg') no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-size:18px;
-}
-
-/* Heading */
-h1 {
-    font-size: 170%;
-}
-h2 {
-    font-size: 150%;
-}
-h3 {
-    font-size: 125%;
-}
-h4 {
-    font-size: 100%;
-    text-transform: uppercase;
-}
-small, .small, .smalldark, .mosimage_caption {
-    font-size: 100%;
-    color: #999999;
-}
-p, pre, blockquote, ul, ol, h1, h2, h3, h4, h5, h6 {
-    margin: 15px 0;
-    padding: 0;
-}
-th {
-    padding: 5px;
-    font-weight: bold;
-    text-align: left;
-}
-fieldset {
-    border: none;
-}
-fieldset a {
-    font-weight: bold;
-}
-a:link, a:visited{
-}
-a:hover, a:active, a:focus{
-}
-hr {
-}
-ul {
-    list-style: none;
-}
-ul li {
-}
-ol li {
-}
-td, div {
-    font-size: 100%;
-}
-
 /* ESTRUTURA
 --------------------------------------------------------- */
 
@@ -147,34 +76,24 @@ div#content_interna_right {
 div#content_home_right_agenda {
     height:390px;
     width:100%;
-    background-color:black;
-    opacity:0.50;
+    background-color:rgba(0,0,0,0.5);
     margin-top: 75px;
-}
-div#footer_content_home_right {
-    color: black;
-    margin-top: 72px;
-    text-align: left;
-    margin-bottom:30px;
-}
-div#footer_content_home_right p{
-    margin:10px 0 0 0;
-    padding:0;
-    font-size:13px;
-}
-div#footer_content_interna_right {
-    color: black;
-    margin-top: 72px;
-    text-align: left;
-    margin-bottom:30px;
-}
-div#footer_content_interna_right p{
-    margin:10px 0 0 0;
-    padding:0;
-    font-size:13px;
-}
+    padding: 40px;
+    overflow: hidden;
 
+    h1{
+        font-size: 48px;
+        padding:0;
+        margin:0 0 20px 0;
+        text-align: left;
+    }
 
+    .agendas{
+        width: 100%;
+        height: 270px;
+        overflow-y:auto;
+    }
+}
 div#appstore {
     float:right;
     margin-top: 18px;
@@ -250,4 +169,40 @@ div#footer_menu {
     width: 67%;
     background-color:blue;
     float:left;
+}
+
+div#copyright {
+    font-size: 16px;
+    color: black;
+    margin-top: 72px;
+    text-align: left;
+    margin-bottom:30px;
+
+    p{
+        margin:10px 0 0 0;
+        padding:0;
+    }
+    p:first-child{
+        font-family: Myriad Bold, Arial, Helvetica, sans-serif;
+    }
+
+    a{
+        color: black;
+        text-decoration:none;
+    }
+}
+
+/* AGENDA TODO:MOVE IT TO THE CORRECT MVC;
+--------------------------------------------------------- */
+div.agenda{
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 20px;
+
+    ul{
+        margin: 0;
+        li{
+            display: inline-block;
+        }
+    }
 }

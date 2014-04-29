@@ -8,9 +8,81 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require bootstrap-generators
  *= require_self
  *= require_directory .
  */
+
+/* =COMMON STYLE
+-------------------------------------------------------------- */
+html, body, form, fieldset {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 100% Myriad, Arial, Helvetica, sans-serif;
+    color: #fff;
+    background: black;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    background: image-url('imgBody.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-size:18px;
+}
+
+/* Heading */
+h1 {
+    font-size: 170%;
+}
+h2 {
+    font-size: 150%;
+}
+h3 {
+    font-size: 125%;
+}
+h4 {
+    font-size: 100%;
+    text-transform: uppercase;
+}
+small, .small, .smalldark, .mosimage_caption {
+    font-size: 100%;
+    color: #999999;
+}
+p, pre, blockquote, ul, ol, h1, h2, h3, h4, h5, h6 {
+    margin: 15px 0;
+    padding: 0;
+}
+th {
+    padding: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+fieldset {
+    border: none;
+}
+fieldset a {
+    font-weight: bold;
+}
+a:link, a:visited{
+}
+a:hover, a:active, a:focus{
+}
+hr {
+}
+ul {
+    list-style: none;
+}
+ul li {
+}
+ol li {
+}
+td, div {
+    font-size: 100%;
+}
 
 /* FONTS
 -------------------------------------------------------------- */
@@ -40,4 +112,9 @@
         font-url('icomoon.svg#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+a, a:hover{
+    color: #f9da03;
+    text-decoration:none;
 }

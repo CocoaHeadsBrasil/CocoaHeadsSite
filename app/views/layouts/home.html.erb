@@ -10,22 +10,65 @@
 	    		<h2>Brasil<%= image_tag "brasil.png", {:size => '36x24', :alt => 'Brasil', :class => 'flag'} %></h2>
 	    		<p class="motd">Nosso cérebro é programado em Objective-C!</p>
 	    		<p>CocoaHeads é um grupo formado por desenvolvedores (profissionais e iniciantes), que se organizam para reunir pessoas com a mesma paixão: Programação para os iDevices da Apple (OSX e iOS). Nossos encontros são informais e servem para juntar  pessoas que gostam no mesmo assunto que você [programação! :) ]. Promovemos Talks e Palestras de at&eacute; 20 minutos dadas por membros do grupo local ou de convidados especiais e é lógico comidas, bebidas e snacks ao final.</p>
-				<p>Somos a primeira iniciativa CocoaHeads da América latina e o conteúdo aqui apresentado é todo em português. Interessado em organizar um grupo CocoaHeads em sua cidade? Entre em contato conosco.</p>
+				<p>Somos a primeira iniciativa CocoaHeads da América Latina e o conteúdo aqui apresentado é todo em português. Interessado em organizar um grupo CocoaHeads em sua cidade? Entre em <%= link_to "contato conosco", "#" %>.</p>
 	    	</div>
 	        <div id="content_home_right">
 	            <div id="icons">
 	                <%= link_to "&#xe796;".html_safe, "http://www.apple.com/stevejobs/", {:target => :blank} %>
 	                <%= link_to "&#xe76c;".html_safe, "http://instagram.com/cocoaheadsbr/", {:target => :blank} %>
-	                <%= link_to "&#xe76a;".html_safe, "https://www.facebook.com/CocoaheadsBrasil/", {:target => :blank} %>
+	                <%= link_to "&#xe76a;".html_safe, "https://www.facebook.com/CocoaHeadsBrasil/", {:target => :blank} %>
 	                <%= link_to "&#xe76e;".html_safe, "https://twitter.com/cocoaheadsbr/", {:target => :blank} %>
 	                <%= link_to "&#xe78a;".html_safe, "https://github.com/cocoaheadsbr/", {:target => :blank} %>
 	            </div>
-	            <div id="content_home_right_agenda">&nbsp;</div>
+	            <div id="content_home_right_agenda" class="scroll">
+	            	<h1>Agenda</h1>
+	            	<div class="agendas">
+		            	<div class="agenda">
+		            		<div><span class="data">09/05/2014</span> - <span class="capitulo">CocoaHeads Goi&acirc;nia</span></div>
+		            		<div><span class="horario">19hs</span> @ <span class="local">Flamboyant Shopping Center</span></div>
+		            		<ul class="recursos">
+		            			<li>[ <%= link_to "Maps", "#" %> ]</li>
+		            			<li>[ <%= link_to "Passbook", "#" %> ]</li>
+		            			<li>[ <%= link_to "iCal", "#" %> ]</li>
+		            		</ul>
+		            	</div>
+
+		            	<div class="agenda">
+		            		<div><span class="data">09/05/2014</span> - <span class="capitulo">CocoaHeads Goi&acirc;nia</span></div>
+		            		<div><span class="horario">19hs</span> @ <span class="local">Flamboyant Shopping Center</span></div>
+		            		<ul class="recursos">
+		            			<li>[ <%= link_to "Maps", "#" %> ]</li>
+		            			<li>[ <%= link_to "Passbook", "#" %> ]</li>
+		            			<li>[ <%= link_to "iCal", "#" %> ]</li>
+		            		</ul>
+		            	</div>
+
+		            	<div class="agenda">
+		            		<div><span class="data">09/05/2014</span> - <span class="capitulo">CocoaHeads Goi&acirc;nia</span></div>
+		            		<div><span class="horario">19hs</span> @ <span class="local">Flamboyant Shopping Center</span></div>
+		            		<ul class="recursos">
+		            			<li>[ <%= link_to "Maps", "#" %> ]</li>
+		            			<li>[ <%= link_to "Passbook", "#" %> ]</li>
+		            			<li>[ <%= link_to "iCal", "#" %> ]</li>
+		            		</ul>
+		            	</div>
+
+		            	<div class="agenda">
+		            		<div><span class="data">09/05/2014</span> - <span class="capitulo">CocoaHeads Goi&acirc;nia</span></div>
+		            		<div><span class="horario">19hs</span> @ <span class="local">Flamboyant Shopping Center</span></div>
+		            		<ul class="recursos">
+		            			<li>[ <%= link_to "Maps", "#" %> ]</li>
+		            			<li>[ <%= link_to "Passbook", "#" %> ]</li>
+		            			<li>[ <%= link_to "iCal", "#" %> ]</li>
+		            		</ul>
+		            	</div>
+	            	</div>
+	            </div>
 	            <div id="appstore"><%= image_tag "appstore.png", {:size => '94x28', :title => "App Store", :alt => 'App Store'} %></div>
-	            <div id="footer_content_home_right">
+	            <div id="copyright">
 	            	<p style="font-weight:bold">CocoaHeads Brasil &copy;<%= Time.new.year %></p>
 	            	<p>Exceto quando indicado, o conteúdo deste website &eacute; licenciado sob a CC 3.0<br />
-				   CocoaHeads Brasil &eacute; integrante do grupo internacional CocoaHeads.org.</p>
+				   CocoaHeads Brasil &eacute; integrante do grupo <%= link_to "CocoaHeads.org", "http://cocoaheads.org", {:target => :blank}%>.</p>
 				</div>
 	        </div>
 	    </div>
