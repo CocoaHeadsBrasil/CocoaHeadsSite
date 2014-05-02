@@ -1,0 +1,13 @@
+		<div id="footer_holder">
+	        <div class="line">&nbsp;</div>
+	        <div id="footer">&nbsp;</div>
+	      	<div id="footer_conteudo">
+	        	<ul id="menu" role="menu">
+					<% options = {:show_home => true} %>
+					<%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
+	        	</ul>
+	            <div id="creativecommons">
+	            	<%= link_to(image_tag("creativecommons.png", {:size => "92x32", :alt => 'Creative Commons', :title => 'Creative Commons'}), "http://creativecommons.org/licenses/by/4.0/", {:target => :blank, :rel => :licence}) %>
+	            </div>
+	        </div>
+	    </div>

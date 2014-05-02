@@ -195,11 +195,53 @@ div#copyright {
     p:first-child{
         font-family: Myriad Bold, Arial, Helvetica, sans-serif;
     }
+    p:last-child{
+        font-family: inherit;
+        font-size:14px;
+    }
 
     a{
         color: black;
         text-decoration:none;
     }
+}
+
+/* FOOTER
+--------------------------------------------------------- */
+div#footer_holder {
+    height: 86px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+
+    div.line {
+        background-color: #55575a;
+        background-repeat: repeat-x;
+        background-position: left bottom;
+        height:3px;
+    }
+}
+
+div#footer {
+    width: 100%;
+    height:83px;
+    background-color:#141516;
+    opacity:0.69;
+    -webkit-box-shadow: inset 0px 24px 14px -10px #000;
+    box-shadow: inset 0px 24px 14px -10px #000;
+}
+div#footer_conteudo {
+    height: 152px;
+    position: relative;
+    z-index: 777;
+    margin-top: -181px;
+    width: 88%;
+    margin-left: 120px;
+    margin-right: 40px;
+    background-image: image-url('coffee_monster.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size:175px 152px;
 }
 
 /* AGENDA TODO:MOVE IT TO THE CORRECT MVC;
@@ -214,5 +256,27 @@ div.agenda{
         li{
             display: inline-block;
         }
+    }
+}
+
+div#agenda {
+    height:390px;
+    width:100%;
+    background-color:rgba(0,0,0,0.5);
+    margin-top: 75px;
+    padding: 40px;
+    overflow: hidden;
+
+    h1{
+        font-size: 48px;
+        padding:0;
+        margin:0 0 20px 0;
+        text-align: left;
+    }
+
+    .agendas{
+        width: 100%;
+        height: 270px;
+        overflow-y:auto;
     }
 }

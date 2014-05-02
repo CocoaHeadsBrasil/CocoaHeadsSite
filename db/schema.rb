@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417151319) do
+ActiveRecord::Schema.define(version: 20140502154719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140417151319) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "subtitle"
   end
 
   add_index "contents", ["created_by"], name: "index_contents_on_created_by", using: :btree

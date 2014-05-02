@@ -1,5 +1,8 @@
 <% @page_title = @content.title %>
 
 <h1><%= @content.title %></h1>
+<% if !@content.subtitle.empty? %>
+	<h3><%= @content.subtitle %></h3>
+<% end %>
 
 <%= raw(@content.body) %>

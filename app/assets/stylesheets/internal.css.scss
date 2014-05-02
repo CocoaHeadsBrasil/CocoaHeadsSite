@@ -1,6 +1,3 @@
-
-
-
 div#holder {
 
     div#content {
@@ -23,10 +20,16 @@ div#holder {
         h2{
             font: 30px Myriad Bold, Arial, Helvetica, sans-serif;
         }
+        h3{
+            font-size:16px;
+            font-style:italic;
+            margin:10px 0;
+            padding:0;
+        }
+        p {
+            margin:40px 0 0 0;
+        }
 
-    }
-    div#content_interna_left p {
-        margin:15px 0 0 0;
     }
 
     div#titulo {
@@ -48,5 +51,64 @@ div#holder {
             margin-left:10px;
             vertical-align: baseline;
         }
+    }
+}
+
+div#appstore {
+    float:right;
+    margin-top: 18px;
+    display:none;
+}
+
+body.interna.fullscreen{
+    #holder{
+        width:90%;
+        text-align: left;
+
+        header{
+            width:100%;
+            height: 75px;
+
+            #titulo{
+                width: 80%;
+                float: left;
+            }
+
+            #social{
+                width:20%;
+                float:right;
+            }
+        }
+
+        article{
+            background: rgba(0,0,0,0.5);
+            padding:40px;
+            min-height: 590px;
+            margin-bottom: 250px;
+
+            h1{
+                font-size: 40px;
+            }
+            h2{
+                font: 30px Myriad Bold, Arial, Helvetica, sans-serif;
+            }
+            h3{
+                font-size:16px;
+                font-style:italic;
+                margin:10px 0;
+                padding:0;
+            }
+            p {
+                margin:40px 0 0 0;
+            }
+
+        }
+
+        footer{
+            float:right;
+            width:500px;
+            margin:-300px 0 0 0;
+        }
+
     }
 }

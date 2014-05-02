@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%= render :partial => "/layouts/header", :locals => {:page_title => @page_title} %>
+	</head>
+    <body class="interna fullscreen">
+        <div id="holder">
+            <header>
+                <div id="titulo">
+                    <h1>CocoaHeads</h1>
+                    <h2>Brasil<img alt="Brasil" class="flag" height="24" src="/assets/brasil.png" width="36"></h2>
+                </div>
+                <div id="social">
+                    <%= render(:partial => "layouts/social") %>
+                </div>
+            </header>
+
+            <article>
+                <%= yield %>
+            </article>
+
+            <footer>
+                <%= render(:partial => "layouts/copyright") %>
+            </footer>
+        </div>
+        <div class="brclear">&nbsp;</div>
+        <%= render(:partial => "layouts/footer") %>
+		<%= javascript_include_tag "application" %>
+        <%= render :partial => "layouts/analytics" %>
+	</body>
+</html>

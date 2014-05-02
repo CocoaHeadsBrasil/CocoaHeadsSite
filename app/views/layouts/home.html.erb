@@ -13,14 +13,8 @@
 				<p>Somos a primeira iniciativa CocoaHeads da América Latina e o conteúdo aqui apresentado é todo em português. Interessado em organizar um grupo CocoaHeads em sua cidade? Entre em <%= link_to "contato conosco", "#" %>.</p>
 	    	</div>
 	        <div id="content_home_right">
-	            <div id="icons">
-	                <%= link_to "&#xe796;".html_safe, "http://www.apple.com/stevejobs/", {:target => :blank} %>
-	                <%= link_to "&#xe76c;".html_safe, "http://instagram.com/cocoaheadsbr/", {:target => :blank} %>
-	                <%= link_to "&#xe76a;".html_safe, "https://www.facebook.com/CocoaHeadsBrasil/", {:target => :blank} %>
-	                <%= link_to "&#xe76e;".html_safe, "https://twitter.com/cocoaheadsbr/", {:target => :blank} %>
-	                <%= link_to "&#xe78a;".html_safe, "https://github.com/cocoaheadsbr/", {:target => :blank} %>
-	            </div>
-	            <div id="content_home_right_agenda" class="scroll">
+	        	<%= render(:partial => "layouts/social") %>
+	            <div id="agenda">
 	            	<h1>Agenda</h1>
 	            	<div class="agendas">
 		            	<div class="agenda">
@@ -65,24 +59,10 @@
 	            	</div>
 	            </div>
 	            <div id="appstore"><%= image_tag "appstore.png", {:size => '94x28', :title => "App Store", :alt => 'App Store'} %></div>
-	            <div id="copyright">
-	            	<p style="font-weight:bold">CocoaHeads Brasil &copy;<%= Time.new.year %></p>
-	            	<p>Exceto quando indicado, o conteúdo deste website &eacute; licenciado sob a CC 3.0<br />
-				   CocoaHeads Brasil &eacute; integrante do grupo <%= link_to "CocoaHeads.org", "http://cocoaheads.org", {:target => :blank}%>.</p>
-				</div>
+	            <%= render(:partial => "layouts/copyright") %>
 	        </div>
 	    </div>
-		<div id="footer_geral">
-	        <div id="line_footer">&nbsp;</div>
-	        <div id="footer">&nbsp;</div>
-	      <div id="footer_conteudo">
-	        	<ul id="menu" role="menu">
-					<% options = {:show_home => true} %>
-					<%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
-	        	</ul>
-	            <div id="creativecommons"><%= image_tag "creativecommons.png", {:size => "92x32", :alt => 'Creative Commons', :title => 'Creative Commons'} %></div>
-	        </div>
-	    </div>
+		<%= render(:partial => "layouts/footer") %>
 		<%= javascript_include_tag "application" %>
 		<%= render :partial => "layouts/analytics" %>
 	</body>

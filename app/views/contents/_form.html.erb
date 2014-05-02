@@ -6,6 +6,12 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :subtitle, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subtitle, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :permalink, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :permalink, :class => 'form-control', :placeholder => "default is the title" %>
