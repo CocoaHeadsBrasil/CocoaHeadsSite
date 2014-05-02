@@ -16,7 +16,7 @@ class Content < ActiveRecord::Base
 	scope :newest_first, lambda { order("contents.created_at DESC") }
 	scope :published, lambda { where(:published => true) }
 	scope :unpublished, lambda { where(:published => false) }
-		scope :search, lambda{|query|
+	scope :search, lambda{|query|
 		where(["title LIKE ?", "%#{query}%"])
 	}
 

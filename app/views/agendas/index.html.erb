@@ -1,37 +1,48 @@
-<h1>Listing agendas</h1>
-
-<table>
+<%- model_class = Agenda -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Horario</th>
-      <th>Local</th>
-      <th>Maps</th>
-      <th>Passbook</th>
-      <th>Published</th>
-      <th>Descricao</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:horario) %></th>
+      <th><%= model_class.human_attribute_name(:local) %></th>
+      <th><%= model_class.human_attribute_name(:maps) %></th>
+      <th><%= model_class.human_attribute_name(:passbook) %></th>
+      <th><%= model_class.human_attribute_name(:published) %></th>
+      <th><%= model_class.human_attribute_name(:descricao) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @agendas.each do |agenda| %>
       <tr>
-        <td><%= agenda.horario %></td>
-        <td><%= agenda.local %></td>
-        <td><%= agenda.maps %></td>
-        <td><%= agenda.passbook %></td>
-        <td><%= agenda.published %></td>
-        <td><%= agenda.descricao %></td>
-        <td><%= link_to 'Show', agenda %></td>
-        <td><%= link_to 'Edit', edit_agenda_path(agenda) %></td>
-        <td><%= link_to 'Destroy', agenda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= agenda.id %></td>
+          <td><%= agenda.horario %></td>
+          <td><%= agenda.local %></td>
+          <td><%= agenda.maps %></td>
+          <td><%= agenda.passbook %></td>
+          <td><%= agenda.published %></td>
+          <td><%= agenda.descricao %></td>
+        <td><%=l agenda.created_at, format: :long %></td>
+        <td>
+          <%= link_to agenda_path(agenda), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+          <%- end -%>
+          <%= link_to edit_agenda_path(agenda), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to agenda_path(agenda), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Agenda', new_agenda_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_agenda_path,
+            :class => 'btn btn-primary' %>

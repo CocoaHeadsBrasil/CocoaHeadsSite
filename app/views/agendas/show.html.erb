@@ -1,34 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Agenda -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Horario:</strong>
-  <%= @agenda.horario %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:horario) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.horario %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:local) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.local %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:maps) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.maps %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:passbook) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.passbook %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.published %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:descricao) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.descricao %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Local:</strong>
-  <%= @agenda.local %>
-</p>
-
-<p>
-  <strong>Maps:</strong>
-  <%= @agenda.maps %>
-</p>
-
-<p>
-  <strong>Passbook:</strong>
-  <%= @agenda.passbook %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @agenda.published %>
-</p>
-
-<p>
-  <strong>Descricao:</strong>
-  <%= @agenda.descricao %>
-</p>
-
-<%= link_to 'Edit', edit_agenda_path(@agenda) %> |
-<%= link_to 'Back', agendas_path %>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              agendas_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_agenda_path(@agenda), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              agenda_path(@agenda),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

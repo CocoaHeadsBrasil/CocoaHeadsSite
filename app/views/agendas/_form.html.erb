@@ -1,41 +1,46 @@
-<%= form_for(@agenda) do |f| %>
-  <% if @agenda.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@agenda.errors.count, "error") %> prohibited this agenda from being saved:</h2>
-
-      <ul>
-      <% @agenda.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @agenda, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :horario, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :horario, :class => 'text_field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :local, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :local, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :maps, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :maps, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :passbook, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :passbook, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :published, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :published, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :descricao, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :descricao, :class => 'text_field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :horario %><br>
-    <%= f.text_field :horario %>
-  </div>
-  <div class="field">
-    <%= f.label :local %><br>
-    <%= f.text_field :local %>
-  </div>
-  <div class="field">
-    <%= f.label :maps %><br>
-    <%= f.text_field :maps %>
-  </div>
-  <div class="field">
-    <%= f.label :passbook %><br>
-    <%= f.text_field :passbook %>
-  </div>
-  <div class="field">
-    <%= f.label :published %><br>
-    <%= f.check_box :published %>
-  </div>
-  <div class="field">
-    <%= f.label :descricao %><br>
-    <%= f.text_area :descricao %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  agendas_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

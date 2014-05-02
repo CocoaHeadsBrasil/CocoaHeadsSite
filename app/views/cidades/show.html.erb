@@ -1,49 +1,39 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Cidade -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Cidade:</strong>
-  <%= @cidade.cidade %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:cidade) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.cidade %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:estado) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.estado %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:organizador) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.organizador %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:organizador_email) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.organizador_email %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:website) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.website %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:github) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.github %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:twitter) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.twitter %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:facebook) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.facebook %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.published %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @cidade.estado %>
-</p>
-
-<p>
-  <strong>Organizador:</strong>
-  <%= @cidade.organizador %>
-</p>
-
-<p>
-  <strong>Organizador email:</strong>
-  <%= @cidade.organizador_email %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @cidade.website %>
-</p>
-
-<p>
-  <strong>Github:</strong>
-  <%= @cidade.github %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @cidade.twitter %>
-</p>
-
-<p>
-  <strong>Facebook:</strong>
-  <%= @cidade.facebook %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @cidade.published %>
-</p>
-
-<%= link_to 'Edit', edit_cidade_path(@cidade) %> |
-<%= link_to 'Back', cidades_path %>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              cidades_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_cidade_path(@cidade), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              cidade_path(@cidade),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

@@ -1,53 +1,64 @@
-<%= form_for(@cidade) do |f| %>
-  <% if @cidade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cidade.errors.count, "error") %> prohibited this cidade from being saved:</h2>
-
-      <ul>
-      <% @cidade.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @cidade, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :cidade, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :cidade, :class => 'text_field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :estado, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :estado, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :organizador, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :organizador, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :organizador_email, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :organizador_email, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :website, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :website, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :github, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :github, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :twitter, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :twitter, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :facebook, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :facebook, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :published, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :published, :class => 'text_field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :cidade %><br>
-    <%= f.text_field :cidade %>
-  </div>
-  <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.text_field :estado %>
-  </div>
-  <div class="field">
-    <%= f.label :organizador %><br>
-    <%= f.text_field :organizador %>
-  </div>
-  <div class="field">
-    <%= f.label :organizador_email %><br>
-    <%= f.text_field :organizador_email %>
-  </div>
-  <div class="field">
-    <%= f.label :website %><br>
-    <%= f.text_field :website %>
-  </div>
-  <div class="field">
-    <%= f.label :github %><br>
-    <%= f.text_field :github %>
-  </div>
-  <div class="field">
-    <%= f.label :twitter %><br>
-    <%= f.text_field :twitter %>
-  </div>
-  <div class="field">
-    <%= f.label :facebook %><br>
-    <%= f.text_field :facebook %>
-  </div>
-  <div class="field">
-    <%= f.label :published %><br>
-    <%= f.check_box :published %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  cidades_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

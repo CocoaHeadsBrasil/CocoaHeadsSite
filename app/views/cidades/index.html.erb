@@ -1,43 +1,54 @@
-<h1>Listing cidades</h1>
-
-<table>
+<%- model_class = Cidade -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Cidade</th>
-      <th>Estado</th>
-      <th>Organizador</th>
-      <th>Organizador email</th>
-      <th>Website</th>
-      <th>Github</th>
-      <th>Twitter</th>
-      <th>Facebook</th>
-      <th>Published</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:cidade) %></th>
+      <th><%= model_class.human_attribute_name(:estado) %></th>
+      <th><%= model_class.human_attribute_name(:organizador) %></th>
+      <th><%= model_class.human_attribute_name(:organizador_email) %></th>
+      <th><%= model_class.human_attribute_name(:website) %></th>
+      <th><%= model_class.human_attribute_name(:github) %></th>
+      <th><%= model_class.human_attribute_name(:twitter) %></th>
+      <th><%= model_class.human_attribute_name(:facebook) %></th>
+      <th><%= model_class.human_attribute_name(:published) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @cidades.each do |cidade| %>
       <tr>
-        <td><%= cidade.cidade %></td>
-        <td><%= cidade.estado %></td>
-        <td><%= cidade.organizador %></td>
-        <td><%= cidade.organizador_email %></td>
-        <td><%= cidade.website %></td>
-        <td><%= cidade.github %></td>
-        <td><%= cidade.twitter %></td>
-        <td><%= cidade.facebook %></td>
-        <td><%= cidade.published %></td>
-        <td><%= link_to 'Show', cidade %></td>
-        <td><%= link_to 'Edit', edit_cidade_path(cidade) %></td>
-        <td><%= link_to 'Destroy', cidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= cidade.id %></td>
+          <td><%= cidade.cidade %></td>
+          <td><%= cidade.estado %></td>
+          <td><%= cidade.organizador %></td>
+          <td><%= cidade.organizador_email %></td>
+          <td><%= cidade.website %></td>
+          <td><%= cidade.github %></td>
+          <td><%= cidade.twitter %></td>
+          <td><%= cidade.facebook %></td>
+          <td><%= cidade.published %></td>
+        <td><%=l cidade.created_at, format: :long %></td>
+        <td>
+          <%= link_to cidade_path(cidade), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+          <%- end -%>
+          <%= link_to edit_cidade_path(cidade), :class => 'btn btn-xs', :title => "#{ t('.edit', :default => t('helpers.links.edit')) }" do %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to cidade_path(cidade), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Cidade', new_cidade_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_cidade_path,
+            :class => 'btn btn-primary' %>

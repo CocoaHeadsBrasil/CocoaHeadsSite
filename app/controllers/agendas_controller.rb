@@ -1,5 +1,9 @@
 class AgendasController < ApplicationController
+
+  before_action :confirm_logged_in, except: [:public]
   before_action :set_agenda, only: [:show, :edit, :update, :destroy]
+
+  layout :choose_layout
 
   # GET /agendas
   # GET /agendas.json
@@ -70,5 +74,9 @@ class AgendasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def agenda_params
       params.require(:agenda).permit(:horario, :local, :maps, :passbook, :published, :descricao)
+    end
+
+    def choose_layout
+      action_name == "public" ? "internal" : "admin"
     end
 end
