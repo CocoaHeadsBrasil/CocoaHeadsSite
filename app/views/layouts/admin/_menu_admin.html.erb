@@ -13,22 +13,22 @@
         <%= dropdown_nav_link('contents', {:class => 'dropdown'}) %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Content <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <%= nav_link "Create new", {:controller => 'contents', :action => 'new'} %>
-            <%= nav_link "List all", {:controller => 'contents', :action => 'index'} %>
+            <%= admin_nav_link "Create new", {:controller => 'contents', :action => 'new'} %>
+            <%= admin_nav_link "List all", {:controller => 'contents', :action => 'index'} %>
           </ul>
         </li>
         <%= dropdown_nav_link('admin_users', {:class => 'dropdown'}) %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Users <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <%= nav_link "Create new", {:controller => 'admin_users', :action => 'new'} %>
-            <%= nav_link "List all", {:controller => 'admin_users', :action => 'index'} %>
+            <%= admin_nav_link "Create new", {:controller => 'admin_users', :action => 'new'} %>
+            <%= admin_nav_link "List all", {:controller => 'admin_users', :action => 'index'} %>
           </ul>
         </li>
         <%= dropdown_nav_link('subscriptions', {:class => 'dropdown'}) %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subscriptions <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <%= nav_link "Create new", {:controller => 'subscriptions', :action => 'new'} %>
-            <%= nav_link "List all", {:controller => 'subscriptions', :action => 'index'} %>
+            <%= admin_nav_link "Create new", {:controller => 'subscriptions', :action => 'new'} %>
+            <%= admin_nav_link "List all", {:controller => 'subscriptions', :action => 'index'} %>
           </ul>
         </li>
       </ul>
