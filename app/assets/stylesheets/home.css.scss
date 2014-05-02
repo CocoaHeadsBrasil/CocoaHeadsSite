@@ -99,36 +99,6 @@ div#appstore {
     margin-top: 18px;
     display:none;
 }
-div#content_interna_geral {
-    width:70%;
-    height:100%;
-    float:left;
-    background-color:yellow;
-}
-
-div#content_interna_left {
-    background-color:black;
-    opacity:0.50;
-    text-align:left;
-}
-div#content_interna_left p {
-    margin:15px 0 0 0;
-}
-
-div#titulo_interna_left {
-    background-color:white;
-    height:75px;
-}
-
-
-.brclear {
-     clear:both;
-     height:0;
-     margin:0;
-     font-size: 1px;
-     line-height: 0px;
-}
-
 div#footer_geral {
     height: 86px;
     width: 100%;
@@ -161,48 +131,4 @@ div#footer_conteudo {
     background-repeat: no-repeat;
     background-position: left top;
     background-size:175px 152px;
-}
-div#footer_menu {
-    height: 32px;
-    margin-left: 184px;
-    margin-top: 115px;
-    width: 67%;
-    background-color:blue;
-    float:left;
-}
-
-div#copyright {
-    font-size: 16px;
-    color: black;
-    margin-top: 72px;
-    text-align: left;
-    margin-bottom:30px;
-
-    p{
-        margin:10px 0 0 0;
-        padding:0;
-    }
-    p:first-child{
-        font-family: Myriad Bold, Arial, Helvetica, sans-serif;
-    }
-
-    a{
-        color: black;
-        text-decoration:none;
-    }
-}
-
-/* AGENDA TODO:MOVE IT TO THE CORRECT MVC;
---------------------------------------------------------- */
-div.agenda{
-    text-align: left;
-    font-size: 18px;
-    margin-bottom: 20px;
-
-    ul{
-        margin: 0;
-        li{
-            display: inline-block;
-        }
-    }
 }

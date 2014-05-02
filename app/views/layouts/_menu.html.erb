@@ -1,5 +1,7 @@
-<%= nav_link("Home", {:controller => 'home', :action => 'index'}) if options[:show_home] %>
-<%= nav_link "About", "about" %>
-<%= nav_link "Download", {:controller => 'download', :action => 'index'} %>
-<%= nav_link "Author", "/author" %>
-<%= nav_link "Help", {:controller => 'help', :action => 'index'} %>
+<%= nav_link("Início", {:controller => 'home', :action => 'index'}) if options[:show_home] %>
+<%= nav_link "CocoaHeads", "cocoaheads" %>
+<%= nav_link "Agenda", {:controller => 'agenda', :action => 'index'} %>
+<%= nav_link "Cidades", {:controller => 'capitulos', :action => 'index'} %>
+<%= nav_link "Blog", {:controller => 'blog', :action => 'index'} %>
+<%= nav_link "Vídeos", {:controller => 'videos', :action => 'index'} %>
+<%= nav_link "Contato", "contato" %>

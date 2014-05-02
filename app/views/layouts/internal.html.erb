@@ -5,20 +5,14 @@
 	</head>
     <body class="interna">
         <div id="holder">
-            <div id="content_interna_geral">
-                <div id="titulo_interna_left">&nbsp;</div>
+            <div id="content">
+                <div id="titulo">
+                    <h1>CocoaHeads</h1>
+                    <h2>Brasil<img alt="Brasil" class="flag" height="24" src="/assets/brasil.png" width="36"></h2>
+                </div>
                 <div id="content_interna_left">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget semper dolor, non molestie arcu. Duis eu vehicula quam, eu varius lectus. Aenean tincidunt pulvinar orci, vitae condimentum lectus venenatis sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent tempor magna libero. Vestibulum condimentum, lacus quis dictum pulvinar, libero nulla aliquam felis, vel aliquet orci diam id mauris. Fusce bibendum non justo porttitor eleifend. Nulla facilisi.</p>
-
-                <p>Suspendisse mauris quam, viverra dignissim porta quis, sollicitudin nec eros. Maecenas varius eleifend leo, eget molestie nulla eleifend vel. Nullam tempor ante eu sapien egestas, ut congue urna suscipit. Aenean auctor lorem auctor mauris dictum, eu bibendum eros pulvinar. Donec felis sapien, tempor nec nunc quis, ultricies suscipit nunc. Maecenas eleifend feugiat nisl, et pharetra elit iaculis in. Nunc luctus tortor vitae risus molestie semper. Donec fermentum mattis convallis. Nulla facilisi. Etiam nulla risus, aliquet a neque id, euismod venenatis neque. Fusce aliquam libero vitae ligula tempus dignissim. Ut in ipsum convallis, hendrerit tellus sit amet, pulvinar mauris. Aenean vitae dolor at diam fermentum commodo eu sed elit.</p>
-
-                <p>Mauris ullamcorper aliquam tempus. Sed accumsan libero pharetra, ultrices elit a, porttitor tellus. Etiam sed sapien sed enim interdum adipiscing id ut urna. Donec fermentum ornare tortor mattis dictum. Ut dignissim quam justo, quis fringilla nunc iaculis non. Sed nec ipsum vehicula, consectetur sapien non, euismod quam. Mauris et dolor nec tellus lacinia porta. Vivamus sed blandit nulla. Vivamus eget mollis tortor, id semper nisi.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget semper dolor, non molestie arcu. Duis eu vehicula quam, eu varius lectus. Aenean tincidunt pulvinar orci, vitae condimentum lectus venenatis sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent tempor magna libero. Vestibulum condimentum, lacus quis dictum pulvinar, libero nulla aliquam felis, vel aliquet orci diam id mauris. Fusce bibendum non justo porttitor eleifend. Nulla facilisi.</p>
-
-                <p>Suspendisse mauris quam, viverra dignissim porta quis, sollicitudin nec eros. Maecenas varius eleifend leo, eget molestie nulla eleifend vel. Nullam tempor ante eu sapien egestas, ut congue urna suscipit. Aenean auctor lorem auctor mauris dictum, eu bibendum eros pulvinar. Donec felis sapien, tempor nec nunc quis, ultricies suscipit nunc. Maecenas eleifend feugiat nisl, et pharetra elit iaculis in. Nunc luctus tortor vitae risus molestie semper. Donec fermentum mattis convallis. Nulla facilisi. Etiam nulla risus, aliquet a neque id, euismod venenatis neque. Fusce aliquam libero vitae ligula tempus dignissim. Ut in ipsum convallis, hendrerit tellus sit amet, pulvinar mauris. Aenean vitae dolor at diam fermentum commodo eu sed elit.</p>
-
-                <p>Mauris ullamcorper aliquam tempus. Sed accumsan libero pharetra, ultrices elit a, porttitor tellus. Etiam sed sapien sed enim interdum adipiscing id ut urna. Donec fermentum ornare tortor mattis dictum. Ut dignissim quam justo, quis fringilla nunc iaculis non. Sed nec ipsum vehicula, consectetur sapien non, euismod quam. Mauris et dolor nec tellus lacinia porta. Vivamus sed blandit nulla. Vivamus eget mollis tortor, id semper nisi.</p>
-            </div>
+                    <%= yield %>
+                </div>
             </div>
             <div id="content_interna_right">
                 <div id="icons">
@@ -30,10 +24,10 @@
                 </div>
                 <div id="content_home_right_agenda">&nbsp;</div>
                 <div id="img_appstore"><%= image_tag "appstore.png", {:size => '94x28', :title => "App Store", :alt => 'App Store'} %></div>
-                <div id="footer_content_interna_right">
+                <div id="copyright">
                     <p style="font-weight:bold">CocoaHeads Brasil &copy;<%= Time.new.year %></p>
                     <p>Exceto quando indicado, o conteúdo deste website &eacute; licenciado sob a CC 3.0<br />
-                   CocoaHeads Brasil &eacute; integrante do grupo internacional CocoaHeads.org.</p>
+                   CocoaHeads Brasil &eacute; integrante do grupo CocoaHeads.org.</p>
                 </div>
             </div>
         </div>
@@ -42,7 +36,10 @@
             <div id="line_footer">&nbsp;</div>
             <div id="footer">&nbsp;</div>
             <div id="footer_conteudo">
-                <div id="footer_menu">&nbsp;</div>
+                <ul id="menu" role="menu">
+                    <% options = {:show_home => true} %>
+                    <%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
+                </ul>
                 <div id="creativecommons"><%= image_tag "creativecommons.png", {:size => "92x32", :alt => 'Creative Commons', :title => 'Creative Commons'} %></div>
             </div>
 

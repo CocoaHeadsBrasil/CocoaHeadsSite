@@ -13,6 +13,9 @@
  *= require_directory .
  */
 
+$menu_link_color_active: white;
+$menu_link_color_hover: #f9da03;
+
 /* =COMMON STYLE
 -------------------------------------------------------------- */
 html, body, form, fieldset {
@@ -117,4 +120,99 @@ td, div {
 a, a:hover{
     color: #f9da03;
     text-decoration:none;
+}
+
+.brclear {
+     clear:both;
+     height:0;
+     margin:0;
+     font-size: 1px;
+     line-height: 0px;
+}
+
+/* MENU
+-------------------------------------------------------------- */
+ul#menu {
+    height: 32px;
+    margin-left: 184px;
+    margin-top: 130px;
+    width: 67%;
+    float:left;
+    text-align: left;
+    overflow: hidden;
+
+    li{
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 24px;
+
+        a{
+            color:white;
+        }
+
+        a:hover{
+            color:$menu_link_color_hover;
+        }
+
+        div.separator{
+            display: inline-block;
+            background-color: #097a4f;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            position: relative;
+            left: 12px;
+            top: 10px;
+        }
+    }
+
+    li:last-child{
+        div.separator{
+            display: none;
+        }
+    }
+
+    li.active{
+        a{
+            color:#f9da03;
+        }
+    }
+}
+
+/* COPYRIGHT
+-------------------------------------------------------------- */
+div#copyright {
+    font-size: 16px;
+    color: black;
+    margin-top: 72px;
+    text-align: left;
+    margin-bottom:30px;
+
+    p{
+        margin:10px 0 0 0;
+        padding:0;
+    }
+    p:first-child{
+        font-family: Myriad Bold, Arial, Helvetica, sans-serif;
+    }
+
+    a{
+        color: black;
+        text-decoration:none;
+    }
+}
+
+/* AGENDA TODO:MOVE IT TO THE CORRECT MVC;
+--------------------------------------------------------- */
+div.agenda{
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 20px;
+
+    ul{
+        margin: 0;
+        li{
+            display: inline-block;
+        }
+    }
 }
