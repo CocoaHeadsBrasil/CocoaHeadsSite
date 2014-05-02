@@ -1,0 +1,43 @@
+<h1>Listing cidades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>Organizador</th>
+      <th>Organizador email</th>
+      <th>Website</th>
+      <th>Github</th>
+      <th>Twitter</th>
+      <th>Facebook</th>
+      <th>Published</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cidades.each do |cidade| %>
+      <tr>
+        <td><%= cidade.cidade %></td>
+        <td><%= cidade.estado %></td>
+        <td><%= cidade.organizador %></td>
+        <td><%= cidade.organizador_email %></td>
+        <td><%= cidade.website %></td>
+        <td><%= cidade.github %></td>
+        <td><%= cidade.twitter %></td>
+        <td><%= cidade.facebook %></td>
+        <td><%= cidade.published %></td>
+        <td><%= link_to 'Show', cidade %></td>
+        <td><%= link_to 'Edit', edit_cidade_path(cidade) %></td>
+        <td><%= link_to 'Destroy', cidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cidade', new_cidade_path %>

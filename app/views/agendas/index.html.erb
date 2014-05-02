@@ -1,0 +1,37 @@
+<h1>Listing agendas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Horario</th>
+      <th>Local</th>
+      <th>Maps</th>
+      <th>Passbook</th>
+      <th>Published</th>
+      <th>Descricao</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agendas.each do |agenda| %>
+      <tr>
+        <td><%= agenda.horario %></td>
+        <td><%= agenda.local %></td>
+        <td><%= agenda.maps %></td>
+        <td><%= agenda.passbook %></td>
+        <td><%= agenda.published %></td>
+        <td><%= agenda.descricao %></td>
+        <td><%= link_to 'Show', agenda %></td>
+        <td><%= link_to 'Edit', edit_agenda_path(agenda) %></td>
+        <td><%= link_to 'Destroy', agenda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agenda', new_agenda_path %>

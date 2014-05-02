@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Horario:</strong>
+  <%= @agenda.horario %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @agenda.local %>
+</p>
+
+<p>
+  <strong>Maps:</strong>
+  <%= @agenda.maps %>
+</p>
+
+<p>
+  <strong>Passbook:</strong>
+  <%= @agenda.passbook %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @agenda.published %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @agenda.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_agenda_path(@agenda) %> |
+<%= link_to 'Back', agendas_path %>

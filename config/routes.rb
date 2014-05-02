@@ -1,5 +1,9 @@
 Cocoaheads::Application.routes.draw do
 
+  resources :cidades
+
+  resources :agendas
+
   root 'home#index'
 
   get 'cupertino' => "access#index"

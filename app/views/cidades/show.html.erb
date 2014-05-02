@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @cidade.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @cidade.estado %>
+</p>
+
+<p>
+  <strong>Organizador:</strong>
+  <%= @cidade.organizador %>
+</p>
+
+<p>
+  <strong>Organizador email:</strong>
+  <%= @cidade.organizador_email %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @cidade.website %>
+</p>
+
+<p>
+  <strong>Github:</strong>
+  <%= @cidade.github %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @cidade.twitter %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @cidade.facebook %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @cidade.published %>
+</p>
+
+<%= link_to 'Edit', edit_cidade_path(@cidade) %> |
+<%= link_to 'Back', cidades_path %>
