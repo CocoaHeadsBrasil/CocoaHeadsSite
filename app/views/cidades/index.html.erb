@@ -5,17 +5,12 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>ID</th>
       <th><%= model_class.human_attribute_name(:cidade) %></th>
       <th><%= model_class.human_attribute_name(:estado) %></th>
       <th><%= model_class.human_attribute_name(:organizador) %></th>
-      <th><%= model_class.human_attribute_name(:organizador_email) %></th>
-      <th><%= model_class.human_attribute_name(:website) %></th>
-      <th><%= model_class.human_attribute_name(:github) %></th>
-      <th><%= model_class.human_attribute_name(:twitter) %></th>
-      <th><%= model_class.human_attribute_name(:facebook) %></th>
-      <th><%= model_class.human_attribute_name(:published) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Email do organizador</th>
+      <th>Publicada?</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -24,15 +19,10 @@
       <tr>
         <td><%= cidade.id %></td>
           <td><%= cidade.cidade %></td>
-          <td><%= cidade.estado %></td>
-          <td><%= cidade.organizador %></td>
+          <td><%= cidade.estado.sigla %></td>
+          <td><%= image_tag cidade.gravatar_url(:rating => 'R', :secure => true, :size => 120), :size => "60x60", :class => 'img-circle avatar' %><%= cidade.organizador %></td>
           <td><%= cidade.organizador_email %></td>
-          <td><%= cidade.website %></td>
-          <td><%= cidade.github %></td>
-          <td><%= cidade.twitter %></td>
-          <td><%= cidade.facebook %></td>
-          <td><%= cidade.published %></td>
-        <td><%=l cidade.created_at, format: :long %></td>
+          <td><%= status_tag(cidade.published, {:true_text => "SIM", :false_text => "NÃO"}) %></td>
         <td>
           <%= link_to cidade_path(cidade), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>

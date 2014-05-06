@@ -4,7 +4,7 @@
 
   <div class="form-group">
       <%= f.label :cidade, "Capítulo CocoaHead", :class => 'control-label col-md-2' %>
-      <div class="col-md-10 input-group date">
+      <div class="col-md-10 input-group">
           <%= f.select(:cidade_id, @cidades.map {|c| [c.cidade, c.id]}, {}, {:class => 'form-control'}) %>
       </div>
   </div>

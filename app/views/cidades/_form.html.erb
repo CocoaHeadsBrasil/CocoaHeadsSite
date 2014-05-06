@@ -1,3 +1,5 @@
+  <%= error_messages_for(@cidade) %>
+
 <%= form_for @cidade, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
     <%= f.label :cidade, :class => 'control-label col-md-2' %>
@@ -6,9 +8,9 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :estado, :class => 'control-label col-md-2' %>
+    <%= f.label :estado_id, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :estado, :class => 'text_field form-control' %>
+      <%= f.select(:estado_id, @estados.map {|e| [e.nome, e.id]}, {}, {:class => 'form-control'}) %>
     </div>
   </div>
   <div class="form-group">
@@ -18,39 +20,39 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :organizador_email, :class => 'control-label col-md-2' %>
+    <%= f.label :organizador_email, "Email do organizador", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :organizador_email, :class => 'text_field form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :website, :class => 'control-label col-md-2' %>
+    <%= f.label :website, "Website do capítulo", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :website, :class => 'text_field form-control' %>
+      <%= f.text_field :website, :class => 'text_field form-control', :placeholder => "padrão: cocoaheads.com.br" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :github, :class => 'control-label col-md-2' %>
+    <%= f.label :github, "Github do capítulo", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :github, :class => 'text_field form-control' %>
+      <%= f.text_field :github, :class => 'text_field form-control', :placeholder => "padrão: github.com/cocoaheadsbr" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :twitter, :class => 'control-label col-md-2' %>
+    <%= f.label :twitter, "Twitter do capítulo", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :twitter, :class => 'text_field form-control' %>
+      <%= f.text_field :twitter, :class => 'text_field form-control', :placeholder => "padrão: twitter.com/cocoaheadsbr" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :facebook, :class => 'control-label col-md-2' %>
+    <%= f.label :facebook, "Facebook do capítulo", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :facebook, :class => 'text_field form-control' %>
+      <%= f.text_field :facebook, :class => 'text_field form-control', :placeholder => "padrão: facebook.com/cocoaheadsbr" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :published, :class => 'control-label col-md-2' %>
+    <%= f.label :published, "Publicado?", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :published, :class => 'text_field form-control' %>
+      <%= f.check_box(:published, :class => 'text_field form-control') %>
     </div>
   </div>
 

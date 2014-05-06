@@ -9,7 +9,7 @@
       <th><%= model_class.human_attribute_name(:data) %></th>
       <th><%= model_class.human_attribute_name(:local) %></th>
       <th><%= model_class.human_attribute_name(:passbook) %></th>
-      <th><%= model_class.human_attribute_name(:published) %></th>
+      <th>Publicado?</th>
       <th><%= model_class.human_attribute_name(:descricao) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -22,7 +22,7 @@
           <td><%= agenda.data %></td>
           <td><%= agenda.local %></td>
           <td><%= agenda.passbook %></td>
-          <td><%= agenda.published %></td>
+          <td><%= status_tag(agenda.published, {:true_text => "SIM", :false_text => "NÃO"}) %>
           <td><%= agenda.descricao %></td>
         <td><%=l agenda.created_at, format: :long %></td>
         <td>

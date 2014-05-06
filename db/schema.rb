@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502194235) do
+ActiveRecord::Schema.define(version: 20140506185539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20140502194235) do
   add_index "agendas", ["published"], name: "index_agendas_on_published", using: :btree
 
   create_table "cidades", force: true do |t|
+    t.integer  "estado_id"
     t.string   "cidade"
-    t.string   "estado"
     t.string   "organizador"
     t.string   "organizador_email"
     t.string   "website"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20140502194235) do
   end
 
   add_index "cidades", ["cidade"], name: "index_cidades_on_cidade", using: :btree
-  add_index "cidades", ["estado"], name: "index_cidades_on_estado", using: :btree
   add_index "cidades", ["published"], name: "index_cidades_on_published", using: :btree
 
   create_table "contents", force: true do |t|
@@ -83,6 +82,13 @@ ActiveRecord::Schema.define(version: 20140502194235) do
   add_index "contents", ["modified_by"], name: "index_contents_on_modified_by", using: :btree
   add_index "contents", ["permalink"], name: "index_contents_on_permalink", unique: true, using: :btree
   add_index "contents", ["position"], name: "index_contents_on_position", using: :btree
+
+  create_table "estados", force: true do |t|
+    t.string   "nome"
+    t.string   "sigla"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "faq_groups", force: true do |t|
     t.string   "title"

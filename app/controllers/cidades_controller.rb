@@ -1,5 +1,10 @@
 class CidadesController < ApplicationController
+
+  before_action :confirm_logged_in, except: [:public]
   before_action :set_cidade, only: [:show, :edit, :update, :destroy]
+  before_action :find_estado
+
+  layout :choose_layout
 
   # GET /cidades
   # GET /cidades.json
@@ -15,10 +20,12 @@ class CidadesController < ApplicationController
   # GET /cidades/new
   def new
     @cidade = Cidade.new
+    @estados = Estado.ordenados
   end
 
   # GET /cidades/1/edit
   def edit
+    @estados = Estado.ordenados
   end
 
   # POST /cidades
@@ -69,6 +76,16 @@ class CidadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cidade_params
-      params.require(:cidade).permit(:cidade, :estado, :organizador, :organizador_email, :website, :github, :twitter, :facebook, :published)
+      params.require(:cidade).permit(:cidade, :estado_id, :organizador, :organizador_email, :website, :github, :twitter, :facebook, :published)
+    end
+
+    def choose_layout
+      action_name == "public" ? "internal" : "admin"
+    end
+
+    def find_estado
+      if params[:estado_id]
+        @estado = Estado.find(params[:estado_id])
+      end
     end
 end

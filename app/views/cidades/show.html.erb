@@ -8,13 +8,13 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:cidade) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.cidade %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:estado) %></dt>
-      <dd><pre class="prettyprint"><%= @cidade.estado %></pre></dd>
+      <dd><pre class="prettyprint"><%= @cidade.estado.nome %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:organizador) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.organizador %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:organizador_email) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.organizador_email %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:website) %></dt>
-      <dd><pre class="prettyprint"><%= @cidade.website %></pre></dd>
+      <dd><pre class="prettyprint"><%= @cidade.website.is_blank? ? "" %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:github) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.github %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:twitter) %></dt>

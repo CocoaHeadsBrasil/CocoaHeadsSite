@@ -1,8 +1,9 @@
 class CreateCidades < ActiveRecord::Migration
   def change
     create_table :cidades do |t|
+      t.references :estado
+
       t.string :cidade
-      t.string :estado
       t.string :organizador
       t.string :organizador_email
       t.string :website
@@ -14,7 +15,6 @@ class CreateCidades < ActiveRecord::Migration
       t.timestamps
     end
     add_index :cidades, :cidade
-    add_index :cidades, :estado
     add_index :cidades, :published
   end
 end

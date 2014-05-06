@@ -21,5 +21,12 @@ module Cocoaheads
 
     # routes the exceptions to the route file
     config.exceptions_app = self.routes
+
+    # default social networkds
+    COCOAHEADS_SOCIAL_WEB           = "http://cocoaheads.com.br"
+    COCOAHEADS_SOCIAL_INSTAGRAM     = "http://instagram.com/cocoaheadsbr/"
+    COCOAHEADS_SOCIAL_FACEBOOK      = "https://www.facebook.com/CocoaHeadsBrasil/"
+    COCOAHEADS_SOCIAL_TWITTER       = "https://twitter.com/cocoaheadsbr/"
+    COCOAHEADS_SOCIAL_GITHUB        = "https://github.com/cocoaheadsbr/"
   end
 end
