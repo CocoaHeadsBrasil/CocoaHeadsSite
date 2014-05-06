@@ -67,6 +67,10 @@ gem 'heroku_rails_deflate', :group => :production
 
 gem 'acts-as-taggable-on'
 
+gem 'gravtastic'
+
+# gem 'brazilian-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

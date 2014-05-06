@@ -1,44 +1,74 @@
-<%= form_for @agenda, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= error_messages_for(@agenda) %>
+
+  <%= form_for @agenda, :html => { :class => 'form-horizontal' } do |f| %>
+
   <div class="form-group">
-    <%= f.label :horario, :class => 'control-label col-md-2' %>
-    <div class="col-md-10">
-      <%= f.text_field :horario, :class => 'text_field form-control' %>
-    </div>
+      <%= f.label :cidade, "Capítulo CocoaHead", :class => 'control-label col-md-2' %>
+      <div class="col-md-10 input-group date">
+          <%= f.select(:cidade_id, @cidades.map {|c| [c.cidade, c.id]}, {}, {:class => 'form-control'}) %>
+      </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :data, "Data/Horário", :class => 'control-label col-md-2' %>
+      <div class="col-md-3 input-group date" id="datetimepicker1" data-date-format="YYYY-MM-DD HH:MM:SS">
+          <%= f.text_field :data, :class => 'text_field form-control' %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+      </div>
   </div>
   <div class="form-group">
     <%= f.label :local, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :local, :class => 'text_field form-control' %>
+      <%= f.text_field :local, :class => 'text_field form-control', :placeholder => "Nome do local que irá sediar o evento" %>
     </div>
   </div>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCnjbfSxsL5bf3m_r9ulLf4stDiDUbdrAI&sensor=false"></script>
   <div class="form-group">
-    <%= f.label :maps, :class => 'control-label col-md-2' %>
+    <%= f.label :endereco, "Endere&ccedil;o".html_safe, :class => 'control-label col-md-2' %>
+    <div class="col-md-5">
+      <%= f.text_field :endereco, :class => 'text_field form-control', :placeholder => "Ex.: Av. Paulista São Paulo" %>
+    </div>
+    <div class="col-md-2">
+      <%= button_tag "Localizar coordenadas", {:type => :button, :class => 'btn btn-default', :onclick => "GetLocation()", :value => "Get Location", :data => { :disable_with => "Consultando..." }} %>
+    </div>
+    
+  </div>
+  <div class="form-group">
+    <%= f.label :latitude, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :maps, :class => 'text_field form-control' %>
+      <%= f.text_field :latitude, :class => 'text_field form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :passbook, :class => 'control-label col-md-2' %>
+    <%= f.label :longitude, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :longitude, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :passbook, "URL Passbook", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :passbook, :class => 'text_field form-control' %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :published, :class => 'control-label col-md-2' %>
+    <%= f.label :published, "Publicado?", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :published, :class => 'text_field form-control' %>
+      <%= f.check_box(:published, :class => 'text_field form-control') %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :descricao, :class => 'control-label col-md-2' %>
+    <%= tinymce %>
+    <%= f.label :descricao, "Descrição", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :descricao, :class => 'text_field form-control' %>
+      <%= f.text_area :descricao, :class => "tinymce", :rows => 30, :cols => 120 %>
     </div>
   </div>
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= f.submit "Criar agenda", :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                   agendas_path, :class => 'btn btn-default' %>
     </div>

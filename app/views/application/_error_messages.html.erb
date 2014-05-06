@@ -1,11 +1,16 @@
 <% if object && object.errors.size > 0 %>
-	<div id="errorExplanation">
-		<h2><%= pluralize(object.errors.size, "error")%> prohibited this record from being saved</h2>
-		<p>There were problems with the following fields:</p>
-		<ul>
-			<% object.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
-	</div>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= pluralize(object.errors.size, "erro impediu", "erros impediram")%>  que este registro fosse salvo</h3>
+  </div>
+  <div class="panel-body">
+	<p>Existem problemas com os seguintes campos:</p>
+	<ul>
+	<% object.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+	</ul>
+  </div>
+</div>
 <% end %>
+

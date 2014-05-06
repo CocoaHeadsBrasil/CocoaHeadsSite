@@ -5,29 +5,33 @@
 
 <div class="fieldset">
   <dl>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:horario) %></dt>
-      <dd><pre class="prettyprint"><%= @agenda.horario %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:data) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.data.strftime("%d/%m/%Y às %H:%M:%S") %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:local) %></dt>
       <dd><pre class="prettyprint"><%= @agenda.local %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:maps) %></dt>
-      <dd><pre class="prettyprint"><%= @agenda.maps %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:endereco) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.endereco %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:latitude) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.latitude %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:longitude) %></dt>
+      <dd><pre class="prettyprint"><%= @agenda.longitude %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:passbook) %></dt>
       <dd><pre class="prettyprint"><%= @agenda.passbook %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
-      <dd><pre class="prettyprint"><%= @agenda.published %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:descricao) %></dt>
-      <dd><pre class="prettyprint"><%= @agenda.descricao %></pre></dd>
+      <dt class="label label-default">Publicado?</dt>
+      <dd><pre class="prettyprint"><%= @agenda.published ? "Sim" : "Não" %></pre></dd>
+      <dt class="label label-default">Descrição</dt>
+      <dd><pre class="prettyprint"><%= @agenda.descricao.html_safe %></pre></dd>
   </dl>
 </div>
 
 <div class="form-group">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+  <%= link_to t('.back', :default => t("Voltar")),
               agendas_path, :class => 'btn btn-default'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <%= link_to t('.edit', :default => t("Editar")),
               edit_agenda_path(@agenda), :class => 'btn btn-default' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to t('.destroy', :default => t("Excluir")),
               agenda_path(@agenda),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => { :confirm => t('.confirm', :default => t("Você tem certeza?", :default => 'Você tem certeza?')) },
               :class => 'btn btn-danger' %>
 </div>

@@ -19,6 +19,7 @@ class AgendasController < ApplicationController
   # GET /agendas/new
   def new
     @agenda = Agenda.new
+    @cidades = Cidade.order('cidade ASC')
   end
 
   # GET /agendas/1/edit
@@ -29,12 +30,12 @@ class AgendasController < ApplicationController
   # POST /agendas.json
   def create
     @agenda = Agenda.new(agenda_params)
-
     respond_to do |format|
       if @agenda.save
         format.html { redirect_to @agenda, notice: 'Agenda was successfully created.' }
         format.json { render action: 'show', status: :created, location: @agenda }
       else
+        @cidades = Cidade.order('cidade ASC')
         format.html { render action: 'new' }
         format.json { render json: @agenda.errors, status: :unprocessable_entity }
       end
@@ -49,6 +50,7 @@ class AgendasController < ApplicationController
         format.html { redirect_to @agenda, notice: 'Agenda was successfully updated.' }
         format.json { head :no_content }
       else
+        @cidades = Cidade.order('cidade ASC')
         format.html { render action: 'edit' }
         format.json { render json: @agenda.errors, status: :unprocessable_entity }
       end
@@ -73,7 +75,7 @@ class AgendasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agenda_params
-      params.require(:agenda).permit(:horario, :local, :maps, :passbook, :published, :descricao)
+      params.require(:agenda).permit(:data, :cidade_id, :endereco, :latitude, :longitude, :local, :maps, :passbook, :published, :descricao)
     end
 
     def choose_layout

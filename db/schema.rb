@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502154719) do
+ActiveRecord::Schema.define(version: 20140502194235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,41 @@ ActiveRecord::Schema.define(version: 20140502154719) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", using: :btree
   add_index "admin_users", ["username"], name: "index_admin_users_on_username", unique: true, using: :btree
+
+  create_table "agendas", force: true do |t|
+    t.integer  "cidade_id"
+    t.datetime "data"
+    t.string   "local"
+    t.string   "endereco"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "passbook"
+    t.boolean  "published"
+    t.text     "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "agendas", ["data"], name: "index_agendas_on_data", using: :btree
+  add_index "agendas", ["published"], name: "index_agendas_on_published", using: :btree
+
+  create_table "cidades", force: true do |t|
+    t.string   "cidade"
+    t.string   "estado"
+    t.string   "organizador"
+    t.string   "organizador_email"
+    t.string   "website"
+    t.string   "github"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cidades", ["cidade"], name: "index_cidades_on_cidade", using: :btree
+  add_index "cidades", ["estado"], name: "index_cidades_on_estado", using: :btree
+  add_index "cidades", ["published"], name: "index_cidades_on_published", using: :btree
 
   create_table "contents", force: true do |t|
     t.string   "title"

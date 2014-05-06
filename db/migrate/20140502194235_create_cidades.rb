@@ -13,5 +13,8 @@ class CreateCidades < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :cidades, :cidade
+    add_index :cidades, :estado
+    add_index :cidades, :published
   end
 end

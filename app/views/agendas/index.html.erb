@@ -6,9 +6,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:horario) %></th>
+      <th><%= model_class.human_attribute_name(:data) %></th>
       <th><%= model_class.human_attribute_name(:local) %></th>
-      <th><%= model_class.human_attribute_name(:maps) %></th>
       <th><%= model_class.human_attribute_name(:passbook) %></th>
       <th><%= model_class.human_attribute_name(:published) %></th>
       <th><%= model_class.human_attribute_name(:descricao) %></th>
@@ -20,9 +19,8 @@
     <% @agendas.each do |agenda| %>
       <tr>
         <td><%= agenda.id %></td>
-          <td><%= agenda.horario %></td>
+          <td><%= agenda.data %></td>
           <td><%= agenda.local %></td>
-          <td><%= agenda.maps %></td>
           <td><%= agenda.passbook %></td>
           <td><%= agenda.published %></td>
           <td><%= agenda.descricao %></td>

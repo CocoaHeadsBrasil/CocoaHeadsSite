@@ -31,6 +31,20 @@
             <%= admin_nav_link "List all", {:controller => 'subscriptions', :action => 'index'} %>
           </ul>
         </li>
+        <%= dropdown_nav_link('agendas', {:class => 'dropdown'}) %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agenda <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <%= admin_nav_link "Criar nova", {:controller => 'agendas', :action => 'new'} %>
+            <%= admin_nav_link "Listar todas", {:controller => 'agendas', :action => 'index'} %>
+          </ul>
+        </li>
+        <%= dropdown_nav_link('cidades', {:class => 'dropdown'}) %>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cidades <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <%= admin_nav_link "Criar nova", {:controller => 'cidades', :action => 'new'} %>
+            <%= admin_nav_link "Listar todas", {:controller => 'cidades', :action => 'index'} %>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li><p class="navbar-text">Signed in as <%= session[:username] %></p></li>

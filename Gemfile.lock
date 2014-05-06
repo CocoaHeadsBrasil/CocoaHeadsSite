@@ -82,6 +82,7 @@ GEM
     fog-json (1.0.0)
       multi_json (~> 1.0)
     formatador (0.2.4)
+    gravtastic (3.2.6)
     heroku_rails_deflate (1.0.3)
       actionpack (>= 3.2.13)
       activesupport (>= 3.2.13)
@@ -199,6 +200,7 @@ DEPENDENCIES
   carrierwave_direct
   coffee-rails (~> 4.0.0)
   fog
+  gravtastic
   heroku_rails_deflate
   jbuilder (~> 1.2)
   jquery-rails
