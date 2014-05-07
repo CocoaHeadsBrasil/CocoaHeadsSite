@@ -1,0 +1,48 @@
+<%= error_messages_for(@video) %>
+
+  <div class="form-group">
+    <%= f.label :palestrante_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.select(:palestrante_id, [["Escolha um palestrante", '']] + @palestrantes.map {|p| [p.nome, p.id]}, {}, {:class => 'form-control'}) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :agenda_id, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.select(:agenda_id, [["Escolha uma agenda", '']] + @agendas.map {|a| [a.descritivo, a.id]}, {}, {:class => 'form-control'}) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :titulo, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :titulo, :class => 'text_field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :youtube, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :youtube, :class => 'text_field form-control', :placeholder => "Somente o ID do vídeo Ex.: _RFYoZ7H67A" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :published, "Publicado?", :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box(:published, :class => 'text_field form-control') %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= tinymce %>
+    <%= f.label :descricao, "Descrição", :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :descricao, :class => "tinymce", :rows => 30, :cols => 120 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  videos_path({:palestrante_id => @palestrante.id}), :class => 'btn btn-default' %>
+    </div>
+  </div>

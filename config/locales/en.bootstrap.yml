@@ -16,3 +16,5 @@ en:
       save: "Savar"
       new: "Novo"
       delete: "Excluir"
+    videos:
+      criar_novo_video: "Criar novo vídeo"

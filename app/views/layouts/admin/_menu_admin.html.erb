@@ -45,6 +45,7 @@
             <%= admin_nav_link "Listar todas", {:controller => 'cidades', :action => 'index'} %>
           </ul>
         </li>
+        <%= item_nav_link "Vídeos", {:controller => 'palestrantes', :action => 'index'}, 'videos' %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li><p class="navbar-text">Signed in as <%= session[:username] %></p></li>

@@ -1,3 +1,5 @@
+include Gravtastic
+
 class Cidade < ActiveRecord::Base
 
 	has_many :agendas
@@ -5,8 +7,11 @@ class Cidade < ActiveRecord::Base
 
 	before_validation :add_default_social_networks
 
-	include Gravtastic
-  	gravtastic :organizador_email
+  	has_gravatar :organizador_email,
+  				 :secure => true,
+  				 :default => "https://s3.amazonaws.com/content.cocoaheads.com.br/images/anonymous.png",
+  				 :size => 120,
+  				 :rating => 'R'
 
   	EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 
@@ -25,19 +30,19 @@ class Cidade < ActiveRecord::Base
 	private
 
 	def add_default_social_networks
-		if website.blank?
+		if website.is_blank?
 			self.website = Cocoaheads::Application::COCOAHEADS_SOCIAL_WEB
 		end
 
-		if github.blank?
+		if github.is_blank?
 			self.github = Cocoaheads::Application::COCOAHEADS_SOCIAL_GITHUB
 		end
 
-		if twitter.blank?
+		if twitter.is_blank?
 			self.twitter = Cocoaheads::Application::COCOAHEADS_SOCIAL_TWITTER
 		end
 
-		if facebook.blank?
+		if facebook.is_blank?
 			self.facebook = Cocoaheads::Application::COCOAHEADS_SOCIAL_FACEBOOK
 		end
 	end

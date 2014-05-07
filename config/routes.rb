@@ -1,5 +1,9 @@
 Cocoaheads::Application.routes.draw do
 
+  resources :videos
+
+  resources :palestrantes
+
   resources :cidades
 
   resources :agendas

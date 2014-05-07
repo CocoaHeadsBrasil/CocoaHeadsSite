@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506185539) do
+ActiveRecord::Schema.define(version: 20140506220647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,18 @@ ActiveRecord::Schema.define(version: 20140506185539) do
     t.datetime "updated_at"
   end
 
+  create_table "palestrantes", force: true do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.string   "website"
+    t.string   "twitter"
+    t.string   "github"
+    t.string   "linkedin"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "intro"
@@ -167,5 +179,17 @@ ActiveRecord::Schema.define(version: 20140506185539) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "videos", force: true do |t|
+    t.integer  "palestrante_id"
+    t.integer  "agenda_id"
+    t.string   "titulo"
+    t.text     "descricao"
+    t.string   "youtube"
+    t.boolean  "published"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

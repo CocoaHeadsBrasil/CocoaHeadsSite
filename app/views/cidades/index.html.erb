@@ -20,7 +20,7 @@
         <td><%= cidade.id %></td>
           <td><%= cidade.cidade %></td>
           <td><%= cidade.estado.sigla %></td>
-          <td><%= image_tag cidade.gravatar_url(:rating => 'R', :secure => true, :size => 120), :size => "60x60", :class => 'img-circle avatar' %><%= cidade.organizador %></td>
+          <td><%= image_tag cidade.gravatar_url, :size => "60x60", :class => 'img-circle avatar' %><%= cidade.organizador %></td>
           <td><%= cidade.organizador_email %></td>
           <td><%= status_tag(cidade.published, {:true_text => "SIM", :false_text => "NÃO"}) %></td>
         <td>

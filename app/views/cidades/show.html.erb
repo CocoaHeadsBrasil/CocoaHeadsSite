@@ -14,7 +14,7 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:organizador_email) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.organizador_email %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:website) %></dt>
-      <dd><pre class="prettyprint"><%= @cidade.website.is_blank? ? "" %></pre></dd>
+      <dd><pre class="prettyprint"><%= @cidade.website %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:github) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.github %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:twitter) %></dt>
@@ -22,7 +22,7 @@
       <dt class="label label-default"><%= model_class.human_attribute_name(:facebook) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.facebook %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
-      <dd><pre class="prettyprint"><%= @cidade.published %></pre></dd>
+      <dd><pre class="prettyprint"><%= @cidade.published ? "Sim" : "Não" %></pre></dd>
   </dl>
 </div>
 
