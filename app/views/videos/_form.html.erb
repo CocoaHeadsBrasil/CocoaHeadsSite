@@ -19,6 +19,12 @@
     </div>
   </div>
   <div class="form-group">
+    <%= f.label :tags, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :tags, :class => 'text_field form-control', :placeholder => "Tags separadas por vírgula. Ex.: CoreData, Webservice, GCD, ..." %>
+    </div>
+  </div>
+  <div class="form-group">
     <%= f.label :youtube, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :youtube, :class => 'text_field form-control', :placeholder => "Somente o ID do vídeo Ex.: _RFYoZ7H67A" %>

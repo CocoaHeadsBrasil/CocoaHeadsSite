@@ -6,6 +6,7 @@ class Video < ActiveRecord::Base
 
 	# shortcut validations, aka "sexy validations"
 	validates :titulo, :presence => true
+	validates :tags, :presence => true
 	validates :youtube, :presence => true,
 			  :format => YOUTUBE_REGEX,
 			  :uniqueness => true
@@ -16,14 +17,10 @@ class Video < ActiveRecord::Base
 	scope :publicados, lambda { where(:published => true) }
 	scope :despublicados, lambda { where(:published => false) }
 	scope :search, lambda{|query|
-		where(["descricao LIKE ? OR titulo LIKE ?", "%#{query}%", "%#{query}%"])
+		where(["descricao LIKE ? OR titulo LIKE ? OR tags LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%"])
 	}
 
 	def youtube_embed_url
 		"http://www.youtube.com/embed/#{self.youtube}?rel=0&amp;vq=hd1080"
-	end
-
-	def youtube_embed_code
-		"<iframe width=\"853\" height=\"480\" src=\"" + self.youtube_embed_url + "\" frameborder=\"0\" allowfullscreen></iframe>"
 	end
 end

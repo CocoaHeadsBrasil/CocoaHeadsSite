@@ -11,6 +11,8 @@
       <dd><pre class="prettyprint"><%= @video.agenda.descritivo %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:titulo) %></dt>
       <dd><pre class="prettyprint"><%= @video.titulo %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:tags) %></dt>
+      <dd><pre class="prettyprint"><%= render123_tags(@video.tags) %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:descricao) %></dt>
       <dd><pre class="prettyprint"><%= @video.descricao.html_safe %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:youtube) %></dt>

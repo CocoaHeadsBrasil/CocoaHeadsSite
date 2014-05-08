@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 20140506220647) do
     t.text     "descricao"
     t.string   "youtube"
     t.boolean  "published"
-    t.integer  "position"
+    t.string   "tags"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

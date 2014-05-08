@@ -8,7 +8,7 @@ class CreateVideos < ActiveRecord::Migration
       t.text    :descricao
       t.string  :youtube
       t.boolean :published
-      t.integer :position
+      t.string  :tags
 
       t.timestamps
     end
