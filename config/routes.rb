@@ -2,6 +2,9 @@ Cocoaheads::Application.routes.draw do
 
   resources :fotos
 
+  # get 'fotos/(:nome)', :to => 'fotos#public'
+  get '/fotos/albuns/:id', :to => 'fotos#public', :via => [:get]
+
   resources :videos
 
   resources :palestrantes
@@ -22,6 +25,7 @@ Cocoaheads::Application.routes.draw do
   end
 
   get 'tags/:tag', to: 'posts#index', as: :tag
+
   resources :posts
 
   resources :contents
@@ -41,10 +45,10 @@ Cocoaheads::Application.routes.draw do
   get 'questions', :to => 'faq_groups#public'
   match 'questions/:id/useful/:state', :to => 'faqs#useful', :via => [:get, :post]
   
-
-
   match "/500", :to => "errors#error500", :via => [:get, :post]
   match "/404", :to => "errors#error404", :via => [:get, :post]
   get ':permalink', :to => 'contents#public'
+
+
 
 end

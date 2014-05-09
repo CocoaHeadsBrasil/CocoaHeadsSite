@@ -69,6 +69,30 @@ class FotosController < ApplicationController
     end
   end
 
+  def public
+    @foto = Foto.where(:id => params[:id], :published => true).first
+    if @foto.nil?
+      raise ActiveRecord::RecordNotFound
+    else
+      # display the page content using public.html.erb
+      photosRequest = Flickr.sets.get_photos(@foto.flickr_album_id, {sizes:["Thumbnail", "Large 1024"]})
+      @photos = []
+      photosRequest.each do |p|
+
+        photo = {}
+
+        p.thumbnail!
+        photo[:title] = p.title
+        photo[:thumbnail_url] = p.source_url
+
+        p.largest!
+        photo[:large_url] = p.source_url
+
+        @photos << photo
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_foto
