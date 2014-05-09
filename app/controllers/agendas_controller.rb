@@ -24,6 +24,7 @@ class AgendasController < ApplicationController
 
   # GET /agendas/1/edit
   def edit
+    @cidades = Cidade.order('cidade ASC')
   end
 
   # POST /agendas
@@ -75,7 +76,7 @@ class AgendasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agenda_params
-      params.require(:agenda).permit(:data, :cidade_id, :endereco, :latitude, :longitude, :local, :maps, :passbook, :published, :descricao)
+      params.require(:agenda).permit(:data, :cidade_id, :endereco, :latitude, :longitude, :local, :maps, :passbook, :flickr_album, :published, :descricao)
     end
 
     def choose_layout

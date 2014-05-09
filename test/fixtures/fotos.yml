@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  descricao: MyText
+  flickr_album_id: MyString
+  published: false
+
+two:
+  nome: MyString
+  descricao: MyText
+  flickr_album_id: MyString
+  published: false

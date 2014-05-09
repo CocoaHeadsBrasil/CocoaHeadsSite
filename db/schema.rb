@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506220647) do
+ActiveRecord::Schema.define(version: 20140509172255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,11 @@ ActiveRecord::Schema.define(version: 20140506220647) do
     t.text     "descricao"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "foto_id"
   end
 
   add_index "agendas", ["data"], name: "index_agendas_on_data", using: :btree
+  add_index "agendas", ["foto_id"], name: "index_agendas_on_foto_id", using: :btree
   add_index "agendas", ["published"], name: "index_agendas_on_published", using: :btree
 
   create_table "cidades", force: true do |t|
@@ -115,6 +117,16 @@ ActiveRecord::Schema.define(version: 20140506220647) do
 
   add_index "faqs", ["position"], name: "index_faqs_on_position", using: :btree
   add_index "faqs", ["published"], name: "index_faqs_on_published", using: :btree
+
+  create_table "fotos", force: true do |t|
+    t.integer  "agenda_id"
+    t.string   "nome"
+    t.text     "descricao"
+    t.string   "flickr_album_id"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "menus", force: true do |t|
     t.datetime "created_at"

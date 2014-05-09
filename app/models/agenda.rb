@@ -2,6 +2,7 @@ class Agenda < ActiveRecord::Base
 
 	belongs_to :cidade
 	has_many :videos
+	has_many :fotos
 
 	# shortcut validations, aka "sexy validations"
 	validates :data, :presence => true

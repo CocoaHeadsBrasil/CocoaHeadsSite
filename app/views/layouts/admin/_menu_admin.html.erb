@@ -9,26 +9,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <%= item_nav_link "Dashboard", {:controller => 'access', :action => 'index'} %>
-        <%= item_nav_link "FAQ", {:controller => 'faq_groups', :action => 'index'}, 'faqs' %>
-        <%= dropdown_nav_link('contents', {:class => 'dropdown'}) %>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Content <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <%= admin_nav_link "Create new", {:controller => 'contents', :action => 'new'} %>
-            <%= admin_nav_link "List all", {:controller => 'contents', :action => 'index'} %>
-          </ul>
-        </li>
         <%= dropdown_nav_link('admin_users', {:class => 'dropdown'}) %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Users <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <%= admin_nav_link "Create new", {:controller => 'admin_users', :action => 'new'} %>
             <%= admin_nav_link "List all", {:controller => 'admin_users', :action => 'index'} %>
-          </ul>
-        </li>
-        <%= dropdown_nav_link('subscriptions', {:class => 'dropdown'}) %>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Subscriptions <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <%= admin_nav_link "Create new", {:controller => 'subscriptions', :action => 'new'} %>
-            <%= admin_nav_link "List all", {:controller => 'subscriptions', :action => 'index'} %>
           </ul>
         </li>
         <%= dropdown_nav_link('agendas', {:class => 'dropdown'}) %>
@@ -46,6 +31,7 @@
           </ul>
         </li>
         <%= item_nav_link "Vídeos", {:controller => 'palestrantes', :action => 'index'}, 'videos' %>
+        <%= item_nav_link "Fotos", {:controller => 'fotos', :action => 'index'}, 'fotos' %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li><p class="navbar-text">Signed in as <%= session[:username] %></p></li>
