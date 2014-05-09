@@ -30,19 +30,19 @@ class Cidade < ActiveRecord::Base
 	private
 
 	def add_default_social_networks
-		if website.is_blank?
+		if website.blank?
 			self.website = Cocoaheads::Application::COCOAHEADS_SOCIAL_WEB
 		end
 
-		if github.is_blank?
+		if github.blank?
 			self.github = Cocoaheads::Application::COCOAHEADS_SOCIAL_GITHUB
 		end
 
-		if twitter.is_blank?
+		if twitter.blank?
 			self.twitter = Cocoaheads::Application::COCOAHEADS_SOCIAL_TWITTER
 		end
 
-		if facebook.is_blank?
+		if facebook.blank?
 			self.facebook = Cocoaheads::Application::COCOAHEADS_SOCIAL_FACEBOOK
 		end
 	end
