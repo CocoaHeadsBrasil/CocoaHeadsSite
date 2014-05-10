@@ -10,7 +10,7 @@
       <ul class="nav navbar-nav">
         <%= item_nav_link "Dashboard", {:controller => 'access', :action => 'index'} %>
         <%= dropdown_nav_link('admin_users', {:class => 'dropdown'}) %>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Users <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuários Admins <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <%= admin_nav_link "Create new", {:controller => 'admin_users', :action => 'new'} %>
             <%= admin_nav_link "List all", {:controller => 'admin_users', :action => 'index'} %>
