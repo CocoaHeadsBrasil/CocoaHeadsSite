@@ -21,7 +21,7 @@
           <td><%= image_tag palestrante.gravatar_url, :size => "60x60", :class => 'img-circle avatar' %><%= palestrante.nome %></td>
           <td><%= palestrante.email %></td>
           <td><%= status_tag(palestrante.published, {:true_text => "SIM", :false_text => "NÃO"}) %></td>
-          <td>INSERIR N. VIDEOS</td>
+          <td><%= palestrante.videos.count %></td>
         <td>
           <%= link_to("Criar vídeos", {:controller => 'videos', :palestrante_id => palestrante.id}, :class => 'btn btn-default btn-xs') %>
           <%= link_to palestrante_path(palestrante), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
