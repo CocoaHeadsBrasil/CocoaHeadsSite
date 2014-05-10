@@ -31,6 +31,7 @@ class Agenda < ActiveRecord::Base
 	def to_ics
 		event = Icalendar::Event.new
 		event.dtstart = self.data
+		event.dtend 	= self.data + 2.hours
 		event.summary = self.descritivo_curto
 
 		event.alarm do |a|

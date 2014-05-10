@@ -22,6 +22,7 @@ class AgendasController < ApplicationController
         calendar = Icalendar::Calendar.new
         calendar.add_event(@agenda.to_ics)
         calendar.publish
+        response.headers['Content-Disposition'] = 'attachment; filename="' + @agenda.descritivo.parameterize + '.ics"'
         render :text => calendar.to_ical
       end
     end
