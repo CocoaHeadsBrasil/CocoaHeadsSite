@@ -12,19 +12,19 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Newsletter</h2>
-          <p>Temos atualmente <strong><%= Subscription.all.count %></strong> usu&aacute;rios inscritos em nossa newsletter. <strong><%= Subscription.last_week.count %></strong> s&oacute; na &uacute;ltima semana.</p>
-          <p><%= link_to "Ver detalhes &raquo;".html_safe, {:controller => 'subscriptions', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Conte&uacute;do</h2>
-          <p>Gerencie todos o conte&uacute;do est&aacute;tico do projeto utilizando um editor WYSIWYG.</p>
-          <p><%= link_to "Ver detalhes &raquo;".html_safe, {:controller => 'contents', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
+          <h2>Cidades</h2>
+          <p>Gerencie todos os cap&iacute;tulos do CocoaHeadsBR, incluindo novas cidades, alterando informações sobre os leaders e mais.</p>
+          <p><%= link_to "Ver detalhes &raquo;".html_safe, {:controller => 'cidades', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
        </div>
         <div class="col-md-4">
-          <h2>Perguntas</h2>
-          <p>Gerencie a se&ccedil;&atilde;o FAQ criando novos grupos de quest&otilde;es e perguntas/respostas.</p>
-          <p><%= link_to "Ver detalhes &raquo;".html_safe, {:controller => 'faq_groups', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
+          <h2>Agenda</h2>
+          <p>Gerencie as agendas de eventos dos capítulos. Crie novas, exporte para iCalender, movimente a comunidade.</p>
+          <p><%= link_to "Ver detalhes &raquo;".html_safe, {:controller => 'agendas', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Vídeos</h2>
+          <p>Concluiu um evento CocoaHeads? Hora de disponibilizar os vídeos das CocoaTalks para toda a comunidade.</p>
+          <p><%= link_to "Ver detalhes &raquo;".html_safe, {:controller => 'videos', :action => 'index'}, :class => 'btn btn-default', :role => 'button' %></p>
         </div>
       </div>
 
