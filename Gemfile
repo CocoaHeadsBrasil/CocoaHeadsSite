@@ -69,10 +69,7 @@ gem 'acts-as-taggable-on'
 
 gem 'gravtastic'
 
-# gem 'flickr.rb', '~> 1.1.2'
 gem 'flickr-objects', '~> 0.4.1'
-
-# gem 'brazilian-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

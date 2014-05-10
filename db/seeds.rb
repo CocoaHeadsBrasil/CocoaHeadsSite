@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # usuario root
-# user = AdminUser.new(:first_name => "Steve", :last_name => "Jobs", :email => "sjobs@cocoaheads.com.br", :username => "sjobs", :password => "sjobsch2014", :password_confirmation => "sjobsch2014").save
+user = AdminUser.new(:first_name => "Steve", :last_name => "Jobs", :email => "sjobs@cocoaheads.com.br", :username => "sjobs", :password => "sjobsch2014", :password_confirmation => "sjobsch2014").save
 
 # estados da federacao
 e = Estado.create(:sigla => 'AC', :nome => "Acre").save
