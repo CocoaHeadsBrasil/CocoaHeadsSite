@@ -12,8 +12,8 @@
         <%= dropdown_nav_link('admin_users', {:class => 'dropdown'}) %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuários Admins <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <%= admin_nav_link "Create new", {:controller => 'admin_users', :action => 'new'} %>
-            <%= admin_nav_link "List all", {:controller => 'admin_users', :action => 'index'} %>
+            <%= admin_nav_link "Criar novo", {:controller => 'admin_users', :action => 'new'} %>
+            <%= admin_nav_link "Listar todos", {:controller => 'admin_users', :action => 'index'} %>
           </ul>
         </li>
         <%= dropdown_nav_link('agendas', {:class => 'dropdown'}) %>
@@ -34,7 +34,7 @@
         <%= item_nav_link "Fotos", {:controller => 'fotos', :action => 'index'}, 'fotos' %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<li><p class="navbar-text">Signed in as <%= session[:username] %></p></li>
+      	<li><p class="navbar-text">Logado como <%= session[:username] %></p></li>
         <% 
           admin_user = AdminUser.find(session[:user_id])
 
