@@ -11,7 +11,11 @@ Cocoaheads::Application.routes.draw do
 
   resources :cidades
 
-  resources :agendas
+  resources :agendas do
+    collection do
+      get 'export/:id', :action => :export, :as => 'export'
+    end
+  end
 
   root 'home#index'
 

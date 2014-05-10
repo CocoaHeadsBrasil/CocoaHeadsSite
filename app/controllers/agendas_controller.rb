@@ -1,7 +1,7 @@
 class AgendasController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:public]
-  before_action :set_agenda, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in, except: [:public, :export]
+  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export]
 
   layout :choose_layout
 
@@ -13,19 +13,7 @@ class AgendasController < ApplicationController
 
   # GET /agendas/1
   # GET /agendas/1.json
-  # GET /agendas/1.ics
   def show
-    respond_to do |format|
-      format.html
-      format.json { render json: @agenda }
-      format.ics do
-        calendar = Icalendar::Calendar.new
-        calendar.add_event(@agenda.to_ics)
-        calendar.publish
-        response.headers['Content-Disposition'] = 'attachment; filename="' + @agenda.descritivo.parameterize + '.ics"'
-        render :text => calendar.to_ical
-      end
-    end
   end
 
   # GET /agendas/new
@@ -77,6 +65,23 @@ class AgendasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to agendas_url }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /agendas/1
+  # GET /agendas/1.json
+  # GET /agendas/1.ics
+  def export
+    respond_to do |format|
+      format.html
+      format.json { render json: @agenda }
+      format.ics do
+        calendar = Icalendar::Calendar.new
+        calendar.add_event(@agenda.to_ics)
+        calendar.publish
+        response.headers['Content-Disposition'] = 'attachment; filename="' + @agenda.descritivo.parameterize + '.ics"'
+        render :text => calendar.to_ical
+      end
     end
   end
 
