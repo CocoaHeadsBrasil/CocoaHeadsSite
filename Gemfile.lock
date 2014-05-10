@@ -98,6 +98,7 @@ GEM
       rack (>= 1.4.5)
     hike (1.2.3)
     i18n (0.6.9)
+    icalendar (2.0.1)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -215,6 +216,7 @@ DEPENDENCIES
   fog
   gravtastic
   heroku_rails_deflate
+  icalendar (~> 2.0.1)
   jbuilder (~> 1.2)
   jquery-rails
   mini_magick

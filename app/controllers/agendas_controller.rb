@@ -13,7 +13,18 @@ class AgendasController < ApplicationController
 
   # GET /agendas/1
   # GET /agendas/1.json
+  # GET /agendas/1.ics
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @agenda }
+      format.ics do
+        calendar = Icalendar::Calendar.new
+        calendar.add_event(@agenda.to_ics)
+        calendar.publish
+        render :text => calendar.to_ical
+      end
+    end
   end
 
   # GET /agendas/new

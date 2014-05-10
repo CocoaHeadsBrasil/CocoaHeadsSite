@@ -20,7 +20,26 @@ class Agenda < ActiveRecord::Base
 	}
 
 	def descritivo
-		self.cidade.cidade + " - " + self.data.strftime("%d/%m/%Y")
+		"CocoaHeads " + self.cidade.cidade + " - " + self.data.strftime("%d/%m/%Y")
+	end
+
+	def descritivo_curto
+		"CocoaHeads " + self.cidade.cidade
+	end
+
+	# Converte para iCalendar
+	def to_ics
+		event = Icalendar::Event.new
+		event.dtstart = self.data
+		event.summary = self.descritivo_curto
+
+		event.alarm do |a|
+			a.action  = "DISPLAY" # This line isn't necessary, it's the default
+			a.summary = self.descritivo_curto
+			a.trigger = "-P1DT0H0M0S" # 1 day before
+		end
+
+		event
 	end
 
 end

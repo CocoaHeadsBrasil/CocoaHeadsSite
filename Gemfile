@@ -71,6 +71,8 @@ gem 'gravtastic'
 
 gem 'flickr-objects', '~> 0.4.1'
 
+gem 'icalendar', '~> 2.0.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
