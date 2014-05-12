@@ -4,8 +4,11 @@ class Agenda < ActiveRecord::Base
 	has_many :videos
 	has_many :fotos
 
+	before_validation :add_default_name
+
 	# shortcut validations, aka "sexy validations"
 	validates :data, :presence => true
+	validates :nome, :presence => true
 	validates :endereco, :presence => true
 	validates :local, :presence => true
 	validates :latitude, :presence => true
@@ -27,6 +30,11 @@ class Agenda < ActiveRecord::Base
 		"CocoaHeads " + self.cidade.cidade
 	end
 
+	def horario
+		horario = self.data.strftime("%H:%M").split(':')
+		horario.last == '00' ? horario.first + 'hs' : horario.first + 'hs' + ' ' + horario.last + 'min'
+	end
+
 	# Converte para iCalendar
 	def to_ics
 		event = Icalendar::Event.new
@@ -43,4 +51,9 @@ class Agenda < ActiveRecord::Base
 		event
 	end
 
+	private
+
+	def add_default_name
+		self.nome = self.nome.blank? ? self.descritivo : self.nome
+	end
 end

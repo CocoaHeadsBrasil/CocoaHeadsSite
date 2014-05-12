@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%= render :partial => "/layouts/header", :locals => {:page_title => @page_title} %>
+        <%= render :partial => "layouts/maps" %>
+	</head>
+    <body class="interna fullscreen">
+        <%= yield %>
+        <div class="brclear">&nbsp;</div>
+        <%= render(:partial => "layouts/footer") %>
+		<%= javascript_include_tag "application" %>
+        <%= render :partial => "layouts/analytics" %>
+    </script>
+	</body>
+</html>

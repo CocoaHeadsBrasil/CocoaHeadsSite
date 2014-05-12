@@ -1,7 +1,7 @@
 class AgendasController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:public, :export]
-  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export]
+  before_action :confirm_logged_in, except: [:public, :export, :maps]
+  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export, :maps]
 
   layout :choose_layout
 
@@ -85,6 +85,10 @@ class AgendasController < ApplicationController
     end
   end
 
+  def maps
+    render layout: "internal_clean"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_agenda
@@ -93,7 +97,7 @@ class AgendasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agenda_params
-      params.require(:agenda).permit(:data, :cidade_id, :endereco, :latitude, :longitude, :local, :maps, :passbook, :flickr_album, :published, :descricao)
+      params.require(:agenda).permit(:data, :nome, :cidade_id, :endereco, :latitude, :longitude, :local, :maps, :passbook, :flickr_album, :published, :descricao)
     end
 
     def choose_layout

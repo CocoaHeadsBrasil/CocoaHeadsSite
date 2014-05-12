@@ -2,6 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#map{
+    width: 100%; height: 100%; position: fixed !important; top:0; left:0;
+}
+
+a.voltar{
+  position:fixed;
+  bottom:120px;
+  right:40px;
+  background: #033f28;
+  padding: 20px 30px;
+  z-index: 100;
+  opacity: 0.8;
+  color:white;
+
+  &:hover{
+    opacity: 1.0;
+  }
+}
+
+div.endereco{
+  position:fixed;
+  top:40px;
+  right:40px;
+  background: rgba(3,63,40,0.8);
+  padding: 20px;
+  z-index: 100;
+  opacity: 0.9;
+  color:white;
+  width: 300px;
+  text-align: left;
+
+  div.local{
+    padding:10px 0 0 0;
+  }
+}
+
+div#map{
+  color:black;
+}
+
 /*!
  * Datetimepicker for Bootstrap v3
  * https://github.com/Eonasdan/bootstrap-datetimepicker/

@@ -1,0 +1,8 @@
+<div class="endereco" data-latitude="<%= @agenda.latitude %>" data-longitude="<%= @agenda.longitude %>">
+	<div class="capitulo"><%= @agenda.descritivo_curto %></div>
+	<div class="nome"><%= @agenda.nome %></div>
+	<div class="data"><%= @agenda.data.strftime("%d/%m/%Y às %H:%M") %></div>
+	<div class="local"><%= @agenda.local %></div>
+	<div class="addr"><%= @agenda.endereco %></div>
+</div>
+<a class="voltar" href="javascript:history.back();">Voltar</a>

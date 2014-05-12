@@ -3644,9 +3644,59 @@ THE SOFTWARE.
     });
 }));
 
+function initMaps(){
+    $("body").prepend('<div id="map" />');
+
+    $("#map").height($(window).height());
+    var latLong = new google.maps.LatLng($("div.endereco").data("latitude"), $("div.endereco").data("longitude"));
+    var mapOptions = {
+            center: latLong,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            zoom: 16,
+            scrollwheel: false,
+            panControl: false,
+            mapTypeControl: true,
+            mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                position: google.maps.ControlPosition.BOTTOM_LEFT
+            },
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.LARGE,
+                position: google.maps.ControlPosition.LEFT_CENTER
+            }
+    };   
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    
+    var contentString = $("div.endereco div.local").html()+
+                        '<br />'+
+                        $("div.endereco div.nome").html();
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+
+    var marker = new google.maps.Marker({
+        position: latLong,
+        map: map,
+        title: 'Barini Odontologia',
+        animation: google.maps.Animation.DROP
+    });
+infowindow.open(map,marker);
+
+    $(window).resize(function() {
+        $("#map").height($(window).height());
+    });
+}
+
 
 $(function() {
 	$('#datetimepicker1').datetimepicker({
 		language: 'pt-BR'
 	});
+
+    if ($("body.interna").length) {
+        initMaps();
+    }
 });

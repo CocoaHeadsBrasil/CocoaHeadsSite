@@ -5,7 +5,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>ID</th>
+      <th>Nome</th>
       <th><%= model_class.human_attribute_name(:data) %></th>
       <th><%= model_class.human_attribute_name(:local) %></th>
       <th><%= model_class.human_attribute_name(:passbook) %></th>
@@ -18,11 +19,12 @@
     <% @agendas.each do |agenda| %>
       <tr>
         <td><%= agenda.id %></td>
-          <td><%= agenda.data.strftime("%d/%m/%Y às %H:%M:%S") %></td>
-          <td><%= agenda.local %></td>
-          <td><%= agenda.passbook %></td>
-          <td><%= status_tag(agenda.published, {:true_text => "SIM", :false_text => "NÃO"}) %>
-          <td><%= agenda.created_at.strftime("%d/%m/%Y às %H:%M:%S") %></td>
+        <td><%= agenda.nome %></td>
+        <td><%= agenda.data.strftime("%d/%m/%Y às %H:%M:%S") %></td>
+        <td><%= agenda.local %></td>
+        <td><%= status_tag(!agenda.passbook.empty?, {:true_text => "SIM", :false_text => "NÃO"}) %></td>
+        <td><%= status_tag(agenda.published, {:true_text => "SIM", :false_text => "NÃO"}) %></td>
+        <td><%= agenda.created_at.strftime("%d/%m/%Y às %H:%M:%S") %></td>
         <td>
           <%= link_to agenda_path(agenda), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>

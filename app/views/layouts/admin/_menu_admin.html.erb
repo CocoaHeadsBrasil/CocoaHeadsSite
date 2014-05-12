@@ -45,7 +45,7 @@
           end
         %>
         <li><%= link_to image_tag(avatar_url, :size => "40x40", :class => "img-circle"), {:controller => "admin_users", :action => 'edit', :id => session[:user_id]}, :class => 'user-thumb' %></li>
-        <li><%= link_to("Logout", {:controller => 'access', :action => 'logout'}) %></li>
+        <li><%= link_to("Sair", {:controller => 'access', :action => 'logout'}) %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

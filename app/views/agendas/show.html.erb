@@ -5,6 +5,10 @@
 
 <div class="fieldset">
   <dl>
+      <dt class="label label-default">Cidade</dt>
+      <dd><pre class="prettyprint"><%= @agenda.descritivo_curto %></pre></dd>
+      <dt class="label label-default">Nome</dt>
+      <dd><pre class="prettyprint"><%= @agenda.nome %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:data) %></dt>
       <dd><pre class="prettyprint"><%= @agenda.data.strftime("%d/%m/%Y às %H:%M:%S") %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:local) %></dt>

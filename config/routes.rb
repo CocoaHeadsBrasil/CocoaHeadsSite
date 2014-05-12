@@ -14,6 +14,7 @@ Cocoaheads::Application.routes.draw do
   resources :agendas do
     collection do
       get 'export/:id', :action => :export, :as => 'export'
+      get 'maps/:id', :action => :maps, :as => 'maps'
     end
   end
 

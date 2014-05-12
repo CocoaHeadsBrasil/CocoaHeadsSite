@@ -1,12 +1,18 @@
   <%= error_messages_for(@agenda) %>
-
+  
   <%= form_for @agenda, :html => { :class => 'form-horizontal' } do |f| %>
 
   <div class="form-group">
-      <%= f.label :cidade, "Agenda", :class => 'control-label col-md-2' %>
+      <%= f.label :cidade, "Cidade", :class => 'control-label col-md-2' %>
       <div class="col-md-10">
           <%= f.select(:cidade_id, [["Escolha uma cidade", '']] + @cidades.map {|c| [c.cidade, c.id]}, {}, {:class => 'form-control'}) %>
       </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :nome, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :nome, :class => 'text_field form-control', :placeholder => "Nome do evento" %>
+    </div>
   </div>
   <div class="form-group">
       <%= f.label :data, "Data/Horário", :class => 'control-label col-md-2' %>
@@ -23,7 +29,6 @@
       <%= f.text_field :local, :class => 'text_field form-control', :placeholder => "Nome do local que irá sediar o evento" %>
     </div>
   </div>
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCnjbfSxsL5bf3m_r9ulLf4stDiDUbdrAI&sensor=false"></script>
   <div class="form-group">
     <%= f.label :endereco, "Endere&ccedil;o".html_safe, :class => 'control-label col-md-2' %>
     <div class="col-md-5">

@@ -1,0 +1,21 @@
+<% agendas = Agenda.recentes.published %>
+<% agendas.each do |a| %>
+	<div class="agenda">
+		<div><span class="data"><%= a.data.strftime("%d/%m/%Y") %></span> - <span class="capitulo"><%= a.descritivo_curto %></span></div>
+		<div><span class="nome"><%= a.nome %></span></div>
+		<div><span class="horario"><%= a.horario %></span> @ <span class="local"><%= a.local %></span></div>
+		<ul class="recursos">
+			<%= content_tag :li do -%>
+				[ <%= link_to "Maps", maps_agendas_path(a) %> ]
+			<% end -%>
+
+			<%= content_tag :li do -%>
+				[ <%= link_to "Passbook", a.passbook, {:target => :blank} %> ]
+			<% end if !a.passbook.empty? -%>
+
+			<%= content_tag :li do -%>
+				[ <%= link_to "iCal", export_agendas_path(a, :format => 'ics'), :title => "Exportar ICS" %> ]
+			<% end -%>
+		</ul>
+	</div>
+<% end %>
