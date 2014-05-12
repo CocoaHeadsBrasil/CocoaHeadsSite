@@ -3683,7 +3683,7 @@ function initMaps(){
         title: 'Barini Odontologia',
         animation: google.maps.Animation.DROP
     });
-infowindow.open(map,marker);
+    infowindow.open(map,marker);
 
     $(window).resize(function() {
         $("#map").height($(window).height());
@@ -3696,7 +3696,7 @@ $(function() {
 		language: 'pt-BR'
 	});
 
-    if ($("body.interna").length) {
+    if ($("body.interna.clean").length) {
         initMaps();
     }
 });
