@@ -1,22 +1,22 @@
 <%- model_class = Content -%>
 <div class="page-header">
-  <h1>Showing <%= "#{@content.title}" %></h1>
+  <h1>Mostrando <%= "#{@content.title}" %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dt><strong>Título:</strong></dt>
   <dd><%= @content.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:permalink) %>:</strong></dt>
   <dd><%= @content.permalink %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
+  <dt><strong>Posição:</strong></dt>
   <dd><%= @content.position %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:published) %>:</strong></dt>
+  <dt><strong>Publicado?:</strong></dt>
   <dd><%= @content.published %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:modified_by) %>:</strong></dt>
+  <dt><strong>Modificado por:</strong></dt>
   <dd><%= @content.modified_by %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
+  <dt><strong>Criado por:</strong></dt>
   <dd><%= @content.created_by %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:body) %>:</strong></dt>
+  <dt><strong>Conteúdo:</strong></dt>
   <dd><%= @content.body %></dd>
 </dl>
 

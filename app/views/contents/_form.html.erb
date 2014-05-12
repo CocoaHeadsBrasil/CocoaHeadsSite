@@ -1,12 +1,12 @@
 <%= form_for @content, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
+    <%= f.label :title, "Título", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'form-control' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :subtitle, :class => 'control-label' %>
+    <%= f.label :subtitle, "Subtítulo", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :subtitle, :class => 'form-control' %>
     </div>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :position, :class => 'control-label' %>
+    <%= f.label :position, "Posição", :class => 'control-label' %>
     <div class="controls">
       <%= f.select(:position, 1..4, {}, { :class => 'form-control' }) %>
     </div>
@@ -26,7 +26,7 @@
   <div class="control-group checkbox">
     <label class="control-label">
       <%= f.check_box :published %>
-      Published? 
+      Publicado? 
     </label>
   </div>
   <div class="control-group">
