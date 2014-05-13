@@ -46,20 +46,4 @@ class Cidade < ActiveRecord::Base
 			self.facebook = Cocoaheads::Application::COCOAHEADS_SOCIAL_FACEBOOK
 		end
 	end
-
-
-  # create_table "cidades", force: true do |t|
-  #   t.string   "cidade"
-  #   t.string   "estado"
-  #   t.string   "organizador"
-  #   t.string   "organizador_email"
-  #   t.string   "website"
-  #   t.string   "github"
-  #   t.string   "twitter"
-  #   t.string   "facebook"
-  #   t.boolean  "published"
-  #   t.datetime "created_at"
-  #   t.datetime "updated_at"
-  # end
-  # 
 end

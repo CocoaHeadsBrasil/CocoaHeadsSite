@@ -249,3 +249,81 @@ div#map{
 .form-group div.date{
 	padding-left: 15px;
 }
+
+
+
+body.interna{
+  a.agendas-toggle{
+    position: relative;
+    top: -90px;
+    right: -15px;
+    float: right;
+  }
+
+  a.btn{
+    margin-top: 20px;
+  }
+
+  div.agendas.interna{
+
+    div.agenda{
+      width: 588px;
+      border:1px rgba(0,0,0,0.2) solid;
+      padding: 20px;
+      margin:10px;
+      border-radius: 10px;
+      background-color: rgba(0,0,0,0.4);
+      float:left;
+
+      div.nome{
+        font-size: 180%;
+        span.glyphicon{
+          color:green;
+        }
+      }
+      div.estado{
+        font-size: 300%;
+        color: #f9da03;
+        width: 100px;
+        text-align: center;
+        opacity: 0.5;
+        float: right;
+        bottom: -25px;
+        right: -20px;
+        position: relative;
+        font-weight: bold;
+      }
+      div>span{
+        color: #f9da03;
+      }
+    }
+    div.agenda.inativa{
+      color:gray;
+
+      div.estado{
+        color:gray;
+      }
+      span{
+        color:lightgray;
+      }
+    }
+  }
+}
+
+div.agenda-detalhes{
+  div.nome{
+    font-size: 300%;
+  }
+  div.descricao{
+    margin: 20px 0;
+    padding:20px 0;
+    border-top:1px solid black;
+
+    &>p:first-child{
+      margin: 0!important;
+    }
+  }
+  div>span{
+    color: #f9da03;
+  }
+}

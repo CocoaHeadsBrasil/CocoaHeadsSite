@@ -1,9 +1,21 @@
 Cocoaheads::Application.routes.draw do
 
+  root 'home#index'
+
+  resources :agendas do
+    collection do
+      get 'ativas', :action => :ativas, :as => 'ativas'
+      get 'todas', :action => :todas, :as => 'todas'
+      get 'detalhes/:id', :action => :detalhes, :as => 'detalhes', :via => [:get]
+      get 'export/:id', :action => :export, :as => 'export'
+      get 'maps/:id', :action => :maps, :as => 'maps'
+    end
+  end
+
   resources :fotos
 
-  # get 'fotos/(:nome)', :to => 'fotos#public'
   get '/fotos/albuns/:id', :to => 'fotos#public', :via => [:get]
+  
 
   resources :videos
 
@@ -11,14 +23,6 @@ Cocoaheads::Application.routes.draw do
 
   resources :cidades
 
-  resources :agendas do
-    collection do
-      get 'export/:id', :action => :export, :as => 'export'
-      get 'maps/:id', :action => :maps, :as => 'maps'
-    end
-  end
-
-  root 'home#index'
 
   get 'cupertino' => "access#index"
 

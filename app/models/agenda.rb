@@ -6,6 +6,8 @@ class Agenda < ActiveRecord::Base
 
 	before_validation :add_default_name
 
+	WillPaginate.per_page = 20
+
 	# shortcut validations, aka "sexy validations"
 	validates :data, :presence => true
 	validates :nome, :presence => true
@@ -14,10 +16,11 @@ class Agenda < ActiveRecord::Base
 	validates :latitude, :presence => true
 	validates :longitude, :presence => true
 
-	scope :recentes, lambda { order("agendas.data DESC") }
+	scope :recentes, lambda { order("agendas.data DESC, agendas.cidade_id ASC") }
 	scope :por_cidade, lambda { order("agendas.cidade_id ASC, agendas.data DESC") }
-	scope :published, lambda { where(:published => true) }
-	scope :unpublished, lambda { where(:published => false) }
+	scope :ativas, lambda { where("agendas.data > ?", Time.now ) }
+	scope :publicadas, lambda { where(:published => true) }
+	scope :despublicadas, lambda { where(:published => false) }
 	scope :search, lambda{|query|
 		where(["descricao LIKE ?", "%#{query}%"])
 	}
@@ -33,6 +36,10 @@ class Agenda < ActiveRecord::Base
 	def horario
 		horario = self.data.strftime("%H:%M").split(':')
 		horario.last == '00' ? horario.first + 'hs' : horario.first + 'hs' + ' ' + horario.last + 'min'
+	end
+
+	def antiga?
+		self.data < Time.now
 	end
 
 	# Converte para iCalendar

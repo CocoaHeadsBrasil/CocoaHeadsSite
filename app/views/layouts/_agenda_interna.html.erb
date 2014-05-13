@@ -1,0 +1,11 @@
+<% ativaClass = a.antiga? ? 'inativa' : 'ativa' %>
+<% dias_restantes = (Time.zone.now - a.data).abs.to_i / 1.day %>
+<div class="agenda push-left <%= ativaClass %>">
+	<div class="nome"><%= '<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;'.html_safe if a.antiga? %><%= a.nome %></div>
+	<div class="capitulo"><span>Capítulo: </span> <%= a.descritivo_curto %></div>
+	<div class="data"><span>Data do evento: </span> <%= a.data.strftime("%d/%m/%Y") %><%= " (em #{pluralize(dias_restantes, "dia", "dias")})" if !a.antiga? %></div>
+	<div class="horario"><span>Horário: </span> <%= a.horario %></div>
+	<div class="local"><span>Local: </span> <%= a.local %></div>
+	<div class="estado"><%= a.cidade.estado.sigla %></div>	
+	<%= link_to "Mais informações", {:action => :detalhes, :id => a.id}, {:class => 'btn btn-default'} %>
+</div>

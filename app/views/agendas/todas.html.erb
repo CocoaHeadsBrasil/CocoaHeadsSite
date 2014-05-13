@@ -1,0 +1,13 @@
+<% @titulo = "Agendas" %>
+<% @subtitulo = "Todas as agendas" %>
+
+<%= link_to "Listar somente ativas", {:action => :ativas}, {:class => 'btn btn-default agendas-toggle'} %>
+<div class="brclear">&nbsp;</div>
+<div class="agendas interna">
+<% @agendas.each do |a| %>
+	<%= render :partial => "layouts/agenda_interna", :locals => {:a => a} %>
+<% end %>
+</div>
+<div class="brclear">&nbsp;</div>
+
+<%= will_paginate @agendas if @agendas.count > WillPaginate.per_page %>

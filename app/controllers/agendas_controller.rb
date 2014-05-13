@@ -1,7 +1,7 @@
 class AgendasController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:public, :export, :maps]
-  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export, :maps]
+  before_action :confirm_logged_in, except: [:ativas, :export, :maps, :detalhes]
+  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export, :maps, :detalhes]
 
   layout :choose_layout
 
@@ -87,6 +87,20 @@ class AgendasController < ApplicationController
 
   def maps
     render layout: "internal_clean"
+  end
+
+  def ativas
+    @agendas = Agenda.ativas.publicadas.recentes
+    render layout: "internal_fullscreen"
+  end
+
+  def todas
+    @agendas = Agenda.recentes.paginate(:page => params[:page])
+    render layout: "internal_fullscreen"
+  end
+
+  def detalhes
+    render layout: "internal"
   end
 
   private

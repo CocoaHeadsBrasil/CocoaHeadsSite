@@ -73,6 +73,9 @@ gem 'flickr-objects', '~> 0.4.1'
 
 gem 'icalendar', '~> 2.0.1'
 
+gem 'will_paginate', '~> 3.0.5'
+gem 'bootstrap-will_paginate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

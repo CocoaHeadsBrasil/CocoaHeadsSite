@@ -1,4 +1,4 @@
-<% agendas = Agenda.recentes.published %>
+<% agendas = Agenda.recentes.publicadas %>
 <% agendas.each do |a| %>
 	<div class="agenda">
 		<div><span class="data"><%= a.data.strftime("%d/%m/%Y") %></span> - <span class="capitulo"><%= a.descritivo_curto %></span></div>

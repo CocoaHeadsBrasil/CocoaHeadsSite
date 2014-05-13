@@ -136,7 +136,7 @@ ul#menu {
     height: 32px;
     margin-left: 184px;
     margin-top: 130px;
-    width: 67%;
+    width: 70%;
     float:left;
     text-align: left;
     overflow: hidden;
@@ -288,5 +288,24 @@ div#agenda {
 div.tags{
     span{
         margin-left:5px;
+    }
+}
+
+div.pagination{
+    clear: both;
+    float: none;
+    width: 100%;
+
+    text-align: center;
+    li{
+        a, a:hover{
+            color: black;
+        }
+    }
+    li.active{
+        a{
+            background-color: #097a4f;
+            border-color:  #097a4f;
+        }
     }
 }

@@ -17,6 +17,12 @@
             </header>
 
             <article>
+                <% if @titulo.length %>
+                <h1><%= @titulo %></h1>
+                <% if @subtitulo.length %>
+                    <h3><%= @subtitulo %></h3>
+                <% end %>
+                <% end %>
                 <%= yield %>
             </article>
 
