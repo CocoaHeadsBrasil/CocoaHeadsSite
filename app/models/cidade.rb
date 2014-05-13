@@ -17,15 +17,38 @@ class Cidade < ActiveRecord::Base
 
 	# shortcut validations, aka "sexy validations"
 	validates :cidade, :presence => true
+	validates :email, :presence => true,
+	            :length => { :maximum => 100 },
+	            :format => EMAIL_REGEX
 	validates :organizador, :presence => true
 	validates :organizador_email, :presence => true,
 	            :length => { :maximum => 100 },
 	            :format => EMAIL_REGEX
 
 	scope :ordenados, lambda { order("cidades.cidade ASC") }
-	scope :por_estado, lambda { order("estados.nome, cidades.cidade") }
-	scope :publicados, lambda { where(:visible => true) }
-	scope :despublicados, lambda { where(:visible => false) }
+	scope :por_estado, joins(:estado).order("estados.nome, cidades.cidade")
+	scope :publicados, lambda { where(:published => true) }
+	scope :despublicados, lambda { where(:published => false) }
+
+	def nome_do_capitulo
+		"CocoaHeads " + self.cidade
+	end
+
+	def has_website?
+		self.website != Cocoaheads::Application::COCOAHEADS_SOCIAL_WEB
+	end
+
+	def has_github?
+		self.github != Cocoaheads::Application::COCOAHEADS_SOCIAL_GITHUB
+	end
+
+	def has_twitter?
+		self.twitter != Cocoaheads::Application::COCOAHEADS_SOCIAL_TWITTER
+	end
+
+	def has_facebook?
+		self.facebook != Cocoaheads::Application::COCOAHEADS_SOCIAL_FACEBOOK
+	end
 
 	private
 

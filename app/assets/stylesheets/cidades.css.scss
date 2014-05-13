@@ -1,3 +1,70 @@
 // Place all the styles related to the cidades controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$cor_destaque: #f9da03;
+
+div.cidades.interna{
+	font-size: 30px;
+
+	div.estado{
+		font-size: 40px;
+		color: $cor_destaque;
+		font-weight: bold;
+		margin: 40px 0 20px 0;
+		background: rgba(0,0,0,0.3);
+		padding:10px 10px 3px 10px;
+		border-radius: 10px
+	}
+	div.cidade{
+		margin-bottom: 20px;
+		a{
+			color: white;
+		}
+		a:hover{
+			color: $cor_destaque;
+		}
+		span.nome{
+
+		}
+		span.organizador{
+			display: block;
+			font-size: 18px;
+			span.titulo{
+				opacity: 0.5;
+			}
+			span.nome{
+
+			}
+		}
+	}
+}
+div.nenhuma-cidade{
+	color: gray;
+	margin: 80px 0 0 0;
+	span.smile{
+		color: $cor_destaque;
+		font-weight: bold;
+	}
+}
+
+div.cidade-detalhes{
+	div.detalhe span{
+		opacity: 0.5;
+	}
+	div.nome{
+		font-size: 30px;
+		color: $cor_destaque;
+	}
+	div.links{
+		margin: 10px 0 30px;
+	}
+	div.estado{
+		
+	}
+	div.descricao{
+		background: rgba(0,0,0,0.3);
+		padding:30px;
+		border-radius: 10px
+	}
+}

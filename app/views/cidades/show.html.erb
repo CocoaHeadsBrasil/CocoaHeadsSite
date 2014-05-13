@@ -13,6 +13,10 @@
       <dd><pre class="prettyprint"><%= @cidade.organizador %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:organizador_email) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.organizador_email %></pre></dd>
+      <dt class="label label-default">Contato público do organizador</dt>
+      <dd><pre class="prettyprint"><%= @cidade.organizador_contato %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:email) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.email %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:website) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.website %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:github) %></dt>
@@ -23,12 +27,14 @@
       <dd><pre class="prettyprint"><%= @cidade.facebook %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
       <dd><pre class="prettyprint"><%= @cidade.published ? "Sim" : "Não" %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:descricao) %></dt>
+      <dd><pre class="prettyprint"><%= @cidade.descricao.html_safe if !@cidade.descricao.blank? %></pre></dd>
   </dl>
 </div>
 
 <div class="form-group">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              cidades_path, :class => 'btn btn-default'  %>
+              {:action => :index}, :class => 'btn btn-default'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_cidade_path(@cidade), :class => 'btn btn-default' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

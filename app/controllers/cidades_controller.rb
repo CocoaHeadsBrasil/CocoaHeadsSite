@@ -1,10 +1,10 @@
 class CidadesController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:public]
-  before_action :set_cidade, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in, except: [:todas, :detalhes]
+  before_action :set_cidade, only: [:show, :edit, :update, :destroy, :detalhes]
   before_action :find_estado
 
-  layout :choose_layout
+  layout 'admin'
 
   # GET /cidades
   # GET /cidades.json
@@ -32,12 +32,12 @@ class CidadesController < ApplicationController
   # POST /cidades.json
   def create
     @cidade = Cidade.new(cidade_params)
-
     respond_to do |format|
       if @cidade.save
         format.html { redirect_to @cidade, notice: 'Cidade was successfully created.' }
         format.json { render action: 'show', status: :created, location: @cidade }
       else
+        @estados = Estado.ordenados
         format.html { render action: 'new' }
         format.json { render json: @cidade.errors, status: :unprocessable_entity }
       end
@@ -52,6 +52,7 @@ class CidadesController < ApplicationController
         format.html { redirect_to @cidade, notice: 'Cidade was successfully updated.' }
         format.json { head :no_content }
       else
+        @estados = Estado.ordenados
         format.html { render action: 'edit' }
         format.json { render json: @cidade.errors, status: :unprocessable_entity }
       end
@@ -68,6 +69,16 @@ class CidadesController < ApplicationController
     end
   end
 
+  def todas
+    @cidades = Cidade.por_estado.publicados
+    @estados = Estado.all
+    render layout: "internal"
+  end
+
+  def detalhes
+    render layout: "internal"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cidade
@@ -76,11 +87,7 @@ class CidadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cidade_params
-      params.require(:cidade).permit(:cidade, :estado_id, :organizador, :organizador_email, :website, :github, :twitter, :facebook, :published)
-    end
-
-    def choose_layout
-      action_name == "public" ? "internal" : "admin"
+      params.require(:cidade).permit(:cidade, :estado_id, :organizador, :organizador_email, :organizador_contato, :email, :website, :github, :twitter, :facebook, :descricao, :published)
     end
 
     def find_estado

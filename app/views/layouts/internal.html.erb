@@ -11,6 +11,12 @@
                     <h2>Brasil<img alt="Brasil" class="flag" height="24" src="/assets/brasil.png" width="36"></h2>
                 </div>
                 <div id="content_interna_left">
+                <% if !@titulo.blank? %>
+                <h1><%= @titulo %></h1>
+                <% if @subtitulo.length %>
+                    <h3><%= @subtitulo %></h3>
+                <% end %>
+                <% end %>
                     <%= yield %>
                 </div>
             </div>

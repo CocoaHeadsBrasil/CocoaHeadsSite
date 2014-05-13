@@ -6,7 +6,7 @@
 		<div><span class="horario"><%= a.horario %></span> @ <span class="local"><%= a.local %></span></div>
 		<ul class="recursos">
 			<%= content_tag :li do -%>
-				[ <%= link_to "Maps", maps_agendas_path(a) %> ]
+				[ <%= link_to "Maps", {:controller => :agendas, :action => :maps, :id => a.id} %> ]
 			<% end -%>
 
 			<%= content_tag :li do -%>
@@ -14,7 +14,7 @@
 			<% end if !a.passbook.empty? -%>
 
 			<%= content_tag :li do -%>
-				[ <%= link_to "iCal", export_agendas_path(a, :format => 'ics'), :title => "Exportar ICS" %> ]
+				[ <%= link_to "iCal", {:action => 'export', :format => 'ics', :id => a.id}, :title => "Exportar ICS" %> ]
 			<% end -%>
 		</ul>
 	</div>

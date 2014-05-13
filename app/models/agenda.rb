@@ -61,6 +61,10 @@ class Agenda < ActiveRecord::Base
 	private
 
 	def add_default_name
-		self.nome = self.nome.blank? ? self.descritivo : self.nome
+		if self.nome.blank?
+			if !self.cidade.blank?
+			 	self.nome = self.descritivo
+			end 
+		end
 	end
 end

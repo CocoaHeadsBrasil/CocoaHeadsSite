@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511214104) do
+ActiveRecord::Schema.define(version: 20140513182222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,9 @@ ActiveRecord::Schema.define(version: 20140511214104) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.text     "descricao"
+    t.string   "organizador_contato"
   end
 
   add_index "cidades", ["cidade"], name: "index_cidades_on_cidade", using: :btree

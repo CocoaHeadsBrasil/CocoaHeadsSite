@@ -30,7 +30,7 @@
 
 <div class="form-group">
   <%= link_to t('.back', :default => t("Voltar")),
-              agendas_path, :class => 'btn btn-default'  %>
+              {:action => :index}, :class => 'btn btn-default'  %>
   <%= link_to t('.edit', :default => t("Editar")),
               edit_agenda_path(@agenda), :class => 'btn btn-default' %>
   <%= link_to t('.destroy', :default => t("Excluir")),

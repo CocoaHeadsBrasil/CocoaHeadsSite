@@ -1,0 +1,21 @@
+<% @titulo = "Cidades" %>
+<% @subtitulo = "Todos os capítulos CocoaHeads pelo Brasil" %>
+
+<div class="cidades interna">
+<% estado_atual = nil %>
+<% @cidades.each do |c| %>
+	<% if estado_atual != c.estado.id %>
+		<div class="estado"><%= c.estado.sigla %></div>
+		<% estado_atual = c.estado.id %>
+	<% end %>
+	<div class="cidade">
+		<span class="nome"><%= link_to c.nome_do_capitulo, {:action => :detalhes, :id => c.id} %></span><br />
+		<span class="organizador"><span class="titulo">Organizador: </span> <span class="nome"><%= c.organizador %></span></span>
+	</div>
+<% end %>
+</div>
+
+<div class="nenhuma-cidade">
+	<p><span class="smile">:-(</span> Não encontrou a sua cidade na lista? Ficou triste? Deseja mudar isso? Se sim, você é um excelente candidato para ser um organizador do CocoaHeads em sua cidade. Entre em <%= link_to "contato conosco", 'contato' %> e saiba como!</p>
+</div>
+

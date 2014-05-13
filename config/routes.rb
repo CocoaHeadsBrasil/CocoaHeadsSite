@@ -2,29 +2,19 @@ Cocoaheads::Application.routes.draw do
 
   root 'home#index'
 
-  resources :agendas do
-    collection do
-      get 'ativas', :action => :ativas, :as => 'ativas'
-      get 'todas', :action => :todas, :as => 'todas'
-      get 'detalhes/:id', :action => :detalhes, :as => 'detalhes', :via => [:get]
-      get 'export/:id', :action => :export, :as => 'export'
-      get 'maps/:id', :action => :maps, :as => 'maps'
-    end
+  get 'cupertino' => "access#index"
+  
+  match '/agendas', :to => 'agendas#ativas', :via => :get
+  match '/cidades', :to => 'cidades#todas', :via => :get
+  scope '/cupertino' do
+    resources :agendas, :cidades, :fotos, :videos, :palestrantes, :posts, :contents, :faq_groups, :faqs
   end
-
-  resources :fotos
-
+  
   get '/fotos/albuns/:id', :to => 'fotos#public', :via => [:get]
   
 
-  resources :videos
-
-  resources :palestrantes
-
-  resources :cidades
 
 
-  get 'cupertino' => "access#index"
 
   resources :admin_users do
     member do
@@ -32,16 +22,6 @@ Cocoaheads::Application.routes.draw do
       get :persist_avatar
     end
   end
-
-  get 'tags/:tag', to: 'posts#index', as: :tag
-
-  resources :posts
-
-  resources :contents
-
-  resources :faq_groups
-
-  resources :faqs
 
   resources :subscriptions do
     member do
