@@ -1,15 +1,15 @@
 class VideosController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:public]
+  before_action :confirm_logged_in, except: [:todos]
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :find_palestrante, :except => [:useful]
 
-  layout :choose_layout
+  layout 'admin'
 
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.mais_novos
+    @videos = @palestrante.videos.mais_novos
   end
 
   # GET /videos/1
@@ -87,6 +87,11 @@ class VideosController < ApplicationController
     end
   end
 
+  def todos
+    @videos = Video.mais_novos
+    render layout: "internal"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video
@@ -95,11 +100,7 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:titulo, :palestrante_id, :agenda_id, :descricao, :youtube, :published, :tags)
-    end
-
-    def choose_layout
-      action_name == "public" ? "internal" : "admin"
+      params.require(:video).permit(:titulo, :palestrante_id, :agenda_id, :descricao, :source, :youtube, :published, :tags)
     end
 
     def find_palestrante

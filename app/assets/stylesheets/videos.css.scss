@@ -1,3 +1,46 @@
 // Place all the styles related to the videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$cor_destaque: #f9da03;
+$cor_tags: #097a4f;
+
+div.videos{
+	div.video{
+		margin: 40px 0 20px 0;
+		background: rgba(0,0,0,0.3);
+		padding:20px;
+		border-radius: 10px;
+
+		div.palestrante{
+			float:left;
+			width: 120px;
+			padding:0 20px 0 0;
+		}
+
+		div.detalhes{
+			float:left;
+			width: 70%;
+			div.titulo{
+				color: $cor_destaque;
+				font-size: 30px;
+			}
+
+			span.rotulo{
+				opacity: 0.5;
+			}
+
+			div.tags{
+				margin:10px 0 0 -2px;
+				span.btn-primary{
+					background-color: $cor_tags;
+					border: $cor_tags;
+				}
+				span.btn-primary:hover{
+					background-color: darken($cor_tags, 5%);
+					border: darken($cor_tags, 5%);
+				}
+			}
+		}
+	}
+}

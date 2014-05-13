@@ -6,6 +6,8 @@ Cocoaheads::Application.routes.draw do
   
   match '/agendas', :to => 'agendas#ativas', :via => :get
   match '/cidades', :to => 'cidades#todas', :via => :get
+  match '/videos', :to => 'videos#todos', :via => :get
+  match '/fotos', :to => 'fotos#todos', :via => :get
   scope '/cupertino' do
     resources :agendas, :cidades, :fotos, :videos, :palestrantes, :posts, :contents, :faq_groups, :faqs
   end

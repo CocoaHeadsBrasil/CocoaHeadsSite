@@ -1,0 +1,11 @@
+<% @titulo = "Fotos" %>
+<% @subtitulo = "Fotos e momentos dos encontros CocoaHeads" %>
+<div class="fotos">
+<% if @fotos.count > 0 %>
+	<% @fotos.each do |v| %>
+
+	<% end %>
+<% else %>
+	<div class="zero-videos">Nenhum álbum publicado. Aguarde. <span class="smile">;)</span></div>
+<% end %>
+</div>

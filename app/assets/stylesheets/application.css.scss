@@ -15,6 +15,7 @@
 
 $menu_link_color_active: white;
 $menu_link_color_hover: #f9da03;
+$cor_destaque: #f9da03;
 
 /* =COMMON STYLE
 -------------------------------------------------------------- */
@@ -308,4 +309,9 @@ div.pagination{
             border-color:  #097a4f;
         }
     }
+}
+
+span.smile{
+    color: $cor_destaque;
+    font-weight: bold;
 }

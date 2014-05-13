@@ -1,9 +1,9 @@
 class FotosController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:public]
+  before_action :confirm_logged_in, except: [:todos]
   before_action :set_foto, only: [:show, :edit, :update, :destroy]
 
-  layout :choose_layout
+  layout 'admin'
 
   # GET /fotos
   # GET /fotos.json
@@ -67,6 +67,11 @@ class FotosController < ApplicationController
       format.html { redirect_to fotos_url }
       format.json { head :no_content }
     end
+  end
+
+  def todos
+    @fotos = Foto.publicadas
+    render layout: "internal"
   end
 
   def public
