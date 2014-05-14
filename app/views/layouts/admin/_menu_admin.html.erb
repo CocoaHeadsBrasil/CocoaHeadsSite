@@ -44,14 +44,8 @@
       	<li><p class="navbar-text">Logado como <%= session[:username] %></p></li>
         <% 
           admin_user = AdminUser.find(session[:user_id])
-
-          if admin_user.avatar?
-            avatar_url = admin_user.image_processed? ? admin_user.avatar_url(:thumb).to_s : "loading_avatar.gif"
-          else
-            avatar_url = "anonymous.png"
-          end
         %>
-        <li><%= link_to image_tag(avatar_url, :size => "40x40", :class => "img-circle"), {:controller => "admin_users", :action => 'edit', :id => session[:user_id]}, :class => 'user-thumb' %></li>
+        <li><%= link_to image_tag(admin_user.gravatar_url, :size => "40x40", :class => 'img-circle'), {:controller => "admin_users", :action => 'edit', :id => session[:user_id]}, :class => 'user-thumb' %></li>
         <li><%= link_to("Sair", {:controller => 'access', :action => 'logout'}) %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
