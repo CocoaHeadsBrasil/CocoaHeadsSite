@@ -14,7 +14,7 @@
 			<% end if !a.passbook.empty? -%>
 
 			<%= content_tag :li do -%>
-				[ <%= link_to "iCal", {:action => 'export', :format => 'ics', :id => a.id}, :title => "Exportar ICS" %> ]
+				[ <%= link_to "iCal", {:controller => :agendas, :action => 'export', :format => 'ics', :id => a.id}, :title => "Exportar ICS" %> ]
 			<% end -%>
 		</ul>
 	</div>
