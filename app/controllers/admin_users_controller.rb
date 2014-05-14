@@ -54,27 +54,6 @@ class AdminUsersController < ApplicationController
     end
   end
 
-  def upload_avatar
-    @admin_user = AdminUser.find(params[:id])
-    @uploader = AdminUser.new.avatar
-    @uploader.success_action_redirect = persist_avatar_admin_user_url(@admin_user.id)
-  end
-
-  def persist_avatar
-    @admin_user = AdminUser.find(params[:id])
-    @admin_user.image_processed = false
-    @admin_user.update_attribute :key, params[:key]
-
-    if !params[:key].blank?
-      flash[:notice] = "Avatar saved for #{@admin_user.name}"
-      redirect_to(:action => 'index')
-    else
-      flash[:error] = "Error uploading avatar for #{@admin_user.name}"
-      redirect_to(:action => 'upload_avatar', :id => @admin_user.id)
-    end
-
-  end
-
   private
 
     # Strong parameters
@@ -82,6 +61,6 @@ class AdminUsersController < ApplicationController
       # same as using "params[:admin_user]", except that it:
       # - raises an error if :admin_user is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:admin_user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation, :avatar, :remote_avatar_url, :remove_avatar, :key)
+      params.require(:admin_user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation, :key)
     end
 end

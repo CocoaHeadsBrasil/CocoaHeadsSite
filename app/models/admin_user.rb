@@ -2,11 +2,6 @@ class AdminUser < ActiveRecord::Base
 
 	# To configure a different table name
 	# self.table_name = "admin_users"
-	has_many :posts
-
-	mount_uploader :avatar, AvatarUploader
-
-	after_save :enqueue_image
 
 	# The line below is a very helpful method that
 	# makes lots of things behind the scenes.
@@ -69,9 +64,5 @@ class AdminUser < ActiveRecord::Base
 
 	def name
 		first_name + " " + last_name
-	end
-
-	def enqueue_image
-		# ImageWorker.perform_async(id, key) if key.present? && !image_processed?
 	end
 end
