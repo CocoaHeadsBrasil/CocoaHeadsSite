@@ -315,3 +315,13 @@ span.smile{
     color: $cor_destaque;
     font-weight: bold;
 }
+
+a.voltar_interna{
+    margin: 50px 0 0 0;
+    display: block;
+    color: white;
+
+    &:hover{
+        color: $cor_destaque;
+    }
+}
