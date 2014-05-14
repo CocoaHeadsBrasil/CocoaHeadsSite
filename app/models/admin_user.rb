@@ -1,3 +1,5 @@
+include Gravtastic
+
 class AdminUser < ActiveRecord::Base
 
 	# To configure a different table name
