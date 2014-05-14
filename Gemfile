@@ -57,12 +57,6 @@ gem "tinymce-rails"
 
 gem 'actionview-encoded_mail_to'
 
-gem "mini_magick"
-gem "carrierwave"
-gem "fog"
-gem "carrierwave_direct"
-gem "sidekiq"
-
 gem 'heroku_rails_deflate', :group => :production
 
 gem 'acts-as-taggable-on'
