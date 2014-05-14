@@ -5,7 +5,7 @@
 	<div class="detalhe nome"><%=  @cidade.nome_do_capitulo %></div>
 	<div class="detalhe estado">Estado de <%=  @cidade.estado.nome %></div>
 	<div class="detalhe organizador"><span>Organizador: </span> <%= @cidade.organizador_contato.blank? ? @cidade.organizador : link_to(@cidade.organizador, @cidade.organizador_contato) %></div>
-	<div class="detalhe email"><span>Email oficial: </span><%=  @cidade.email %></div>
+	<div class="detalhe email"><span>Email oficial: </span><%=  mail_to @cidade.email %></div>
 	<div class="detalhe links">
 		<%= link_to "Website", @cidade.website, {:class => 'btn btn-default', :target => :blank} if @cidade.has_website? %>
 		<%= link_to "Github", @cidade.github, {:class => 'btn btn-default', :target => :blank} if !@cidade.github.blank? %>
