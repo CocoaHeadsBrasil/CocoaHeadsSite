@@ -17,6 +17,7 @@ class Agenda < ActiveRecord::Base
 	validates :longitude, :presence => true
 
 	scope :recentes, lambda { order("agendas.data DESC, agendas.cidade_id ASC") }
+	scope :por_data, lambda { order("agendas.data ASC, agendas.cidade_id ASC") }
 	scope :por_cidade, lambda { order("agendas.cidade_id ASC, agendas.data DESC") }
 	scope :ativas, lambda { where("agendas.data > ?", Time.now ) }
 	scope :publicadas, lambda { where(:published => true) }
