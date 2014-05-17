@@ -3,7 +3,7 @@ class Foto < ActiveRecord::Base
 	belongs_to :agenda
 
 	# shortcut validations, aka "sexy validations"
-	validates :nome, :presence => true
+	validates :agenda_id, :presence => true
 	validates :descricao, :presence => true
 	validates :flickr_album_id, :presence => true
 

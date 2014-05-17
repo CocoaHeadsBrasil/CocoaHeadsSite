@@ -19,7 +19,7 @@ class FotosController < ApplicationController
   # GET /fotos/new
   def new
     @foto = Foto.new
-    @agendas = Agenda.recentes
+    @agendas = Agenda.ativas.recentes
   end
 
   # GET /fotos/1/edit
