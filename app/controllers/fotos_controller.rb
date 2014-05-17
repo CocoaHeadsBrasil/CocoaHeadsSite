@@ -19,7 +19,7 @@ class FotosController < ApplicationController
   # GET /fotos/new
   def new
     @foto = Foto.new
-    @agendas = Agenda.ativas.recentes
+    @agendas = Agenda.passadas.recentes
   end
 
   # GET /fotos/1/edit
@@ -52,7 +52,7 @@ class FotosController < ApplicationController
         format.html { redirect_to @foto, notice: 'Foto was successfully updated.' }
         format.json { head :no_content }
       else
-        @agendas = Agenda.recentes
+        @agendas = Agenda.passadas.recentes
         format.html { render action: 'edit' }
         format.json { render json: @foto.errors, status: :unprocessable_entity }
       end

@@ -20,6 +20,7 @@ class Agenda < ActiveRecord::Base
 	scope :por_data, lambda { order("agendas.data ASC, agendas.cidade_id ASC") }
 	scope :por_cidade, lambda { order("agendas.cidade_id ASC, agendas.data DESC") }
 	scope :ativas, lambda { where("agendas.data > ?", Time.now ) }
+	scope :passadas, lambda { where("agendas.data < ?", Time.now ) }
 	scope :publicadas, lambda { where(:published => true) }
 	scope :despublicadas, lambda { where(:published => false) }
 	scope :search, lambda{|query|
