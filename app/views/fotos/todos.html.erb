@@ -4,8 +4,11 @@
 <% if @fotos.count > 0 %>
 	<% @fotos.each do |f| %>
 		<% link = {:action => :detalhes, :id => f.id} %>
+		<% thumb = f.random_thumb_url%>
+		<% image = thumb.nil? ? "sem_foto.png" : thumb %>
+		<% if !thumb.nil? %>
 		<div class="foto">
-			<div class="thumb"><%= link_to(image_tag f.random_thumb_url, link) %></div>
+			<div class="thumb"><%= link_to(image_tag image, link) %></div>
 			<div class="infos">
 				<div class="nome"><%= link_to f.agenda.nome, link %></div>
 				<div class="agenda_descritivo"><%= f.agenda.descritivo_curto %></div>
@@ -17,6 +20,7 @@
 			<div class="brclear">&nbsp;</div>
 		</div>
 		<div class="brclear">&nbsp;</div>
+		<% end %>
 	<% end %>
 <% else %>
 	<div class="zero-videos">Nenhum álbum publicado. Aguarde. <span class="smile">;)</span></div>

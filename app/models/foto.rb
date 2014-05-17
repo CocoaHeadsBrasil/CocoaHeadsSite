@@ -15,27 +15,34 @@ class Foto < ActiveRecord::Base
 	}
 
 	def random_thumb(onlyLandscape=true)
-		photosRequest = Flickr.sets.get_photos(self.flickr_album_id, {sizes:["Thumbnail"]})
 
 		pickedPhoto = nil
-		loopLimit = 0
-		until loopLimit == 100	# only accept 100 tries
-			photo = photosRequest.sample
-		   	photo.thumbnail!
 
-		   	if onlyLandscape
-		   		if photo.width > photo.height
-		   			pickedPhoto = photo
-		   			break
-		   		end
-		   	else
-		   		pickedPhoto = photo
-		   		break
-		   	end
+		begin
+		    photosRequest = Flickr.sets.get_photos(self.flickr_album_id, {sizes:["Thumbnail"]})
+		rescue
+		ensure
+			if photosRequest && photosRequest.count > 0
+				loopLimit = 0
+				until loopLimit == 100	# only accept 100 tries
+					photo = photosRequest.sample
+				   	photo.thumbnail!
 
-		   	photosRequest.delete(photo)	# delete so no repeated loops happens
+				   	if onlyLandscape
+				   		if photo.width > photo.height
+				   			pickedPhoto = photo
+				   			break
+				   		end
+				   	else
+				   		pickedPhoto = photo
+				   		break
+				   	end
 
-		   	loopLimit += 1
+				   	photosRequest.delete(photo)	# delete so no repeated loops happens
+
+				   	loopLimit += 1
+				end 
+			end
 		end
 
         pickedPhoto
