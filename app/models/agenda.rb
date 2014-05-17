@@ -27,7 +27,7 @@ class Agenda < ActiveRecord::Base
 	}
 
 	def descritivo
-		"CocoaHeads " + self.cidade.cidade + " - " + self.data.strftime("%d/%m/%Y")
+		"CocoaHeads " + self.cidade.cidade + " - " + self.data_formatada
 	end
 
 	def descritivo_curto
@@ -37,6 +37,10 @@ class Agenda < ActiveRecord::Base
 	def horario
 		horario = self.data.strftime("%H:%M").split(':')
 		horario.last == '00' ? horario.first + 'hs' : horario.first + 'hs' + ' ' + horario.last + 'min'
+	end
+
+	def data_formatada
+		self.data.strftime("%d/%m/%Y")
 	end
 
 	def antiga?

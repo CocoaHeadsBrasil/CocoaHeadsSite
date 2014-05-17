@@ -1,7 +1,7 @@
 class FotosController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:todos]
-  before_action :set_foto, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in, except: [:todos, :detalhes]
+  before_action :set_foto, only: [:show, :edit, :update, :destroy, :detalhes]
 
   layout 'admin'
 
@@ -74,7 +74,7 @@ class FotosController < ApplicationController
     render layout: "internal"
   end
 
-  def public
+  def detalhes
     @foto = Foto.where(:id => params[:id], :published => true).first
     if @foto.nil?
       raise ActiveRecord::RecordNotFound
@@ -96,6 +96,8 @@ class FotosController < ApplicationController
         @photos << photo
       end
     end
+
+    render layout: "internal"
   end
 
   private

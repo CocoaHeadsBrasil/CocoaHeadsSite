@@ -1,6 +1,6 @@
 <% @page_title = @foto.nome %>
 
-<h1><%= @foto.nome %></h1>
+<h1><%= @foto.agenda.nome %></h1>
 <% if @foto.agenda %>
 	<h3><%= @foto.agenda.descritivo %></h3>
 <% end %>
@@ -40,11 +40,15 @@
     </div>
 </div>
 
-<div id="links">
-
+<div id="links" class="album">
+    <ul>
 	<% @photos.each do |photo| %>
-	<a href="<%= photo[:large_url] %>" title="<%= photo[:title] %>" data-gallery>
-        <img src="<%= photo[:thumbnail_url] %>" alt="<%= photo[:title] %>">
-    </a>
+    <li>
+    	<a href="<%= photo[:large_url] %>" title="<%= photo[:title] %>" data-gallery>
+            <img src="<%= photo[:thumbnail_url] %>" alt="<%= photo[:title] %>">
+        </a>
+    </li>
 	<% end %>
+    </ul>
+    <div class="brclear">&nbsp;</div>
 </div>

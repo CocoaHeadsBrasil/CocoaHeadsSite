@@ -2,8 +2,21 @@
 <% @subtitulo = "Fotos e momentos dos encontros CocoaHeads" %>
 <div class="fotos">
 <% if @fotos.count > 0 %>
-	<% @fotos.each do |v| %>
-
+	<% @fotos.each do |f| %>
+		<% link = {:action => :detalhes, :id => f.id} %>
+		<div class="foto">
+			<div class="thumb"><%= link_to(image_tag f.random_thumb_url, link) %></div>
+			<div class="infos">
+				<div class="nome"><%= link_to f.agenda.nome, link %></div>
+				<div class="agenda_descritivo"><%= f.agenda.descritivo_curto %></div>
+				<div class="agenda_data"><%= f.agenda.data_formatada %></div>
+			</div>
+			<div class="ver_fotos">
+				[ <%= link_to "Ver fotos", link %> ]
+			</div>
+			<div class="brclear">&nbsp;</div>
+		</div>
+		<div class="brclear">&nbsp;</div>
 	<% end %>
 <% else %>
 	<div class="zero-videos">Nenhum álbum publicado. Aguarde. <span class="smile">;)</span></div>
