@@ -1,4 +1,4 @@
-<% @page_title = @foto.nome %>
+<% @page_title = @foto.agenda.nome %>
 
 <h1><%= @foto.agenda.nome %></h1>
 <% if @foto.agenda %>
@@ -52,3 +52,4 @@
     </ul>
     <div class="brclear">&nbsp;</div>
 </div>
+<%= content_tag(:div, "Fotos por: " + @foto.descricao, {:class => 'descricao-fotos'}) if !@foto.nil? %>

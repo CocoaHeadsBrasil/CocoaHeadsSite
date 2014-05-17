@@ -7,8 +7,8 @@
   <dl>
       <dt class="label label-default"><%= model_class.human_attribute_name(:agenda_id) %></dt>
       <dd><pre class="prettyprint"><%= @foto.agenda ? @foto.agenda.descritivo : 'Nenhuma agenda atribuida' %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:descricao) %></dt>
-      <dd><pre class="prettyprint"><%= @foto.descricao.html_safe %></pre></dd>
+      <dt class="label label-default">Fotógrafo</dt>
+      <dd><pre class="prettyprint"><%= @foto.descricao %></pre></dd>
       <dt class="label label-default">ID Album Flickr</dt>
       <dd><pre class="prettyprint"><%= @foto.flickr_album_id %></pre></dd>
       <dt class="label label-default">Publicado?</dt>

@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:nome) %></th>
       <th><%= model_class.human_attribute_name(:agenda_id) %></th>
       <th>Publicado?</th>
       <th>Criado em</th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @fotos.each do |foto| %>
       <tr>
-          <td><%= foto.nome %></td>
           <td><%= foto.agenda ? foto.agenda.descritivo : 'Nenhum agenda atribuida' %></td>
           <td><%= status_tag(foto.published, {:true_text => "SIM", :false_text => "NÃO"}) %>
           <td><%= foto.created_at.strftime("%d/%m/%Y às %H:%M:%S") %></td>

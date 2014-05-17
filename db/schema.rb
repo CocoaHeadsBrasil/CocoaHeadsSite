@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517055043) do
+ActiveRecord::Schema.define(version: 20140517063406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 20140517055043) do
 
   create_table "fotos", force: true do |t|
     t.integer  "agenda_id"
-    t.text     "descricao"
+    t.string   "descricao"
     t.string   "flickr_album_id"
     t.boolean  "published"
     t.datetime "created_at"

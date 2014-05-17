@@ -18,10 +18,9 @@
     </div>
   </div>
   <div class="form-group">
-    <%= tinymce %>
-    <%= f.label :descricao, "Descrição", :class => 'control-label col-md-2' %>
+    <%= f.label :descricao, "Fotógrafo", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_area :descricao, :class => "tinymce", :rows => 30, :cols => 120 %>
+      <%= f.text_field :descricao, :class => 'text_field form-control', :placeholder => "Nome do fotógrafo ou fotógrafa" %>
     </div>
   </div>
   <div class="form-group">
