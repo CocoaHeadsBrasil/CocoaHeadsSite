@@ -17,7 +17,7 @@
   <dt><strong>Criado por:</strong></dt>
   <dd><%= @content.created_by %></dd>
   <dt><strong>Conteúdo:</strong></dt>
-  <dd><%= @content.body %></dd>
+  <dd><%= @content.body.html_safe %></dd>
 </dl>
 
 <div class="form-actions">
