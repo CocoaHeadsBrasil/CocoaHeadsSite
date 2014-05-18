@@ -13,6 +13,6 @@
 	<%= link_to "Baixar Passbook", @agenda.passbook, {:class => 'btn btn-default'} if !@agenda.passbook.blank?
 	 %>
 	<%= link_to "Baixar iCal", {:action => 'export', :format => 'ics', :id => @agenda.id}, {:class => 'btn btn-default'} %>
-	<%= link_to "Ver Fotos", {:controller => :fotos, :action => :album, :album_id =>  @agenda.id}, {:class => 'btn btn-default'} if @agenda.fotos.count > 0 %>
+	<%= link_to "Ver Fotos", {:controller => :fotos, :action => :album, :id =>  @agenda.id}, {:class => 'btn btn-default'} if @agenda.fotos.count > 0 %>
 	<%= link_to "Ver Vídeos", {:controller => :videos, :action => :colecao, :album_id =>  @agenda.id}, {:class => 'btn btn-default'} if @agenda.videos.count > 0 %>
 </div>
