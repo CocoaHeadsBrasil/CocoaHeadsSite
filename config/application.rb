@@ -29,5 +29,6 @@ module Cocoaheads
     COCOAHEADS_SOCIAL_TWITTER       = "https://twitter.com/cocoaheadsbr/"
     COCOAHEADS_SOCIAL_GITHUB        = "https://github.com/cocoaheadsbr/"
     COCOAHEADS_SOCIAL_YOUTUBE       = "https://www.youtube.com/channel/UCxN-_poBEXynC7YPE_394LQ"
+    COCOAHEADS_SOCIAL_ITUNES        = "https://itunes.apple.com/br/podcast/cocoaheads-brasil/id879833520"
   end
 end
