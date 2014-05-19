@@ -3,6 +3,6 @@
   <h1>Novo Vídeo</h1>
 </div>
 
-<%= form_for(:video, :url => videos_path({:palestrante_id => @palestrante.id}), :html => { :class => 'form-horizontal' }) do |f| %>
+<%= form_for(:video, :url => {:action => :create, :palestrante_id => @palestrante.id}, :html => { :class => 'form-horizontal' }) do |f| %>
 <%= render :partial => 'form', :locals => {:f => f, :palestrantes => @palestrantes, :agendas => @agendas} %>
 <% end %>
