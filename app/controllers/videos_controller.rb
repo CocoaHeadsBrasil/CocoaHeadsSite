@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:todos]
+  before_action :confirm_logged_in, except: [:todos, :detalhes]
   before_action :set_video, only: [:show, :edit, :update, :destroy, :detalhes]
   before_action :find_palestrante, :except => [:useful]
 
