@@ -73,7 +73,7 @@ class PalestrantesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def palestrante_params
-      params.require(:palestrante).permit(:nome, :email, :website, :twitter, :github, :linkedin, :published)
+      params.require(:palestrante).permit(:nome, :email, :website, :twitter, :github, :linkedin, :published, :mini_curriculo)
     end
 
     def choose_layout

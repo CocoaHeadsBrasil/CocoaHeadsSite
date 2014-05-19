@@ -11,13 +11,14 @@
 
 			<%= content_tag(:div, content_tag(:span, "Evento: ", :class => 'rotulo') + v.agenda.nome + " (" + v.agenda.data.strftime("%d/%m/%Y") + ")", :class => "agenda_nome") if v.agenda %>
 
-
 			<%= content_tag :div, render123_tags(v.tags), :class => "tags" %>
 			<%= link_to "Assistir vídeo", {:action => :detalhes, :id =>  v.id}, {:class => 'btn btn-default'} %>
 			<%= link_to "Código-fonte", v.source, {:class => 'btn btn-default', :target => :blank} if !v.source.blank? %>
 		</div>
 		<div class="brclear">&nbsp;</div>
 	</div>
+	<div class="brclear">&nbsp;</div>
+	<%= will_paginate @videos if @videos.count > WillPaginate.per_page %>
 <% end %>
 <% else %>
 	<div class="zero-videos">Nenhum vídeo publicado. Aguarde. <span class="smile">;)</span></div>

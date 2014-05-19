@@ -2,6 +2,8 @@ class Video < ActiveRecord::Base
 	belongs_to :palestrante
 	belongs_to :agenda
 
+	WillPaginate.per_page = 20
+
 	YOUTUBE_REGEX = /\A([a-zA-Z0-9\-_]+)\Z/i
 
 	# shortcut validations, aka "sexy validations"

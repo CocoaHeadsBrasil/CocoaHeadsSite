@@ -88,7 +88,7 @@ class VideosController < ApplicationController
   end
 
   def todos
-    @videos = Video.mais_novos
+    @videos = Video.mais_novos.paginate(:page => params[:page])
     render layout: "internal"
   end
 

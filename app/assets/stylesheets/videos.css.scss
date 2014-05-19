@@ -5,6 +5,23 @@
 $cor_destaque: #f9da03;
 $cor_tags: #097a4f;
 
+
+span.rotulo{
+	opacity: 0.5;
+}
+
+div.tags{
+	margin:10px 0 0 -2px;
+	span.btn-primary{
+		background-color: $cor_tags;
+		border: $cor_tags;
+	}
+	span.btn-primary:hover{
+		background-color: darken($cor_tags, 5%);
+		border: darken($cor_tags, 5%);
+	}
+}
+
 div.videos{
 	div.video{
 		margin: 40px 0 20px 0;
@@ -25,34 +42,51 @@ div.videos{
 				color: $cor_destaque;
 				font-size: 30px;
 			}
-
-			span.rotulo{
-				opacity: 0.5;
-			}
-
-			div.tags{
-				margin:10px 0 0 -2px;
-				span.btn-primary{
-					background-color: $cor_tags;
-					border: $cor_tags;
-				}
-				span.btn-primary:hover{
-					background-color: darken($cor_tags, 5%);
-					border: darken($cor_tags, 5%);
-				}
-			}
 		}
 	}
 }
 
 div.video_detalhes{
+
 	div.video_youtube{
 		margin-bottom: 50px;
 	}
 
+	div.video{
+		margin-bottom: 60px;
+		div.tags{
+			margin:0 0 20px -2px;
+		}
+		div.descricao{
+			margin: 20px 0 0 0;
+			background: rgba(0,0,0,0.3);
+			padding:20px 20px 1px 20px;
+			border-radius: 10px;
+		}
+	}
+
 	div.palestrante{
-		float:left;
-		width: 220px;
-		padding:0 20px 0 0;
+		margin: 0;
+	    border:1px rgba(0,0,0,0.2) solid;
+	    padding: 20px;
+	    border-radius: 10px;
+	    background-color: rgba(0,0,0,0.4);
+		div.avatar{
+			float:left;
+			width: 180px;
+			padding:0 20px 0 0;
+		}
+
+		div.detalhes{
+			div.nome{
+				font-size: 20px;
+			}
+			div.curriculo{
+				margin:10px 0;
+				font-size: 15px;
+				font-style: italic;
+				font-weight: normal;
+			}
+		}
 	}
 }
