@@ -70,7 +70,7 @@ class DownloadsController < ApplicationController
   def move_up
     @download.move_higher
     respond_to do |format|
-      format.html { redirect_to downlaods_url }
+      format.html { redirect_to downloads_url }
       format.json { head :no_content }
     end
   end
@@ -78,7 +78,7 @@ class DownloadsController < ApplicationController
   def move_down
     @download.move_lower
     respond_to do |format|
-      format.html { redirect_to downlaods_url }
+      format.html { redirect_to downloads_url }
       format.json { head :no_content }
     end
   end
