@@ -13,7 +13,7 @@
 
 
 			<%= content_tag :div, render123_tags(v.tags), :class => "tags" %>
-			<%= link_to "Assistir vídeo", {:action => :assistir, :video_id =>  v.id}, {:class => 'btn btn-default'} %>
+			<%= link_to "Assistir vídeo", {:action => :detalhes, :id =>  v.id}, {:class => 'btn btn-default'} %>
 			<%= link_to "Código-fonte", v.source, {:class => 'btn btn-default', :target => :blank} if !v.source.blank? %>
 		</div>
 		<div class="brclear">&nbsp;</div>

@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
   before_action :confirm_logged_in, except: [:todos]
-  before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :set_video, only: [:show, :edit, :update, :destroy, :detalhes]
   before_action :find_palestrante, :except => [:useful]
 
   layout 'admin'
@@ -89,6 +89,10 @@ class VideosController < ApplicationController
 
   def todos
     @videos = Video.mais_novos
+    render layout: "internal"
+  end
+
+  def detalhes
     render layout: "internal"
   end
 

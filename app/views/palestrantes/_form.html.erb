@@ -43,6 +43,12 @@
       <%= f.check_box(:published, :class => 'text_field form-control') %>
     </div>
   </div>
+  <div class="form-group">
+    <%= f.label :mini_curriculo, "Curriculo Resumido", :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :mini_curriculo, :class => 'text_field form-control', :placeholder => "Mini currículo do palestrante. De 03 a 06 linhas." %>
+    </div>
+  </div>
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>

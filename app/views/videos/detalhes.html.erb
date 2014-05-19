@@ -1,0 +1,29 @@
+<% @page_title = @video.titulo %>
+
+<h1>Vídeos</h1>
+<% if @video.titulo %>
+	<h3><%= @video.titulo %><%= " por " + @video.palestrante.nome if !@video.palestrante.nil? %></h3>
+<% end %>
+
+<div class="video_detalhes">
+	<%= render :partial => "videos/embed_youtube", :locals => {:video => @video} %>
+
+	<h2>Sobre o palestrante</h2>
+	<div class="video">
+		<div class="palestrante"><%= image_tag @video.palestrante.gravatar_url, :size => "200x200", :class => 'img-circle avatar' %></div>
+		<div class="detalhes">
+			<%= content_tag(:div, @video.palestrante.nome, :class => "nome") %>
+			<%= content_tag(:div, @video.palestrante.mini_curriculo, :class => "curriculo") if @video.palestrante.mini_curriculo? %>
+		</div>
+		<div class="brclear">&nbsp;</div>
+	</div>
+
+	<%= content_tag :div, @video.titulo, :class => "titulo" %>
+
+
+	<%= content_tag(:div, content_tag(:span, "Evento: ", :class => 'rotulo') + @video.agenda.nome + " (" + @video.agenda.data.strftime("%d/%m/%Y") + ")", :class => "agenda_nome") if @video.agenda %>
+
+	<%= content_tag :div, render123_tags(@video.tags), :class => "tags" %>
+	<%= link_to "Assistir vídeo", {:action => :detalhes, :id =>  @video.id}, {:class => 'btn btn-default'} %>
+	<%= link_to "Código-fonte", @video.source, {:class => 'btn btn-default', :target => :blank} if !@video.source.blank? %>
+</div>

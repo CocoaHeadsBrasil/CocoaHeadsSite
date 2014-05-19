@@ -7,7 +7,7 @@ class Palestrante < ActiveRecord::Base
   	has_gravatar :email,
   				 :secure => true,
   				 :default => "https://s3.amazonaws.com/content.cocoaheads.com.br/images/anonymous.png",
-  				 :size => 120,
+  				 :size => 400,
   				 :rating => 'R'
 
   	EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
@@ -24,5 +24,9 @@ class Palestrante < ActiveRecord::Base
 	scope :search, lambda{|query|
 		where(["nome LIKE ?", "%#{query}%"])
 	}
+
+	def mini_curriculo?
+		!mini_curriculo.blank?
+	end
 
 end

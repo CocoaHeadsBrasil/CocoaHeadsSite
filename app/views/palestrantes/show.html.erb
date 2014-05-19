@@ -17,6 +17,8 @@
       <dd><pre class="prettyprint"><%= @palestrante.github %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:linkedin) %></dt>
       <dd><pre class="prettyprint"><%= @palestrante.linkedin %></pre></dd>
+      <dt class="label label-default">Currículo Resumido</dt>
+      <dd><pre class="prettyprint"><%= @palestrante.mini_curriculo %></pre></dd>
       <dt class="label label-default">Publicado?</dt>
       <dd><pre class="prettyprint"><%= @palestrante.published ? "Sim" : "Não" %></pre></dd>
   </dl>
