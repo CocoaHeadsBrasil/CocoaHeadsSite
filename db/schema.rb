@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519190447) do
+ActiveRecord::Schema.define(version: 20140519193050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,17 @@ ActiveRecord::Schema.define(version: 20140519190447) do
   add_index "contents", ["modified_by"], name: "index_contents_on_modified_by", using: :btree
   add_index "contents", ["permalink"], name: "index_contents_on_permalink", unique: true, using: :btree
   add_index "contents", ["position"], name: "index_contents_on_position", using: :btree
+
+  create_table "downloads", force: true do |t|
+    t.string   "titulo"
+    t.string   "url"
+    t.string   "autor"
+    t.integer  "posicao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "downloads", ["posicao"], name: "index_downloads_on_posicao", using: :btree
 
   create_table "estados", force: true do |t|
     t.string   "nome"

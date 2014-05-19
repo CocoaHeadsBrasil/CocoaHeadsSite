@@ -39,6 +39,7 @@
         </li>
         <%= item_nav_link "Vídeos", {:controller => 'palestrantes', :action => 'index'}, 'videos' %>
         <%= item_nav_link "Fotos", {:controller => 'fotos', :action => 'index'}, 'fotos' %>
+        <%= item_nav_link "Downloads", {:controller => 'downloads', :action => 'index'}, 'downloads' %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li><p class="navbar-text">Logado como <%= session[:username] %></p></li>

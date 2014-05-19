@@ -9,15 +9,11 @@ Cocoaheads::Application.routes.draw do
   match '/videos', :to => 'videos#todos', :via => :get
   match '/fotos', :to => 'fotos#todos', :via => :get
   scope '/cupertino' do
-    resources :agendas, :cidades, :fotos, :videos, :palestrantes, :posts, :contents, :faq_groups, :faqs
+    resources :agendas, :cidades, :fotos, :videos, :palestrantes, :posts, :contents, :faq_groups, :downloads, :faqs
   end
   
   get '/fotos/albuns/:id', :to => 'fotos#public', :via => [:get]
   
-
-
-
-
   resources :admin_users do
     member do
       get :upload_avatar
