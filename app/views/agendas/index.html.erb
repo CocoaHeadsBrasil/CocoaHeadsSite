@@ -10,6 +10,7 @@
       <th><%= model_class.human_attribute_name(:data) %></th>
       <th><%= model_class.human_attribute_name(:local) %></th>
       <th><%= model_class.human_attribute_name(:passbook) %></th>
+      <th><%= model_class.human_attribute_name(:meetup) %></th>
       <th>Publicado?</th>
       <th>Criado em</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -23,6 +24,7 @@
         <td><%= agenda.data.strftime("%d/%m/%Y às %H:%M:%S") %></td>
         <td><%= agenda.local %></td>
         <td><%= status_tag(!agenda.passbook.empty?, {:true_text => "SIM", :false_text => "NÃO"}) %></td>
+        <td><%= status_tag(!agenda.meetup.blank?, {:true_text => "SIM", :false_text => "NÃO"}) %></td>
         <td><%= status_tag(agenda.published, {:true_text => "SIM", :false_text => "NÃO"}) %></td>
         <td><%= agenda.created_at.strftime("%d/%m/%Y às %H:%M:%S") %></td>
         <td>

@@ -111,6 +111,6 @@ class AgendasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agenda_params
-      params.require(:agenda).permit(:data, :nome, :cidade_id, :endereco, :latitude, :longitude, :local, :maps, :passbook, :flickr_album, :published, :descricao)
+      params.require(:agenda).permit(:data, :nome, :cidade_id, :endereco, :latitude, :longitude, :local, :maps, :passbook, :meetup, :flickr_album, :published, :descricao)
     end
 end
