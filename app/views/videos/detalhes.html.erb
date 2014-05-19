@@ -7,7 +7,6 @@
 
 <div class="video_detalhes">
 	<%= render :partial => "videos/embed_youtube", :locals => {:video => @video} %>
-	<%= link_to "Baixar source code utilizado na talk", @video.source, {:class => 'btn btn-default pull-right', :target => :blank} if !@video.source.blank? %>
 	<h2><%= @video.titulo %></h2>
 	<div class="video">
 		<%= content_tag(:div, "Vídeo gravado no " + @video.agenda.nome + " (" + @video.agenda.data.strftime("%d/%m/%Y") + ")", :class => "agenda_nome") if @video.agenda %>
@@ -15,8 +14,9 @@
 		<%= content_tag(:div, :class => "descricao") do 
 			concat @video.descricao.html_safe
 			concat content_tag(:div, render123_tags(@video.tags), :class => "tags")
-		end 
-			%>
+		end %>
+
+		<%= link_to "Baixar source code utilizado na talk", @video.source, {:class => 'btn btn-default', :target => :blank} if !@video.source.blank? %>
 	</div>
 
 	<h2>CocoaSpeaker</h2>
