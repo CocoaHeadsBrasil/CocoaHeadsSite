@@ -25,10 +25,10 @@
 		<div class="detalhes">
 			<%= content_tag(:div, @video.palestrante.nome, :class => "nome") %>
 			<%= content_tag(:div, @video.palestrante.mini_curriculo, :class => "curriculo") if @video.palestrante.mini_curriculo? %>
-			<%= link_to "Twitter", @video.palestrante.twitter, {:class => 'btn btn-default btn-xs', :target => :blank} if !@video.palestrante.twitter.nil? %>
-			<%= link_to "Website", @video.palestrante.website, {:class => 'btn btn-default btn-xs', :target => :blank} if !@video.palestrante.website.nil? %>
-			<%= link_to "Github", @video.palestrante.github, {:class => 'btn btn-default btn-xs', :target => :blank} if !@video.palestrante.github.nil? %>
-			<%= link_to "LinkedIn", @video.palestrante.linkedin, {:class => 'btn btn-default btn-xs', :target => :blank} if !@video.palestrante.linkedin.nil? %>
+			<%= link_to "Twitter", @video.palestrante.twitter, {:class => 'btn btn-default btn-xs', :target => :blank} if !@video.palestrante.twitter.blank? %>
+			<%= link_to "Website", @video.palestrante.website, {:class => 'btn btn-default btn-xs', :target => :blank} if !@video.palestrante.website.blank? %>
+			<%= link_to "Github", @video.palestrante.github, {:class => 'btn btn-default btn-xs', :target => :blank} if !@video.palestrante.github.blank? %>
+			<%= link_to "LinkedIn", @video.palestrante.linkedin, {:class => 'btn btn-default btn-xs', :target => :blank} if !@video.palestrante.linkedin.blank? %>
 		</div>
 		<div class="brclear">&nbsp;</div>
 	</div>
