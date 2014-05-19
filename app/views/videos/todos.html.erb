@@ -6,7 +6,7 @@
 	<div class="video">
 		<div class="palestrante"><%= image_tag v.palestrante.gravatar_url, :size => "100x100", :class => 'img-circle avatar' %></div>
 		<div class="detalhes">
-			<%= content_tag :div, v.titulo, :class => "titulo" %>
+			<%= link_to content_tag(:div, v.titulo, :class => "titulo"), {:action => :detalhes, :id =>  v.id} %>
 			<%= content_tag(:div, content_tag(:span, "CocoaSpeaker: ", :class => 'rotulo') + v.palestrante.nome, :class => "nome") %>
 
 			<%= content_tag(:div, content_tag(:span, "Evento: ", :class => 'rotulo') + v.agenda.nome + " (" + v.agenda.data.strftime("%d/%m/%Y") + ")", :class => "agenda_nome") if v.agenda %>
