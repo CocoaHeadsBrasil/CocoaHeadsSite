@@ -36,6 +36,7 @@
       <%= f.text_field :source, :class => 'text_field form-control', :placeholder => "Endereço GitHub do código fonte usado no vídeo, caso exista" %>
     </div>
   </div>
+
   <div class="form-group">
     <%= f.label :published, "Publicado?", :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -50,6 +51,23 @@
       <%= f.text_area :descricao, :class => "tinymce", :rows => 30, :cols => 120 %>
     </div>
   </div>
+
+  <div class="form-group">
+    <div class="col-md-2">&nbsp;</div>
+    <div class="col-md-10">
+      <div class="panel panel-default">
+        <div class="panel-heading">Podcast</div>
+        <div class="panel-body">
+          <%= f.label :podcast_stream_url, "URL do stream de áudio em m4a", :class => 'control-label' %>
+          <%= f.text_field :podcast_stream_url, :class => 'text_field form-control', :placeholder => "Endereço do arquivo. Geralmente uma url do Google Drive." %>
+          <br/>
+          <%= f.label :podcast_duration, "Duração do podcast", :class => 'control-label' %>
+          <%= f.text_field :podcast_duration, :class => 'text_field form-control', :placeholder => "Utilize o formato MIN:SEG ou HORA:MIN:SEG. Ex.: 34:12, 01:19:10" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>

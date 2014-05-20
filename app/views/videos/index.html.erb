@@ -1,14 +1,15 @@
 <%- model_class = Video -%>
 <div class="page-header">
+  <%= image_tag @palestrante.gravatar_url, :size => "80x80", :class => 'pull-left img-circle avatar' %>
   <h1>Vídeos</h1>
-  <h4>palestrante <%= @palestrante.nome %></h4>
+  <h4><%= @palestrante.nome %></h4>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:titulo) %></th>
-      <th><%= model_class.human_attribute_name(:palestrante_id) %></th>
       <th><%= model_class.human_attribute_name(:agenda_id) %></th>
+      <th>Podcast?</th>
       <th><%= model_class.human_attribute_name(:published) %></th>
       <th>Data de cria&ccedil;&atilde;o</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -18,10 +19,10 @@
     <% @videos.each do |video| %>
       <tr>
         <td><%= video.titulo %></td>
-        <td><%= image_tag video.palestrante.gravatar_url, :size => "60x60", :class => 'img-circle avatar' %><%= video.palestrante.nome %></td>
         <td><%= video.agenda.descritivo %></td>
+        <td><%= status_tag(video.podcast?, {:true_text => "SIM", :false_text => "NÃO"}) %>
         <td><%= status_tag(video.published, {:true_text => "SIM", :false_text => "NÃO"}) %>
-        <td><%= video.created_at.strftime("%d/%m/%Y às %H:%M:%S") %></td>
+        <td><%= video.created_at.strftime("%d/%m/%Y") %></td>
         <td>
           <%= link_to video_path(video, :palestrante_id => @palestrante.id), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>

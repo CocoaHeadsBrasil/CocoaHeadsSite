@@ -69,6 +69,7 @@ class VideosController < ApplicationController
         format.json { head :no_content }
       else
         format.html { 
+          @agendas = Agenda.recentes
           @palestrantes = Palestrante.order('nome ASC')
           render action: 'edit' 
         }
@@ -88,7 +89,7 @@ class VideosController < ApplicationController
   end
 
   def todos
-    @videos = Video.mais_novos.paginate(:page => params[:page])
+    @videos = Video.mais_novos.publicados.paginate(:page => params[:page])
     render layout: "internal"
   end
 
@@ -99,7 +100,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.rss
   def itunes
-    @videos = Video.mais_novos
+    @videos = Video.mais_novos.publicados.com_podcast
   end
 
   private
@@ -110,7 +111,7 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:titulo, :palestrante_id, :agenda_id, :descricao, :source, :youtube, :published, :tags)
+      params.require(:video).permit(:titulo, :palestrante_id, :agenda_id, :descricao, :source, :youtube, :published, :tags, :podcast_stream_url, :podcast_duration)
     end
 
     def find_palestrante

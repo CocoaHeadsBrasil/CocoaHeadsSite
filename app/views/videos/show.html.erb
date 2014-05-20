@@ -17,6 +17,12 @@
       <dd><pre class="prettyprint"><%= @video.descricao.html_safe %></pre></dd>
       <dt class="label label-default">Código-fonte</dt>
       <dd><pre class="prettyprint"><%= @video.source %></pre></dd>
+
+      <% if @video.podcast? %>
+      <dt class="label label-default">Podcast</dt>
+      <dd><pre class="prettyprint"><%= @video.podcast_stream_url %></pre></dd>
+      <% end %>
+      
       <dt class="label label-default"><%= model_class.human_attribute_name(:youtube) %></dt>
       <dd><pre class="prettyprint"><%= @video.youtube %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:published) %></dt>
