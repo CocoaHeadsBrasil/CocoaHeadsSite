@@ -1,3 +1,6 @@
+require 'htmlentities'
+coder = HTMLEntities.new
+
 title = "CocoaHeads Brasil"
 author = "CocoaHeads Brasil"
 description = "CocoaTalks dos encontros mensais do movimento CocoaHeads no Brasil."
@@ -32,13 +35,13 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
 
     @videos.each do |episode|
       xml.item do
-      	descricao = ActionView::Base.full_sanitizer.sanitize(episode.descricao)
+      	descricao = coder.decode(ActionView::Base.full_sanitizer.sanitize(episode.descricao))
         xml.title episode.titulo
         xml.description descricao
         xml.pubDate episode.agenda.data.to_s(:rfc822)
-        xml.enclosure :url => 'https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/Cocoa%20Talk%20%233%20George%20Villasboas.m4a', :length => '3233', :type => 'video/mp4'
+        xml.enclosure :url => 'https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/Cocoa%20Talk%20%233%20George%20Villasboas.m4a', :length => '3233', :type => 'video/m4a'
         xml.link agendas_url(episode)
-        xml.guid({:isPermaLink => "false"}, "video_" + episode.id)
+        xml.guid({:isPermaLink => "false"}, "video_" + episode.id.to_s)
         xml.itunes :author, episode.palestrante.nome
         xml.itunes :subtitle, truncate(descricao, :length => 150)
         xml.itunes :summary, descricao

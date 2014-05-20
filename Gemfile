@@ -70,6 +70,8 @@ gem 'icalendar', '~> 2.0.1'
 gem 'will_paginate', '~> 3.0.5'
 gem 'bootstrap-will_paginate'
 
+gem 'htmlentities', '~> 4.3.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

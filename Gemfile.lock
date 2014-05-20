@@ -70,6 +70,7 @@ GEM
       activesupport (>= 3.2.13)
       rack (>= 1.4.5)
     hike (1.2.3)
+    htmlentities (4.3.1)
     i18n (0.6.9)
     icalendar (2.0.1)
     jbuilder (1.5.3)
@@ -177,6 +178,7 @@ DEPENDENCIES
   flickr-objects (~> 0.4.1)
   gravtastic
   heroku_rails_deflate
+  htmlentities (~> 4.3.1)
   icalendar (~> 2.0.1)
   jbuilder (~> 1.2)
   jquery-rails
