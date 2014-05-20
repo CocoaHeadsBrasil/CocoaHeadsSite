@@ -1,0 +1,64 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+	<channel>
+		<atom:link href="https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/podcast.rss" rel="self" type="application/rss+xml" />
+		<title>CocoaHeads Brasil</title>
+		<link>https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/podcast.rss</link>
+		<language>pt</language>
+		<copyright>CocoaHeads Brasil</copyright>
+		<itunes:subtitle>CocoaTalks</itunes:subtitle>
+		<itunes:author>CocoaHeads Brasil (contato@cocoaheads.com.br)</itunes:author>
+		<itunes:summary>CocoaTalks dos encontros mensais do movimento CocoaHeads no Brasil</itunes:summary>
+		<description>CocoaTalks dos encontros mensais do movimento CocoaHeads no Brasil</description>
+		<itunes:owner>
+			<itunes:name>CocoaHeads Brasil</itunes:name>
+			<itunes:email>contato@cocoaheads.com.br</itunes:email>
+		</itunes:owner>
+		<itunes:image href="https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/CapaPodcastCocoaHeadsBR.png" />
+		<itunes:category text="Technology"><itunes:category text="Software How-To"/></itunes:category>
+		<itunes:explicit>no</itunes:explicit>
+		<item>
+			<title>CocoaTalk #3 - Criando contexto para o usuário usando iBeacons</title>
+			<itunes:author>CocoaHeads Brasil (contato@cocoaheads.com.br)</itunes:author>
+			<itunes:subtitle>CocoaTalk feita pelo George Villasboas no CocoaHeadsBR Goiânia abordando iBeacons</itunes:subtitle>
+			<itunes:summary>CocoaTalk feita pelo George Villasboas no CocoaHeadsBR Goiânia abordando iBeacons</itunes:summary>
+			<enclosure url="https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/Cocoa%20Talk%20%233%20George%20Villasboas.m4a" type="audio/mpeg" length="3233" />
+			<guid>https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/Cocoa%20Talk%20%233%20George%20Villasboas.m4a</guid>
+			<pubDate>Mon, 19 May 2014 00:00:00 MST</pubDate>
+			<itunes:duration>32:33</itunes:duration>
+			<itunes:keywords>cocoaheads,cocoaheadsbr,tecnologia,iOS,osx,mac,apple,desenvolvimento</itunes:keywords>
+			<itunes:explicit>no</itunes:explicit></item>
+			<item>
+				<title>CocoaTalk #2 - JavaScript Bridge com UIWebView: integrando dois mundos</title>
+				<itunes:author>CocoaHeads Brasil (contato@cocoaheads.com.br)</itunes:author>
+				<itunes:subtitle>CocoaTalk feita por Edson Pieczarka Jr no CocoaHeadsBR Goiânia abordando JavaScript bridge com UIWebView</itunes:subtitle>
+				<itunes:summary>CocoaTalk feita por Edson Pieczarka Jr no CocoaHeadsBR Goiânia abordando JavaScript bridge com UIWebView</itunes:summary>
+				<enclosure url="https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/Cocoa%20Talk%20%232%20Edson%20Pieczarka%20Jr.m4a" type="audio/mpeg" length="1940" />
+				<guid>https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/Cocoa%20Talk%20%232%20Edson%20Pieczarka%20Jr.m4a</guid>
+				<pubDate>Sun, 18 May 2014 00:00:00 MST</pubDate>
+				<itunes:duration>19:40</itunes:duration>
+				<itunes:keywords>UIWebView,javascript,core,web,objective-c</itunes:keywords>
+				<itunes:explicit>no</itunes:explicit></item>
+				<item>
+					<title>CocoaTalk #1 - Iniciando o desenvolvimento de games com SpriteKit</title>
+					<itunes:author>CocoaHeads Brasil (contato@cocoaheads.com.br)</itunes:author>
+					<itunes:subtitle>CocoaTalk feita pelo Dilson Alkmim no CocoaHeadsBR Goiânia abordando o desenvolvimento de games com SpriteKit</itunes:subtitle>
+					<itunes:summary>CocoaTalk feita pelo Dilson Alkmim no CocoaHeadsBR Goiânia abordando o desenvolvimento de games com SpriteKit</itunes:summary>
+					<enclosure url="https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/CocoaTalk%20%231%20Dilson%20Alkmim.m4a" type="audio/mpeg" length="5714" />
+					<guid>https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/CocoaTalk%20%231%20Dilson%20Alkmim.m4a</guid>
+					<pubDate>Sat, 17 May 2014 00:00:00 MST</pubDate>
+					<itunes:duration>57:14</itunes:duration>
+					<itunes:keywords>cocoaheads,cocoaheadsbr,tecnologia,iOS,osx,mac,apple,desenvolvimento</itunes:keywords>
+					<itunes:explicit>no</itunes:explicit></item>
+					<item>
+						<title>CocoaHeads Brasil</title>
+						<itunes:author>CocoaHeads Brasil (contato@cocoaheads.com.br)</itunes:author>
+						<itunes:subtitle>Primeiro episódio CocoaHeads Brasil apresentando o que é o movimento e mais detalhes sobre a comunidade.</itunes:subtitle>
+						<itunes:summary>Primeiro episódio CocoaHeads Brasil apresentando o que é o movimento e mais detalhes sobre a comunidade.</itunes:summary>
+						<enclosure url="https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/CocoaHeads%20Brasil.m4a" type="audio/m4a" length="0551" />
+						<guid>https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/CocoaHeads%20Brasil.m4a</guid>
+						<pubDate>Thu, 15 May 2014 00:00:00 MST</pubDate>
+						<itunes:duration>05:51</itunes:duration>
+						<itunes:keywords>cocoaheads,,cocoaheadsbr,,tecnologia,,iOS,,osx,,mac,,apple</itunes:keywords>
+						<itunes:explicit>no</itunes:explicit></item>
+					</channel>
+				</rss>
