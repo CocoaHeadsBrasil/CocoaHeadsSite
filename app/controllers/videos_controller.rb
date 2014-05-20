@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:todos, :detalhes]
+  before_action :confirm_logged_in, except: [:todos, :detalhes, :itunes]
   before_action :set_video, only: [:show, :edit, :update, :destroy, :detalhes]
   before_action :find_palestrante, :except => [:useful]
 
@@ -94,6 +94,12 @@ class VideosController < ApplicationController
 
   def detalhes
     render layout: "internal"
+  end
+
+  # GET /videos
+  # GET /videos.rss
+  def itunes
+    @videos = Video.mais_novos
   end
 
   private
