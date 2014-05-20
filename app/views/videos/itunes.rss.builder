@@ -1,5 +1,5 @@
 title = "CocoaHeads Brasil"
-author = "CocoaHeads Brasil (contato@cocoaheads.com.br)"
+author = "CocoaHeads Brasil"
 description = "CocoaTalks dos encontros mensais do movimento CocoaHeads no Brasil."
 keywords = "ios, osx, development, desenvolvimento, programacao, objective-c, mac, appstore, macappstore"
 
@@ -38,7 +38,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
         xml.pubDate episode.agenda.data.to_s(:rfc822)
         xml.enclosure :url => 'https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/Cocoa%20Talk%20%233%20George%20Villasboas.m4a', :length => '3233', :type => 'video/mp4'
         xml.link agendas_url(episode)
-        xml.guid({:isPermaLink => "false"}, episode.id)
+        xml.guid({:isPermaLink => "false"}, "video_" + episode.id)
         xml.itunes :author, episode.palestrante.nome
         xml.itunes :subtitle, truncate(descricao, :length => 150)
         xml.itunes :summary, descricao
