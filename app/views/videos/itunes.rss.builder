@@ -7,10 +7,10 @@ description = "CocoaTalks dos encontros mensais do movimento CocoaHeads no Brasi
 keywords = "ios, osx, development, desenvolvimento, programacao, objective-c, mac, appstore, macappstore"
 
 image = asset_url("capaPodcastCocoaHeadsBR.png")
-ext = 'mp4'
 
-xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:media" => "http://search.yahoo.com/mrss/",  :version => "2.0" do
+xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:media" => "http://search.yahoo.com/mrss/", "xmlns:atom" => "http://www.w3.org/2005/Atom",  :version => "2.0" do
   xml.channel do
+    xml.atom :link, :href => root_url + 'podcasts/itunes.rss', :rel => 'self', :type => 'application/rss+xml'
     xml.title title
     xml.link 'http://cocoaheads.com.br'
     xml.description description
