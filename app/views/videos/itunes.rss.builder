@@ -11,7 +11,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
     xml.title title
     xml.link 'http://cocoaheads.com.br'
     xml.description description
-    xml.language 'en'
+    xml.language 'pt'
     xml.pubDate @videos.first.agenda.data.to_s(:rfc822)
     xml.lastBuildDate @videos.first.agenda.data.to_s(:rfc822)
     xml.itunes :author, author
@@ -39,9 +39,9 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
         xml.enclosure :url => 'https://googledrive.com/host/0B-q7XN4P-YuGZFlOQm9PWGxLR0E/Cocoa%20Talk%20%233%20George%20Villasboas.m4a', :length => '3233', :type => 'video/mp4'
         xml.link agendas_url(episode)
         xml.guid({:isPermaLink => "false"}, episode.id)
-        xml.itunes :author, author
-        xml.itunes :subtitle, truncate(episode.descricao, :length => 150)
-        xml.itunes :summary, episode.descricao
+        xml.itunes :author, episode.palestrante.nome
+        xml.itunes :subtitle, truncate(descricao, :length => 150)
+        xml.itunes :summary, descricao
         xml.itunes :explicit, 'no'
         xml.itunes :duration, '3233'
       end
