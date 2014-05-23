@@ -30,13 +30,24 @@ body {
     text-align: center;
     margin: 0px;
     padding: 0px;
-    background: image-url('imgBody.jpg') no-repeat center center fixed; 
+    background: image-url('imgBody.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     font-size:18px;
 }
+
+/* To div`s with float */
+.clearfix:before, .clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
 
 /* Heading */
 h1 {
