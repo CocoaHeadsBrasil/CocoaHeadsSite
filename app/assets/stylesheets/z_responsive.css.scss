@@ -1,0 +1,117 @@
+// Place all the styles related to the videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#content_home_left{
+	height: auto !important;
+}
+div#copyright{
+	margin-top: 54px;
+}
+
+@media all and (max-width: 1500px){
+	ul#menu{
+		margin-left: 150px;
+		width:100%;
+	}
+	ul#menu li{
+		font-size: 20px;
+	}
+}
+
+@media all and (max-width: 1250px){
+	ul#menu li{
+		font-size: 18px;
+	}
+	ul#menu{
+		width:100%;
+	}
+}
+
+@media all and (max-width: 1000px){
+	div#holder {
+		padding-bottom: 80px;
+		div#content_home_left{
+			height: auto;
+		}
+	}
+
+	div#footer_conteudo{
+	  margin-left:0 !important;
+	}
+	div#agenda{
+		height: auto;
+		.agendas{
+			height: auto;
+		}
+	}
+	ul#menu
+	{
+		width:100%;
+		margin-left: 154px;
+		li{
+		 padding: 0 6px;
+	     font-size: 16px !important;
+	   }
+	}
+}
+@media all and (max-width: 820px){
+	div#holder{
+		padding-bottom: 190px;
+	}
+	#content_home_left,#content_home_right {
+		float: left !important;
+		width: 100% !important;
+		margin: auto !important;
+
+	}
+	#icons{
+		width: 100% !important;
+		text-align: center;
+		padding-top: 30px;
+	}
+	#content_home_left{
+		 h1{
+		 	font-size: 45px !important;
+		 }
+	}
+	#content_home_right{
+	}
+	#copyright{
+		margin-top: 5px !important;
+	}
+	div#footer_holder,div#footer{
+		height: 200px;
+	}
+	div#footer_conteudo{
+		height: 262px;
+		margin-top: -315px;
+		width: 100%;
+		background-position:center top;
+	}
+	ul#menu{
+		height: 162px;
+		width: 120px;
+		position: absolute;
+		right: 10px;
+		bottom: -37px;
+		font-size: 14px;
+		li{
+			text-align: right;
+			padding: 2.5px;
+			display: block;
+			font-size: 14px;
+			.separator{
+				display: none !important;
+			}
+		}
+	}
+	#creativecommons{
+		position: absolute !important;
+		bottom: -75px !important;
+		width: 183px  !important;
+		height: 64px !important;
+		left: 50%;
+		margin-left: -91px !important;
+	}
+}
