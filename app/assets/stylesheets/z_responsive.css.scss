@@ -2,6 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+	#creativecommons{
+		position: absolute;
+		right: 0;
+		bottom: -24px;
+	}
+	ul#menu{
+		margin-top: 117px;
+	}
+
+#icons-social-responsive{
+	#icons{
+		float: none !important;
+		text-align: center;
+		display: none;
+		height: 81px;
+	}
+}
+
 div#content_home_left{
 	height: auto !important;
 }
@@ -21,7 +39,6 @@ div#copyright{
 
 @media all and (max-width: 1250px){
 	ul#menu li{
-		font-size: 18px;
 	}
 	ul#menu{
 		width:100%;
@@ -56,6 +73,14 @@ div#copyright{
 	}
 }
 @media all and (max-width: 820px){
+	#icons{
+		display: none;
+	}
+	#icons-social-responsive{
+		#icons{
+			display: block;
+		}
+	}
 	div#holder{
 		padding-bottom: 190px;
 	}

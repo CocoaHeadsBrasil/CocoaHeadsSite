@@ -5,6 +5,9 @@
 	</head>
 	<body>
 		<div id="holder" class="clearfix">
+			<div id="icons-social-responsive">
+				<%= render(:partial => "layouts/social") %>
+			</div>
 	    	<div id="content_home_left">
 	    		<h1 class="titulo"><%= link_to "CocoaHeads", root_url %></h1>
 	    		<h2 class="titulo"><%= link_to "Brasil", root_url %> <%= link_to image_tag("brasil.png", {:size => '36x24', :alt => 'Brasil', :class => 'flag'}), root_url %></h2>
