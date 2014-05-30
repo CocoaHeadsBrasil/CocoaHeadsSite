@@ -3,7 +3,7 @@
 
 <%= link_to "Listar todas as agendas", {:action => :todas}, {:class => 'btn btn-default agendas-toggle'} %>
 <div class="brclear">&nbsp;</div>
-<div class="agendas interna">
+<div class="agendas interna clearfix">
 <% @agendas.each do |a| %>
 	<%= render :partial => "layouts/agenda_interna", :locals => {:a => a} %>
 <% end %>
