@@ -42,6 +42,25 @@ div#copyright{
 }
 
 @media all and (max-width: 1250px){
+
+	#titulo{
+	 width: 300px !important;
+	}
+	.agendas{
+		.agenda{
+			width: 100% !important;
+		}
+	}
+
+	.interna{
+		h1.titulo,h2.titulo{
+			width: 300px;
+		}
+	}
+	#social{
+		width: 500px !important;
+	}
+
 	ul#menu li{
 	}
 	ul#menu{
@@ -50,6 +69,46 @@ div#copyright{
 }
 
 @media all and (max-width: 1000px){
+
+
+	body.interna a.agendas-toggle{
+	  right:0;
+	}
+	body.interna div.agendas.interna div.agenda{
+		margin: 0;
+	}
+
+	body.interna.fullscreen #holder article h3{
+		margin-bottom: 110px;
+	}
+
+	body.interna.fullscreen #holder footer{
+		width: 100%;
+		margin-top: -240px !important;
+	}
+
+	.agendas{
+		.agenda{
+			margin-bottom: 10px !important;
+		}
+	}
+
+	.interna{
+		h1.titulo,h2.titulo{
+			width: 100% !important;
+		}
+	}
+	#social{
+		width: 100% !important;
+		float: left !important;
+		padding-top: 20px;
+		#icons{
+		  float: left !important;
+		}
+	}
+	header{
+		height: 135px !important;
+	}
 
 	h2{
 		iframe{
@@ -105,6 +164,20 @@ div#copyright{
 	#icons{
 		display: none;
 	}
+	.interna #icons{
+		display: block;
+	}
+	.interna #icons{
+		padding-top:0;
+	}
+
+	.agendas-toggle{
+		display: block !important;
+		width: 100% !important;
+		margin-top: 30px;
+		float: none !important;
+	}
+
 	#icons-social-responsive{
 		#icons{
 			display: block;
