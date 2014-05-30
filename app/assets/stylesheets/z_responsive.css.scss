@@ -150,6 +150,14 @@ div#copyright{
 }
 @media all and (max-width: 820px){
 
+	div.fotos div.foto div.infos{
+		width: auto;
+	}
+
+	.ver_fotos{
+		font-size: 25px !important;
+	}
+
 	h2,.video_youtube{
 		iframe{
 			height: 350px;
@@ -244,6 +252,12 @@ div#copyright{
 		height: 64px !important;
 		left: 50%;
 		margin-left: -91px !important;
+	}
+}
+
+@media all and (max-width: 650px){
+	div.fotos div.foto div.infos{
+		padding: 10px 0 0 0;
 	}
 }
 
