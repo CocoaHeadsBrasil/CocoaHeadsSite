@@ -32,6 +32,12 @@ div#copyright{
 }
 
 @media all and (max-width: 1500px){
+
+	#content_interna_right{
+		#icons{
+			font-size: 24px;
+		}
+	}
 	ul#menu{
 		margin-left: 150px;
 		width:100%;
