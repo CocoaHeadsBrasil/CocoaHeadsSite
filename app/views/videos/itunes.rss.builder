@@ -39,7 +39,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
       	descricao = coder.decode(ActionView::Base.full_sanitizer.sanitize(episode.descricao))
         xml.title episode.titulo
         xml.description descricao
-        xml.pubDate episode.agenda.data.to_s(:rfc822)
+        xml.pubDate episode.created_at.to_s(:rfc822)
         xml.enclosure :url => episode.podcast_stream_url, :length => episode.duracao_podcast_sem_pontuacao, :type => 'audio/m4a'
         xml.link agendas_url(episode)
         xml.guid({:isPermaLink => "false"}, "cocoatalk_" + episode.id.to_s)
