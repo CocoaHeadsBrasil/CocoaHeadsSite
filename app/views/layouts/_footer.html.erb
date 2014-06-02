@@ -11,3 +11,18 @@
 	            </div>
 	        </div>
 	    </div>
+
+	   	<div id="footer_holder_resp">
+	   		<div class="icon_resp"><a href="#"><i class="glyphicon glyphicon-align-justify"></i></a></div>
+        	<div id="creativecommons_resp">
+            	<%= link_to(image_tag("creativecommons.png", {:size => "92x32", :alt => 'Creative Commons', :title => 'Creative Commons'}), "http://creativecommons.org/licenses/by/4.0/", {:target => :blank, :rel => :licence}) %>
+            </div>
+            <div id="logo_resp">
+            	<%= image_tag("coffee_monster.png", {:size => "80x80"}) %>
+            </div>
+			<div id="menu_resp">
+				<ul>
+				  <%= render(:partial => "layouts/menu", :locals => {:options => options}) %>
+				</ul>
+			</div>
+	    </div>
