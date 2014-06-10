@@ -6,6 +6,8 @@
 	<div class="data"><span>Data do evento: </span> <%= a.data.strftime("%d/%m/%Y") %><%= " (em #{pluralize(dias_restantes, "dia", "dias")})" if !a.antiga? %></div>
 	<div class="horario"><span>Horário: </span> <%= a.horario %></div>
 	<div class="local"><span>Local: </span> <%= a.local %></div>
-	<div class="estado"><%= a.cidade.estado.sigla %></div>	
+	<div class="estado">
+		<%= a.cidade.cidade == 'Brasil' ? 'BR' : a.cidade.estado.sigla %>
+	</div>	
 	<%= link_to "Mais informações", {:controller => :agendas, :action => :detalhes, :id => a.id}, {:class => 'btn btn-default'} %>
 </div>
