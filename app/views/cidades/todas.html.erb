@@ -10,6 +10,9 @@
 
 <% estado_atual = nil %>
 <% @cidades.each do |c| %>
+	<% if c.cidade == "Brasil" %>
+		<% next %>
+	<% end %>
 	<% if estado_atual != c.estado.id %>
 		<div class="estado"><%= c.estado.sigla %></div>
 		<% estado_atual = c.estado.id %>
