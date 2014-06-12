@@ -70,7 +70,7 @@ class FotosController < ApplicationController
   end
 
   def todos
-    @fotos = Foto.publicadas
+    @fotos = Foto.publicadas.recentes
     render layout: "internal"
   end
 
