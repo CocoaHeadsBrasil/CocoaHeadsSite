@@ -27,6 +27,10 @@ class Agenda < ActiveRecord::Base
 		where(["descricao LIKE ?", "%#{query}%"])
 	}
 
+	def evento_com_detalhes
+		self.nome + " - CocoaHeads " + self.cidade.cidade + " - " + self.data_formatada
+	end
+
 	def descritivo
 		"CocoaHeads " + self.cidade.cidade + " - " + self.data_formatada
 	end

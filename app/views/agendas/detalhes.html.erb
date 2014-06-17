@@ -1,3 +1,5 @@
+<% @twitter_description = @agenda.evento_com_detalhes %>
+
 <% ativaClass =  @agenda.antiga? ? 'inativa' : 'ativa' %>
 <% dias_restantes = (Time.zone.now -  @agenda.data).abs.to_i / 1.day %>
 <div class="agenda-detalhes push-left <%= ativaClass %>">

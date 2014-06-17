@@ -1,4 +1,8 @@
-		<% keywords = "CocoaHeads,Objective-c,xcode,apple,iphone,osx,mac,developer,community,brasil,brazil,programacao,comunidade,wwdc,appstore,macappstore,steve,jobs,cupertino" %>
+		<% keywords = "CocoaHeads,Objective-c,swift,xcode,apple,iphone,osx,mac,developer,community,brasil,brazil,programacao,comunidade,wwdc,appstore,macappstore,steve,jobs,cupertino" %>
+		<% twitter_default_description = "Nosso cérebro é programado em Swift! CocoaHeads é um grupo formado por desenvolvedores (profissionais e iniciantes), que se organiza para reunir pessoas com a mesma paixão: Programação para os iDevices da Apple (OSX e iOS). Nossos encontros são informais e servem para juntar  pessoas que gostam no mesmo assunto que você [programação! :) ]. Promovemos Talks e Palestras de 30 minutos dadas por membros do grupo local ou de convidados especiais e é lógico comidas, bebidas e snacks ao final. Somos o primeiro grupo CocoaHeads da América do Sul e o conteúdo aqui apresentado é todo em português.  Interessado em ter um grupo CocoaHeads em sua cidade? Entre em contato conosco."
+
+			twitter_description = twitter_description.nil? ? twitter_default_description : twitter_description
+		%>
 		<title>CocoaHeads Brasil | <%= page_title || keywords %></title>
 		<meta name="description" content="CocoaHeads Brasil">
 		<meta name="keywords" content="<%= keywords %>">
@@ -12,9 +16,9 @@
 
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@cocoaheadsbr">
-		<meta name="twitter:creator" content="@ghvillasboas">
+		<meta name="twitter:creator" content="@cocoaheadsbr">
 		<meta name="twitter:title" content="CocoaHeads Brasil">
-		<meta name="twitter:description" content="Nosso cérebro é programado em Objective-C! CocoaHeads é um grupo formado por desenvolvedores (profissionais e iniciantes), que se organiza para reunir pessoas com a mesma paixão: Programação para os iDevices da Apple (OSX e iOS). Nossos encontros são informais e servem para juntar  pessoas que gostam no mesmo assunto que você [programação! :) ]. Promovemos Talks e Palestras de 30 minutos dadas por membros do grupo local ou de convidados especiais e é lógico comidas, bebidas e snacks ao final. Somos o primeiro grupo CocoaHeads da América do Sul e o conteúdo aqui apresentado é todo em português.  Interessado em ter um grupo CocoaHeads em sua cidade? Entre em contato conosco.">
+		<meta name="twitter:description" content="<%= twitter_description %>">
 		<meta name="twitter:image" content="<%= image_url "twitter_card.png" %>">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
