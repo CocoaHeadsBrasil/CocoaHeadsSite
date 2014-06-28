@@ -39,7 +39,7 @@ ruby "2.1.2"
 gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 
 gem 'newrelic_rpm'
 
