@@ -37,6 +37,4 @@ Cocoaheads::Application.routes.draw do
   match "/404", :to => "errors#error404", :via => [:get, :post]
   get ':permalink', :to => 'contents#public'
 
-
-
 end

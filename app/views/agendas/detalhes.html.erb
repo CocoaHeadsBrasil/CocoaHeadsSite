@@ -1,11 +1,10 @@
 <% @twitter_description = @agenda.evento_com_detalhes %>
 
 <% ativaClass =  @agenda.antiga? ? 'inativa' : 'ativa' %>
-<% dias_restantes = (Time.zone.now -  @agenda.data).abs.to_i / 1.day %>
 <div class="agenda-detalhes push-left <%= ativaClass %>">
 	<div class="nome"><%= '<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;'.html_safe if  @agenda.antiga? %><%=  @agenda.nome %></div>
 	<div class="capitulo"><span>Capítulo: </span> <%=  @agenda.descritivo_curto %></div>
-	<div class="data"><span>Data do evento: </span> <%=  @agenda.data.strftime("%d/%m/%Y") %><%= " (em #{pluralize(dias_restantes, "dia", "dias")})" if ! @agenda.antiga? %></div>
+	<div class="data"><span>Data do evento: </span> <%=  @agenda.data.strftime("%d/%m/%Y") %> <%= "(#{@agenda.dias_restantes})" if !@agenda.antiga? %></div>
 	<div class="horario"><span>Horário: </span> <%=  @agenda.horario %></div>
 	<div class="local"><span>Local: </span> <%=  @agenda.local %></div>
 	<div class="local-endereco"><span>Endere&ccedil;o: </span> <%=  @agenda.endereco %></div>

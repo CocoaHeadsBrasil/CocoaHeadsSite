@@ -52,6 +52,17 @@ class Agenda < ActiveRecord::Base
 		self.data < Time.now
 	end
 
+	def dias_restantes
+		dias_restantes = (Time.zone.now -  self.data).abs.to_i / 1.day
+
+		if dias_restantes < 1
+			"acontece hoje!" if !self.antiga?
+		else
+			plural = dias_restantes == 1 ? "dia" : "dias"
+			"em #{dias_restantes} #{plural}" if !self.antiga?
+		end
+	end
+
 	# Converte para iCalendar
 	def to_ics
 		event = Icalendar::Event.new
