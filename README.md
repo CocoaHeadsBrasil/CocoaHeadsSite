@@ -1,3 +1,5 @@
+[ ![Codeship Status for logics/CocoaHeadsBRWeb](https://www.codeship.io/projects/c1268530-e5ca-0131-e1ff-367b462184ed/status)](https://www.codeship.io/projects/25786)
+
 CocoaHeads Brasil Web
 ======================
 
