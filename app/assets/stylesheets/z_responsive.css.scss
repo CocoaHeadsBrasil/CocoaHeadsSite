@@ -5,10 +5,10 @@
 	#creativecommons{
 		position: absolute;
 		right: 0;
-		bottom: -24px;
+		bottom: -7px;
 	}
 	ul#menu{
-		margin-top: 117px;
+		margin-top: 135px;
 	}
 
 	#footer_holder_resp{
@@ -96,6 +96,10 @@ div#copyright{
 }
 
 @media all and (max-width: 1250px){
+
+	#creativecommons{
+		display: none !important;
+	}
 
 	#titulo{
 	 width: 300px !important;
@@ -203,7 +207,9 @@ div#copyright{
 	}
 }
 @media all and (max-width: 820px){
-
+	#creativecommons_resp{
+		display: none !important;
+	}
 	#footer_holder{
 		display: none;
 	}
