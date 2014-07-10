@@ -106,7 +106,7 @@ class VideosController < ApplicationController
   def itunes_redirect
     if @video.podcast?
       @video.increment!(:podcast_counter)
-      redirect_to @video.podcast_stream_url, status: :moved_permanently
+      redirect_to @video.podcast_stream_url, status: :found
     else
       redirect_to action: 'todos'
     end

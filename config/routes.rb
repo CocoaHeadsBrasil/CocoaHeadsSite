@@ -9,6 +9,7 @@ Cocoaheads::Application.routes.draw do
   match '/videos', :to => 'videos#todos', :via => :get
   match '/fotos', :to => 'fotos#todos', :via => :get
   match '/podcasts/itunes.rss', :controller => 'videos', :action => 'itunes', :format => 'rss', :via => :get
+  match '/podcasts/redirect/:id.mp3', :controller => 'videos', :action => 'itunes_redirect', :via => :get
   scope '/cupertino' do
     resources :agendas, :cidades, :fotos, :videos, :palestrantes, :posts, :contents, :faq_groups, :downloads, :faqs
   end
