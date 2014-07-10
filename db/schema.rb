@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520134953) do
+ActiveRecord::Schema.define(version: 20140710171232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -208,6 +208,14 @@ ActiveRecord::Schema.define(version: 20140520134953) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
+  create_table "talks", force: true do |t|
+    t.string   "titulo"
+    t.text     "descricao"
+    t.boolean  "publicado"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "videos", force: true do |t|
     t.integer  "palestrante_id"
     t.integer  "agenda_id"
@@ -221,6 +229,7 @@ ActiveRecord::Schema.define(version: 20140520134953) do
     t.string   "source"
     t.string   "podcast_stream_url"
     t.string   "podcast_duration"
+    t.integer  "podcast_counter",    default: 0
   end
 
 end

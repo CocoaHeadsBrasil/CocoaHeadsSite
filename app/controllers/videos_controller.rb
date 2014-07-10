@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:todos, :detalhes, :itunes]
-  before_action :set_video, only: [:show, :edit, :update, :destroy, :detalhes]
+  before_action :confirm_logged_in, except: [:todos, :detalhes, :itunes, :itunes_redirect]
+  before_action :set_video, only: [:show, :edit, :update, :destroy, :detalhes, :itunes_redirect]
   before_action :find_palestrante, :except => [:useful]
 
   layout 'admin'
@@ -101,6 +101,15 @@ class VideosController < ApplicationController
   # GET /videos.rss
   def itunes
     @videos = Video.mais_novos.publicados.com_podcast
+  end
+
+  def itunes_redirect
+    if @video.podcast?
+      @video.increment!(:podcast_counter)
+      redirect_to @video.podcast_stream_url, status: :moved_permanently
+    else
+      redirect_to action: 'todos'
+    end
   end
 
   private

@@ -12,6 +12,7 @@
       <th>Podcast?</th>
       <th><%= model_class.human_attribute_name(:published) %></th>
       <th>Data de cria&ccedil;&atilde;o</th>
+      <th>Views Podcast</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -23,6 +24,7 @@
         <td><%= status_tag(video.podcast?, {:true_text => "SIM", :false_text => "NÃO"}) %>
         <td><%= status_tag(video.published, {:true_text => "SIM", :false_text => "NÃO"}) %>
         <td><%= video.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= video.podcast_counter %></td>
         <td>
           <%= link_to video_path(video, :palestrante_id => @palestrante.id), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>
