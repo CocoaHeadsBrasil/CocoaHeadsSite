@@ -52,5 +52,10 @@
 	<% end %>
     </ul>
     <div class="brclear">&nbsp;</div>
+
+    <%= content_tag(:div, "Fotos por: " + @foto.descricao, {:class => 'descricao-fotos'}) if !@foto.nil? %>
+    <div class="detalhe descricao">
+        <%= @foto.descricao.html_safe if !@foto.detalhes.blank? %>
+    </div>
+
 </div>
-<%= content_tag(:div, "Fotos por: " + @foto.descricao, {:class => 'descricao-fotos'}) if !@foto.nil? %>

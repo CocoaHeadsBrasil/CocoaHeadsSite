@@ -108,7 +108,7 @@ class FotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def foto_params
-      params.require(:foto).permit(:nome, :agenda_id, :descricao, :flickr_album_id, :album_id, :published)
+      params.require(:foto).permit(:nome, :agenda_id, :descricao, :detalhes, :flickr_album_id, :album_id, :published)
     end
 
     def choose_layout

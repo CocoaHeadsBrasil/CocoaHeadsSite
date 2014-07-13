@@ -13,6 +13,8 @@
       <dd><pre class="prettyprint"><%= @foto.flickr_album_id %></pre></dd>
       <dt class="label label-default">Publicado?</dt>
       <dd><pre class="prettyprint"><%= @foto.published ? "Sim" : "Não" %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:detalhes) %></dt>
+      <dd><pre class="prettyprint"><%= @foto.detalhes.html_safe if !@foto.detalhes.blank? %></pre></dd>
   </dl>
 </div>
 
