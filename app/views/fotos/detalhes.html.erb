@@ -55,7 +55,7 @@
 
     <%= content_tag(:div, "Fotos por: " + @foto.descricao, {:class => 'descricao-fotos'}) if !@foto.nil? %>
     <div class="detalhe descricao">
-        <%= @foto.descricao.html_safe if !@foto.detalhes.blank? %>
+        <%= @foto.detalhes.html_safe if !@foto.detalhes.blank? %>
     </div>
 
 </div>
