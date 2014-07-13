@@ -42,6 +42,10 @@ div#map{
   color:black;
 }
 
+tr.disabled{
+  color: lightgray !important;
+}
+
 /*!
  * Datetimepicker for Bootstrap v3
  * https://github.com/Eonasdan/bootstrap-datetimepicker/
@@ -326,3 +330,5 @@ div.agenda-detalhes{
     color: #f9da03;
   }
 }
+
+
