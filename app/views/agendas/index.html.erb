@@ -16,9 +16,9 @@
   </thead>
   <tbody>
     <% @agendas.each do |agenda| %>
-      <tr class="<%= "disabled" if agenda.published == false %>">
+      <tr class="<%= "disabled" if agenda.published == false %> <%= "naoVencida" if (!agenda.antiga? && agenda.published == false) %>">
         <td><%= agenda.id %></td>
-        <td><%= agenda.nome %></td>
+        <td><%= agenda.nome %> <%= '<br/><span class="alertaDespublicada">Esta agenda está marcada como despublicada</span>'.html_safe if (!agenda.antiga? && agenda.published == false) %></td>
         <td><%= agenda.data.strftime("%d/%m/%Y às %H:%M:%S") %></td>
         <td><%= agenda.local %></td>
         <td><%= status_tag(!agenda.meetup.blank?, {:true_text => "SIM", :false_text => "NÃO"}) %></td>

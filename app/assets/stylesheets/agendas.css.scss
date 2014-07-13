@@ -46,6 +46,16 @@ tr.disabled{
   color: lightgray !important;
 }
 
+tr.disabled.naoVencida{
+  color: gray !important;
+  
+}
+
+tr.naoVencida span.alertaDespublicada{
+  font-size: 8pt;
+  color: red;
+}
+
 /*!
  * Datetimepicker for Bootstrap v3
  * https://github.com/Eonasdan/bootstrap-datetimepicker/

@@ -9,6 +9,7 @@ class Agenda < ActiveRecord::Base
 	WillPaginate.per_page = 20
 
 	# shortcut validations, aka "sexy validations"
+	validates :cidade_id, :presence => true
 	validates :data, :presence => true
 	validates :nome, :presence => true
 	validates :endereco, :presence => true
