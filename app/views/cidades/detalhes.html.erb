@@ -1,6 +1,10 @@
-<% @twitter_description = @cidade.nome_do_capitulo %>
 <% @titulo = "Cidades" %>
 <% @subtitulo = "Todos os capítulos CocoaHeads pelo Brasil" %>
+<% @page_title = @cidade.nome_do_capitulo %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:title] = @cidade.nome_do_capitulo %>
+<% @og_protocol[:description] = "#{@cidade.nome_do_capitulo} - #{@cidade.estado.nome} - Organizador: #{@cidade.organizador}" %>
 
 <div class="cidade-detalhes">
 	<div class="detalhe nome"><%=  @cidade.nome_do_capitulo %></div>

@@ -1,25 +1,44 @@
 		<% keywords = "CocoaHeads,Objective-c,swift,xcode,apple,iphone,osx,mac,developer,community,brasil,brazil,programacao,comunidade,wwdc,appstore,macappstore,steve,jobs,cupertino" %>
-		<% twitter_default_description = "Nosso cérebro é programado em Swift! CocoaHeads é um grupo formado por desenvolvedores (profissionais e iniciantes), que se organiza para reunir pessoas com a mesma paixão: Programação para os iDevices da Apple (OSX e iOS). Nossos encontros são informais e servem para juntar  pessoas que gostam no mesmo assunto que você [programação! :) ]. Promovemos Talks e Palestras de 30 minutos dadas por membros do grupo local ou de convidados especiais e é lógico comidas, bebidas e snacks ao final. Somos o primeiro grupo CocoaHeads da América do Sul e o conteúdo aqui apresentado é todo em português.  Interessado em ter um grupo CocoaHeads em sua cidade? Entre em contato conosco."
+		<% 
+			# Defaults
+			og_default_title = page_title || "CocoaHeads Brasil"
+			og_default_description = "Nosso cérebro é programado em Swift! CocoaHeads é um grupo formado por desenvolvedores (profissionais e iniciantes), que se organiza para reunir pessoas com a mesma paixão: Programação para os iDevices da Apple (OSX e iOS). Nossos encontros são informais e servem para juntar  pessoas que gostam no mesmo assunto que você [programação! :) ]. Promovemos Talks e Palestras de 30 minutos dadas por membros do grupo local ou de convidados especiais e é lógico comidas, bebidas e snacks ao final. Somos o primeiro grupo CocoaHeads da América do Sul e o conteúdo aqui apresentado é todo em português.  Interessado em ter um grupo CocoaHeads em sua cidade? Entre em contato conosco."
+			og_default_image = image_url "og_image.png"
+			og_default_type = "website"
 
-			twitter_description = twitter_description.nil? ? twitter_default_description : twitter_description
+
+			# Valores
+			og_protocol[:type] = og_protocol[:type] || og_default_type
+			og_protocol[:title] = og_protocol[:title] || og_default_title
+			og_protocol[:description] = og_protocol[:description] || og_default_description
+			og_protocol[:image] = og_protocol[:image] || og_default_image
 		%>
 		<title>CocoaHeads Brasil | <%= page_title || keywords %></title>
 		<meta name="description" content="CocoaHeads Brasil">
 		<meta name="keywords" content="<%= keywords %>">
 		<meta name="author" content="George Villasboas">
 
-		<!-- Facebook meta tags -->
-		<meta property="og:title" content="Cocoaheads Brasil"/>
-		<meta property="og:site_name" content="Cocoaheads Brasil"/>
+		<!-- Facebook Open Graph meta tags -->
+		<meta property="og:type" content="<%= og_protocol[:type] %>" />
+		<meta property="og:title" content="<%= og_protocol[:title] %>"/>
+		<meta property="og:site_name" content="CocoaHeads Brasil"/>
 		<meta property="og:url" content="<%= request.original_url %>"/>
-		<meta property="og:image" content="<%= request.original_url %>assets/twitter_card.png"/>
+		<meta property="og:description" content="<%= og_protocol[:description] %>"/>
+		<meta property="og:image" content="<%= og_protocol[:image] %>"/>
+		<%= "<meta property=\"og:latitude\" content=\"#{ og_protocol[:latitude] }\" />".html_safe if !og_protocol[:latitude].nil? %>
+		<%= "<meta property=\"article:published_time\" content=\"#{ og_protocol[:published_time] }\" />".html_safe if !og_protocol[:published_time].nil? %>
+		<%= "<meta property=\"article:modified_time\" content=\"#{ og_protocol[:modified_time] }\" />".html_safe if !og_protocol[:modified_time].nil? %>
+		<%= "<meta property=\"og:video\" content=\"#{ og_protocol[:video] }\" />".html_safe if !og_protocol[:video].nil? %>
+		<%= "<meta property=\"video:tag\" content=\"#{ og_protocol[:video_tag] }\" />".html_safe if !og_protocol[:video_tag].nil? %>
+		<%= "<meta property=\"og:audio\" content=\"#{ og_protocol[:audio] }\" />".html_safe if !og_protocol[:audio].nil? %>
 
+		<!-- Twitter Card meta tags -->
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@cocoaheadsbr">
 		<meta name="twitter:creator" content="@cocoaheadsbr">
-		<meta name="twitter:title" content="CocoaHeads Brasil">
-		<meta name="twitter:description" content="<%= twitter_description %>">
-		<meta name="twitter:image" content="<%= image_url "twitter_card.png" %>">
+		<meta name="twitter:title" content="<%= og_protocol[:title] %>">
+		<meta name="twitter:description" content="<%= og_protocol[:description] %>">
+		<meta name="twitter:image" content="<%= og_protocol[:image] %>">
 	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 		<%= stylesheet_link_tag "application", media: "all" %>

@@ -47,5 +47,4 @@ module ApplicationHelper
 			content_tag(:span, options[:false_text], :class => 'label label-default')
 		end
 	end
-
 end

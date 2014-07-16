@@ -1,6 +1,11 @@
-<% @twitter_description = "Agendas ativas CocoaHeads BR" %>
 <% @titulo = "Agendas" %>
 <% @subtitulo = "Somente as agendas ativas" %>
+
+<% @page_title = @subtitulo %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:title] = "Agenda CocoaHeads BR" %>
+<% @og_protocol[:description] = "Confira a programação dos próximos eventos CocoaHeads em todo o Brasil." %>
 
 <%= link_to "Listar todas as agendas", {:action => :todas}, {:class => 'btn btn-default agendas-toggle'} %>
 <div class="brclear">&nbsp;</div>

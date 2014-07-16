@@ -1,9 +1,11 @@
-<% @twitter_description = "Relação de chapters CocoaHeads Brasil" %>
 <% @titulo = "Cidades" %>
-<% @subtitulo = "Todos os capítulos CocoaHeads pelo Brasil" %>
+<% @subtitulo = "Todos os chapters CocoaHeads pelo Brasil" %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:title] = "Relação de chapters CocoaHeads Brasil" %>
+<% @og_protocol[:description] = "Relação dos chapters do CocoaHeads em todo o Brasil" %>
 
 <div class="cidades interna">
-
 	<div class="cidade nacional">
 		<span class="nome">CocoaHeads Brasil</span><br />
 		<span class="organizador"><span class="titulo">Integrador: </span> <span class="nome"><%= link_to "George Villasboas", "https://twitter.com/ghvillasboas", {:target => :blank} %></span></span>

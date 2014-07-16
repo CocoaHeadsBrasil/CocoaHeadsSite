@@ -1,3 +1,11 @@
+<% @page_title = "#{@agenda.descritivo_curto} - #{@agenda.local}" %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:title] = @agenda.descritivo_curto %>
+<% @og_protocol[:description] = @agenda.evento_com_detalhes %>
+<% @og_protocol[:latitude] = @agenda.latitude %>
+<% @og_protocol[:longitude] = @agenda.longitude %>
+
 <div class="endereco" data-latitude="<%= @agenda.latitude %>" data-longitude="<%= @agenda.longitude %>">
 	<div class="capitulo"><%= @agenda.descritivo_curto %></div>
 	<div class="nome"><%= @agenda.nome %></div>

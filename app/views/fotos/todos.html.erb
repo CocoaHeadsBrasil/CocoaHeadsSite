@@ -1,6 +1,12 @@
-<% @twitter_description = "Fotos dos eventos CocoaHeads pelo Brasil" %>
 <% @titulo = "Fotos" %>
 <% @subtitulo = "Fotos e momentos dos encontros CocoaHeads" %>
+
+<% @page_title = @subtitulo %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:title] = @titulo %>
+<% @og_protocol[:description] = @subtitulo %>
+
 <div class="fotos">
 <% if @fotos.count > 0 %>
 	<% @fotos.each do |f| %>

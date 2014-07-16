@@ -1,5 +1,9 @@
-<% @twitter_description = "Fotos " + @foto.agenda.evento_com_detalhes %>
 <% @page_title = @foto.agenda.nome %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:title] = @page_title %>
+<% @og_protocol[:description] = "Fotos " + @foto.agenda.evento_com_detalhes %>
+<% @og_protocol[:image] = @foto.random_thumb_url %>
 
 <h1><%= @foto.agenda.nome %></h1>
 <% if @foto.agenda %>

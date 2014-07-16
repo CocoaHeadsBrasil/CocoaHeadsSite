@@ -1,5 +1,11 @@
-<% @twitter_description = @content.title + " - " +  @content.subtitle if !@content.subtitle.empty? %>
 <% @page_title = @content.title %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:type] = "article" %>
+<% @og_protocol[:title] = @content.title %>
+<% @og_protocol[:description] = @content.title + " - " +  @content.subtitle if !@content.subtitle.empty? %>
+<% @og_protocol[:published_time] = @content.created_at %>
+<% @og_protocol[:modified_time] = @content.updated_at %>
 
 <h1><%= @content.title %></h1>
 <% if !@content.subtitle.empty? %>

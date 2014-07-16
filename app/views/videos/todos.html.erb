@@ -1,6 +1,12 @@
-<% @twitter_description = "CocoaTalks gravadas nos encontros CocoaHeads" %>
 <% @titulo = "Vídeos" %>
 <% @subtitulo = "CocoaTalks gravadas nos encontros CocoaHeads" %>
+
+<% @page_title = @titulo %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:title] = @titulo %>
+<% @og_protocol[:description] = @subtitulo %>
+
 <div class="videos">
 <% if @videos.count > 0 %>
 <% @videos.each do |v| %>

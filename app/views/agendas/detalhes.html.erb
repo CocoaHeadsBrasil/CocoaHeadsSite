@@ -1,4 +1,10 @@
-<% @twitter_description = @agenda.evento_com_detalhes %>
+<% @page_title = @agenda.evento_com_detalhes %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:title] = @agenda.descritivo_curto %>
+<% @og_protocol[:description] = @agenda.evento_com_detalhes %>
+<% @og_protocol[:latitude] = @agenda.latitude %>
+<% @og_protocol[:longitude] = @agenda.longitude %>
 
 <% ativaClass =  @agenda.antiga? ? 'inativa' : 'ativa' %>
 <div class="agenda-detalhes push-left <%= ativaClass %>">
