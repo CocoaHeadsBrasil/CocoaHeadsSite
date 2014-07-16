@@ -14,19 +14,25 @@ class Foto < ActiveRecord::Base
 		where(["descricao LIKE ?", "%#{query}%"])
 	}
 
-	def random_thumb(onlyLandscape=true)
+	def random_thumb(onlyLandscape=true, retina=false)
 
 		pickedPhoto = nil
+		photoSize = retina ? "Large 1024" : "Thumbnail"
 
 		begin
-		    photosRequest = Flickr.sets.get_photos(self.flickr_album_id, {sizes:["Thumbnail"]})
+		    photosRequest = Flickr.sets.get_photos(self.flickr_album_id, {sizes:["Thumbnail", "Large 1024"]})
 		rescue
 		ensure
 			if photosRequest && photosRequest.count > 0
 				loopLimit = 0
 				until loopLimit == 100	# only accept 100 tries
 					photo = photosRequest.sample
-				   	photo.thumbnail!
+
+					if retina
+						photo.largest!
+					else
+						photo.thumbnail!
+					end
 
 				   	if onlyLandscape
 				   		if photo.width > photo.height
@@ -48,8 +54,8 @@ class Foto < ActiveRecord::Base
         pickedPhoto
 	end
 
-	def random_thumb_url(onlyLandscape=true)
-		photo = self.random_thumb(onlyLandscape)
+	def random_thumb_url(onlyLandscape=true, retina=false)
+		photo = self.random_thumb(onlyLandscape, retina)
 		photo.source_url if photo
 	end
 
