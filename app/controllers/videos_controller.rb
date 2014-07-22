@@ -90,7 +90,11 @@ class VideosController < ApplicationController
 
   def todos
     @videos = Video.mais_novos.publicados.paginate(:page => params[:page])
-    render layout: "internal"
+
+    respond_to do |format|
+      format.html { render layout: "internal" }
+      format.json { render json: @videos }
+    end
   end
 
   def detalhes

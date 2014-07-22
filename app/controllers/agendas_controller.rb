@@ -91,12 +91,18 @@ class AgendasController < ApplicationController
 
   def ativas
     @agendas = Agenda.ativas.publicadas.recentes
-    render layout: "internal_fullscreen"
+    respond_to do |format|
+      format.html { render layout: "internal_fullscreen" }
+      format.json { render json: @agendas }
+    end
   end
 
   def todas
     @agendas = Agenda.recentes.paginate(:page => params[:page])
-    render layout: "internal_fullscreen"
+    respond_to do |format|
+      format.html { render layout: "internal_fullscreen" }
+      format.json { render json: @agendas }
+    end
   end
 
   def detalhes

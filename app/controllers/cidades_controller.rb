@@ -72,7 +72,10 @@ class CidadesController < ApplicationController
   def todas
     @cidades = Cidade.por_estado.publicados
     @estados = Estado.all
-    render layout: "internal"
+    respond_to do |format|
+      format.html { render layout: "internal" }
+      format.json { render json: @cidades }
+    end
   end
 
   def detalhes
