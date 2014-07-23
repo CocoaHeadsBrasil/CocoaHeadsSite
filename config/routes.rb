@@ -5,6 +5,7 @@ Cocoaheads::Application.routes.draw do
   get 'cupertino' => "access#index"
   
   match '/agendas', :to => 'agendas#ativas', :via => :get
+  match '/agenda/rsvps/:id', :to => 'agendas#rsvps', :via => :get, :format => :json
   match '/cidades', :to => 'cidades#todas', :via => :get
   match '/videos', :to => 'videos#todos', :via => :get
   match '/fotos', :to => 'fotos#todos', :via => :get

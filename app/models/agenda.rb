@@ -70,7 +70,7 @@ class Agenda < ActiveRecord::Base
 			return path.last unless self.meetup.nil?
 		end
 
-		return ""
+		return nil
 	end
 
 	# Converte para iCalendar

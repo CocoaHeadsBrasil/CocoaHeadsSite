@@ -1,7 +1,9 @@
+require 'ruby_meetup'
+
 class AgendasController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:ativas, :export, :maps, :detalhes, :todas]
-  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export, :maps, :detalhes]
+  before_action :confirm_logged_in, except: [:ativas, :export, :maps, :detalhes, :todas, :rsvps]
+  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export, :maps, :detalhes, :rsvps]
 
   layout 'admin'
 
@@ -107,6 +109,18 @@ class AgendasController < ApplicationController
 
   def detalhes
     render layout: "internal"
+  end
+
+  def rsvps
+    RubyMeetup::ApiKeyClient.key = ENV['MEETUP_APIKEY']
+    client = RubyMeetup::ApiKeyClient.new
+    respond_to do |format|
+      unless @agenda.meetup_event_id.blank?
+        format.json { render :json => client.get_path("/2/event/" + @agenda.meetup_event_id, {:only => "yes_rsvp_count,rsvp_limit"}) }
+      else
+        format.json { render json: {}, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
