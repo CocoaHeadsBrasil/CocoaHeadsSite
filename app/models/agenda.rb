@@ -64,6 +64,15 @@ class Agenda < ActiveRecord::Base
 		end
 	end
 
+	def meetup_event_id
+		unless self.meetup.nil?
+			path = self.meetup.split("/")
+			return path.last unless self.meetup.nil?
+		end
+
+		return ""
+	end
+
 	# Converte para iCalendar
 	def to_ics
 		event = Icalendar::Event.new

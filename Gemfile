@@ -78,6 +78,8 @@ gem 'htmlentities', '~> 4.3.1'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'ruby_meetup2'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
