@@ -113,33 +113,12 @@ class AgendasController < ApplicationController
 
   def rsvps
     agendas = Agenda.ativas.publicadas.recentes
-    # RubyMeetup::ApiKeyClient.key = ENV['MEETUP_APIKEY']
-    RubyMeetup::ApiKeyClient.key = '562b69332521043a715b20233797d'
-    client = RubyMeetup::ApiKeyClient.new
 
     results = []
 
     # interage em cada agenda e formata o objeto de saida
     agendas.each do |agenda|
-      dados_agenda = {:nome => agenda.nome}
-      dados_agenda[:data] = agenda.data
-      dados_agenda[:cidade] = agenda.cidade.cidade
-
-      # consulta rsvps
-      unless agenda.meetup_event_id.nil?
-        request = client.get_path("/2/event/" + agenda.meetup_event_id, {:only => "yes_rsvp_count,waitlist_count,maybe_rsvp_count,rsvp_limit"})
-        rsvps = JSON.parse(request)
-
-        dados_agenda[:rsvp_sim] = rsvps["yes_rsvp_count"]
-        dados_agenda[:rsvp_espera] = rsvps["waitlist_count"]
-        dados_agenda[:rsvp_talvez] = rsvps["maybe_rsvp_count"]
-        dados_agenda[:rsvp_limite] = rsvps["rsvp_limit"]
-
-        if dados_agenda[:rsvp_limite]
-          dados_agenda[:rsvp_restante] = dados_agenda[:rsvp_limite].to_i - dados_agenda[:rsvp_sim].to_i
-        end
-      end
-      
+      dados_agenda = monta_hash_rsvp agenda
       results << dados_agenda
     end
 
@@ -159,5 +138,34 @@ class AgendasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def agenda_params
       params.require(:agenda).permit(:data, :nome, :cidade_id, :endereco, :latitude, :longitude, :local, :maps, :passbook, :meetup, :flickr_album, :published, :descricao)
+    end
+
+    # monta uma hash contendo a formatacao de rsvps do meetup.
+    # caso o evento nao tenha meetup, retorna apenas os dados basicos
+    def monta_hash_rsvp(agenda)
+
+      RubyMeetup::ApiKeyClient.key = ENV['MEETUP_APIKEY']
+      client = RubyMeetup::ApiKeyClient.new
+
+      dados_agenda = {:nome => agenda.nome}
+      dados_agenda[:data] = agenda.data
+      dados_agenda[:cidade] = agenda.cidade.cidade
+
+      # consulta rsvps
+      unless agenda.meetup_event_id.nil?
+        request = client.get_path("/2/event/" + agenda.meetup_event_id, {:only => "yes_rsvp_count,waitlist_count,maybe_rsvp_count,rsvp_limit"})
+        rsvps = JSON.parse(request)
+
+        dados_agenda[:rsvp_sim] = rsvps["yes_rsvp_count"]
+        dados_agenda[:rsvp_espera] = rsvps["waitlist_count"]
+        dados_agenda[:rsvp_talvez] = rsvps["maybe_rsvp_count"]
+        dados_agenda[:rsvp_limite] = rsvps["rsvp_limit"]
+
+        if dados_agenda[:rsvp_limite]
+          dados_agenda[:rsvp_restante] = dados_agenda[:rsvp_limite].to_i - dados_agenda[:rsvp_sim].to_i
+        end
+      end
+
+      dados_agenda
     end
 end
