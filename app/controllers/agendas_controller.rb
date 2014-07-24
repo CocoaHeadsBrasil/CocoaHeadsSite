@@ -3,7 +3,7 @@ require 'ruby_meetup'
 class AgendasController < ApplicationController
 
   before_action :confirm_logged_in, except: [:ativas, :export, :maps, :detalhes, :todas, :rsvps]
-  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export, :maps, :detalhes, :rsvps]
+  before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export, :maps, :detalhes]
 
   layout 'admin'
 
@@ -112,15 +112,42 @@ class AgendasController < ApplicationController
   end
 
   def rsvps
-    RubyMeetup::ApiKeyClient.key = ENV['MEETUP_APIKEY']
+    agendas = Agenda.ativas.publicadas.recentes
+    # RubyMeetup::ApiKeyClient.key = ENV['MEETUP_APIKEY']
+    RubyMeetup::ApiKeyClient.key = '562b69332521043a715b20233797d'
     client = RubyMeetup::ApiKeyClient.new
-    respond_to do |format|
-      unless @agenda.meetup_event_id.blank?
-        format.json { render :json => client.get_path("/2/event/" + @agenda.meetup_event_id, {:only => "yes_rsvp_count,rsvp_limit"}) }
-      else
-        format.json { render json: {}, status: :unprocessable_entity }
+
+    results = []
+
+    # interage em cada agenda e formata o objeto de saida
+    agendas.each do |agenda|
+      dados_agenda = {:nome => agenda.nome}
+      dados_agenda[:data] = agenda.data
+      dados_agenda[:cidade] = agenda.cidade.cidade
+
+      # consulta rsvps
+      unless agenda.meetup_event_id.nil?
+        request = client.get_path("/2/event/" + agenda.meetup_event_id, {:only => "yes_rsvp_count,waitlist_count,maybe_rsvp_count,rsvp_limit"})
+        rsvps = JSON.parse(request)
+
+        dados_agenda[:rsvp_sim] = rsvps["yes_rsvp_count"]
+        dados_agenda[:rsvp_espera] = rsvps["waitlist_count"]
+        dados_agenda[:rsvp_talvez] = rsvps["maybe_rsvp_count"]
+        dados_agenda[:rsvp_limite] = rsvps["rsvp_limit"]
+
+        if dados_agenda[:rsvp_limite]
+          dados_agenda[:rsvp_restante] = dados_agenda[:rsvp_limite].to_i - dados_agenda[:rsvp_sim].to_i
+        end
       end
+      
+      results << dados_agenda
     end
+
+    respond_to do |format|
+      format.html { redirect_to agendas_url }
+      format.json { render json: results }
+    end
+
   end
 
   private
