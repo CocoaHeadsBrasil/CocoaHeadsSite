@@ -156,10 +156,10 @@ class AgendasController < ApplicationController
         request = client.get_path("/2/event/" + agenda.meetup_event_id, {:only => "yes_rsvp_count,waitlist_count,maybe_rsvp_count,rsvp_limit"})
         rsvps = JSON.parse(request)
 
-        dados_agenda[:rsvp_sim] = rsvps["yes_rsvp_count"]
-        dados_agenda[:rsvp_espera] = rsvps["waitlist_count"]
-        dados_agenda[:rsvp_talvez] = rsvps["maybe_rsvp_count"]
-        dados_agenda[:rsvp_limite] = rsvps["rsvp_limit"]
+        dados_agenda[:rsvp_sim] = rsvps["yes_rsvp_count"].to_s.to_i
+        dados_agenda[:rsvp_espera] = rsvps["waitlist_count"].to_s.to_i
+        dados_agenda[:rsvp_talvez] = rsvps["maybe_rsvp_count"].to_s.to_i
+        dados_agenda[:rsvp_limite] = rsvps["rsvp_limit"].to_s.to_i
 
         if dados_agenda[:rsvp_limite]
           dados_agenda[:rsvp_restante] = dados_agenda[:rsvp_limite].to_i - dados_agenda[:rsvp_sim].to_i
