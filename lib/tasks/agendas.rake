@@ -1,6 +1,6 @@
 namespace :agendas do
   desc "Limpa todas as agendas vencidas"
-  task :clean do
+  task clean: :environment do
   	Agenda.limpa_agendas
   end
 end
