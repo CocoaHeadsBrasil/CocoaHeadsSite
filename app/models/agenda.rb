@@ -73,6 +73,15 @@ class Agenda < ActiveRecord::Base
 		return nil
 	end
 
+	def self.limpa_agendas
+		agendas = Agenda.passadas.publicadas
+		agendas.each {|agenda|
+			if (Date.today >= (agenda.data + 1.day).to_date)
+				agenda.update_attribute(:published, 0)
+			end
+		}
+	end
+
 	# Converte para iCalendar
 	def to_ics
 		event = Icalendar::Event.new
