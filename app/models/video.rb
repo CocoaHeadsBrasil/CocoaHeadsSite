@@ -3,6 +3,7 @@ class Video < ActiveRecord::Base
 	belongs_to :agenda
 
 	after_create :send_hubot_create_message
+	after_destroy :send_hubot_delete_message
 
 	WillPaginate.per_page = 20
 
@@ -59,5 +60,9 @@ class Video < ActiveRecord::Base
 
 	def send_hubot_create_message
 		Hubot.send_message "Novo vídeo criado no website do CocoaHeadsBR: #{self.titulo} por #{self.palestrante.nome}"
+	end
+
+	def send_hubot_delete_message
+		Hubot.send_message "Vídeo excluído do website do CocoaHeadsBR: #{self.titulo} por #{self.palestrante.nome}", {:mood => :bad}
 	end
 end

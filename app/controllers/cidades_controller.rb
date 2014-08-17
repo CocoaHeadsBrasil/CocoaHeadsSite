@@ -64,7 +64,7 @@ class CidadesController < ApplicationController
   def destroy
     @cidade.destroy
     respond_to do |format|
-      format.html { redirect_to cidades_url }
+      format.html { redirect_to({:action => "index"}) }
       format.json { head :no_content }
     end
   end

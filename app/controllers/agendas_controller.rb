@@ -65,7 +65,7 @@ class AgendasController < ApplicationController
   def destroy
     @agenda.destroy
     respond_to do |format|
-      format.html { redirect_to agendas_url }
+      format.html { redirect_to({:action => :index}) }
       format.json { head :no_content }
     end
   end

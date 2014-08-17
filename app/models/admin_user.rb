@@ -3,6 +3,7 @@ include Gravtastic
 class AdminUser < ActiveRecord::Base
 
 	after_create :send_hubot_create_message
+	after_destroy :send_hubot_delete_message
 
 	# To configure a different table name
 	# self.table_name = "admin_users"
@@ -80,5 +81,9 @@ class AdminUser < ActiveRecord::Base
 
 	def send_hubot_create_message
 		Hubot.send_message "Um novo usuário acaba de ser criado no website do CocoaHeadsBR: #{self.name} (#{self.username})"
+	end
+
+	def send_hubot_delete_message
+		Hubot.send_message "O usuário #{self.name} (#{self.username}) acaba de ser excluído do backend do website do CocoaHeadsBR.", {:mood => :none}
 	end
 end

@@ -64,7 +64,7 @@ class FotosController < ApplicationController
   def destroy
     @foto.destroy
     respond_to do |format|
-      format.html { redirect_to fotos_url }
+      format.html { redirect_to({:action => "index"}) }
       format.json { head :no_content }
     end
   end

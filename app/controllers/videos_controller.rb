@@ -83,7 +83,7 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to videos_path({:palestrante_id => @palestrante.id}) }
+      format.html { redirect_to ({:action => "index", :palestrante_id => @palestrante.id}) }
       format.json { head :no_content }
     end
   end

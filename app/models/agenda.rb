@@ -6,6 +6,7 @@ class Agenda < ActiveRecord::Base
 
 	before_validation :add_default_name
 	after_create :send_hubot_create_message
+	after_destroy :send_hubot_delete_message
 
 	WillPaginate.per_page = 20
 
@@ -111,5 +112,9 @@ class Agenda < ActiveRecord::Base
 
 	def send_hubot_create_message
 		Hubot.send_message "Nova agenda criada no website do CocoaHeadsBR: #{self.evento_com_detalhes}"
+	end
+
+	def send_hubot_delete_message
+		Hubot.send_message "Agenda excluída do website do CocoaHeadsBR: #{self.evento_com_detalhes}", {:mood => :bad}
 	end
 end

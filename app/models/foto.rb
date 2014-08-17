@@ -3,6 +3,7 @@ class Foto < ActiveRecord::Base
 	belongs_to :agenda
 
 	after_create :send_hubot_create_message
+	after_destroy :send_hubot_delete_message
 
 	# shortcut validations, aka "sexy validations"
 	validates :agenda_id, :presence => true
@@ -65,6 +66,10 @@ class Foto < ActiveRecord::Base
 
 	def send_hubot_create_message
 		Hubot.send_message "Novo album de fotos criado no website do CocoaHeadsBR: #{self.agenda.evento_com_detalhes}"
+	end
+
+	def send_hubot_delete_message
+		Hubot.send_message "Album de fotos excluído do website do CocoaHeadsBR: #{self.agenda.evento_com_detalhes}", {:mood => :bad}
 	end
 
 end
