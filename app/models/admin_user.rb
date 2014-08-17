@@ -2,6 +2,8 @@ include Gravtastic
 
 class AdminUser < ActiveRecord::Base
 
+	after_create :send_hubot_create_message
+
 	# To configure a different table name
 	# self.table_name = "admin_users"
 
@@ -72,5 +74,11 @@ class AdminUser < ActiveRecord::Base
 
 	def name
 		first_name + " " + last_name
+	end
+
+	private
+
+	def send_hubot_create_message
+		Hubot.send_message "Um novo usuário acaba de ser criado no website do CocoaHeadsBR: #{self.name} (#{self.username})"
 	end
 end

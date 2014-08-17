@@ -3,6 +3,7 @@ class Content < ActiveRecord::Base
 	acts_as_list
 
 	before_validation :add_default_permalink
+	after_create :send_hubot_create_message
 
 	# shortcut validations, aka "sexy validations"
 	validates :title, :presence => true
@@ -28,5 +29,9 @@ class Content < ActiveRecord::Base
 		if permalink.blank?
 			self.permalink = "#{title.parameterize}"
 		end
+	end
+
+	def send_hubot_create_message
+		Hubot.send_message "Novo conteúdo criado no website do CocoaHeadsBR: #{self.title} (http://www.cocoaheads.com.br/#{self.permalink})"
 	end
 end

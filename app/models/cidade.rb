@@ -6,6 +6,7 @@ class Cidade < ActiveRecord::Base
 	belongs_to :estado
 
 	before_validation :add_default_social_networks
+	after_create :send_hubot_create_message
 
   	has_gravatar :organizador_email,
   				 :secure => true,
@@ -68,5 +69,10 @@ class Cidade < ActiveRecord::Base
 		if facebook.blank?
 			self.facebook = Cocoaheads::Application::COCOAHEADS_SOCIAL_FACEBOOK
 		end
+	end
+
+	def send_hubot_create_message
+		numero_cidades = Cidade.all.count
+		Hubot.send_message "Um novo chapter acaba de ser criado no website do CocoaHeadsBR: #{self.cidade}, leader: #{self.organizador}. @tales adicione ele no slack.com por favor (#{self.organizador_email}) :grimacing:. Agora somos #{numero_cidades} chapters registrados."
 	end
 end

@@ -2,6 +2,8 @@ class Video < ActiveRecord::Base
 	belongs_to :palestrante
 	belongs_to :agenda
 
+	after_create :send_hubot_create_message
+
 	WillPaginate.per_page = 20
 
 	YOUTUBE_REGEX = /\A([a-zA-Z0-9\-_]+)\Z/i
@@ -53,5 +55,9 @@ class Video < ActiveRecord::Base
 		if !self.podcast_stream_url.empty? && self.podcast_duration.empty?
 			errors[:base] << "A duração do podcast deve ser informada."
 		end
+	end
+
+	def send_hubot_create_message
+		Hubot.send_message "Novo vídeo criado no website do CocoaHeadsBR: #{self.titulo} por #{self.palestrante.nome}"
 	end
 end

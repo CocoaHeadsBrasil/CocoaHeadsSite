@@ -25,5 +25,4 @@ class ApplicationController < ActionController::Base
     voted_faqs << id
     cookies[:faq_useful] = JSON.generate(voted_faqs.uniq)
   end
-  
 end

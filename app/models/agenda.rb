@@ -5,6 +5,7 @@ class Agenda < ActiveRecord::Base
 	has_many :fotos
 
 	before_validation :add_default_name
+	after_create :send_hubot_create_message
 
 	WillPaginate.per_page = 20
 
@@ -106,5 +107,9 @@ class Agenda < ActiveRecord::Base
 			 	self.nome = self.descritivo
 			end 
 		end
+	end
+
+	def send_hubot_create_message
+		Hubot.send_message "Nova agenda criada no website do CocoaHeadsBR: #{self.evento_com_detalhes}"
 	end
 end

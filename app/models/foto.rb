@@ -2,6 +2,8 @@ class Foto < ActiveRecord::Base
 
 	belongs_to :agenda
 
+	after_create :send_hubot_create_message
+
 	# shortcut validations, aka "sexy validations"
 	validates :agenda_id, :presence => true
 	validates :descricao, :presence => true
@@ -57,6 +59,12 @@ class Foto < ActiveRecord::Base
 	def random_thumb_url(onlyLandscape=true, retina=false)
 		photo = self.random_thumb(onlyLandscape, retina)
 		photo.source_url if photo
+	end
+
+	private
+
+	def send_hubot_create_message
+		Hubot.send_message "Novo album de fotos criado no website do CocoaHeadsBR: #{self.agenda.evento_com_detalhes}"
 	end
 
 end
