@@ -83,7 +83,7 @@ class FotosController < ApplicationController
       photosRequest = Flickr.sets.get_photos(@foto.flickr_album_id, {sizes:["Thumbnail", "Large 1024"]})
       @photos = []
       photosRequest.each do |p|
-
+        
         photo = {}
 
         p.thumbnail!
