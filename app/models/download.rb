@@ -14,6 +14,6 @@ class Download < ActiveRecord::Base
 	private
 
 	def send_hubot_create_message
-		Hubot.send_message "Novo arquivos disponibilizado no backend do website do CocoaHeadsBR: #{self.titulo} por #{self.autor}."
+		Hubot.send_message "Novo arquivo disponibilizado no backend do website do CocoaHeadsBR: #{self.titulo} por #{self.autor}."
 	end
 end
