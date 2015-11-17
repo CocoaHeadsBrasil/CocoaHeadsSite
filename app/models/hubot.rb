@@ -12,7 +12,7 @@ class Hubot
 	  unless options[:channel].blank? 
 	    params[:channel] = options[:channel]
 	  else
-	  	params[:channel] = "#cocoaheadsbr"
+	  	params[:channel] = "#cocoaheads"
 	  end
 
       Net::HTTP.post_form(URI.parse("#{ENV['HUBOT_URL']}/post/chbr/website"), params)
