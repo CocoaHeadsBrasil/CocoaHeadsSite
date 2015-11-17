@@ -9729,8 +9729,7 @@ div.podcast_detalhes div.palestrante div.detalhes div.curriculo {
   font-style: italic;
   font-weight: normal;
 }
-/* line 1, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
-body {
+/*body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -9738,52 +9737,45 @@ body {
   line-height: 18px;
 }
 
-/* line 9, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
-/* line 15, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-/* line 21, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
 a {
   color: #000;
-}
-/* line 23, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
-a:visited {
-  color: #666;
-}
-/* line 26, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
-a:hover {
-  color: #fff;
-  background-color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
 }
 
-/* line 33, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
-div.field, div.actions {
-  margin-bottom: 10px;
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
 }
 
-/* line 38, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
 #notice {
   color: green;
 }
 
-/* line 42, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-/* line 48, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -9791,23 +9783,22 @@ div.field, div.actions {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
 }
-/* line 55, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  margin-bottom: 0px;
-  background-color: #c00;
-  color: #fff;
-}
-/* line 65, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/scaffolds.css.scss */
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
+*/
 /* line 9, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/videos.css.scss */
 span.rotulo {
   opacity: 0.5;
