@@ -1,0 +1,85 @@
+// Place all the styles related to the Podcasts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$cor_destaque: #f9da03;
+$cor_tags: #097a4f;
+
+
+span.rotulo{
+	opacity: 0.5;
+}
+
+div.tags{
+	margin:10px 0 0 -2px;
+	span.btn-primary{
+		background-color: $cor_tags;
+		border: $cor_tags;
+	}
+	span.btn-primary:hover{
+		background-color: darken($cor_tags, 5%);
+		border: darken($cor_tags, 5%);
+	}
+}
+
+div.podcasts{
+	div.podcast{
+		margin: 40px 0 20px 0;
+		background: rgba(0,0,0,0.3);
+		padding:20px;
+		border-radius: 10px;
+		div.detalhes{
+			float:left;
+			width: 70%;
+			div.titulo{
+				color: $cor_destaque;
+				font-size: 30px;
+			}
+		}
+	}
+}
+
+div.podcast_detalhes{
+
+	div.podcast_soundcloud{
+		margin-bottom: 50px;
+	}
+
+	div.podcast{
+		margin-bottom: 60px;
+		div.tags{
+			margin:0 0 20px -2px;
+		}
+		div.descricao{
+			margin: 20px 0 0 0;
+			background: rgba(0,0,0,0.3);
+			padding:20px 20px 1px 20px;
+			border-radius: 10px;
+		}
+	}
+
+	div.palestrante{
+		margin: 0;
+	    border:1px rgba(0,0,0,0.2) solid;
+	    padding: 20px;
+	    border-radius: 10px;
+	    background-color: rgba(0,0,0,0.4);
+		div.avatar{
+			float:left;
+			width: 180px;
+			padding:0 20px 0 0;
+		}
+
+		div.detalhes{
+			div.nome{
+				font-size: 20px;
+			}
+			div.curriculo{
+				margin:10px 0;
+				font-size: 15px;
+				font-style: italic;
+				font-weight: normal;
+			}
+		}
+	}
+}

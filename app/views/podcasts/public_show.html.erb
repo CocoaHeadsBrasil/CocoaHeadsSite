@@ -1,0 +1,26 @@
+<% @twitter_description = @podcast.title %>
+<% @page_title = @podcast.title %>
+
+<% @og_protocol = {} %>
+<% @og_protocol[:type] = "music.song" %>
+<% @og_protocol[:title] = @podcast.title + " por CocoaHeads Brasil"%>
+<% @og_protocol[:description] = strip_tags @podcast.description %>
+<% @og_protocol[:url] = @podcast.soundcloud_url %>
+
+
+<h1>Podcasts</h1>
+
+<div class="podcast_detalhes">
+	<%= render :partial => "podcasts/embed_soundcloud", :locals => {:podcast => @podcast} %>
+	<h2><%= @podcast.title %> - <%= @podcast.created_at.strftime("%d/%m/%Y") %></h2>
+	<div class="podcast">
+    <%= link_to "Ouvir no Soundcloud", @podcast.soundcloud_url, {:class => 'btn btn-default', :target => :blank} %>
+			<%= link_to "Ouvir no iTunes", @podcast.itunes_url, {:class => 'btn btn-default', :target => :blank} if !@podcast.itunes_url.blank? %>
+			<%= link_to "Ouvir no iTunes", @cocoaheads_itunes, {:class => 'btn btn-default', :target => :blank} if @podcast.itunes_url.blank? %>
+
+		<%= content_tag(:div, :class => "descricao") do %>
+			<%=raw @podcast_description %>
+			<%= content_tag(:div, render123_tags(@podcast.tags.gsub(" ", ",")), :class => "tags") %>
+    <%	end %>
+	</div>
+</div>
