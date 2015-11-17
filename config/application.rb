@@ -28,7 +28,9 @@ module Cocoaheads
     COCOAHEADS_SOCIAL_FACEBOOK      = "https://www.facebook.com/CocoaHeadsBrasil/"
     COCOAHEADS_SOCIAL_TWITTER       = "https://twitter.com/cocoaheadsbr/"
     COCOAHEADS_SOCIAL_GITHUB        = "https://github.com/CocoaHeadsBrasil/"
-    COCOAHEADS_SOCIAL_YOUTUBE       = "https://www.youtube.com/channel/UCxN-_poBEXynC7YPE_394LQ"
-    COCOAHEADS_SOCIAL_ITUNES        = "https://itunes.apple.com/br/podcast/cocoaheads-brasil/id880647682?mt=2"
+    COCOAHEADS_SOCIAL_YOUTUBE       = "https://www.youtube.com/user/cocoaheadsbr"
+    COCOAHEADS_SOCIAL_ITUNES        = "https://itunes.apple.com/br/podcast/cocoaheads-brasil/id1044808957?mt=2"
+    COCOAHEADS_SOCIAL_SLACK         = "http://iosdevbr.herokuapp.com"
+    COCOAHEADS_SOCIAL_SOUNDCLOUD    = "https://soundcloud.com/cocoaheadsbr"
   end
 end
