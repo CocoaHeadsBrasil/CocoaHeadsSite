@@ -1,5 +1,6 @@
 class Podcast < ActiveRecord::Base
-
+    
+    after_create :send_hubot_create_message
 
 	def self.updateWithSoundcloud
 	
@@ -20,5 +21,8 @@ class Podcast < ActiveRecord::Base
       end
     }
 	end
-	
+
+    def send_hubot_create_message
+        Hubot.send_message "Novo podcast do CocoaHeads Brasil publicado: #{self.title} - http://www.cocoaheads.com.br/podcasts/detalhes/#{self.id}"
+    end
 end
