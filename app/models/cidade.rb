@@ -74,11 +74,11 @@ class Cidade < ActiveRecord::Base
 
 	def send_hubot_create_message
 		numero_cidades = Cidade.all.count
-		Hubot.send_message "Um novo chapter acaba de ser criado no website do CocoaHeadsBR: #{self.cidade}, leader: #{self.organizador}. @tales adicione ele no slack.com, por favor (#{self.organizador_email}) :grimacing:. Agora somos #{numero_cidades} chapters registrados."
+		Hubot.send_message "Um novo chapter acaba de ser criado no website do CocoaHeadsBR: #{self.cidade}, leader: #{self.organizador}. Agora somos #{numero_cidades} chapters registrados."
 	end
 
 	def send_hubot_delete_message
 		numero_cidades = Cidade.all.count
-		Hubot.send_message "Um chapter acaba de ser excluído do website do CocoaHeadsBR: #{self.cidade}. @tales remova o canal e o usuário do slack.com, por favor (#{self.organizador_email}) :cry:. Agora somos #{numero_cidades} chapters registrados.", {:mood => :bad}
+		Hubot.send_message "Um chapter acaba de ser excluído do website do CocoaHeadsBR: #{self.cidade}. :cry:. Agora somos #{numero_cidades} chapters registrados.", {:mood => :bad}
 	end
 end

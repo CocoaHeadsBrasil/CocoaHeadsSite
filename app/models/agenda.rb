@@ -111,7 +111,7 @@ class Agenda < ActiveRecord::Base
 	end
 
 	def send_hubot_create_message
-		Hubot.send_message "Nova agenda criada no website do CocoaHeadsBR: #{self.evento_com_detalhes}"
+		Hubot.send_message "Nova agenda criada no website do CocoaHeadsBR: #{self.evento_com_detalhes} - http://www.cocoaheads.com.br/agendas/detalhes/#{self.id}"
 	end
 
 	def send_hubot_delete_message

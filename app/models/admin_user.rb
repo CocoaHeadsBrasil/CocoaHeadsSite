@@ -80,10 +80,10 @@ class AdminUser < ActiveRecord::Base
 	private
 
 	def send_hubot_create_message
-		Hubot.send_message "Um novo usuário acaba de ser criado no website do CocoaHeadsBR: #{self.name} (#{self.username})"
+		Hubot.send_message "Um novo usuário acaba de ser criado no website do CocoaHeadsBR: #{self.name} (#{self.username})", {:channel => 'cocoaheads-org'}
 	end
 
 	def send_hubot_delete_message
-		Hubot.send_message "O usuário #{self.name} (#{self.username}) acaba de ser excluído do backend do website do CocoaHeadsBR.", {:mood => :none}
+		Hubot.send_message "O usuário #{self.name} (#{self.username}) acaba de ser excluído do backend do website do CocoaHeadsBR.", {:mood => :none, :channel => 'cocoaheads-org'}
 	end
 end

@@ -65,7 +65,7 @@ class Foto < ActiveRecord::Base
 	private
 
 	def send_hubot_create_message
-		Hubot.send_message "Novo album de fotos criado no website do CocoaHeadsBR: #{self.agenda.evento_com_detalhes}"
+		Hubot.send_message "Novo album de fotos criado no website do CocoaHeadsBR: #{self.agenda.evento_com_detalhes} - http://www.cocoaheads.com.br/fotos/detalhes/#{self.id}"
 	end
 
 	def send_hubot_delete_message

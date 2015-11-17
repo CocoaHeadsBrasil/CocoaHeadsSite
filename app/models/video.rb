@@ -59,7 +59,7 @@ class Video < ActiveRecord::Base
 	end
 
 	def send_hubot_create_message
-		Hubot.send_message "Novo vídeo criado no website do CocoaHeadsBR: #{self.titulo} por #{self.palestrante.nome}"
+		Hubot.send_message "Novo vídeo criado no website do CocoaHeadsBR: #{self.titulo} por #{self.palestrante.nome} - http://www.cocoaheads.com.br/videos/detalhes/#{self.id}"
 	end
 
 	def send_hubot_delete_message
