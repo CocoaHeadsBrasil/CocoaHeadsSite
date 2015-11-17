@@ -9699,12 +9699,13 @@ div.podcast_detalhes div.podcast div.tags {
 }
 /* line 53, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
 div.podcast_detalhes div.podcast div.descricao {
+  word-break: break-all;
   margin: 20px 0 0 0;
   background: rgba(0, 0, 0, 0.3);
   padding: 20px 20px 1px 20px;
   border-radius: 10px;
 }
-/* line 61, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
+/* line 62, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
 div.podcast_detalhes div.palestrante {
   margin: 0;
   border: 1px rgba(0, 0, 0, 0.2) solid;
@@ -9712,17 +9713,17 @@ div.podcast_detalhes div.palestrante {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.4);
 }
-/* line 67, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
+/* line 68, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
 div.podcast_detalhes div.palestrante div.avatar {
   float: left;
   width: 180px;
   padding: 0 20px 0 0;
 }
-/* line 74, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
+/* line 75, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
 div.podcast_detalhes div.palestrante div.detalhes div.nome {
   font-size: 20px;
 }
-/* line 77, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
+/* line 78, /Users/jpros/Projetos/cocoaheads-site/cocoaheadsbr/app/assets/stylesheets/podcasts.css.scss */
 div.podcast_detalhes div.palestrante div.detalhes div.curriculo {
   margin: 10px 0;
   font-size: 15px;
