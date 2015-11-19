@@ -6,6 +6,7 @@
 <% @og_protocol[:title] = @podcast.title + " por CocoaHeads Brasil"%>
 <% @og_protocol[:description] = strip_tags @podcast.description %>
 <% @og_protocol[:url] = @podcast.soundcloud_url %>
+<% @og_protocol[:image] = image_url("thumb_podcast.png") %>
 
 
 <h1>Podcasts</h1>
