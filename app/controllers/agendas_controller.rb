@@ -141,34 +141,44 @@ class AgendasController < ApplicationController
 
     aux_results = {}
 
+    grand_total = 0
     order = params[:order]
+    alltime = !params[:alltime].nil? && params[:alltime] == 'true'
     agendas.each do |agenda|
       total = fetch_devs(agenda)
-      if order.nil? || order != "chapter" && order != "month"
-        dados_agenda = {:nome => agenda.nome}
-        dados_agenda[:data] = agenda.data
-        dados_agenda[:cidade] = agenda.cidade.cidade
-        dados_agenda[:total] = total
-        results << dados_agenda
-      else
-        if order == "chapter"
-          key = agenda.cidade.cidade
-        elsif order == "month"
-          key = agenda.data.strftime("%m/%Y")
-        end
-
-        if aux_results[key].nil?
-          aux_results[key] = total
+      if !alltime
+        if order.nil? || order != "chapter" && order != "month"
+          dados_agenda = {:nome => agenda.nome}
+          dados_agenda[:data] = agenda.data
+          dados_agenda[:cidade] = agenda.cidade.cidade
+          dados_agenda[:total] = total
+          results << dados_agenda
         else
-          aux_results[key] += total
+          if order == "chapter"
+            key = agenda.cidade.cidade
+          elsif order == "month"
+            key = agenda.data.strftime("%m/%Y")
+          end
+
+          if aux_results[key].nil?
+            aux_results[key] = total
+          else
+            aux_results[key] += total
+          end
         end
+      else
+        grand_total += total
       end
     end
 
-    unless order.nil?
-      aux_results.keys.each do |key|
-        results << {order => key, :total => aux_results[key]}
+    if !alltime
+      unless order.nil?
+        aux_results.keys.each do |key|
+          results << {order => key, :total => aux_results[key]}
+        end
       end
+    else
+      results << {:total => grand_total}
     end
 
     respond_to do |format|
@@ -227,7 +237,7 @@ class AgendasController < ApplicationController
 
 
   def fetch_devs(agenda)
-    RubyMeetup::ApiKeyClient.key = ENV['MEETUP_APIKEY']
+    RubyMeetup::ApiKeyClient.key = '562b69332521043a715b20233797d'#ENV['MEETUP_APIKEY']
     client = RubyMeetup::ApiKeyClient.new
 
     total = 0
