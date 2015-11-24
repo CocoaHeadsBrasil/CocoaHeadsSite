@@ -225,7 +225,8 @@ class AgendasController < ApplicationController
     end
 
     dados_agenda
-  rescue
+  rescue => e
+    logger.error e.message
     dados_agenda = {:nome => agenda.nome}
     dados_agenda[:data] = agenda.data
     dados_agenda[:cidade] = agenda.cidade.cidade
@@ -247,7 +248,8 @@ class AgendasController < ApplicationController
       total = rsvps["yes_rsvp_count"].to_s.to_i
     end
     total
-  rescue
+  rescue => e
+    logger.error e.message
     0
   end
 
