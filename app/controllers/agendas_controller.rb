@@ -142,7 +142,7 @@ class AgendasController < ApplicationController
     aux_results = {}
 
     grand_total = 0
-    order = params[:order]
+    group = params[:group]
     alltime = !params[:alltime].nil? && params[:alltime] == 'true'
     agendas.each do |agenda|
 
@@ -153,16 +153,16 @@ class AgendasController < ApplicationController
       end
 
       if !alltime
-        if order.nil? || order != "chapter" && order != "month"
+        if group.nil? || group != "chapter" && group != "month"
           dados_agenda = {:nome => agenda.nome}
           dados_agenda[:data] = agenda.data
           dados_agenda[:cidade] = agenda.cidade.cidade
           dados_agenda[:total] = total
           results << dados_agenda
         else
-          if order == "chapter"
+          if group == "chapter"
             key = agenda.cidade.cidade
-          elsif order == "month"
+          elsif group == "month"
             key = agenda.data.strftime("%m/%Y")
           end
 
@@ -178,9 +178,9 @@ class AgendasController < ApplicationController
     end
 
     if !alltime
-      unless order.nil?
+      unless group.nil?
         aux_results.keys.each do |key|
-          results << {order => key, :total => aux_results[key]}
+          results << {group => key, :total => aux_results[key]}
         end
       end
     else
