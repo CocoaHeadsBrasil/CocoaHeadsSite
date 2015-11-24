@@ -145,7 +145,13 @@ class AgendasController < ApplicationController
     order = params[:order]
     alltime = !params[:alltime].nil? && params[:alltime] == 'true'
     agendas.each do |agenda|
-      total = fetch_devs(agenda)
+
+      total = agenda.total
+      if agenda.data > Time.now || agenda.total == 0
+        total = fetch_devs(agenda)
+        agenda.update(:total => total)
+      end
+
       if !alltime
         if order.nil? || order != "chapter" && order != "month"
           dados_agenda = {:nome => agenda.nome}
