@@ -2,7 +2,7 @@ require 'ruby_meetup'
 
 class AgendasController < ApplicationController
 
-  before_action :confirm_logged_in, except: [:ativas, :export, :maps, :detalhes, :todas, :rsvps]
+  before_action :confirm_logged_in, except: [:ativas, :export, :maps, :detalhes, :todas, :rsvps, :total_devs]
   before_action :set_agenda, only: [:show, :edit, :update, :destroy, :export, :maps, :detalhes]
 
   layout 'admin'
