@@ -147,9 +147,9 @@ class AgendasController < ApplicationController
     agendas.each do |agenda|
 
       total = agenda.total
-      if agenda.data > Time.now || agenda.total == 0
+      if agenda.data > Time.now || agenda.total == 0 || agenda.data > agenda.updated_at
         total = fetch_devs(agenda)
-        agenda.update(:total => total)
+        agenda.update(:total => total) if total > 0
       end
 
       if !alltime
