@@ -237,7 +237,7 @@ class AgendasController < ApplicationController
 
 
   def fetch_devs(agenda)
-    RubyMeetup::ApiKeyClient.key = '562b69332521043a715b20233797d'#ENV['MEETUP_APIKEY']
+    RubyMeetup::ApiKeyClient.key = ENV['MEETUP_APIKEY']
     client = RubyMeetup::ApiKeyClient.new
 
     total = 0
