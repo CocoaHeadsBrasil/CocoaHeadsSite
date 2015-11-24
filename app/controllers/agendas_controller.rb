@@ -135,7 +135,7 @@ class AgendasController < ApplicationController
   end
 
   def total_devs
-    agendas = Agenda.publicadas.por_data
+    agendas = Agenda.por_data
 
     results = []
 
