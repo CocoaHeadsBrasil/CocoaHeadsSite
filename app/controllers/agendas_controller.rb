@@ -179,7 +179,9 @@ class AgendasController < ApplicationController
 
     if !alltime
       unless group.nil?
-        aux_results.keys.each do |key|
+        keys = aux_results.keys
+        keys = keys.sort if group == "chapter"
+        keys.each do |key|
           results << {group => key, :total => aux_results[key]}
         end
       end
