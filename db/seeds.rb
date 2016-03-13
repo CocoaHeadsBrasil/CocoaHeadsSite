@@ -37,3 +37,5 @@ e = Estado.create(:sigla => 'SC', :nome => "Santa Catarina").save
 e = Estado.create(:sigla => 'SE', :nome => "Sergipe").save
 e = Estado.create(:sigla => 'SP', :nome => "São Paulo").save
 e = Estado.create(:sigla => 'TO', :nome => "Tocantins").save
+
+load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
