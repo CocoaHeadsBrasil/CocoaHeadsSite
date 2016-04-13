@@ -24,5 +24,8 @@ class Podcast < ActiveRecord::Base
 
     def send_hubot_create_message
         Hubot.send_message "Novo podcast do CocoaHeads Brasil publicado: #{self.title} - http://www.cocoaheads.com.br/podcasts/detalhes/#{self.id}"
+        
+        Hubot.send_message "Novo podcast do CocoaHeads Brasil publicado: #{self.title} - http://www.cocoaheads.com.br/podcasts/detalhes/#{self.id}", {:channel => "#podcast"}
+        
     end
 end
