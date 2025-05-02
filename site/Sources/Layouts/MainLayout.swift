@@ -6,5 +6,6 @@ struct MainLayout: Layout {
         Body {
             content
         }
+        .ignorePageGutters()
     }
 }
