@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="CocoaHeads Brasil" />
+    <meta name="generator" content="Ignite v0.6.0" />
+    <title>Home – Olá Mundo!</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://www.cocoaheads.com.br/" rel="canonical" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="CocoaHeads Brasil" />
+    <meta property="og:title" content="Home" />
+    <meta name="twitter:title" content="Home" />
+    <meta property="og:url" content="https://www.cocoaheads.com.br/" />
+    <meta name="twitter:domain" content="cocoaheads.com.br" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body class="container">
+    <div class="ig-main-content">
+      <div class="hstack gap-3" style="background-color: rgb(35 110 97 / 100%); width: 100.0vw; height: 100.0vh">
+        <div class="mb-0 align-self-center vstack" style="gap: 30px">
+          <img src="/images/logo.svg" alt="" class="mb-0 align-self-center" style="width: 100%; max-width: 200px; max-height: 200px" />
+          <h1 class="mb-0 align-self-center" style="color: rgb(255 255 255 / 100%)">Olá CocoaHeads!</h1>
+          <div class="mb-0 align-self-center hstack gap-3">
+            <a href="https://instagram.com/cocoaheadsbr" class="mb-0 align-self-center btn btn-success">Instagram</a>
+            <a href="https://bsky.app/profile/cocoaheads.com.br" class="mb-0 align-self-center btn btn-success">Bluesky</a>
+            <a href="https://www.linkedin.com/company/cocoaheads-brasil" class="mb-0 align-self-center btn btn-success">LinkedIn</a>
+          </div>
+          <div class="mb-0 align-self-center hstack gap-3" style="padding-left: 20px; padding-right: 20px; border-radius: 20px; background-color: rgb(255 255 255 / 60%)">
+            <div class="mb-0 align-self-center" style="margin-top: -2.0rem">
+              <p class="text-center mt-5">Created in Swift with <a href="https://github.com/twostraws/Ignite">Ignite</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>

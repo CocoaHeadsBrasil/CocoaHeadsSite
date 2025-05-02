@@ -17,3 +17,11 @@
 /public/uploads/
 /config/app_environment_variables.rb
 /config/database.yml
+
+.DS_Store
+Packages
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
