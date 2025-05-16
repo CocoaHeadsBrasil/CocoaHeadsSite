@@ -22,4 +22,8 @@ struct CocoaHeadsBRSite: Site {
     var author = "CocoaHeads Brasil"
     var homePage = Home()
     var layout = MainLayout()
+    
+    var staticPages: [any StaticPage] {
+        PrivacyPolicy()
+    }
 }

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="CocoaHeads Brasil" />
+    <meta name="generator" content="Ignite v0.6.0" />
+    <title>Política de Privacidade – Olá Mundo!</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://www.cocoaheads.com.br/app-privacy-policy" rel="canonical" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="CocoaHeads Brasil" />
+    <meta property="og:title" content="Política de Privacidade" />
+    <meta name="twitter:title" content="Política de Privacidade" />
+    <meta property="og:url" content="https://www.cocoaheads.com.br/app-privacy-policy" />
+    <meta name="twitter:domain" content="cocoaheads.com.br" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body>
+    <div class="ig-main-content">
+      <div class="vstack" style="padding: 20px; background-color: rgb(35 110 97 / 100%); width: 100.0vw; min-height: 100.0vh; gap: 20px">
+        <h1 class="mb-0 align-self-center" style="color: rgb(255 255 255 / 100%); padding-bottom: 20px">Política de Privacidade</h1>
+        <div class="mb-0 align-self-center vstack" style="padding: 20px; background-color: rgb(255 255 255 / 10%); border-radius: 10px; gap: 15px">
+          <div class="mb-0 align-self-start" style="padding-bottom: 10px">
+            <p style="color: rgb(255 255 255 / 100%)">Sua privacidade é importante para nós. Este aplicativo não coleta, armazena ou compartilha dados pessoais ou informações de uso.</p>
+          </div>
+          <div class="mb-0 align-self-start" style="padding-bottom: 10px">
+            <h2 style="color: rgb(255 255 255 / 100%)">Quais Informações Coletamos</h2>
+            <p style="color: rgb(255 255 255 / 100%)">Não coletamos nenhuma informação pessoal, estatísticas de uso ou dados do dispositivo.</p>
+          </div>
+          <div class="mb-0 align-self-start" style="padding-bottom: 10px">
+            <h2 style="color: rgb(255 255 255 / 100%)">Serviços de Terceiros</h2>
+            <p style="color: rgb(255 255 255 / 100%)">Este aplicativo não utiliza serviços de terceiros que coletem ou processem seus dados.</p>
+          </div>
+          <div class="mb-0 align-self-start" style="padding-bottom: 10px">
+            <h2 style="color: rgb(255 255 255 / 100%)">Alterações nesta Política</h2>
+            <p style="color: rgb(255 255 255 / 100%)">Se nossas práticas de privacidade mudarem, atualizaremos esta política e informaremos você adequadamente.</p>
+          </div>
+          <div class="mb-0 align-self-start">
+            <h2 style="color: rgb(255 255 255 / 100%)">Contato</h2>
+            <p style="color: rgb(255 255 255 / 100%)">Se você tiver alguma dúvida sobre esta política de privacidade, entre em contato conosco através do email: contato@cocoaheads.com.br</p>
+          </div>
+        </div>
+        <div class="mb-0 align-self-center hstack gap-3" style="padding-left: 20px; padding-right: 20px; border-radius: 20px; background-color: rgb(255 255 255 / 60%)">
+          <div class="mb-0 align-self-center">
+            <p class="text-center mt-5">Created in Swift with <a href="https://github.com/twostraws/Ignite">Ignite</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>
