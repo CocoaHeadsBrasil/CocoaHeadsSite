@@ -25,5 +25,6 @@ struct CocoaHeadsBRSite: Site {
     
     var staticPages: [any StaticPage] {
         PrivacyPolicy()
+        WorkshopSponsors()
     }
 }
