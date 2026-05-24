@@ -15,6 +15,12 @@ struct Home: StaticPage {
                     .foregroundStyle(.white)
 
                 HStack {
+                    Link(target: "/proximos-eventos") {
+                        "Próximos Eventos"
+                    }
+                    .linkStyle(.button)
+                    .role(.success)
+
                     Link(target: "https://instagram.com/cocoaheadsbr") {
                         "Instagram"
                     }
