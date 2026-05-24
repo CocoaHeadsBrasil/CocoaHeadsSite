@@ -4,12 +4,12 @@ import Ignite
 @main
 struct IgniteWebsite {
     static func main() async {
-        var site = CocoaHeadsBRSite()
-
         do {
+            var site = CocoaHeadsBRSite()
             try await site.publish()
         } catch {
-            print(error.localizedDescription)
+            print("Build failed: \(error.localizedDescription)")
+            exit(1)
         }
     }
 }
@@ -22,8 +22,10 @@ struct CocoaHeadsBRSite: Site {
     var author = "CocoaHeads Brasil"
     var homePage = Home()
     var layout = MainLayout()
-    
+
     var staticPages: [any StaticPage] {
-        PrivacyPolicy()
+        var pages: [any StaticPage] = [PrivacyPolicy()]
+        pages.append(ProximosEventos())
+        return pages
     }
 }
