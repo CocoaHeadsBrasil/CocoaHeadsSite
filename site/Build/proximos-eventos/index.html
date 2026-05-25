@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="CocoaHeads Brasil" />
+    <meta name="generator" content="Ignite v0.6.0" />
+    <title>Próximos Eventos – Olá Mundo!</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://www.cocoaheads.com.br/proximos-eventos" rel="canonical" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="CocoaHeads Brasil" />
+    <meta property="og:title" content="Próximos Eventos" />
+    <meta name="twitter:title" content="Próximos Eventos" />
+    <meta property="og:url" content="https://www.cocoaheads.com.br/proximos-eventos" />
+    <meta name="twitter:domain" content="cocoaheads.com.br" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+    <meta name="apple-itunes-app" content="app-id=1180455342, app-clip-bundle-id=com.cocoaheads.conf.baseClip" />
+  </head>
+  <body>
+    <div class="ig-main-content">
+      <div class="vstack" style="padding: 20px; background-color: rgb(35 110 97 / 100%); width: 100.0vw; min-height: 100.0vh; gap: 40px">
+        <h1 class="mb-0 align-self-center" style="color: rgb(255 255 255 / 100%)">Próximos Eventos</h1>
+        <div class="row g-3 mb-0 align-self-center">
+          <div class="col-12 col-md-4">
+            <div class="h-100 overflow-hidden vstack" style="background-color: rgb(255 255 255 / 10%); border-radius: 12px">
+              <div class="ratio mb-0 align-self-start" style="--bs-aspect-ratio: 125.0%">
+                <img src="/images/bnu.jpeg" alt="CocoaHeads Blumenau" class="object-fit-cover" />
+              </div>
+              <div class="flex-grow-1 mb-0 align-self-start vstack" style="padding: 20px; gap: 8px">
+                <div class="mb-0 align-self-start vstack" style="gap: 4px">
+                  <h3 class="mb-0 align-self-start" style="color: rgb(255 255 255 / 100%)">CocoaHeads Blumenau</h3>
+                  <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 80%)">CocoaHeads Blumenau by Hello, Swift!</p>
+                </div>
+                <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 100%)">27 Maio 2026</p>
+                <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 80%)">Blumenau, SC</p>
+                <div class="mt-auto"></div>
+                <a href="https://luma.com/dmbd9a46" class="mb-0 align-self-start btn btn-success">Ver evento</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="h-100 overflow-hidden vstack" style="background-color: rgb(255 255 255 / 10%); border-radius: 12px">
+              <div class="ratio mb-0 align-self-start" style="--bs-aspect-ratio: 125.0%">
+                <img src="/images/sp.png" alt="74º CocoaHeads SP @ OLX" class="object-fit-cover" />
+              </div>
+              <div class="flex-grow-1 mb-0 align-self-start vstack" style="padding: 20px; gap: 8px">
+                <div class="mb-0 align-self-start vstack" style="gap: 4px">
+                  <h3 class="mb-0 align-self-start" style="color: rgb(255 255 255 / 100%)">74º CocoaHeads SP @ OLX</h3>
+                  <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 80%)">CocoaHeads SP</p>
+                </div>
+                <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 100%)">28 Maio 2026</p>
+                <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 80%)">São Paulo, SP</p>
+                <div class="mt-auto"></div>
+                <a href="https://www.meetup.com/cocoaheadssp/events/314759767/" class="mb-0 align-self-start btn btn-success">Ver evento</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="h-100 overflow-hidden vstack" style="background-color: rgb(255 255 255 / 10%); border-radius: 12px">
+              <div class="ratio mb-0 align-self-start" style="--bs-aspect-ratio: 125.0%">
+                <img src="/images/bh.jpg" alt="WWDC Watch Party" class="object-fit-cover" />
+              </div>
+              <div class="flex-grow-1 mb-0 align-self-start vstack" style="padding: 20px; gap: 8px">
+                <div class="mb-0 align-self-start vstack" style="gap: 4px">
+                  <h3 class="mb-0 align-self-start" style="color: rgb(255 255 255 / 100%)">WWDC Watch Party</h3>
+                  <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 80%)">CocoaHeads BH</p>
+                </div>
+                <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 100%)">08 Junho 2026</p>
+                <p class="mb-0 align-self-start" style="color: rgb(255 255 255 / 80%)">Belo Horizonte, MG</p>
+                <div class="mt-auto"></div>
+                <a href="https://www.sympla.com.br/evento/wwdc-watch-party-bh/3436374" class="mb-0 align-self-start btn btn-success">Ver evento</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>
