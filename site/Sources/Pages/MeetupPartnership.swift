@@ -4,6 +4,8 @@ import Ignite
 struct MeetupPartnership: StaticPage {
     var title = "Proposta de Parceria"
     var path: String = "parceria-meetup"
+    var description = "Conheça a maior comunidade de desenvolvimento Apple da América Latina e como funciona uma parceria para meetups"
+    var image: URL? = URL(static: "https://www.cocoaheads.com.br/images/parceria/hero.webp")
 
     // MARK: - Content
 
