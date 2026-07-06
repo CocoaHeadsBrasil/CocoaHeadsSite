@@ -9,30 +9,29 @@ struct EventCard: HTML {
             Image(event.imageURL, description: event.title)
                 .aspectRatio(1080.0 / 1350.0, contentMode: .fill)
 
-            VStack(alignment: .leading, spacing: 8) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(event.title)
-                        .font(.title3)
-                        .foregroundStyle(.white)
-                    Text(event.chapter)
-                        .foregroundStyle(.white.opacity(0.8))
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(alignment: .center, spacing: 12) {
+                    CHDateBadge(month: event.monthAbbrev, day: event.dayNumber)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(event.title)
+                            .textStyle(.headline)
+                        Text(event.city)
+                            .textStyle(.subhead)
+                    }
                 }
+                CHBadge(event.chapter)
                 Text(event.date)
-                    .foregroundStyle(.white)
-                Text(event.city)
-                    .foregroundStyle(.white.opacity(0.8))
+                    .textStyle(.mono)
                 Spacer()
                 Link(target: event.url) {
                     "Ver evento"
                 }
-                .linkStyle(.button)
-                .role(.success)
+                .buttonStyle(.tinted)
             }
             .padding()
             .`class`("flex-grow-1")
         }
-        .background(.white.opacity(0.1))
-        .cornerRadius(.px(12))
+        .card()
         .`class`("h-100", "overflow-hidden")
     }
 }

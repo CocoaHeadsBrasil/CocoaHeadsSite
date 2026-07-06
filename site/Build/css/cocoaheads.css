@@ -1,0 +1,350 @@
+/* CocoaHeads Brasil
+   Tokens and component classes layered on top of the Ignite themes.
+   Class names here are private API: pages use the Swift wrappers in
+   Sources/DesignSystem instead of these classes directly. */
+
+:root {
+    --ch-mata: #16A05C;
+    --ch-mata-ink: #0C6E3F;
+    --ch-mata-soft: #E3F5EC;
+    --ch-label: #1C1C1E;
+    --ch-secondary: #6E6E73;
+    --ch-tertiary: #AEAEB2;
+    --ch-grouped: #F2F2F7;
+    --ch-card-bg: #FFFFFF;
+    --ch-separator: rgba(60, 60, 67, 0.16);
+    --ch-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --ch-shadow-btn: 0 4px 12px rgba(22, 160, 92, 0.25);
+    --ch-radius-card: 16px;
+    --ch-radius-lg: 24px;
+    --ch-radius-btn: 14px;
+    --ch-font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+[data-bs-theme*="dark"] {
+    /* Ignite drops a theme background of exactly #000000 (it matches the
+       framework's "default color" sentinel), so set Bootstrap's variable here. */
+    --bs-body-bg: #000000;
+    --ch-mata: #2FD27D;
+    --ch-mata-ink: #2FD27D;
+    --ch-mata-soft: rgba(47, 210, 125, 0.16);
+    --ch-label: #FFFFFF;
+    --ch-secondary: rgba(235, 235, 245, 0.6);
+    --ch-tertiary: rgba(235, 235, 245, 0.3);
+    --ch-grouped: #1C1C1E;
+    --ch-card-bg: #1C1C1E;
+    --ch-separator: rgba(84, 84, 88, 0.6);
+    --ch-shadow-card: none;
+    --ch-shadow-btn: 0 4px 12px rgba(47, 210, 125, 0.18);
+}
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 { letter-spacing: -0.02em; }
+h1 { letter-spacing: -0.03em; }
+
+.ch-large-title {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+}
+
+.ch-title2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.ch-headline {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.ch-subhead {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ch-secondary);
+}
+
+.ch-footnote {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--ch-secondary);
+}
+
+.ch-mono {
+    font-family: var(--ch-font-mono);
+    font-size: 13px;
+    color: var(--ch-secondary);
+}
+
+.ch-eyebrow {
+    font-family: var(--ch-font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ch-mata-ink);
+}
+
+.ch-stat-number {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--ch-mata-ink);
+}
+
+.ch-check {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ch-mata-soft);
+    color: var(--ch-mata-ink);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+/* ---------- Surfaces ---------- */
+
+.ch-card {
+    background: var(--ch-card-bg);
+    border: 1px solid var(--ch-separator);
+    border-radius: var(--ch-radius-card);
+    box-shadow: var(--ch-shadow-card);
+}
+
+.ch-surface {
+    background: var(--ch-grouped);
+    border-radius: var(--ch-radius-card);
+}
+
+.ch-pull {
+    border-left: 3px solid var(--ch-mata);
+}
+
+/* Hairline separators between a stack's rows. The gap between rows is
+   provided by the container; the row's top padding mirrors it so the
+   line sits centered between the two rows. */
+.ch-divided > * + * {
+    border-top: 1px solid var(--ch-separator);
+    padding-top: 12px;
+}
+
+/* The green "wallpaper" gradient — reserved for accent moments. */
+.ch-hero-wall {
+    padding: clamp(24px, 6vw, 48px);
+    max-width: calc(100vw - 32px);
+    background: #10854B;
+    background-image:
+        radial-gradient(120% 90% at 15% 0%, #2BD17E 0%, transparent 55%),
+        radial-gradient(110% 100% at 90% 10%, #16C06B 0%, transparent 60%),
+        radial-gradient(120% 120% at 70% 100%, #0A5E36 0%, transparent 55%),
+        radial-gradient(100% 100% at 10% 100%, #0C7A45 0%, transparent 50%);
+    color: #fff;
+    border-radius: var(--ch-radius-lg);
+}
+
+.ch-hero-wall .ch-subhead,
+.ch-hero-wall .ch-footnote,
+.ch-hero-wall .ch-mono { color: rgba(255, 255, 255, 0.78); }
+
+.ch-hero-wall a:not(.btn) { color: #fff; }
+
+.ch-glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--ch-radius-card);
+}
+
+[data-bs-theme*="dark"] .ch-glass {
+    background: rgba(28, 28, 30, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Buttons (compose with Bootstrap .btn) ---------- */
+
+.btn.ch-btn-filled,
+.btn.ch-btn-tinted,
+.btn.ch-btn-bordered,
+.btn.ch-btn-on-wall,
+.btn.ch-btn-glass {
+    border-radius: var(--ch-radius-btn);
+    font-weight: 600;
+    padding: 0.55rem 1.15rem;
+}
+
+.btn.ch-btn-filled {
+    background: var(--ch-mata);
+    color: #fff;
+    border: none;
+    box-shadow: var(--ch-shadow-btn);
+}
+.btn.ch-btn-filled:hover,
+.btn.ch-btn-filled:focus-visible { background: var(--ch-mata-ink); color: #fff; }
+[data-bs-theme*="dark"] .btn.ch-btn-filled { color: #04140C; }
+[data-bs-theme*="dark"] .btn.ch-btn-filled:hover,
+[data-bs-theme*="dark"] .btn.ch-btn-filled:focus-visible { background: #3DDC84; color: #04140C; }
+
+.btn.ch-btn-tinted {
+    background: var(--ch-mata-soft);
+    color: var(--ch-mata-ink);
+    border: none;
+}
+.btn.ch-btn-tinted:hover,
+.btn.ch-btn-tinted:focus-visible { background: var(--ch-mata); color: #fff; }
+[data-bs-theme*="dark"] .btn.ch-btn-tinted:hover,
+[data-bs-theme*="dark"] .btn.ch-btn-tinted:focus-visible { color: #04140C; }
+
+.btn.ch-btn-bordered {
+    background: transparent;
+    color: var(--ch-mata-ink);
+    border: 1px solid var(--ch-separator);
+}
+.btn.ch-btn-bordered:hover,
+.btn.ch-btn-bordered:focus-visible { border-color: var(--ch-mata); color: var(--ch-mata-ink); }
+
+/* For use on .ch-hero-wall only */
+.btn.ch-btn-on-wall {
+    background: #fff;
+    color: var(--ch-mata-ink);
+    border: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+.btn.ch-btn-on-wall:hover,
+.btn.ch-btn-on-wall:focus-visible { background: #E3F5EC; color: #0C6E3F; }
+
+.btn.ch-btn-glass {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.btn.ch-btn-glass:hover,
+.btn.ch-btn-glass:focus-visible { background: rgba(255, 255, 255, 0.3); color: #fff; }
+
+/* ---------- Timeline ---------- */
+
+.ch-timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.ch-timeline-row {
+    display: flex;
+    gap: 20px;
+}
+
+.ch-timeline-row:not(:last-child) .ch-timeline-content {
+    padding-bottom: 36px;
+}
+
+.ch-timeline-time {
+    flex: none;
+    min-width: 52px;
+    font-family: var(--ch-font-mono);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--ch-mata-ink);
+}
+
+.ch-timeline-rail {
+    flex: none;
+    width: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ch-timeline-rail::before {
+    content: "";
+    flex: none;
+    width: 14px;
+    height: 14px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background: var(--ch-mata-ink);
+}
+
+.ch-timeline-row:not(:last-child) .ch-timeline-rail::after {
+    content: "";
+    flex: 1;
+    width: 2px;
+    margin-top: 6px;
+    border-radius: 1px;
+    background: var(--ch-mata-soft);
+}
+
+.ch-timeline-row:last-child .ch-timeline-rail::before {
+    background: transparent;
+    border: 3px solid var(--ch-mata-ink);
+}
+
+.ch-timeline-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 6px;
+    line-height: 24px;
+}
+
+.ch-timeline-content > * {
+    margin-bottom: 0;
+}
+
+/* ---------- Chips & badges ---------- */
+
+.ch-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--ch-mata-soft);
+    color: var(--ch-mata-ink);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.ch-date-badge {
+    width: 48px;
+    height: 48px;
+    flex: none;
+    border-radius: 12px;
+    background: var(--ch-mata-soft);
+    color: var(--ch-mata-ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+}
+
+.ch-date-badge .ch-date-month {
+    font-family: var(--ch-font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.ch-date-badge .ch-date-day {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+}

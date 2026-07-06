@@ -22,10 +22,13 @@ struct CocoaHeadsBRSite: Site {
     var author = "CocoaHeads Brasil"
     var homePage = Home()
     var layout = MainLayout()
+    var lightTheme: (any Theme)? = CocoaHeadsLightTheme()
+    var darkTheme: (any Theme)? = CocoaHeadsDarkTheme()
 
     var staticPages: [any StaticPage] {
         var pages: [any StaticPage] = [PrivacyPolicy()]
         pages.append(ProximosEventos())
+        pages.append(MeetupPartnership())
         return pages
     }
 }
