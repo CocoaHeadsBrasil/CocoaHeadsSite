@@ -140,6 +140,12 @@ h1 { letter-spacing: -0.03em; }
     padding-top: 12px;
 }
 
+/* Rows in a divided list are compact: the container's gap provides all
+   vertical rhythm, so paragraphs must not add their own margin. */
+.ch-divided p {
+    margin-bottom: 0;
+}
+
 /* The green "wallpaper" gradient — reserved for accent moments. */
 .ch-hero-wall {
     padding: clamp(24px, 6vw, 48px);
@@ -173,7 +179,10 @@ h1 { letter-spacing: -0.03em; }
     border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ---------- Buttons (compose with Bootstrap .btn) ---------- */
+/* ---------- Buttons (compose with Bootstrap .btn) ----------
+   Bootstrap's `.btn:active` rule outranks `.btn.ch-btn-*` and paints the
+   stock blue from `.btn-primary`, but it reads the --bs-btn-active-*
+   variables — so each variant redefines them to stay on-palette. */
 
 .btn.ch-btn-filled,
 .btn.ch-btn-tinted,
@@ -190,10 +199,17 @@ h1 { letter-spacing: -0.03em; }
     color: #fff;
     border: none;
     box-shadow: var(--ch-shadow-btn);
+    --bs-btn-active-bg: var(--ch-mata-ink);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: transparent;
 }
 .btn.ch-btn-filled:hover,
 .btn.ch-btn-filled:focus-visible { background: var(--ch-mata-ink); color: #fff; }
-[data-bs-theme*="dark"] .btn.ch-btn-filled { color: #04140C; }
+[data-bs-theme*="dark"] .btn.ch-btn-filled {
+    color: #04140C;
+    --bs-btn-active-bg: #3DDC84;
+    --bs-btn-active-color: #04140C;
+}
 [data-bs-theme*="dark"] .btn.ch-btn-filled:hover,
 [data-bs-theme*="dark"] .btn.ch-btn-filled:focus-visible { background: #3DDC84; color: #04140C; }
 
@@ -201,9 +217,13 @@ h1 { letter-spacing: -0.03em; }
     background: var(--ch-mata-soft);
     color: var(--ch-mata-ink);
     border: none;
+    --bs-btn-active-bg: var(--ch-mata);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: transparent;
 }
 .btn.ch-btn-tinted:hover,
 .btn.ch-btn-tinted:focus-visible { background: var(--ch-mata); color: #fff; }
+[data-bs-theme*="dark"] .btn.ch-btn-tinted { --bs-btn-active-color: #04140C; }
 [data-bs-theme*="dark"] .btn.ch-btn-tinted:hover,
 [data-bs-theme*="dark"] .btn.ch-btn-tinted:focus-visible { color: #04140C; }
 
@@ -211,6 +231,9 @@ h1 { letter-spacing: -0.03em; }
     background: transparent;
     color: var(--ch-mata-ink);
     border: 1px solid var(--ch-separator);
+    --bs-btn-active-bg: transparent;
+    --bs-btn-active-color: var(--ch-mata-ink);
+    --bs-btn-active-border-color: var(--ch-mata);
 }
 .btn.ch-btn-bordered:hover,
 .btn.ch-btn-bordered:focus-visible { border-color: var(--ch-mata); color: var(--ch-mata-ink); }
@@ -221,6 +244,9 @@ h1 { letter-spacing: -0.03em; }
     color: var(--ch-mata-ink);
     border: none;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    --bs-btn-active-bg: #E3F5EC;
+    --bs-btn-active-color: #0C6E3F;
+    --bs-btn-active-border-color: transparent;
 }
 .btn.ch-btn-on-wall:hover,
 .btn.ch-btn-on-wall:focus-visible { background: #E3F5EC; color: #0C6E3F; }
@@ -232,6 +258,9 @@ h1 { letter-spacing: -0.03em; }
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    --bs-btn-active-bg: rgba(255, 255, 255, 0.3);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: rgba(255, 255, 255, 0.35);
 }
 .btn.ch-btn-glass:hover,
 .btn.ch-btn-glass:focus-visible { background: rgba(255, 255, 255, 0.3); color: #fff; }
@@ -318,6 +347,7 @@ h1 { letter-spacing: -0.03em; }
     font-size: 13px;
     font-weight: 600;
     line-height: 1.4;
+    margin-bottom: 0;
 }
 
 .ch-date-badge {

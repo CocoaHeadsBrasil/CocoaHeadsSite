@@ -120,10 +120,13 @@ struct MeetupPartnership: StaticPage {
     // MARK: - Photos
 
     // A single event photo, cropped to `ratio` and rounded.
+    // Every photo built here sits below the fold, so it loads lazily;
+    // only the hero banner is fetched eagerly.
     private func eventPhoto(_ path: String, _ description: String, ratio: Double) -> some HTML {
         Section {
             Image(path, description: description)
                 .aspectRatio(ratio, contentMode: .fill)
+                .attribute("loading", "lazy")
                 .`class`("w-100")
         }
         .cornerRadius(.px(12))
