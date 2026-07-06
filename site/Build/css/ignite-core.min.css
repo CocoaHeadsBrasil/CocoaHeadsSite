@@ -1,21 +1,299 @@
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+}
+
+/* Removing padding from the last paragraph in an alert. */
+div.alert p:last-child {
+  margin-bottom: 0;
+}
+
+.font-inherit, .font-inherit * {
+  font: inherit;
+}
+
+.color-inherit, .color-inherit * {
+  color: inherit;
+}
+
+.line-height-inherit {
+  line-height: inherit;
+}
+
+.form-control::placeholder {
+    color: gray;
+    opacity: 1;
+}
+/* Removing text syling from a link. */
+.link-plain {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Define CSS Variables for Material Backgrounds */
+:root {
+    /* Light Material Values */
+    --material-light-ultra-thin: rgba(255, 255, 255, 0.5);
+    --material-light-ultra-thin-blur: rgba(255, 255, 255, 0.2);
+    --material-light-thin: rgba(255, 255, 255, 0.6);
+    --material-light-thin-blur: rgba(255, 255, 255, 0.3);
+    --material-light-regular: rgba(255, 255, 255, 0.7);
+    --material-light-regular-blur: rgba(255, 255, 255, 0.4);
+    --material-light-thick: rgba(255, 255, 255, 0.8);
+    --material-light-thick-blur: rgba(255, 255, 255, 0.5);
+    --material-light-ultra-thick: rgba(255, 255, 255, 0.9);
+    --material-light-ultra-thick-blur: rgba(255, 255, 255, 0.6);
+
+    /* Dark Material Values */
+    --material-dark-ultra-thin: rgba(30, 30, 30, 0.5);
+    --material-dark-ultra-thin-blur: rgba(30, 30, 30, 0.2);
+    --material-dark-thin: rgba(30, 30, 30, 0.6);
+    --material-dark-thin-blur: rgba(30, 30, 30, 0.3);
+    --material-dark-regular: rgba(30, 30, 30, 0.7);
+    --material-dark-regular-blur: rgba(30, 30, 30, 0.4);
+    --material-dark-thick: rgba(30, 30, 30, 0.8);
+    --material-dark-thick-blur: rgba(30, 30, 30, 0.5);
+    --material-dark-ultra-thick: rgba(30, 30, 30, 0.9);
+    --material-dark-ultra-thick-blur: rgba(30, 30, 30, 0.6);
+}
+
+/* Auto-switching Material Classes */
+.material-ultra-thin {
+    background: var(--material-light-ultra-thin);
+    @supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+        background: var(--material-light-ultra-thin-blur);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        backdrop-filter: blur(10px) saturate(180%);
+    }
+}
+
+.material-thin {
+    background: var(--material-light-thin);
+    @supports ((backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))) {
+        background: var(--material-light-thin-blur);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+}
+
+.material-regular {
+    background: var(--material-light-regular);
+    @supports ((backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px))) {
+        background: var(--material-light-regular-blur);
+        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        backdrop-filter: blur(30px) saturate(180%);
+    }
+}
+
+.material-thick {
+    background: var(--material-light-thick);
+    @supports ((backdrop-filter: blur(50px)) or (-webkit-backdrop-filter: blur(50px))) {
+        background: var(--material-light-thick-blur);
+        -webkit-backdrop-filter: blur(50px) saturate(180%);
+        backdrop-filter: blur(50px) saturate(180%);
+    }
+}
+
+.material-ultra-thick {
+    background: var(--material-light-ultra-thick);
+    @supports ((backdrop-filter: blur(70px)) or (-webkit-backdrop-filter: blur(70px))) {
+        background: var(--material-light-ultra-thick-blur);
+        -webkit-backdrop-filter: blur(70px) saturate(180%);
+        backdrop-filter: blur(70px) saturate(180%);
+    }
+}
+
+[data-bs-theme*="dark"] .material-ultra-thin {
+    background: var(--material-dark-ultra-thin);
+    @supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+        background: var(--material-dark-ultra-thin-blur);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        backdrop-filter: blur(10px) saturate(180%);
+    }
+}
+
+[data-bs-theme*="dark"] .material-thin {
+    background: var(--material-dark-thin);
+    @supports ((backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))) {
+        background: var(--material-dark-thin-blur);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+}
+
+[data-bs-theme*="dark"] .material-regular {
+    background: var(--material-dark-regular);
+    @supports ((backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px))) {
+        background: var(--material-dark-regular-blur);
+        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        backdrop-filter: blur(30px) saturate(180%);
+    }
+}
+
+[data-bs-theme*="dark"] .material-thick {
+    background: var(--material-dark-thick);
+    @supports ((backdrop-filter: blur(50px)) or (-webkit-backdrop-filter: blur(50px))) {
+        background: var(--material-dark-thick-blur);
+        -webkit-backdrop-filter: blur(50px) saturate(180%);
+        backdrop-filter: blur(50px) saturate(180%);
+    }
+}
+
+[data-bs-theme*="dark"] .material-ultra-thick {
+    background: var(--material-dark-ultra-thick);
+    @supports ((backdrop-filter: blur(70px)) or (-webkit-backdrop-filter: blur(70px))) {
+        background: var(--material-dark-ultra-thick-blur);
+        -webkit-backdrop-filter: blur(70px) saturate(180%);
+        backdrop-filter: blur(70px) saturate(180%);
+    }
+}
+
+/* Light Material Classes (for explicit overrides) */
+.material-ultra-thin-light {
+    background: var(--material-light-ultra-thin);
+    @supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+        background: var(--material-light-ultra-thin-blur);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        backdrop-filter: blur(10px) saturate(180%);
+    }
+}
+
+.material-thin-light {
+    background: var(--material-light-thin);
+    @supports ((backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))) {
+        background: var(--material-light-thin-blur);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+}
+
+.material-regular-light {
+    background: var(--material-light-regular);
+    @supports ((backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px))) {
+        background: var(--material-light-regular-blur);
+        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        backdrop-filter: blur(30px) saturate(180%);
+    }
+}
+
+.material-thick-light {
+    background: var(--material-light-thick);
+    @supports ((backdrop-filter: blur(50px)) or (-webkit-backdrop-filter: blur(50px))) {
+        background: var(--material-light-thick-blur);
+        -webkit-backdrop-filter: blur(50px) saturate(180%);
+        backdrop-filter: blur(50px) saturate(180%);
+    }
+}
+
+.material-ultra-thick-light {
+    background: var(--material-light-ultra-thick);
+    @supports ((backdrop-filter: blur(70px)) or (-webkit-backdrop-filter: blur(70px))) {
+        background: var(--material-light-ultra-thick-blur);
+        -webkit-backdrop-filter: blur(70px) saturate(180%);
+        backdrop-filter: blur(70px) saturate(180%);
+    }
+}
+
+/* Dark Material Classes (for explicit overrides) */
+.material-ultra-thin-dark {
+    background: var(--material-dark-ultra-thin);
+    @supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+        background: var(--material-dark-ultra-thin-blur);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        backdrop-filter: blur(10px) saturate(180%);
+    }
+}
+
+.material-thin-dark {
+    background: var(--material-dark-thin);
+    @supports ((backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))) {
+        background: var(--material-dark-thin-blur);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        backdrop-filter: blur(20px) saturate(180%);
+    }
+}
+
+.material-regular-dark {
+    background: var(--material-dark-regular);
+    @supports ((backdrop-filter: blur(30px)) or (-webkit-backdrop-filter: blur(30px))) {
+        background: var(--material-dark-regular-blur);
+        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        backdrop-filter: blur(30px) saturate(180%);
+    }
+}
+
+.material-thick-dark {
+    background: var(--material-dark-thick);
+    @supports ((backdrop-filter: blur(50px)) or (-webkit-backdrop-filter: blur(50px))) {
+        background: var(--material-dark-thick-blur);
+        -webkit-backdrop-filter: blur(50px) saturate(180%);
+        backdrop-filter: blur(50px) saturate(180%);
+    }
+}
+
+.material-ultra-thick-dark {
+    background: var(--material-dark-ultra-thick);
+    @supports ((backdrop-filter: blur(70px)) or (-webkit-backdrop-filter: blur(70px))) {
+        background: var(--material-dark-ultra-thick-blur);
+        -webkit-backdrop-filter: blur(70px) saturate(180%);
+        backdrop-filter: blur(70px) saturate(180%);
+    }
+}
+
+.ig-text-small {
+    font-size: 0.9rem;
+}
+
+.ig-text-xSmall {
+    font-size: 0.8rem;
+}
+
+.ig-text-xxSmall {
+    font-size: 0.7rem;
+}
+
+.ig-text-xxxSmall {
+    font-size: 0.6rem;
+}
+
+.ig-line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--ig-max-line-length, 1);
+}
+
+.ig-line-clamp-none {
+    overflow: visible;
+    display: block;
+    -webkit-box-orient: horizontal;
+    -webkit-line-clamp: unset;
+}
 
 
 :root {
-    --bs-primary: rgb(13 110 253 / 100%);
-    --bs-primary-rgb: 13, 110, 253;
-    --bs-primary-text-emphasis: rgb(5 44 101 / 100%);
-    --bs-primary-bg-subtle: rgb(206 226 254 / 100%);
-    --bs-primary-border-subtle: rgb(109 168 253 / 100%);
+    --bs-primary: rgb(22 160 92 / 100%);
+    --bs-primary-rgb: 22, 160, 92;
+    --bs-primary-text-emphasis: rgb(8 64 36 / 100%);
+    --bs-primary-bg-subtle: rgb(208 236 222 / 100%);
+    --bs-primary-border-subtle: rgb(115 198 157 / 100%);
     --bs-secondary: rgb(108 117 125 / 100%);
     --bs-secondary-rgb: 108, 117, 125;
     --bs-secondary-text-emphasis: rgb(43 46 50 / 100%);
     --bs-secondary-bg-subtle: rgb(225 227 229 / 100%);
     --bs-secondary-border-subtle: rgb(166 172 177 / 100%);
-    --bs-success: rgb(25 135 84 / 100%);
-    --bs-success-rgb: 25, 135, 84;
-    --bs-success-text-emphasis: rgb(10 54 33 / 100%);
-    --bs-success-bg-subtle: rgb(209 231 220 / 100%);
-    --bs-success-border-subtle: rgb(117 183 152 / 100%);
+    --bs-success: rgb(22 160 92 / 100%);
+    --bs-success-rgb: 22, 160, 92;
+    --bs-success-text-emphasis: rgb(8 64 36 / 100%);
+    --bs-success-bg-subtle: rgb(208 236 222 / 100%);
+    --bs-success-border-subtle: rgb(115 198 157 / 100%);
     --bs-info: rgb(13 202 240 / 100%);
     --bs-info-rgb: 13, 202, 240;
     --bs-info-text-emphasis: rgb(5 80 96 / 100%);
@@ -41,26 +319,91 @@
     --bs-dark-text-emphasis: rgb(13 14 16 / 100%);
     --bs-dark-bg-subtle: rgb(210 211 212 / 100%);
     --bs-dark-border-subtle: rgb(121 124 126 / 100%);
-    --bs-body-color: rgb(33 37 41 / 100%);
-    --bs-body-color-rgb: 33, 37, 41;
+    --bs-body-color: rgb(28 28 30 / 100%);
+    --bs-body-color-rgb: 28, 28, 30;
     --bs-body-bg: rgb(255 255 255 / 100%);
     --bs-body-bg-rgb: 255, 255, 255;
     --bs-emphasis-color-rgb: 0, 0, 0;
-    --bs-secondary-color: rgb(8415 9435 10455 / 75%);
-    --bs-secondary-color-rgb: 8415, 9435, 10455;
-    --bs-tertiary-color: rgb(8415 9435 10455 / 50%);
-    --bs-tertiary-color-rgb: 8415, 9435, 10455;
-    --bs-secondary-bg: rgb(233 236 239 / 100%);
-    --bs-secondary-bg-rgb: 233, 236, 239;
+    --bs-secondary-color: rgb(110 110 115 / 100%);
+    --bs-secondary-color-rgb: 110, 110, 115;
+    --bs-tertiary-color: rgb(174 174 178 / 100%);
+    --bs-tertiary-color-rgb: 174, 174, 178;
+    --bs-secondary-bg: rgb(242 242 247 / 100%);
+    --bs-secondary-bg-rgb: 242, 242, 247;
     --bs-tertiary-bg: rgb(248 249 250 / 100%);
     --bs-tertiary-bg-rgb: 248, 249, 250;
-    --bs-link-color: rgb(13 110 253 / 100%);
-    --bs-link-color-rgb: 13, 110, 253;
-    --bs-link-hover-color: rgb(10 88 202 / 100%);
-    --bs-link-hover-color-rgb: 10, 88, 202;
-    --bs-border-color: rgb(222 226 230 / 100%);
-    --bs-border-color-rgb: 222, 226, 230;
+    --bs-link-color: rgb(12 110 63 / 100%);
+    --bs-link-color-rgb: 12, 110, 63;
+    --bs-link-hover-color: rgb(22 160 92 / 100%);
+    --bs-link-hover-color-rgb: 22, 160, 92;
+    --bs-border-color: rgb(60 60 67 / 16%);
+    --bs-border-color-rgb: 60, 60, 67;
+    --bs-font-monospace: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+    --bs-body-font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --bs-h1-font-size: 34px;
+    --bs-h2-font-size: 28px;
+    --bs-h3-font-size: 22px;
+    --bs-h4-font-size: 20px;
+    --bs-h5-font-size: 17px;
+    --bs-h6-font-size: 15px;
+    --bs-headings-font-weight: 700;
+    --bs-link-decoration: none;
     --syntax-highlight-theme: "xcode-light";
+}
+
+@media (min-width: 576px) {
+    :root {
+    --bs-h1-font-size: 34px;
+    --bs-h2-font-size: 28px;
+    --bs-h3-font-size: 22px;
+    --bs-h4-font-size: 20px;
+    --bs-h5-font-size: 17px;
+    --bs-h6-font-size: 15px;
+}
+}
+
+@media (min-width: 768px) {
+    :root {
+    --bs-h1-font-size: 34px;
+    --bs-h2-font-size: 28px;
+    --bs-h3-font-size: 22px;
+    --bs-h4-font-size: 20px;
+    --bs-h5-font-size: 17px;
+    --bs-h6-font-size: 15px;
+}
+}
+
+@media (min-width: 992px) {
+    :root {
+    --bs-h1-font-size: 34px;
+    --bs-h2-font-size: 28px;
+    --bs-h3-font-size: 22px;
+    --bs-h4-font-size: 20px;
+    --bs-h5-font-size: 17px;
+    --bs-h6-font-size: 15px;
+}
+}
+
+@media (min-width: 1200px) {
+    :root {
+    --bs-h1-font-size: 34px;
+    --bs-h2-font-size: 28px;
+    --bs-h3-font-size: 22px;
+    --bs-h4-font-size: 20px;
+    --bs-h5-font-size: 17px;
+    --bs-h6-font-size: 15px;
+}
+}
+
+@media (min-width: 1400px) {
+    :root {
+    --bs-h1-font-size: 34px;
+    --bs-h2-font-size: 28px;
+    --bs-h3-font-size: 22px;
+    --bs-h4-font-size: 20px;
+    --bs-h5-font-size: 17px;
+    --bs-h6-font-size: 15px;
+}
 }
 
 @media (min-width: 540px) {
@@ -497,22 +840,22 @@ code, pre {
 }
 
 
-[data-bs-theme="light"] {
-    --bs-primary: rgb(13 110 253 / 100%);
-    --bs-primary-rgb: 13, 110, 253;
-    --bs-primary-text-emphasis: rgb(5 44 101 / 100%);
-    --bs-primary-bg-subtle: rgb(206 226 254 / 100%);
-    --bs-primary-border-subtle: rgb(109 168 253 / 100%);
+[data-bs-theme="cocoa-heads-light-light"] {
+    --bs-primary: rgb(22 160 92 / 100%);
+    --bs-primary-rgb: 22, 160, 92;
+    --bs-primary-text-emphasis: rgb(8 64 36 / 100%);
+    --bs-primary-bg-subtle: rgb(208 236 222 / 100%);
+    --bs-primary-border-subtle: rgb(115 198 157 / 100%);
     --bs-secondary: rgb(108 117 125 / 100%);
     --bs-secondary-rgb: 108, 117, 125;
     --bs-secondary-text-emphasis: rgb(43 46 50 / 100%);
     --bs-secondary-bg-subtle: rgb(225 227 229 / 100%);
     --bs-secondary-border-subtle: rgb(166 172 177 / 100%);
-    --bs-success: rgb(25 135 84 / 100%);
-    --bs-success-rgb: 25, 135, 84;
-    --bs-success-text-emphasis: rgb(10 54 33 / 100%);
-    --bs-success-bg-subtle: rgb(209 231 220 / 100%);
-    --bs-success-border-subtle: rgb(117 183 152 / 100%);
+    --bs-success: rgb(22 160 92 / 100%);
+    --bs-success-rgb: 22, 160, 92;
+    --bs-success-text-emphasis: rgb(8 64 36 / 100%);
+    --bs-success-bg-subtle: rgb(208 236 222 / 100%);
+    --bs-success-border-subtle: rgb(115 198 157 / 100%);
     --bs-info: rgb(13 202 240 / 100%);
     --bs-info-rgb: 13, 202, 240;
     --bs-info-text-emphasis: rgb(5 80 96 / 100%);
@@ -538,44 +881,54 @@ code, pre {
     --bs-dark-text-emphasis: rgb(13 14 16 / 100%);
     --bs-dark-bg-subtle: rgb(210 211 212 / 100%);
     --bs-dark-border-subtle: rgb(121 124 126 / 100%);
-    --bs-body-color: rgb(33 37 41 / 100%);
-    --bs-body-color-rgb: 33, 37, 41;
+    --bs-body-color: rgb(28 28 30 / 100%);
+    --bs-body-color-rgb: 28, 28, 30;
     --bs-body-bg: rgb(255 255 255 / 100%);
     --bs-body-bg-rgb: 255, 255, 255;
     --bs-emphasis-color-rgb: 0, 0, 0;
-    --bs-secondary-color: rgb(8415 9435 10455 / 75%);
-    --bs-secondary-color-rgb: 8415, 9435, 10455;
-    --bs-tertiary-color: rgb(8415 9435 10455 / 50%);
-    --bs-tertiary-color-rgb: 8415, 9435, 10455;
-    --bs-secondary-bg: rgb(233 236 239 / 100%);
-    --bs-secondary-bg-rgb: 233, 236, 239;
+    --bs-secondary-color: rgb(110 110 115 / 100%);
+    --bs-secondary-color-rgb: 110, 110, 115;
+    --bs-tertiary-color: rgb(174 174 178 / 100%);
+    --bs-tertiary-color-rgb: 174, 174, 178;
+    --bs-secondary-bg: rgb(242 242 247 / 100%);
+    --bs-secondary-bg-rgb: 242, 242, 247;
     --bs-tertiary-bg: rgb(248 249 250 / 100%);
     --bs-tertiary-bg-rgb: 248, 249, 250;
-    --bs-link-color: rgb(13 110 253 / 100%);
-    --bs-link-color-rgb: 13, 110, 253;
-    --bs-link-hover-color: rgb(10 88 202 / 100%);
-    --bs-link-hover-color-rgb: 10, 88, 202;
-    --bs-border-color: rgb(222 226 230 / 100%);
-    --bs-border-color-rgb: 222, 226, 230;
+    --bs-link-color: rgb(12 110 63 / 100%);
+    --bs-link-color-rgb: 12, 110, 63;
+    --bs-link-hover-color: rgb(22 160 92 / 100%);
+    --bs-link-hover-color-rgb: 22, 160, 92;
+    --bs-border-color: rgb(60 60 67 / 16%);
+    --bs-border-color-rgb: 60, 60, 67;
+    --bs-font-monospace: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+    --bs-body-font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --bs-h1-font-size: 34px;
+    --bs-h2-font-size: 28px;
+    --bs-h3-font-size: 22px;
+    --bs-h4-font-size: 20px;
+    --bs-h5-font-size: 17px;
+    --bs-h6-font-size: 15px;
+    --bs-headings-font-weight: 700;
+    --bs-link-decoration: none;
     --syntax-highlight-theme: "xcode-light";
 }
 
-[data-bs-theme="dark"] {
-    --bs-primary: rgb(13 110 253 / 100%);
-    --bs-primary-rgb: 13, 110, 253;
-    --bs-primary-text-emphasis: rgb(109 168 253 / 100%);
-    --bs-primary-bg-subtle: rgb(2 21 50 / 100%);
-    --bs-primary-border-subtle: rgb(7 66 151 / 100%);
+[data-bs-theme="cocoa-heads-dark-dark"] {
+    --bs-primary: rgb(47 210 125 / 100%);
+    --bs-primary-rgb: 47, 210, 125;
+    --bs-primary-text-emphasis: rgb(130 228 177 / 100%);
+    --bs-primary-bg-subtle: rgb(9 41 24 / 100%);
+    --bs-primary-border-subtle: rgb(28 126 75 / 100%);
     --bs-secondary: rgb(108 117 125 / 100%);
     --bs-secondary-rgb: 108, 117, 125;
     --bs-secondary-text-emphasis: rgb(166 172 177 / 100%);
     --bs-secondary-bg-subtle: rgb(21 23 24 / 100%);
     --bs-secondary-border-subtle: rgb(64 70 75 / 100%);
-    --bs-success: rgb(25 135 84 / 100%);
-    --bs-success-rgb: 25, 135, 84;
-    --bs-success-text-emphasis: rgb(117 183 152 / 100%);
-    --bs-success-bg-subtle: rgb(4 26 16 / 100%);
-    --bs-success-border-subtle: rgb(15 81 50 / 100%);
+    --bs-success: rgb(47 210 125 / 100%);
+    --bs-success-rgb: 47, 210, 125;
+    --bs-success-text-emphasis: rgb(130 228 177 / 100%);
+    --bs-success-bg-subtle: rgb(9 41 24 / 100%);
+    --bs-success-border-subtle: rgb(28 126 75 / 100%);
     --bs-info: rgb(13 202 240 / 100%);
     --bs-info-rgb: 13, 202, 240;
     --bs-info-text-emphasis: rgb(109 223 246 / 100%);
@@ -601,26 +954,35 @@ code, pre {
     --bs-dark-text-emphasis: rgb(210 211 212 / 100%);
     --bs-dark-bg-subtle: rgb(6 7 8 / 100%);
     --bs-dark-border-subtle: rgb(77 80 83 / 100%);
-    --bs-body-color: rgb(222 226 230 / 100%);
-    --bs-body-color-rgb: 222, 226, 230;
-    --bs-body-bg: rgb(33 37 41 / 100%);
-    --bs-body-bg-rgb: 33, 37, 41;
+    --bs-body-color: rgb(255 255 255 / 100%);
+    --bs-body-color-rgb: 255, 255, 255;
+    --bs-body-bg-rgb: 0, 0, 0;
     --bs-emphasis-color: rgb(255 255 255 / 100%);
     --bs-emphasis-color-rgb: 255, 255, 255;
-    --bs-secondary-color: rgb(56610 57630 58650 / 75%);
-    --bs-secondary-color-rgb: 56610, 57630, 58650;
-    --bs-tertiary-color: rgb(56610 57630 58650 / 50%);
-    --bs-tertiary-color-rgb: 56610, 57630, 58650;
-    --bs-secondary-bg: rgb(52 58 64 / 100%);
-    --bs-secondary-bg-rgb: 52, 58, 64;
+    --bs-secondary-color: rgb(235 235 245 / 60%);
+    --bs-secondary-color-rgb: 235, 235, 245;
+    --bs-tertiary-color: rgb(235 235 245 / 30%);
+    --bs-tertiary-color-rgb: 235, 235, 245;
+    --bs-secondary-bg: rgb(28 28 30 / 100%);
+    --bs-secondary-bg-rgb: 28, 28, 30;
     --bs-tertiary-bg: rgb(43 48 53 / 100%);
     --bs-tertiary-bg-rgb: 43, 48, 53;
-    --bs-link-color: rgb(110 168 254 / 100%);
-    --bs-link-color-rgb: 110, 168, 254;
-    --bs-link-hover-color: rgb(158 197 254 / 100%);
-    --bs-link-hover-color-rgb: 158, 197, 254;
-    --bs-border-color: rgb(73 80 87 / 100%);
-    --bs-border-color-rgb: 73, 80, 87;
+    --bs-link-color: rgb(47 210 125 / 100%);
+    --bs-link-color-rgb: 47, 210, 125;
+    --bs-link-hover-color: rgb(61 220 132 / 100%);
+    --bs-link-hover-color-rgb: 61, 220, 132;
+    --bs-border-color: rgb(84 84 88 / 60%);
+    --bs-border-color-rgb: 84, 84, 88;
+    --bs-font-monospace: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+    --bs-body-font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --bs-h1-font-size: 34px;
+    --bs-h2-font-size: 28px;
+    --bs-h3-font-size: 22px;
+    --bs-h4-font-size: 20px;
+    --bs-h5-font-size: 17px;
+    --bs-h6-font-size: 15px;
+    --bs-headings-font-weight: 700;
+    --bs-link-decoration: none;
     --syntax-highlight-theme: "xcode-dark";
 }
 

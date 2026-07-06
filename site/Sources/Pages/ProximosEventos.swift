@@ -10,6 +10,20 @@ struct CocoaHeadsEvent {
     let imageURL: String
 }
 
+extension CocoaHeadsEvent {
+    /// Day extracted from a "27 Maio 2026" style date, for the date badge.
+    var dayNumber: String {
+        date.split(separator: " ").first.map(String.init) ?? ""
+    }
+
+    /// Abbreviated month ("MAI") extracted from the date, for the date badge.
+    var monthAbbrev: String {
+        let parts = date.split(separator: " ")
+        guard parts.count > 1 else { return "" }
+        return String(parts[1].prefix(3)).uppercased()
+    }
+}
+
 struct ProximosEventos: StaticPage {
     var title = "Próximos Eventos"
     var path: String = "proximos-eventos"
@@ -18,26 +32,10 @@ struct ProximosEventos: StaticPage {
         CocoaHeadsEvent(
             title: "CocoaHeads Blumenau",
             chapter: "CocoaHeads Blumenau by Hello, Swift!",
-            date: "27 Maio 2026",
+            date: "16 Julho 2026",
             city: "Blumenau, SC",
-            url: "https://luma.com/dmbd9a46",
+            url: "https://luma.com/uxxmdztv",
             imageURL: "/images/bnu.jpeg"
-        ),
-        CocoaHeadsEvent(
-            title: "74º CocoaHeads SP @ OLX",
-            chapter: "CocoaHeads SP",
-            date: "28 Maio 2026",
-            city: "São Paulo, SP",
-            url: "https://www.meetup.com/cocoaheadssp/events/314759767/",
-            imageURL: "/images/sp.png"
-        ),
-        CocoaHeadsEvent(
-            title: "WWDC Watch Party",
-            chapter: "CocoaHeads BH",
-            date: "08 Junho 2026",
-            city: "Belo Horizonte, MG",
-            url: "https://www.sympla.com.br/evento/wwdc-watch-party-bh/3436374",
-            imageURL: "/images/bh.jpg"
         ),
     ]
 
@@ -45,20 +43,18 @@ struct ProximosEventos: StaticPage {
         VStack(alignment: .center, spacing: 40) {
             Text("Próximos Eventos")
                 .font(.title1)
-                .foregroundStyle(.white)
 
             Section {
                 ForEach(events) { event in
                     Section {
                         EventCard(event: event)
                     }
-                    .`class`("col-12", "col-md-4")
+                    .`class`("col-12")
                 }
             }
             .`class`("row", "g-3")
         }
         .padding()
-        .background(.cocoaHeadsBackground)
         .frame(width: .vw(100%), minHeight: .vh(100%))
     }
 }
