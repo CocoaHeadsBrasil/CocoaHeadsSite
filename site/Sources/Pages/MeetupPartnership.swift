@@ -77,9 +77,9 @@ struct MeetupPartnership: StaticPage {
                 readingRow { quemSomos }
                 wideRow { photoMosaic }
                 readingRow { porQueFazemosSection }
-                readingRow { comoFuncionaSection }
-                readingRow { candidPhoto("/images/parceria/phone-speaker.webp", "Palestra técnica em andamento durante um CocoaHeads") }
                 readingRow { beneficiosSection }
+                readingRow { candidPhoto("/images/parceria/phone-speaker.webp", "Palestra técnica em andamento durante um CocoaHeads") }
+                readingRow { comoFuncionaSection }
                 readingRow { candidPhoto("/images/parceria/community.webp", "Público reunido durante um evento CocoaHeads") }
                 readingRow { precisamosSection }
                 readingRow { candidPhoto("/images/parceria/partner.webp", "Palestrante no espaço do anfitrião durante um CocoaHeads") }
