@@ -33,18 +33,22 @@ struct MeetupPartnership: StaticPage {
 
     private let beneficios: [PartnershipBenefit] = [
         PartnershipBenefit(
+            icon: "people",
             title: "Networking e talentos",
             description: "Contato direto com desenvolvedores experientes e novos talentos da plataforma Apple — um público dedicado, que sai de casa para aprender e trocar com a comunidade"
         ),
         PartnershipBenefit(
+            icon: "broadcast",
             title: "Visibilidade qualificada",
             description: "Sua marca associada ao principal encontro de desenvolvedores Apple do Brasil, diante de um público técnico e engajado"
         ),
         PartnershipBenefit(
+            icon: "mic",
             title: "Espaço na agenda",
             description: "Um momento para apresentar sua organização, seus projetos ou oportunidades ao público presente"
         ),
         PartnershipBenefit(
+            icon: "heart",
             title: "Comunidade dentro de casa",
             description: "Aproximação genuína com o ecossistema de tecnologia Apple — sem nenhum pagamento à organização do CocoaHeads Brasil"
         ),
@@ -69,275 +73,253 @@ struct MeetupPartnership: StaticPage {
         "Código de conduta ativo, garantindo um ambiente respeitoso e inclusivo",
     ]
 
-    // MARK: - Body
+    // MARK: - Page
 
     var body: some HTML {
         Section {
-            heroImage
-            Section {
-                readingRow { heroTitle }
-                readingRow { quemSomos }
-                wideRow { photoMosaic }
-                readingRow { porQueFazemosSection }
-                readingRow { beneficiosSection }
-                readingRow { candidPhoto("/images/parceria/phone-speaker.webp", "Palestra técnica em andamento durante um CocoaHeads") }
-                readingRow { comoFuncionaSection }
-                readingRow { candidPhoto("/images/parceria/community.webp", "Público reunido durante um evento CocoaHeads") }
-                readingRow { precisamosSection }
-                readingRow { candidPhoto("/images/parceria/partner.webp", "Palestrante no espaço do anfitrião durante um CocoaHeads") }
-                readingRow { agendaSection }
-                readingRow { compromissosSection }
-                readingRow { contatoSection }
+            Link("Pular para o conteúdo", target: "#conteudo")
+                .class("partnership-skip-link")
+            Tag("main") {
+                hero
+                statistics
+                Section {
+                    community
+                    previousHosts
+                }
+                .class("partnership-band")
+                purpose
+                Section {
+                    benefits
+                    meetupFormat
+                    responsibilities
+                }
+                .class("partnership-band")
+                schedule
+                contact
             }
-            .`class`("container")
-            .padding(.vertical, 56)
+            .id("conteudo")
+            .attribute("tabindex", "-1")
         }
-        .frame(width: .vw(100%), minHeight: .vh(100%))
+        .class("partnership-page")
+        .attribute("lang", "pt-BR")
     }
 
-    // A row centering its content at readable text width.
-    private func readingRow(@HTMLBuilder _ content: () -> some HTML) -> some HTML {
+    private func action(_ label: String, target: String) -> some InlineElement {
+        Link(target: target) {
+            Span(label)
+        }
+        .class("partnership-button", "partnership-button-primary")
+    }
+
+    private func photo(_ name: String, description: String, eager: Bool = false) -> some InlineElement {
+        Image("/images/parceria/\(name).webp", description: description)
+            .attribute("loading", eager ? "eager" : "lazy")
+            .attribute("decoding", "async")
+            .class("partnership-photo")
+    }
+
+    // MARK: - Invitation
+
+    private var hero: some HTML {
         Section {
             Section {
-                content()
-            }
-            .`class`("col-12", "col-md-10", "col-lg-8", "col-xl-7")
-        }
-        .`class`("row", "justify-content-center")
-        .margin(.bottom, .rem(3.5))
-    }
-
-    // A wider row for photo-heavy blocks that should break out past the text width.
-    private func wideRow(@HTMLBuilder _ content: () -> some HTML) -> some HTML {
-        Section {
-            Section {
-                content()
-            }
-            .`class`("col-12", "col-lg-11", "col-xl-10")
-        }
-        .`class`("row", "justify-content-center")
-        .margin(.bottom, .rem(3.5))
-    }
-
-    // MARK: - Photos
-
-    // A single event photo, cropped to `ratio` and rounded.
-    // Every photo built here sits below the fold, so it loads lazily;
-    // only the hero banner is fetched eagerly.
-    private func eventPhoto(_ path: String, _ description: String, ratio: Double) -> some HTML {
-        Section {
-            Image(path, description: description)
-                .aspectRatio(ratio, contentMode: .fill)
-                .attribute("loading", "lazy")
-                .`class`("w-100")
-        }
-        .cornerRadius(.px(12))
-        .`class`("overflow-hidden", "h-100")
-    }
-
-    // Full-width candid shot placed between sections.
-    private func candidPhoto(_ path: String, _ description: String) -> some HTML {
-        eventPhoto(path, description, ratio: 16.0 / 9.0)
-    }
-
-    // Four-photo mosaic shown right after "Quem somos".
-    private var photoMosaic: some HTML {
-        Section {
-            Section {
-                eventPhoto("/images/parceria/speaker.webp", "Palestra em andamento durante um CocoaHeads", ratio: 4.0 / 3.0)
-            }
-            .`class`("col-6")
-
-            Section {
-                eventPhoto("/images/parceria/crowd.webp", "Plateia acompanhando uma palestra no espaço do anfitrião", ratio: 4.0 / 3.0)
-            }
-            .`class`("col-6")
-
-            Section {
-                eventPhoto("/images/parceria/event.webp", "Palestrante no palco de um auditório", ratio: 4.0 / 3.0)
-            }
-            .`class`("col-6")
-
-            Section {
-                eventPhoto("/images/parceria/another-speaker.webp", "Palestrante durante apresentação", ratio: 4.0 / 3.0)
-            }
-            .`class`("col-6")
-        }
-        .`class`("row", "g-3")
-    }
-
-    // MARK: - Sections
-
-    // Full-bleed hero banner spanning the entire page width.
-    // The image is pre-cropped to the banner ratio (2400×1040).
-    private var heroImage: some HTML {
-        Section {
-            Image("/images/parceria/hero.webp", description: "Comunidade CocoaHeads Brasil reunida com a bandeira do Brasil")
-                .`class`("w-100", "d-block")
-        }
-    }
-
-    // Eyebrow + title, kept at readable text width below the hero banner.
-    private var heroTitle: some HTML {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("PROPOSTA DE PARCERIA PARA MEETUPS")
-                .textStyle(.eyebrow)
-
-            Text("CocoaHeads Brasil")
+                Text {
+                    "CocoaHeads "
+                    Span("Brasil").class("partnership-hero-accent")
+                }
                 .font(.title1)
-        }
-    }
-
-    private var quemSomos: some HTML {
-        VStack(alignment: .leading, spacing: 20) {
-            PartnershipHeading("Quem somos")
-
-            Text("O CocoaHeads é um movimento internacional que reúne desenvolvedores das plataformas Apple em encontros regulares e gratuitos. Presente em mais de 100 cidades ao redor do mundo, o movimento chegou ao Brasil há mais de 12 anos e se tornou a maior comunidade de desenvolvimento Apple da América Latina.")
+                Text("Proposta de parceria para meetups")
+                    .class("partnership-hero-subtitle")
+                Section {
+                    action("Vamos conversar?", target: "#contato")
+                    Link(target: "#como-funciona") {
+                        "Como funciona um meetup"
+                        Span().class("bi", "bi-chevron-right").attribute("aria-hidden", "true")
+                    }
+                    .class("partnership-text-link")
+                }
+                .class("partnership-hero-actions")
+            }
+            .class("partnership-hero-copy")
 
             Section {
-                ForEach(stats) { stat in
-                    Section {
-                        PartnershipStatCard(stat: stat)
-                    }
-                    .`class`("col-6", "col-md-3")
+                Section {
+                    photo("hero", description: "Comunidade CocoaHeads Brasil reunida com a bandeira do Brasil", eager: true)
+                }
+                .class("partnership-hero-photo")
+            }
+            .class("partnership-hero-gallery")
+        }
+        .class("partnership-shell", "partnership-hero")
+    }
+
+    private var statistics: some HTML {
+        Section {
+            ForEach(stats) { stat in
+                PartnershipStatCard(stat: stat)
+            }
+        }
+        .class("partnership-shell", "partnership-stats")
+        .attribute("aria-label", "A comunidade em números")
+    }
+
+    // MARK: - Community
+
+    private var community: some HTML {
+        Section {
+            Section {
+                PartnershipHeading("Quem somos")
+                Text("O CocoaHeads é um movimento internacional que reúne desenvolvedores das plataformas Apple em encontros regulares e gratuitos. Presente em mais de 100 cidades ao redor do mundo, o movimento chegou ao Brasil há mais de 12 anos e se tornou a maior comunidade de desenvolvimento Apple da América Latina.")
+                    .class("partnership-lead")
+                Text("Diferente de outros países, onde cada grupo atua isolado, os capítulos brasileiros são conectados em uma rede nacional: compartilham experiências, palestrantes, conteúdo e boas práticas. Hoje temos capítulos ativos em São Paulo, Campinas, Belo Horizonte, Curitiba, Fortaleza, Blumenau e Porto Alegre — e a rede segue crescendo.")
+            }
+            Section {
+                photo("community", description: "Público reunido durante um evento CocoaHeads")
+                Text("Todo o conteúdo apresentado nos eventos é gravado e publicado gratuitamente no canal do CocoaHeads Brasil no YouTube, ampliando o alcance de cada edição para desenvolvedores de todo o país. A comunidade também mantém um aplicativo oficial de código aberto, feito inteiramente em SwiftUI.")
+            }
+            .class("partnership-community-photo")
+        }
+        .class("partnership-shell", "partnership-section", "partnership-two-columns")
+        .id("comunidade")
+    }
+
+    private var previousHosts: some HTML {
+        Section {
+            Text("Só em São Paulo, já realizamos mais de 74 edições — e, pelo país, nossos eventos já aconteceram em locais como Apple, Itaú, Nubank, Uber, Mercado Livre, Ambev e iFood, entre outros.")
+                .class("partnership-host-quote")
+        }
+        .class("partnership-shell", "partnership-hosts")
+    }
+
+    private var purpose: some HTML {
+        Section {
+            PartnershipHeading("Por que fazemos o que fazemos?")
+            Text("O CocoaHeads Brasil existe para compartilhar conhecimento e elevar o nível técnico de todos os desenvolvedores, daqueles que estão começando agora a quem já tem mais de dez anos de estrada. Nosso objetivo é criar oportunidades para que as pessoas construam e fortaleçam laços para se transformar na melhor versão de si mesmas, crescendo juntas a cada encontro.")
+            Section {
+                photo("speaker", description: "Palestra em andamento durante um CocoaHeads")
+                photo("crowd", description: "Plateia acompanhando uma palestra no espaço do anfitrião")
+            }
+            .class("partnership-community-gallery")
+        }
+        .class("partnership-shell", "partnership-section", "partnership-two-columns", "partnership-purpose")
+    }
+
+    // MARK: - Partnership
+
+    private var benefits: some HTML {
+        Section {
+            Section {
+                PartnershipHeading("Por que receber um CocoaHeads")
+                Text("Receber um CocoaHeads é uma forma direta de se conectar com a comunidade de tecnologia da sua região:")
+                    .class("partnership-section-intro")
+            }
+            .class("partnership-section-heading")
+            Section {
+                ForEach(beneficios) { benefit in
+                    PartnershipBenefitCard(benefit: benefit)
                 }
             }
-            .`class`("row", "g-3")
-
-            Text("Diferente de outros países, onde cada grupo atua isolado, os capítulos brasileiros são conectados em uma rede nacional: compartilham experiências, palestrantes, conteúdo e boas práticas. Hoje temos capítulos ativos em São Paulo, Campinas, Belo Horizonte, Curitiba, Fortaleza, Blumenau e Porto Alegre — e a rede segue crescendo.")
-
-            Text("Só em São Paulo, já realizamos mais de 74 edições — e, pelo país, nossos eventos já aconteceram em locais como Apple, Itaú, Nubank, Uber, Mercado Livre, Ambev e iFood, entre outros.")
-                .font(.title3)
-                .padding()
-                .card()
-                .pullQuote()
-
-            Text("Todo o conteúdo apresentado nos eventos é gravado e publicado gratuitamente no canal do CocoaHeads Brasil no YouTube, ampliando o alcance de cada edição para desenvolvedores de todo o país. A comunidade também mantém um aplicativo oficial de código aberto, feito inteiramente em SwiftUI.")
+            .class("partnership-benefits")
         }
+        .class("partnership-shell", "partnership-section")
     }
 
-    private var porQueFazemosSection: some HTML {
-        VStack(alignment: .leading, spacing: 20) {
-            PartnershipHeading("Por que fazemos o que fazemos?")
-
-            Text("O CocoaHeads Brasil existe para compartilhar conhecimento e elevar o nível técnico de todos os desenvolvedores, daqueles que estão começando agora a quem já tem mais de dez anos de estrada. Nosso objetivo é criar oportunidades para que as pessoas construam e fortaleçam laços para se transformar na melhor versão de si mesmas, crescendo juntas a cada encontro.")
-        }
-    }
-
-    private var comoFuncionaSection: some HTML {
-        VStack(alignment: .leading, spacing: 20) {
-            PartnershipHeading("Como funciona um meetup")
-
-            Text("Nossos encontros seguem um formato simples que foi testado ao longo de mais de uma década:")
-
-            VStack(alignment: .leading, spacing: 12) {
+    private var meetupFormat: some HTML {
+        Section {
+            Section {
+                PartnershipHeading("Como funciona um meetup")
+                Text("Nossos encontros seguem um formato simples que foi testado ao longo de mais de uma década:")
+                    .class("partnership-lead")
+                photo("phone-speaker", description: "Palestra técnica em andamento durante um CocoaHeads")
+            }
+            Section {
                 ForEach(comoFunciona) { item in
                     PartnershipInfoRow(item: item)
                 }
+                Text("Toda a organização — pauta, palestrantes, inscrições, divulgação e gravação — fica por conta da equipe do CocoaHeads. O anfitrião entra com o espaço.")
+                    .class("partnership-format-note")
             }
-            .divided()
-            .padding()
-            .groupedSurface()
-            .frame(maxWidth: .percent(100%))
-
-            Text("Toda a organização — pauta, palestrantes, inscrições, divulgação e gravação — fica por conta da equipe do CocoaHeads. O anfitrião entra com o espaço.")
+            .class("partnership-format-details")
         }
+        .class("partnership-shell", "partnership-section", "partnership-two-columns", "partnership-format")
+        .id("como-funciona")
     }
 
-    private var precisamosSection: some HTML {
-        VStack(alignment: .leading, spacing: 20) {
-            PartnershipHeading("O que precisamos de você")
-
-            Text("Para receber uma edição do CocoaHeads, precisamos apenas de:")
-
-            VStack(alignment: .leading, spacing: 16) {
-                ForEach(precisamos) { text in
-                    PartnershipChecklistRow(text: text)
-                }
-            }
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Opcional, mas sempre bem-vindo")
-                    .textStyle(.headline)
-                Text("Acesso Wi-Fi para os participantes e coffee break ou água/café para os intervalos de networking. A organização pode buscar parceiros e patrocinadores para viabilizar o coffee break, caso o anfitrião não possa oferecê-lo.")
-                    .textStyle(.subhead)
-            }
-            .padding()
-            .groupedSurface()
-        }
-    }
-
-    private var beneficiosSection: some HTML {
-        VStack(alignment: .leading, spacing: 20) {
-            PartnershipHeading("Por que receber um CocoaHeads")
-
-            Text("Receber um CocoaHeads é uma forma direta de se conectar com a comunidade de tecnologia da sua região:")
-
+    private var responsibilities: some HTML {
+        Section {
             Section {
-                ForEach(beneficios) { benefit in
-                    Section {
-                        PartnershipBenefitCard(benefit: benefit)
+                Section {
+                    PartnershipHeading("O que precisamos de você")
+                    Text("Para receber uma edição do CocoaHeads, precisamos apenas de:")
+                    ForEach(precisamos) { text in
+                        PartnershipChecklistRow(text: text)
                     }
-                    .`class`("col-12", "col-md-6")
+                    Section {
+                        Text {
+                            Span().class("bi", "bi-cup-hot").attribute("aria-hidden", "true")
+                            " Opcional, mas sempre bem-vindo"
+                        }
+                        .class("partnership-optional-title")
+                        Text("Acesso Wi-Fi para os participantes e coffee break ou água/café para os intervalos de networking. A organização pode buscar parceiros e patrocinadores para viabilizar o coffee break, caso o anfitrião não possa oferecê-lo.")
+                    }
+                    .class("partnership-optional")
                 }
+                .class("partnership-responsibility")
+                Section {
+                    PartnershipHeading("Nossos compromissos")
+                    Text("Ao realizar um evento no seu espaço, a organização do CocoaHeads se compromete com:")
+                    ForEach(compromissos) { text in
+                        PartnershipChecklistRow(text: text)
+                    }
+                }
+                .class("partnership-responsibility", "partnership-responsibility-community")
             }
-            .`class`("row", "g-3")
+            .class("partnership-responsibilities")
         }
+        .class("partnership-shell", "partnership-section", "partnership-practical")
     }
 
-    private var agendaSection: some HTML {
-        VStack(alignment: .leading, spacing: 20) {
-            PartnershipHeading("Agenda de uma edição típica")
-
+    private var schedule: some HTML {
+        Section {
             Section {
-                ForEach(agenda) { item in
-                    CHTimelineRow(time: item.time, text: item.description, badge: item.highlight)
+                Section {
+                    PartnershipHeading("Agenda de uma edição típica")
+                    photo("partner", description: "Palestrante no espaço do anfitrião durante um CocoaHeads")
                 }
+                Section {
+                    ForEach(agenda) { item in
+                        CHTimelineRow(time: item.time, text: item.description, badge: item.highlight)
+                    }
+                }
+                .timeline()
             }
-            .timeline()
-            .padding(.vertical, 8)
+            .class("partnership-shell", "partnership-two-columns")
         }
+        .class("partnership-schedule")
     }
 
-    private var compromissosSection: some HTML {
-        VStack(alignment: .leading, spacing: 20) {
-            PartnershipHeading("Nossos compromissos")
+    // MARK: - Contact
 
-            Text("Ao realizar um evento no seu espaço, a organização do CocoaHeads se compromete com:")
-
-            VStack(alignment: .leading, spacing: 16) {
-                ForEach(compromissos) { text in
-                    PartnershipChecklistRow(text: text)
+    private var contact: some HTML {
+        Section {
+            Section {
+                Section {
+                    Text("Vamos conversar?").font(.title2)
+                    Text("CocoaHeads Brasil").font(.title3)
+                    Text("Quer receber uma edição do CocoaHeads no seu espaço ou apoiar a comunidade? Fale com a gente.")
+                    Section {
+                        Link("✉️ contato@cocoaheads.com.br", target: "mailto:contato@cocoaheads.com.br")
+                            .class("partnership-button", "partnership-button-primary")
+                        Link("🌐 cocoaheads.com.br", target: "https://cocoaheads.com.br")
+                        Link("📷 @cocoaheadsbr", target: "https://instagram.com/cocoaheadsbr")
+                    }
+                    .class("partnership-contact-links")
                 }
             }
+            .class("partnership-contact-panel")
         }
+        .class("partnership-shell", "partnership-contact")
+        .id("contato")
     }
 
-    private var contatoSection: some HTML {
-        VStack(alignment: .leading, spacing: 20) {
-            Text("Vamos conversar?")
-                .font(.title2)
-
-            Text("CocoaHeads Brasil")
-                .font(.title3)
-
-            Text("Quer receber uma edição do CocoaHeads no seu espaço ou apoiar a comunidade? Fale com a gente.")
-
-            VStack(alignment: .leading, spacing: 8) {
-                Link(target: "mailto:contato@cocoaheads.com.br") {
-                    "✉️ contato@cocoaheads.com.br"
-                }
-
-                Link(target: "https://cocoaheads.com.br") {
-                    "🌐 cocoaheads.com.br"
-                }
-
-                Link(target: "https://instagram.com/cocoaheadsbr") {
-                    "📷 @cocoaheadsbr"
-                }
-            }
-        }
-        .padding(32)
-        .heroWall()
-    }
 }
