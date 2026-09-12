@@ -9,6 +9,7 @@ struct PartnershipStat {
 }
 
 struct PartnershipBenefit {
+    let icon: String
     let title: String
     let description: String
 }
@@ -42,14 +43,15 @@ struct PartnershipHeading: HTML {
     }
 
     var body: some HTML {
-        VStack(alignment: .leading, spacing: 6) {
+        Section {
             if let eyebrow {
                 Text(eyebrow)
-                    .textStyle(.eyebrow)
+                    .class("partnership-eyebrow")
             }
             Text(title)
                 .font(.title2)
         }
+        .class("partnership-heading")
     }
 }
 
@@ -59,15 +61,12 @@ struct PartnershipStatCard: HTML {
     let stat: PartnershipStat
 
     var body: some HTML {
-        VStack(alignment: .leading, spacing: 4) {
+        Section {
             Text(stat.number)
-                .textStyle(.statNumber)
+                .class("partnership-stat-number")
             Text(stat.label)
-                .textStyle(.footnote)
         }
-        .padding()
-        .card()
-        .`class`("h-100")
+        .class("partnership-stat")
     }
 }
 
@@ -77,15 +76,14 @@ struct PartnershipBenefitCard: HTML {
     let benefit: PartnershipBenefit
 
     var body: some HTML {
-        VStack(alignment: .leading, spacing: 8) {
+        Section {
+            Span().class("bi", "bi-\(benefit.icon)", "partnership-benefit-icon")
+                .attribute("aria-hidden", "true")
             Text(benefit.title)
-                .textStyle(.headline)
+                .font(.title3)
             Text(benefit.description)
-                .textStyle(.subhead)
         }
-        .padding()
-        .card()
-        .`class`("h-100")
+        .class("partnership-benefit")
     }
 }
 
@@ -95,10 +93,12 @@ struct PartnershipChecklistRow: HTML {
     let text: String
 
     var body: some HTML {
-        HStack(alignment: .top, spacing: 16) {
-            CHChecklistMark()
+        Section {
+            Span().class("bi", "bi-check2", "partnership-check")
+                .attribute("aria-hidden", "true")
             Text(text)
         }
+        .class("partnership-checklist-row")
     }
 }
 
@@ -109,18 +109,9 @@ struct PartnershipInfoRow: HTML {
 
     var body: some HTML {
         Section {
-            Section {
-                Text(item.label)
-                    .fontWeight(.bold)
-            }
-            .`class`("col-12", "col-sm-3")
-
-            Section {
-                Text(item.value)
-                    .textStyle(.subhead)
-            }
-            .`class`("col-12", "col-sm-9")
+            Text(item.label).class("partnership-info-label")
+            Text(item.value)
         }
-        .`class`("row", "g-1")
+        .class("partnership-info-row")
     }
 }
