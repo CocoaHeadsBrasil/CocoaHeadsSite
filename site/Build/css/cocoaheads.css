@@ -781,3 +781,374 @@ h1 { letter-spacing: -0.03em; }
     .partnership-hero-accent { background: none; -webkit-text-fill-color: currentColor; }
     .partnership-page .partnership-button { border: 1px solid ButtonText; }
 }
+
+/* ---------- Home desktop ---------- */
+
+/* Nothing on this page is meant to scroll — .desktop-page is a fixed,
+   one-screen surface, and .desktop-backdrop below is deliberately taller
+   than that, so this is a hard lock, not a lock against an in-between state.
+   overscroll-behavior additionally suppresses iOS's own rubber-band bounce,
+   which can still occur on the native scroll view under overflow: hidden. */
+html:has(.desktop-page), body:has(.desktop-page) {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+/* No min-height here on purpose: this must never exceed the real viewport.
+   The page can't scroll (see the overflow: hidden rule above), so any excess
+   height, e.g. a min-height meant to protect against a very short viewport,
+   just becomes unreachable content instead — exactly what happened on a
+   landscape phone, where 100svh is well under what a min-height:600px used
+   to force. A window's own content protects itself via .desktop-window-content
+   below (overflow-y: auto + `justify-content: safe center`) instead. */
+.desktop-page {
+    --desktop-ink: #18342b;
+    --desktop-muted: #50685f;
+    --desktop-panel: rgba(247, 252, 249, 0.86);
+    --desktop-glass: rgba(229, 250, 237, 0.44);
+    --desktop-line: rgba(255, 255, 255, 0.65);
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    /* The header row grows by the top safe-area inset (notch / Dynamic Island)
+       so its background still fills that area; .desktop-menu-bar pads its own
+       content down by the same amount so nothing sits under the notch. Named
+       so the short-viewport override below can rearrange these into a
+       different grid shape without every child needing its own media query. */
+    grid-template-areas: "menu" "main" "dock";
+    grid-template-rows: calc(36px + env(safe-area-inset-top)) 1fr auto;
+    /* svh alone is deliberately conservative: it assumes Safari's toolbar is
+       showing, which can leave real, currently-visible space unused. dvh
+       tracks whatever the toolbar is doing *right now*, so it's never
+       smaller than svh and never risks content sitting behind currently
+       -visible chrome the way a flat lvh assumption would — it only ever
+       grows to use space that's already genuinely on screen. */
+    height: 100svh;
+    height: 100dvh;
+    overflow: clip;
+    color: var(--desktop-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+}
+/* Deliberately sized to 100lvh, not 100svh/100dvh (not `.desktop-page`
+   either, which uses svh/dvh — see above): 100lvh is the height once Safari's
+   toolbar is fully retracted, i.e. the actual full device height. If the
+   backdrop were only as tall as the current (toolbar-showing) viewport, the
+   strip of screen the toolbar used to cover would have no backdrop material
+   under it the moment that toolbar goes away, and would show plain body
+   background instead of wallpaper. The page above is `overflow: hidden`, so
+   none of this ever needs to be reached by scrolling — it's simply already
+   there if the viewport ever grows into it. The +80px on top of 100lvh is
+   not rounding safety — 100lvh alone still fell short on a real device, so
+   this is a verified-on-device margin, not a computed one; if a future
+   device shows a gap again, this is the number to revisit first. */
+.desktop-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(100vh + 80px);
+    height: calc(100lvh + 80px);
+    z-index: -1;
+    background: #137566 url('/images/desktop-wallpaper.svg') center / cover;
+    pointer-events: none;
+}
+.desktop-backdrop::before { content: ""; position: absolute; inset: 0; }
+[data-bs-theme*="dark"] .desktop-page {
+    --desktop-ink: #f2f8f5;
+    --desktop-muted: #c3d7cc;
+    --desktop-panel: rgba(22, 40, 35, 0.86);
+    --desktop-glass: rgba(26, 57, 44, 0.5);
+    --desktop-line: rgba(255, 255, 255, 0.24);
+}
+[data-bs-theme*="dark"] .desktop-backdrop::before { background: rgba(0, 22, 27, 0.3); }
+.desktop-page *, .desktop-page *::before, .desktop-page *::after { box-sizing: border-box; }
+.desktop-page p { margin: 0; }
+.desktop-page a { color: inherit; text-decoration: none; }
+.desktop-page button { color: inherit; font: inherit; cursor: pointer; border: 0; }
+.desktop-page a:focus-visible, .desktop-page button:focus-visible {
+    outline: 3px solid #2685ff;
+    outline-offset: 4px;
+}
+.desktop-skip-link { position: fixed; top: 8px; left: 12px; z-index: 10; padding: 12px 20px; border-radius: 8px; background: var(--desktop-panel); transform: translateY(-200%); }
+.desktop-skip-link:focus { transform: none; }
+
+.desktop-menu-bar {
+    grid-area: menu;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-inline: 22px;
+    padding-top: env(safe-area-inset-top);
+    box-sizing: border-box;
+    background: rgba(4, 34, 25, 0.6);
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 30, 20, 0.3);
+    backdrop-filter: blur(28px) saturate(1.6);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6);
+}
+.desktop-menu-brand, .desktop-menu-status { display: flex; align-items: center; gap: 14px; }
+.desktop-menu-title { font-weight: 600; }
+.desktop-menu-brand img { object-fit: contain; }
+#desktop-clock { font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 12px; }
+
+.desktop-workspace { grid-area: main; display: grid; place-items: center; min-height: 0; padding: 36px 32px; }
+.desktop-window {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    width: min(680px, 100%);
+    border: 1px solid var(--desktop-line);
+    border-radius: 18px;
+    background: var(--desktop-panel);
+    box-shadow: 0 30px 80px rgba(0, 28, 25, 0.32), 0 3px 12px rgba(0, 28, 25, 0.16), inset 0 1px rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(40px) saturate(1.5);
+    -webkit-backdrop-filter: blur(40px) saturate(1.5);
+    transform: translate(var(--window-x, 0px), var(--window-y, 0px));
+}
+.desktop-window[hidden] { display: none; }
+.desktop-window.is-maximized { width: 100%; height: 100%; transform: none; }
+.desktop-title-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 12px 108px;
+    border-bottom: 1px solid rgba(85, 115, 100, 0.15);
+    border-radius: 18px 18px 0 0;
+    user-select: none;
+    touch-action: none;
+}
+.desktop-window-title { font-size: 13px; font-weight: 600; }
+.desktop-window-controls { position: absolute; left: 14px; display: flex; align-items: center; }
+.desktop-window-control { position: relative; display: grid; place-items: center; width: 24px; height: 28px; padding: 0; background: transparent; }
+.desktop-window-control::before { content: ""; position: absolute; width: 13px; height: 13px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12); }
+.desktop-control-close::before { background: #ff6059; }
+.desktop-control-minimize::before { background: #ffbd2e; }
+.desktop-control-maximize::before { background: #28c840; }
+.desktop-window-control .bi { z-index: 1; color: rgba(0, 0, 0, 0.65); font-size: 11px; opacity: 0; }
+.desktop-window-controls:hover .bi, .desktop-window-control:focus-visible .bi { opacity: 1; }
+.desktop-window-control:active::before { filter: brightness(0.8); }
+/* Touch screens: a bigger invisible tap target around each dot, without
+   moving the dots themselves or widening the visible cluster. */
+@media (pointer: coarse) {
+    .desktop-window-control::after {
+        content: "";
+        position: absolute;
+        inset: -10px -6px;
+    }
+}
+/* Centers content normally; if a short viewport (a landscape phone, e.g.)
+   means it doesn't fit, `safe center` falls back to top-aligning it instead
+   of centering it into inaccessible overflow, and overflow-y makes that
+   overflow reachable by scrolling within the window itself, without the
+   outer page (which can't scroll at all) needing to move. min-height: 0 lets
+   this flex child actually shrink to the window's capped height instead of
+   being held open by its own content, the same reasoning as .desktop-workspace
+   above. */
+.desktop-window-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: safe center;
+    align-items: center;
+    padding: 40px 34px 44px;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+.desktop-community-logo {
+    display: block;
+    padding: 14px;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 23px;
+    background: linear-gradient(145deg, #31bb81, #08754d);
+    box-shadow: 0 5px 10px rgba(4, 70, 39, 0.15), inset 0 2px 2px rgba(255, 255, 255, 0.3);
+}
+.desktop-window h1 { margin: 20px 0 36px; color: inherit; font-size: 30px; font-weight: 650; letter-spacing: -0.045em; }
+.desktop-shortcuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 12px; width: 100%; }
+.desktop-shortcuts:focus { outline: none; }
+.desktop-shortcut { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 12px 4px; border-radius: 12px; }
+.desktop-shortcut:hover { background: rgba(91, 134, 113, 0.12); }
+.desktop-shortcut-label { font-size: 12px; font-weight: 500; text-align: center; }
+.desktop-app-icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 17px;
+    box-shadow: 0 4px 7px rgba(0, 35, 30, 0.16), inset 0 2px 2px rgba(255, 255, 255, 0.35);
+    color: #fff;
+    font-size: 33px;
+    line-height: 1;
+}
+.desktop-icon-community { padding: 9px; object-fit: contain; background: linear-gradient(145deg, #31bb81, #08754d); }
+.desktop-icon-calendar { background: linear-gradient(#ff6059 0 24%, #fff 24%); color: #303633; }
+.desktop-icon-calendar .bi { margin-top: 9px; font-size: 30px; }
+.desktop-icon-hosts { background: linear-gradient(150deg, #ffc766, #ec8514); }
+.desktop-icon-instagram { background: radial-gradient(circle at 25% 105%, #ffdb79 0, #ffaf42 18%, #f74c58 42%, #d431a8 66%, #6553d6 100%); }
+.desktop-icon-linkedin { background: linear-gradient(145deg, #3297e2, #0865ae); }
+.desktop-icon-appstore { background: linear-gradient(160deg, #3ad2ff, #1962ff); }
+
+.desktop-dock {
+    grid-area: dock;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+    /* Clears the home indicator; the wallpaper still fills the gap beneath. */
+    margin: 0 16px calc(18px + env(safe-area-inset-bottom));
+    padding: 10px 12px 14px;
+    border: 1px solid var(--desktop-line);
+    border-radius: 27px;
+    background: var(--desktop-glass);
+    box-shadow: 0 10px 30px rgba(0, 35, 25, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(32px) saturate(1.7);
+    -webkit-backdrop-filter: blur(32px) saturate(1.7);
+}
+.desktop-dock-item { position: relative; display: block; padding: 0; border-radius: 15px; background: none; transition: transform 160ms ease; }
+.desktop-dock-item:hover { transform: translateY(-6px); }
+.desktop-dock-item .desktop-app-icon { width: 56px; height: 56px; border-radius: 15px; font-size: 29px; }
+.desktop-dock-item .desktop-icon-calendar .bi { font-size: 27px; }
+.desktop-dock-item[data-desktop-window]::after { content: ""; position: absolute; bottom: -9px; left: calc(50% - 2px); width: 4px; height: 4px; border-radius: 50%; background: var(--desktop-ink); }
+.desktop-dock-item.is-closed::after { display: none; }
+.desktop-dock-divider { align-self: stretch; width: 1px; margin: 4px 2px; background: rgba(255, 255, 255, 0.35); }
+.desktop-dock-tooltip {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 18px);
+    padding: 6px 10px;
+    border: 1px solid var(--desktop-line);
+    border-radius: 7px;
+    background: var(--desktop-panel);
+    color: var(--desktop-ink);
+    font-size: 12px;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0, 20, 10, 0.12);
+    transform: translateX(-50%);
+    pointer-events: none;
+    visibility: hidden;
+}
+.desktop-dock-item:hover .desktop-dock-tooltip, .desktop-dock-item:focus-visible .desktop-dock-tooltip { visibility: visible; }
+
+@media (max-width: 600px) {
+    .desktop-menu-bar { padding-inline: 14px; }
+    .desktop-menu-brand { gap: 8px; }
+    .desktop-menu-status { gap: 6px; }
+    .desktop-menu-title { font-size: 12px; }
+    #desktop-clock { font-size: 11px; }
+    .desktop-workspace { padding: 24px 16px; }
+    .desktop-title-bar { min-height: 48px; justify-content: flex-end; padding: 12px 16px 12px 88px; touch-action: auto; }
+    .desktop-window-control::after { content: ""; position: absolute; inset: -10px -6px; }
+    .desktop-window-title { font-size: 11px; }
+    .desktop-window-content { padding: 28px 16px 24px; }
+    .desktop-community-logo { width: 68px; height: 68px; padding: 11px; border-radius: 18px; }
+    .desktop-window h1 { margin: 16px 0 20px; font-size: 26px; }
+    .desktop-shortcuts { grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 340px; }
+    .desktop-shortcut { gap: 9px; padding-block: 10px; }
+    .desktop-app-icon { width: 56px; height: 56px; border-radius: 15px; font-size: 29px; }
+    .desktop-dock { gap: 8px; padding: 9px 10px 13px; margin-bottom: calc(14px + env(safe-area-inset-bottom)); border-radius: 23px; }
+    .desktop-dock-item .desktop-app-icon { width: 44px; height: 44px; border-radius: 12px; font-size: 24px; }
+    .desktop-dock-item .desktop-icon-calendar .bi { font-size: 22px; margin-top: 7px; }
+    .desktop-dock-divider { margin-inline: 0; }
+    .desktop-dock-tooltip { display: none; }
+}
+/* Touch screens of any size: the traffic lights keep their 13px dots but get
+   40x44px tap targets, and the title bar leaves room for them. */
+/* Narrow phones: a tighter dock so six items still fit in 320px. */
+@media (max-width: 380px) {
+    .desktop-dock { gap: 5px; padding: 8px 8px 12px; margin-inline: 10px; }
+    .desktop-dock-item .desktop-app-icon { width: 40px; height: 40px; border-radius: 11px; font-size: 21px; }
+    .desktop-dock-item .desktop-icon-calendar .bi { font-size: 20px; margin-top: 6px; }
+}
+/* Short viewports (a landscape phone, mainly): the horizontal dock across the
+   bottom eats too much of the little vertical room there is, squeezing the
+   window into a sliver. Moving it to a vertical column on the right instead
+   spends width, which a landscape phone has plenty of, rather than height,
+   which it doesn't — the window keeps the rest of the row to itself. */
+@media (max-height: 500px) {
+    .desktop-page {
+        grid-template-areas: "menu menu" "main dock";
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-rows: calc(36px + env(safe-area-inset-top)) 1fr;
+    }
+    /* Smaller icons and tighter spacing, so the whole stack of six fits even
+       on a shorter landscape phone without needing its own internal scroll;
+       margin is trimmed to sit close to the right edge instead of centered
+       with room to spare, matching a real side dock. */
+    .desktop-dock {
+        flex-direction: column;
+        align-self: center;
+        gap: 6px;
+        padding: 8px 6px;
+        margin: calc(8px + env(safe-area-inset-top)) 10px calc(8px + env(safe-area-inset-bottom)) 0;
+        border-radius: 16px;
+    }
+    .desktop-dock-item .desktop-app-icon { width: 36px; height: 36px; border-radius: 10px; font-size: 18px; }
+    .desktop-dock-item .desktop-icon-calendar .bi { font-size: 17px; margin-top: 4px; }
+    .desktop-dock-item:hover { transform: translateX(-6px); }
+    .desktop-dock-divider { align-self: stretch; width: auto; height: 1px; margin: 2px 4px; }
+    .desktop-dock-item[data-desktop-window]::after { bottom: calc(50% - 2px); left: -7px; width: 3px; height: 3px; }
+    .desktop-dock-tooltip {
+        left: auto;
+        bottom: auto;
+        top: 50%;
+        right: calc(100% + 10px);
+        transform: translateY(-50%);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .desktop-dock-item { transition: none; }
+    .desktop-dock-item:hover { transform: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+    .desktop-page { --desktop-panel: #f1f8f4; --desktop-glass: #cee7dc; }
+    [data-bs-theme*="dark"] .desktop-page { --desktop-panel: #192e26; --desktop-glass: #234335; }
+}
+@media (forced-colors: active) {
+    .desktop-window, .desktop-dock, .desktop-app-icon { border: 1px solid CanvasText; }
+    .desktop-window-control .bi { opacity: 1; color: ButtonText; }
+    .desktop-window-control::before { background: Canvas; border: 1px solid ButtonText; }
+}
+
+/* ---------- Home desktop: window stacking + events window ---------- */
+
+/* One definite row, so windows can cap their height at the workspace and scroll inside. */
+.desktop-workspace { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+.desktop-workspace > .desktop-window { grid-area: 1 / 1; max-height: 100%; }
+.desktop-window.is-active { z-index: 1; }
+.desktop-window:not(.is-active) .desktop-window-title { opacity: 0.55; }
+.desktop-window:not(.is-active) .desktop-window-control::before { background: rgba(110, 130, 120, 0.35); }
+
+.desktop-window-scroll .desktop-window-content {
+    justify-content: flex-start;
+    align-items: stretch;
+    min-height: 0;
+    padding: 16px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+.desktop-window-content:focus { outline: none; }
+
+/* Events window: the same cards as the events page, in a responsive grid. */
+.desktop-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+}
+.desktop-events-grid > * { width: 100%; max-width: 380px; justify-self: center; }
+.desktop-events-empty { padding: 28px 12px; color: var(--desktop-muted); font-size: 12px; text-align: center; }
+
+@media (max-width: 600px) {
+    .desktop-window-scroll .desktop-window-content { padding: 12px; }
+}
