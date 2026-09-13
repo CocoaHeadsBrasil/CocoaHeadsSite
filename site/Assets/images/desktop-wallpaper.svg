@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1200" viewBox="0 0 1920 1200" fill="none">
+  <defs>
+    <linearGradient id="base" x1="180" y1="0" x2="1640" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#163e59"/><stop offset=".43" stop-color="#299e9c"/><stop offset="1" stop-color="#c1d899"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="620" y1="-60" x2="1020" y2="1060" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b8ecd5"/><stop offset=".29" stop-color="#56c69f"/><stop offset=".65" stop-color="#128773"/><stop offset="1" stop-color="#064957"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="540" y1="340" x2="1540" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#bee79e"/><stop offset=".4" stop-color="#80cf9c"/><stop offset=".72" stop-color="#24a88c"/><stop offset="1" stop-color="#0b626e"/>
+    </linearGradient>
+    <linearGradient id="front" x1="1420" y1="340" x2="720" y2="1300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#cce8a8"/><stop offset=".28" stop-color="#56bc99"/><stop offset=".62" stop-color="#187b77"/><stop offset="1" stop-color="#093c55"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="120" y1="0" x2="1560" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e3f5c6" stop-opacity=".9"/><stop offset=".48" stop-color="#def6d6" stop-opacity=".45"/><stop offset="1" stop-color="#a4e7d8" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="34"/></filter>
+  </defs>
+  <path fill="url(#base)" d="M0 0h1920v1200H0z"/>
+  <path d="M-120-60H1490C1090 94 1530 386 1110 620C820 782 633 885 700 1260H-120Z" fill="#073c4b" opacity=".38" filter="url(#shadow)" transform="translate(25 45)"/>
+  <path d="M-120-60H1450C1000 122 1450 340 1020 618C722 811 569 938 642 1260H-120Z" fill="url(#fold)"/>
+  <path d="M-40 25C442 344 498 27 895 30C1271 33 1335 278 1048 453C658 691 676 996 901 1260H-40Z" fill="url(#edge)"/>
+  <path d="M-40 25C442 344 498 27 895 30C1271 33 1335 278 1048 453C658 691 676 996 901 1260" stroke="url(#rim)" stroke-width="3"/>
+  <path d="M2040 238C1450 146 1540 640 1100 678C791 705 327 818 397 1290H2040Z" fill="#063e43" opacity=".3" filter="url(#shadow)" transform="translate(0 30)"/>
+  <path d="M2040 238C1450 146 1540 640 1100 678C791 705 327 818 397 1290H2040Z" fill="url(#front)"/>
+  <path d="M2040 238C1450 146 1540 640 1100 678C791 705 327 818 397 1290" stroke="url(#rim)" stroke-width="3"/>
+</svg>

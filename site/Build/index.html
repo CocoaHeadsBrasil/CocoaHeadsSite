@@ -2,10 +2,11 @@
 <html lang="en" data-light-theme="cocoa-heads-light-light" data-dark-theme="cocoa-heads-dark-dark">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="CocoaHeads Brasil — eventos, parcerias e redes sociais." />
     <meta name="author" content="CocoaHeads Brasil" />
     <meta name="generator" content="Ignite v0.6.9" />
-    <title>Home – Olá Mundo!</title>
+    <title>CocoaHeads Brasil – Olá Mundo!</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
     <link href="/css/ignite-core.min.css" rel="stylesheet" />
@@ -53,39 +54,83 @@
     const savedTheme = getThemePreference();
     applyTheme(savedTheme);
     applySyntaxTheme();
-})();
-</script>
+})();</script>
     <meta property="og:site_name" content="CocoaHeads Brasil" />
-    <meta property="og:title" content="Home" />
-    <meta name="twitter:title" content="Home" />
+    <meta property="og:image" content="https://www.cocoaheads.com.br/images/parceria/hero.webp" />
+    <meta name="twitter:image" content="https://www.cocoaheads.com.br/images/parceria/hero.webp" />
+    <meta property="og:title" content="CocoaHeads Brasil" />
+    <meta name="twitter:title" content="CocoaHeads Brasil" />
+    <meta property="og:description" content="CocoaHeads Brasil — eventos, parcerias e redes sociais." />
+    <meta name="twitter:description" content="CocoaHeads Brasil — eventos, parcerias e redes sociais." />
     <meta property="og:url" content="https://www.cocoaheads.com.br/" />
     <meta name="twitter:domain" content="cocoaheads.com.br" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:dnt" content="on" />
     <meta name="apple-itunes-app" content="app-id=1180455342, app-clip-bundle-id=com.cocoaheads.conf.baseClip" />
     <link href="/css/cocoaheads.css" rel="stylesheet" />
+    <meta name="theme-color" content="#137566" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d5950" media="(prefers-color-scheme: dark)" />
   </head>
   <body>
     <div class="ig-main-content">
-      <div class="hstack gap-3" style="width: 100.0vw; min-height: 100.0vh">
-        <div class="mb-0 align-self-center vstack" style="padding: 20px; gap: 30px">
-          <div class="ch-hero-wall mb-0 align-self-center vstack" style="gap: 30px">
-            <img src="/images/logo.svg" alt="" class="mb-0 align-self-center" style="max-width: 200px; max-height: 200px" />
-            <h1 class="mb-0 align-self-center">Olá CocoaHeads!</h1>
-            <div class="flex-wrap justify-content-center mb-0 align-self-center hstack gap-3">
-              <a href="/proximos-eventos/" class="ch-btn-on-wall mb-0 align-self-center btn btn-primary">Próximos Eventos</a>
-              <a href="/parceria-meetup/" class="ch-btn-glass mb-0 align-self-center btn btn-primary">Seja um Anfitrião</a>
-              <a href="https://instagram.com/cocoaheadsbr" class="ch-btn-glass mb-0 align-self-center btn btn-primary">Instagram</a>
-              <a href="https://bsky.app/profile/cocoaheads.com.br" class="ch-btn-glass mb-0 align-self-center btn btn-primary">Bluesky</a>
-              <a href="https://www.linkedin.com/company/cocoaheads-brasil" class="ch-btn-glass mb-0 align-self-center btn btn-primary">LinkedIn</a>
+      <div class="desktop-backdrop"></div>
+      <div lang="pt-BR" class="desktop-page">
+        <a href="#links" class="desktop-skip-link">Pular para os links</a>
+        <header class="desktop-menu-bar">
+          <div class="desktop-menu-brand">
+            <img width="23" height="23" src="/images/logo.svg" alt="" />
+            <span class="desktop-menu-title">CocoaHeads Brasil</span>
+          </div>
+          <div class="desktop-menu-status">
+            <time id="desktop-clock"><span>Brasil</span></time>
+          </div>
+        </header>
+        <main class="desktop-workspace">
+          <div id="community-window" aria-label="CocoaHeads Brasil" class="desktop-window is-active">
+            <div class="desktop-title-bar">
+              <div class="desktop-window-controls">
+                <button type="button" aria-label="Fechar janela" title="Fechar janela" data-desktop-action="close" class="desktop-window-control desktop-control-close"><span aria-hidden="true" class="bi bi-x"></span></button>
+                <button type="button" aria-label="Minimizar janela" title="Minimizar janela" data-desktop-action="minimize" class="desktop-window-control desktop-control-minimize"><span aria-hidden="true" class="bi bi-dash"></span></button>
+                <button type="button" aria-label="Ampliar janela" title="Ampliar janela" data-desktop-action="maximize" class="desktop-window-control desktop-control-maximize"><span aria-hidden="true" class="bi bi-arrows-angle-expand"></span></button>
+              </div>
+              <span class="desktop-window-title">CocoaHeads Brasil</span>
+            </div>
+            <div tabindex="-1" class="desktop-window-content">
+              <img width="88" height="88" src="/images/logo.svg" alt="" class="desktop-community-logo" />
+              <h1>Olá, CocoaHeads!</h1>
+              <nav id="links" aria-label="Links do CocoaHeads Brasil" tabindex="-1" class="desktop-shortcuts">
+                <a aria-label="Próximos Eventos" aria-controls="events-window" aria-expanded="false" data-desktop-action="open" data-desktop-window="events-window" href="/proximos-eventos/" class="desktop-shortcut"><span aria-hidden="true" class="desktop-app-icon desktop-icon-calendar"><span class="bi bi-calendar-event"></span></span><span class="desktop-shortcut-label">Próximos Eventos</span></a>
+                <a aria-label="Baixe o app" href="https://apps.apple.com/app/id1180455342" class="desktop-shortcut"><span aria-hidden="true" class="desktop-app-icon desktop-icon-appstore"><span class="bi bi-apple"></span></span><span class="desktop-shortcut-label">Baixe o app</span></a>
+                <a aria-label="Seja um Anfitrião" href="/parceria-meetup/" class="desktop-shortcut"><span aria-hidden="true" class="desktop-app-icon desktop-icon-hosts"><span class="bi bi-people-fill"></span></span><span class="desktop-shortcut-label">Seja um Anfitrião</span></a>
+                <a aria-label="Instagram" href="https://instagram.com/cocoaheadsbr" class="desktop-shortcut"><span aria-hidden="true" class="desktop-app-icon desktop-icon-instagram"><span class="bi bi-instagram"></span></span><span class="desktop-shortcut-label">Instagram</span></a>
+                <a aria-label="LinkedIn" href="https://www.linkedin.com/company/cocoaheads-brasil" class="desktop-shortcut"><span aria-hidden="true" class="desktop-app-icon desktop-icon-linkedin"><span class="bi bi-linkedin"></span></span><span class="desktop-shortcut-label">LinkedIn</span></a>
+              </nav>
             </div>
           </div>
-          <div class="ch-footnote mb-0 align-self-center hstack gap-3">
-            <div class="mb-0 align-self-center">
-              <p class="text-center mt-5">Created in Swift with <a href="https://github.com/twostraws/Ignite">Ignite</a></p>
+          <div id="events-window" aria-label="Próximos Eventos" hidden class="desktop-window desktop-window-scroll">
+            <div class="desktop-title-bar">
+              <div class="desktop-window-controls">
+                <button type="button" aria-label="Fechar janela" title="Fechar janela" data-desktop-action="close" class="desktop-window-control desktop-control-close"><span aria-hidden="true" class="bi bi-x"></span></button>
+                <button type="button" aria-label="Minimizar janela" title="Minimizar janela" data-desktop-action="minimize" class="desktop-window-control desktop-control-minimize"><span aria-hidden="true" class="bi bi-dash"></span></button>
+                <button type="button" aria-label="Ampliar janela" title="Ampliar janela" data-desktop-action="maximize" class="desktop-window-control desktop-control-maximize"><span aria-hidden="true" class="bi bi-arrows-angle-expand"></span></button>
+              </div>
+              <span class="desktop-window-title">Próximos Eventos</span>
+            </div>
+            <div tabindex="-1" class="desktop-window-content">
+              <p class="desktop-events-empty">Nenhum evento agendado no momento. Volte em breve!</p>
             </div>
           </div>
-        </div>
+        </main>
+        <nav aria-label="Dock" class="desktop-dock">
+          <button type="button" aria-label="Abrir CocoaHeads Brasil" aria-controls="community-window" aria-expanded="true" data-desktop-action="open" data-desktop-window="community-window" class="desktop-dock-item"><img width="56" height="56" src="/images/logo.svg" alt="" class="desktop-app-icon desktop-icon-community" /><span class="desktop-dock-tooltip">CocoaHeads Brasil</span></button>
+          <span aria-hidden="true" class="desktop-dock-divider"></span>
+          <a aria-label="Próximos Eventos" aria-controls="events-window" aria-expanded="false" data-desktop-action="open" data-desktop-window="events-window" href="/proximos-eventos/" class="desktop-dock-item"><span aria-hidden="true" class="desktop-app-icon desktop-icon-calendar"><span class="bi bi-calendar-event"></span></span><span class="desktop-dock-tooltip">Próximos Eventos</span></a>
+          <a aria-label="Baixe o app" href="https://apps.apple.com/app/id1180455342" class="desktop-dock-item"><span aria-hidden="true" class="desktop-app-icon desktop-icon-appstore"><span class="bi bi-apple"></span></span><span class="desktop-dock-tooltip">Baixe o app</span></a>
+          <a aria-label="Seja um Anfitrião" href="/parceria-meetup/" class="desktop-dock-item"><span aria-hidden="true" class="desktop-app-icon desktop-icon-hosts"><span class="bi bi-people-fill"></span></span><span class="desktop-dock-tooltip">Seja um Anfitrião</span></a>
+          <a aria-label="Instagram" href="https://instagram.com/cocoaheadsbr" class="desktop-dock-item"><span aria-hidden="true" class="desktop-app-icon desktop-icon-instagram"><span class="bi bi-instagram"></span></span><span class="desktop-dock-tooltip">Instagram</span></a>
+          <a aria-label="LinkedIn" href="https://www.linkedin.com/company/cocoaheads-brasil" class="desktop-dock-item"><span aria-hidden="true" class="desktop-app-icon desktop-icon-linkedin"><span class="bi bi-linkedin"></span></span><span class="desktop-dock-tooltip">LinkedIn</span></a>
+        </nav>
+        <script src="/js/home-desktop.js"></script>
       </div>
     </div>
     <script src="/js/bootstrap.bundle.min.js"></script>

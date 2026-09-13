@@ -26,9 +26,7 @@ struct CocoaHeadsBRSite: Site {
     var darkTheme: (any Theme)? = CocoaHeadsDarkTheme()
 
     var staticPages: [any StaticPage] {
-        var pages: [any StaticPage] = [PrivacyPolicy()]
-        pages.append(ProximosEventos())
-        pages.append(MeetupPartnership())
-        return pages
+        let pages: [any StaticPage] = [PrivacyPolicy(), MeetupPartnership()]
+        return pages + CocoaHeadsDesktop.pages
     }
 }
